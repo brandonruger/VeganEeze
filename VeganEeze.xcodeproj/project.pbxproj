@@ -14,6 +14,7 @@
 		0E6232931B84096000562474 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E6232921B84096000562474 /* Images.xcassets */; };
 		0E6232961B84096000562474 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E6232941B84096000562474 /* LaunchScreen.xib */; };
 		0E6232A21B84096100562474 /* VeganEezeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232A11B84096100562474 /* VeganEezeTests.m */; };
+		0E6232AD1B8416D300562474 /* CreateNewAcctVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232AC1B8416D300562474 /* CreateNewAcctVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		0E62329B1B84096000562474 /* VeganEezeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VeganEezeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6232A01B84096100562474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E6232A11B84096100562474 /* VeganEezeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VeganEezeTests.m; sourceTree = "<group>"; };
+		0E6232AB1B8416D300562474 /* CreateNewAcctVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateNewAcctVC.h; sourceTree = "<group>"; };
+		0E6232AC1B8416D300562474 /* CreateNewAcctVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateNewAcctVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				0E6232921B84096000562474 /* Images.xcassets */,
 				0E6232941B84096000562474 /* LaunchScreen.xib */,
 				0E6232851B84096000562474 /* Supporting Files */,
+				0E6232AB1B8416D300562474 /* CreateNewAcctVC.h */,
+				0E6232AC1B8416D300562474 /* CreateNewAcctVC.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 			files = (
 				0E62328E1B84096000562474 /* ViewController.m in Sources */,
 				0E62328B1B84096000562474 /* AppDelegate.m in Sources */,
+				0E6232AD1B8416D300562474 /* CreateNewAcctVC.m in Sources */,
 				0E6232881B84096000562474 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

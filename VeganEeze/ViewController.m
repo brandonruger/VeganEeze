@@ -24,4 +24,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Segue to launch other view controllers
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
+
+
+
 @end
