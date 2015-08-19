@@ -34,4 +34,14 @@
 }
 */
 
+- (IBAction)createNewAccount:(id)sender
+{
+    
+    //Create an alert to let user know account has been created
+    UIAlertView *createAcctAlert = [[UIAlertView alloc]initWithTitle:@"New Account" message:@"Your new account has been created." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    if (createAcctAlert != nil) {
+        [createAcctAlert show];
+    }
+}
+
 @end
