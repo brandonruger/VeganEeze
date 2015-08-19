@@ -1,19 +1,18 @@
 //
-//  CreateNewAcctVC.m
+//  MainMenuVC.m
 //  VeganEeze
 //
 //  Created by Brandon Ruger on 8/18/15.
 //  Copyright (c) 2015 Brandon Ruger. All rights reserved.
 //
 
-#import "CreateNewAcctVC.h"
 #import "MainMenuVC.h"
 
-@interface CreateNewAcctVC ()
+@interface MainMenuVC ()
 
 @end
 
-@implementation CreateNewAcctVC
+@implementation MainMenuVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,16 +33,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)createNewAccount:(id)sender
-{
-    
-    //Create an alert to let user know account has been created
-    UIAlertView *createAcctAlert = [[UIAlertView alloc]initWithTitle:@"New Account" message:@"Your new account has been created." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    if (createAcctAlert != nil) {
-        [createAcctAlert show];
-    }
-    
-}
 
 @end

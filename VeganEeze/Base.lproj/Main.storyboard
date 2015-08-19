@@ -31,6 +31,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="B4o-OH-9KN" kind="presentation" id="g20-BA-eZO"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VeganEeze-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="tIf-LP-FxV">
                                 <rect key="frame" x="180" y="28" width="240" height="128"/>
@@ -50,6 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="249" y="365"/>
         </scene>
         <!--Create New AcctVC-->
         <scene sceneID="QLi-4q-w6P">
@@ -91,6 +95,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createNewAccount:" destination="y67-0e-9iv" eventType="touchUpInside" id="HRT-cM-V09"/>
+                                    <segue destination="B4o-OH-9KN" kind="presentation" id="PEW-ol-UTU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,8 +106,48 @@
             </objects>
             <point key="canvasLocation" x="972" y="365"/>
         </scene>
+        <!--Main Menu-->
+        <scene sceneID="bVs-cH-fBJ">
+            <objects>
+                <viewController id="2lN-Zn-utE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bWY-Kc-zSN"/>
+                        <viewControllerLayoutGuide type="bottom" id="HG9-SV-wpT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mkt-yD-Q5e">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Main Menu" id="zCq-Bu-OkN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x9i-up-O9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2476" y="365"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XsG-IM-EyN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B4o-OH-9KN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cIR-o7-Nr6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2lN-Zn-utE" kind="relationship" relationship="rootViewController" id="Z4Y-XZ-fe7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qOq-Wc-YRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664" y="365"/>
+        </scene>
     </scenes>
     <resources>
         <image name="VeganEeze-Logo" width="640" height="641"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="g20-BA-eZO"/>
+    </inferredMetricsTieBreakers>
 </document>
