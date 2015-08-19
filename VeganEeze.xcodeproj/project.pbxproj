@@ -18,6 +18,7 @@
 		0E6232B01B8419C400562474 /* MainMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232AF1B8419C400562474 /* MainMenuVC.m */; };
 		0E6232B31B8423AC00562474 /* FindARestaurantVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232B21B8423AC00562474 /* FindARestaurantVC.m */; };
 		0E6232B61B84262100562474 /* SearchEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232B51B84262100562474 /* SearchEventsVC.m */; };
+		0E6232B91B8426BB00562474 /* BeverageSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232B81B8426BB00562474 /* BeverageSearchVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		0E6232B21B8423AC00562474 /* FindARestaurantVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindARestaurantVC.m; sourceTree = "<group>"; };
 		0E6232B41B84262100562474 /* SearchEventsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEventsVC.h; sourceTree = "<group>"; };
 		0E6232B51B84262100562474 /* SearchEventsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventsVC.m; sourceTree = "<group>"; };
+		0E6232B71B8426BB00562474 /* BeverageSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeverageSearchVC.h; sourceTree = "<group>"; };
+		0E6232B81B8426BB00562474 /* BeverageSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeverageSearchVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				0E6232B21B8423AC00562474 /* FindARestaurantVC.m */,
 				0E6232B41B84262100562474 /* SearchEventsVC.h */,
 				0E6232B51B84262100562474 /* SearchEventsVC.m */,
+				0E6232B71B8426BB00562474 /* BeverageSearchVC.h */,
+				0E6232B81B8426BB00562474 /* BeverageSearchVC.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				0E6232B31B8423AC00562474 /* FindARestaurantVC.m in Sources */,
 				0E6232AD1B8416D300562474 /* CreateNewAcctVC.m in Sources */,
 				0E6232B01B8419C400562474 /* MainMenuVC.m in Sources */,
+				0E6232B91B8426BB00562474 /* BeverageSearchVC.m in Sources */,
 				0E6232881B84096000562474 /* main.m in Sources */,
 				0E6232B61B84262100562474 /* SearchEventsVC.m in Sources */,
 			);
