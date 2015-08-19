@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E6232881B84096000562474 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232871B84096000562474 /* main.m */; };
+		0E62328B1B84096000562474 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E62328A1B84096000562474 /* AppDelegate.m */; };
+		0E62328E1B84096000562474 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E62328D1B84096000562474 /* ViewController.m */; };
+		0E6232911B84096000562474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E62328F1B84096000562474 /* Main.storyboard */; };
+		0E6232931B84096000562474 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E6232921B84096000562474 /* Images.xcassets */; };
+		0E6232961B84096000562474 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E6232941B84096000562474 /* LaunchScreen.xib */; };
+		0E6232A21B84096100562474 /* VeganEezeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232A11B84096100562474 /* VeganEezeTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0E62329C1B84096000562474 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E62327A1B84095E00562474 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E6232811B84095E00562474;
+			remoteInfo = VeganEeze;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E6232821B84095E00562474 /* VeganEeze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeganEeze.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6232861B84096000562474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E6232871B84096000562474 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0E6232891B84096000562474 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0E62328A1B84096000562474 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0E62328C1B84096000562474 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0E62328D1B84096000562474 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0E6232901B84096000562474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0E6232921B84096000562474 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0E6232951B84096000562474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		0E62329B1B84096000562474 /* VeganEezeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VeganEezeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6232A01B84096100562474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E6232A11B84096100562474 /* VeganEezeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VeganEezeTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0E62327F1B84095E00562474 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E6232981B84096000562474 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E6232791B84095E00562474 = {
+			isa = PBXGroup;
+			children = (
+				0E6232841B84095F00562474 /* VeganEeze */,
+				0E62329E1B84096000562474 /* VeganEezeTests */,
+				0E6232831B84095E00562474 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0E6232831B84095E00562474 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0E6232821B84095E00562474 /* VeganEeze.app */,
+				0E62329B1B84096000562474 /* VeganEezeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0E6232841B84095F00562474 /* VeganEeze */ = {
+			isa = PBXGroup;
+			children = (
+				0E6232891B84096000562474 /* AppDelegate.h */,
+				0E62328A1B84096000562474 /* AppDelegate.m */,
+				0E62328C1B84096000562474 /* ViewController.h */,
+				0E62328D1B84096000562474 /* ViewController.m */,
+				0E62328F1B84096000562474 /* Main.storyboard */,
+				0E6232921B84096000562474 /* Images.xcassets */,
+				0E6232941B84096000562474 /* LaunchScreen.xib */,
+				0E6232851B84096000562474 /* Supporting Files */,
+			);
+			path = VeganEeze;
+			sourceTree = "<group>";
+		};
+		0E6232851B84096000562474 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E6232861B84096000562474 /* Info.plist */,
+				0E6232871B84096000562474 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0E62329E1B84096000562474 /* VeganEezeTests */ = {
+			isa = PBXGroup;
+			children = (
+				0E6232A11B84096100562474 /* VeganEezeTests.m */,
+				0E62329F1B84096100562474 /* Supporting Files */,
+			);
+			path = VeganEezeTests;
+			sourceTree = "<group>";
+		};
+		0E62329F1B84096100562474 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E6232A01B84096100562474 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0E6232811B84095E00562474 /* VeganEeze */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E6232A51B84096100562474 /* Build configuration list for PBXNativeTarget "VeganEeze" */;
+			buildPhases = (
+				0E62327E1B84095E00562474 /* Sources */,
+				0E62327F1B84095E00562474 /* Frameworks */,
+				0E6232801B84095E00562474 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VeganEeze;
+			productName = VeganEeze;
+			productReference = 0E6232821B84095E00562474 /* VeganEeze.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0E62329A1B84096000562474 /* VeganEezeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E6232A81B84096100562474 /* Build configuration list for PBXNativeTarget "VeganEezeTests" */;
+			buildPhases = (
+				0E6232971B84096000562474 /* Sources */,
+				0E6232981B84096000562474 /* Frameworks */,
+				0E6232991B84096000562474 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E62329D1B84096000562474 /* PBXTargetDependency */,
+			);
+			name = VeganEezeTests;
+			productName = VeganEezeTests;
+			productReference = 0E62329B1B84096000562474 /* VeganEezeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0E62327A1B84095E00562474 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Brandon Ruger";
+				TargetAttributes = {
+					0E6232811B84095E00562474 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					0E62329A1B84096000562474 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 0E6232811B84095E00562474;
+					};
+				};
+			};
+			buildConfigurationList = 0E62327D1B84095E00562474 /* Build configuration list for PBXProject "VeganEeze" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0E6232791B84095E00562474;
+			productRefGroup = 0E6232831B84095E00562474 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0E6232811B84095E00562474 /* VeganEeze */,
+				0E62329A1B84096000562474 /* VeganEezeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0E6232801B84095E00562474 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E6232911B84096000562474 /* Main.storyboard in Resources */,
+				0E6232961B84096000562474 /* LaunchScreen.xib in Resources */,
+				0E6232931B84096000562474 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E6232991B84096000562474 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0E62327E1B84095E00562474 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E62328E1B84096000562474 /* ViewController.m in Sources */,
+				0E62328B1B84096000562474 /* AppDelegate.m in Sources */,
+				0E6232881B84096000562474 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E6232971B84096000562474 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E6232A21B84096100562474 /* VeganEezeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0E62329D1B84096000562474 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E6232811B84095E00562474 /* VeganEeze */;
+			targetProxy = 0E62329C1B84096000562474 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0E62328F1B84096000562474 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E6232901B84096000562474 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0E6232941B84096000562474 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E6232951B84096000562474 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0E6232A31B84096100562474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0E6232A41B84096100562474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0E6232A61B84096100562474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VeganEeze/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0E6232A71B84096100562474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VeganEeze/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0E6232A91B84096100562474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VeganEezeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VeganEeze.app/VeganEeze";
+			};
+			name = Debug;
+		};
+		0E6232AA1B84096100562474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VeganEezeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VeganEeze.app/VeganEeze";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0E62327D1B84095E00562474 /* Build configuration list for PBXProject "VeganEeze" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E6232A31B84096100562474 /* Debug */,
+				0E6232A41B84096100562474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E6232A51B84096100562474 /* Build configuration list for PBXNativeTarget "VeganEeze" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E6232A61B84096100562474 /* Debug */,
+				0E6232A71B84096100562474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0E6232A81B84096100562474 /* Build configuration list for PBXNativeTarget "VeganEezeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E6232A91B84096100562474 /* Debug */,
+				0E6232AA1B84096100562474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0E62327A1B84095E00562474 /* Project object */;
+}
