@@ -16,6 +16,8 @@
 		0E6232A21B84096100562474 /* VeganEezeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232A11B84096100562474 /* VeganEezeTests.m */; };
 		0E6232AD1B8416D300562474 /* CreateNewAcctVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232AC1B8416D300562474 /* CreateNewAcctVC.m */; };
 		0E6232B01B8419C400562474 /* MainMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232AF1B8419C400562474 /* MainMenuVC.m */; };
+		0E6232B31B8423AC00562474 /* FindARestaurantVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232B21B8423AC00562474 /* FindARestaurantVC.m */; };
+		0E6232B61B84262100562474 /* SearchEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232B51B84262100562474 /* SearchEventsVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		0E6232AC1B8416D300562474 /* CreateNewAcctVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateNewAcctVC.m; sourceTree = "<group>"; };
 		0E6232AE1B8419C400562474 /* MainMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuVC.h; sourceTree = "<group>"; };
 		0E6232AF1B8419C400562474 /* MainMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuVC.m; sourceTree = "<group>"; };
+		0E6232B11B8423AC00562474 /* FindARestaurantVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindARestaurantVC.h; sourceTree = "<group>"; };
+		0E6232B21B8423AC00562474 /* FindARestaurantVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindARestaurantVC.m; sourceTree = "<group>"; };
+		0E6232B41B84262100562474 /* SearchEventsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEventsVC.h; sourceTree = "<group>"; };
+		0E6232B51B84262100562474 /* SearchEventsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,10 @@
 				0E6232AC1B8416D300562474 /* CreateNewAcctVC.m */,
 				0E6232AE1B8419C400562474 /* MainMenuVC.h */,
 				0E6232AF1B8419C400562474 /* MainMenuVC.m */,
+				0E6232B11B8423AC00562474 /* FindARestaurantVC.h */,
+				0E6232B21B8423AC00562474 /* FindARestaurantVC.m */,
+				0E6232B41B84262100562474 /* SearchEventsVC.h */,
+				0E6232B51B84262100562474 /* SearchEventsVC.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -231,9 +241,11 @@
 			files = (
 				0E62328E1B84096000562474 /* ViewController.m in Sources */,
 				0E62328B1B84096000562474 /* AppDelegate.m in Sources */,
+				0E6232B31B8423AC00562474 /* FindARestaurantVC.m in Sources */,
 				0E6232AD1B8416D300562474 /* CreateNewAcctVC.m in Sources */,
 				0E6232B01B8419C400562474 /* MainMenuVC.m in Sources */,
 				0E6232881B84096000562474 /* main.m in Sources */,
+				0E6232B61B84262100562474 /* SearchEventsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

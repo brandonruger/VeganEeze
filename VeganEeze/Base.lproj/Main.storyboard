@@ -130,6 +130,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="swq-sF-hd9" kind="show" id="vSI-92-rsv"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="n2D-h5-UPP" style="IBUITableViewCellStyleDefault" id="2X4-ld-riB">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -144,6 +147,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="kMl-5x-2O2" kind="show" id="U08-yz-d1c"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="0et-dk-Ck4" style="IBUITableViewCellStyleDefault" id="F9c-tB-8jW">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -214,6 +220,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onP-WC-6fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2479" y="366"/>
+        </scene>
+        <!--Find a Restaurant-->
+        <scene sceneID="DAW-Kk-ff2">
+            <objects>
+                <viewController title="Find a Restaurant" id="swq-sF-hd9" customClass="FindARestaurantVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a9h-w5-zk1"/>
+                        <viewControllerLayoutGuide type="bottom" id="qxu-dJ-V0X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QKe-F0-P1P">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-kR-0ys">
+                                <rect key="frame" x="72" y="133" width="457" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XDe-8q-Vr0">
+                                <rect key="frame" x="89" y="232" width="423" height="29"/>
+                                <segments>
+                                    <segment title="Search Current Location"/>
+                                    <segment title="Search by city/state"/>
+                                </segments>
+                            </segmentedControl>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-N8-H1d">
+                                <rect key="frame" x="72" y="294" width="457" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLo-u4-RqU">
+                                <rect key="frame" x="10" y="10" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQh-Hi-BGw">
+                                <rect key="frame" x="72" y="359" width="48" height="30"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WrD-qN-yZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3128" y="369"/>
+        </scene>
+        <!--Search Events-->
+        <scene sceneID="6qX-9a-jyf">
+            <objects>
+                <viewController title="Search Events" id="kMl-5x-2O2" customClass="SearchEventsVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XuW-PK-VUY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ews-9Q-MSZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0SV-k8-GBf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="MUf-KH-KIb">
+                                <rect key="frame" x="72" y="153" width="457" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NcW-Kp-WOl">
+                                <rect key="frame" x="89" y="253" width="423" height="29"/>
+                                <segments>
+                                    <segment title="Search Current Location"/>
+                                    <segment title="Search by city/state"/>
+                                </segments>
+                            </segmentedControl>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="Hi8-Do-t81">
+                                <rect key="frame" x="72" y="314" width="457" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahM-ma-TU5">
+                                <rect key="frame" x="72" y="379" width="48" height="30"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dTA-kb-uAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3128" y="1047"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="brh-mb-edX">
