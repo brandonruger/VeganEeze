@@ -109,7 +109,7 @@
         <!--Main Menu-->
         <scene sceneID="sCo-ds-e72">
             <objects>
-                <tableViewController id="gCr-q2-wjC" sceneMemberID="viewController">
+                <tableViewController id="gCr-q2-wjC" customClass="MainMenuTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Cyf-ag-03d">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,6 +263,12 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA7-JX-gZG">
+                                <rect key="frame" x="72" y="359" width="48" height="30"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -270,6 +276,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrD-qN-yZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3128" y="369"/>
+        </scene>
+        <!--Event DetailVC-->
+        <scene sceneID="hTF-Kj-f5b">
+            <objects>
+                <viewController id="BRz-si-Myg" customClass="EventDetailVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ybk-5a-1Vd"/>
+                        <viewControllerLayoutGuide type="bottom" id="hHc-P3-xbt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cUu-iD-Ek9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eOC-gF-QCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4431" y="377"/>
         </scene>
         <!--Beverage Search-->
         <scene sceneID="NaQ-RW-YI6">
@@ -300,6 +324,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L69-bs-vyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2421" y="1175"/>
+        </scene>
+        <!--Restaurant ResultsTVC-->
+        <scene sceneID="8PF-0H-L2X">
+            <objects>
+                <tableViewController id="zRR-M0-aB2" customClass="RestaurantResultsTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FIc-YK-fd0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Dl3-Er-XLG">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dl3-Er-XLG" id="OFb-0T-CZG">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zRR-M0-aB2" id="NGS-23-NG2"/>
+                            <outlet property="delegate" destination="zRR-M0-aB2" id="9QK-R8-2cW"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8HV-Qn-njx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2074" y="1861"/>
         </scene>
         <!--Search Events-->
         <scene sceneID="6qX-9a-jyf">
@@ -341,6 +391,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTA-kb-uAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3128" y="1047"/>
+        </scene>
+        <!--Event ResultsTVC-->
+        <scene sceneID="rmE-LL-src">
+            <objects>
+                <tableViewController id="GvM-21-Yli" customClass="EventResultsTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VsK-yT-hlp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KIX-Oe-C8w">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KIX-Oe-C8w" id="XEN-yW-S4h">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GvM-21-Yli" id="hcq-jR-4nr"/>
+                            <outlet property="delegate" destination="GvM-21-Yli" id="jhu-u2-fnX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AIE-SZ-KmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3090" y="1841"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="brh-mb-edX">

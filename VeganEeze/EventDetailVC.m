@@ -1,18 +1,18 @@
 //
-//  MainMenuVC.m
+//  EventDetailVC.m
 //  VeganEeze
 //
-//  Created by Brandon Ruger on 8/18/15.
+//  Created by Brandon Ruger on 8/19/15.
 //  Copyright (c) 2015 Brandon Ruger. All rights reserved.
 //
 
-#import "MainMenuVC.h"
+#import "EventDetailVC.h"
 
-@interface MainMenuVC ()
+@interface EventDetailVC ()
 
 @end
 
-@implementation MainMenuVC
+@implementation EventDetailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

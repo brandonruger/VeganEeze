@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>F12DD3C3-61BD-439C-BB6D-D39C7FB450D6</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>VeganEeze</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>874DA4E95174A10DF845E84D1EC8C5442BD1CAD6</key>
 		<string>https://github.com/r02548/VeganEeze.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>VeganEeze.xcodeproj/project.xcworkspace</string>
+	<string>VeganEeze.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>874DA4E95174A10DF845E84D1EC8C5442BD1CAD6</key>
