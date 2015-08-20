@@ -31,16 +31,24 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 4;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"EventsCell"];
+    if (resultsCell != nil) {
+        
+        NSArray *arrayOfEvents = [[NSArray alloc]initWithObjects:@"Veg Festival", @"Vegan Fair", @"Dinner Theater", @"Celebration", nil];
+        NSArray *eventLocations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
+        
+        resultsCell.textLabel.text = [arrayOfEvents objectAtIndex:indexPath.row];
+        resultsCell.detailTextLabel.text = [eventLocations objectAtIndex:indexPath.row];
+    }
+    
+    return resultsCell;
 }
 
 /*

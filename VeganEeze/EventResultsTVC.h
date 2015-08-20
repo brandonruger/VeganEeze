@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventResultsTVC : UITableViewController
+@interface EventResultsTVC : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

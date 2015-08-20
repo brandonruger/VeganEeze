@@ -31,16 +31,32 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell"];
+    if (resultsCell != nil) {
+        
+        NSArray *arrayOfRestaurantNames = [[NSArray alloc]initWithObjects:@"Ethos", @"Toasted", @"Dandelion Cafe", @"Loving Hut", nil];
+        NSArray *restaurantLocations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
+        
+        resultsCell.textLabel.text = [arrayOfRestaurantNames objectAtIndex:indexPath.row];
+        resultsCell.detailTextLabel.text = [restaurantLocations objectAtIndex:indexPath.row];
+    }
+    
+    return resultsCell;
 }
 
 /*

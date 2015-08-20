@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainMenuTVC : UITableViewController
+@interface MainMenuTVC : UITableViewController <UITableViewDelegate>
 
 @end

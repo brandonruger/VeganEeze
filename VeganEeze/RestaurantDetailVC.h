@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RestaurantDetailVC : UIViewController
+@interface RestaurantDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
