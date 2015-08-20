@@ -23,6 +23,7 @@
 		0ED7BA0E1B85736B0038EF3A /* MainMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA0D1B85736B0038EF3A /* MainMenuTVC.m */; };
 		0ED7BA111B8573980038EF3A /* RestaurantResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA101B8573980038EF3A /* RestaurantResultsTVC.m */; };
 		0ED7BA141B8573A90038EF3A /* EventResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA131B8573A90038EF3A /* EventResultsTVC.m */; };
+		0ED7BA171B869D0D0038EF3A /* BeverageResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA161B869D0D0038EF3A /* BeverageResultsTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		0ED7BA101B8573980038EF3A /* RestaurantResultsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantResultsTVC.m; sourceTree = "<group>"; };
 		0ED7BA121B8573A90038EF3A /* EventResultsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventResultsTVC.h; sourceTree = "<group>"; };
 		0ED7BA131B8573A90038EF3A /* EventResultsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResultsTVC.m; sourceTree = "<group>"; };
+		0ED7BA151B869D0D0038EF3A /* BeverageResultsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeverageResultsTVC.h; sourceTree = "<group>"; };
+		0ED7BA161B869D0D0038EF3A /* BeverageResultsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeverageResultsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				0ED7BA101B8573980038EF3A /* RestaurantResultsTVC.m */,
 				0ED7BA121B8573A90038EF3A /* EventResultsTVC.h */,
 				0ED7BA131B8573A90038EF3A /* EventResultsTVC.m */,
+				0ED7BA151B869D0D0038EF3A /* BeverageResultsTVC.h */,
+				0ED7BA161B869D0D0038EF3A /* BeverageResultsTVC.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				0E6232881B84096000562474 /* main.m in Sources */,
 				0ED7BA111B8573980038EF3A /* RestaurantResultsTVC.m in Sources */,
 				0E6232B61B84262100562474 /* SearchEventsVC.m in Sources */,
+				0ED7BA171B869D0D0038EF3A /* BeverageResultsTVC.m in Sources */,
 				0ED7BA051B856F6E0038EF3A /* EventDetailVC.m in Sources */,
 				0ED7BA021B856F5C0038EF3A /* RestaurantDetailVC.m in Sources */,
 			);
