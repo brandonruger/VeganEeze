@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login-->
@@ -592,17 +593,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Enter name of product" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-N8-me0">
-                                <rect key="frame" x="64" y="159" width="473" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Ii-XFh">
                                 <rect key="frame" x="64" y="239" width="48" height="30"/>
                                 <state key="normal" title="Search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="FEZ-zh-ePW" kind="show" id="JgH-ZG-68A"/>
+                                    <segue destination="FEZ-zh-ePW" kind="show" identifier="segueToBeverageResults" id="JgH-ZG-68A"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hZ-5f-ACX">
@@ -614,8 +611,21 @@
                                     <action selector="cancelKeyboard:" destination="HC7-S3-PmI" eventType="touchUpInside" id="MzF-Yr-mxc"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" placeholder="Enter name of product" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-N8-me0">
+                                <rect key="frame" x="64" y="171" width="473" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XUf-N8-me0" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="48" id="6bn-wY-z76"/>
+                            <constraint firstItem="XUf-N8-me0" firstAttribute="top" secondItem="JTZ-wh-pBQ" secondAttribute="bottom" constant="107" id="Sj6-c1-Va9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XUf-N8-me0" secondAttribute="trailing" constant="47" id="dyF-LB-vwG"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="beverageName" destination="XUf-N8-me0" id="9RC-D3-FIh"/>

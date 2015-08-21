@@ -46,6 +46,24 @@
     cancelButton.hidden = true;
 }
 
+//Called when search button is clicked on keyboard
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    //Perform segue to Beverage Search Results
+    [self performSegueWithIdentifier:@"segueToBeverageResults" sender:self];
+    
+}
+
+//Called when cancel button on search bar is clicked
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    
+    //Dismiss keyboard
+    [self.view endEditing:YES];
+    
+    //Clear text from search bar
+    searchBar.text = @"";
+}
+
 /*
 #pragma mark - Navigation
 
