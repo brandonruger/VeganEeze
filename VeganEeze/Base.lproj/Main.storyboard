@@ -346,6 +346,24 @@
             </objects>
             <point key="canvasLocation" x="4431" y="377"/>
         </scene>
+        <!--Restaurant Detail-->
+        <scene sceneID="rkn-p8-1dP">
+            <objects>
+                <viewController title="Restaurant Detail" id="MIn-9F-pad" customClass="RestaurantDetailVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UKq-6O-4WN"/>
+                        <viewControllerLayoutGuide type="bottom" id="ueE-0j-URL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3yY-ND-Ke6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XQv-8c-nwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4222" y="1016"/>
+        </scene>
         <!--Beverage Search-->
         <scene sceneID="NaQ-RW-YI6">
             <objects>
@@ -407,6 +425,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="MIn-9F-pad" kind="show" id="eNL-Z6-6AK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -491,6 +512,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tLO-bQ-eIr" kind="show" id="2Dg-wq-KHu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -582,6 +606,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCF-HZ-DfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4069" y="2183"/>
+        </scene>
+        <!--Event Details-->
+        <scene sceneID="hla-gq-g7X">
+            <objects>
+                <viewController title="Event Details" id="tLO-bQ-eIr" customClass="EventDetailVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Swr-4e-teU"/>
+                        <viewControllerLayoutGuide type="bottom" id="7E7-7x-wma"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kVb-iT-eZP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zdd-XS-FZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4677" y="1561"/>
         </scene>
         <!--Vegan Resources-->
         <scene sceneID="Oqb-MH-MqS">
