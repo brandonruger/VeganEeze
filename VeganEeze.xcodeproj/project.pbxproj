@@ -24,6 +24,9 @@
 		0ED7BA111B8573980038EF3A /* RestaurantResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA101B8573980038EF3A /* RestaurantResultsTVC.m */; };
 		0ED7BA141B8573A90038EF3A /* EventResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA131B8573A90038EF3A /* EventResultsTVC.m */; };
 		0ED7BA171B869D0D0038EF3A /* BeverageResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA161B869D0D0038EF3A /* BeverageResultsTVC.m */; };
+		0ED7BA1A1B869E910038EF3A /* FavoritePlacesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA191B869E910038EF3A /* FavoritePlacesTVC.m */; };
+		0ED7BA1D1B869F390038EF3A /* PlacesToVisitTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA1C1B869F390038EF3A /* PlacesToVisitTVC.m */; };
+		0ED7BA201B869FE60038EF3A /* VeganResourcesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA1F1B869FE60038EF3A /* VeganResourcesTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,12 @@
 		0ED7BA131B8573A90038EF3A /* EventResultsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResultsTVC.m; sourceTree = "<group>"; };
 		0ED7BA151B869D0D0038EF3A /* BeverageResultsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeverageResultsTVC.h; sourceTree = "<group>"; };
 		0ED7BA161B869D0D0038EF3A /* BeverageResultsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeverageResultsTVC.m; sourceTree = "<group>"; };
+		0ED7BA181B869E910038EF3A /* FavoritePlacesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritePlacesTVC.h; sourceTree = "<group>"; };
+		0ED7BA191B869E910038EF3A /* FavoritePlacesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritePlacesTVC.m; sourceTree = "<group>"; };
+		0ED7BA1B1B869F390038EF3A /* PlacesToVisitTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesToVisitTVC.h; sourceTree = "<group>"; };
+		0ED7BA1C1B869F390038EF3A /* PlacesToVisitTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesToVisitTVC.m; sourceTree = "<group>"; };
+		0ED7BA1E1B869FE60038EF3A /* VeganResourcesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeganResourcesTVC.h; sourceTree = "<group>"; };
+		0ED7BA1F1B869FE60038EF3A /* VeganResourcesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeganResourcesTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +148,12 @@
 				0ED7BA131B8573A90038EF3A /* EventResultsTVC.m */,
 				0ED7BA151B869D0D0038EF3A /* BeverageResultsTVC.h */,
 				0ED7BA161B869D0D0038EF3A /* BeverageResultsTVC.m */,
+				0ED7BA181B869E910038EF3A /* FavoritePlacesTVC.h */,
+				0ED7BA191B869E910038EF3A /* FavoritePlacesTVC.m */,
+				0ED7BA1B1B869F390038EF3A /* PlacesToVisitTVC.h */,
+				0ED7BA1C1B869F390038EF3A /* PlacesToVisitTVC.m */,
+				0ED7BA1E1B869FE60038EF3A /* VeganResourcesTVC.h */,
+				0ED7BA1F1B869FE60038EF3A /* VeganResourcesTVC.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -273,11 +288,14 @@
 				0E62328E1B84096000562474 /* ViewController.m in Sources */,
 				0E62328B1B84096000562474 /* AppDelegate.m in Sources */,
 				0E6232B31B8423AC00562474 /* FindARestaurantVC.m in Sources */,
+				0ED7BA1D1B869F390038EF3A /* PlacesToVisitTVC.m in Sources */,
 				0E6232AD1B8416D300562474 /* CreateNewAcctVC.m in Sources */,
 				0ED7BA141B8573A90038EF3A /* EventResultsTVC.m in Sources */,
+				0ED7BA201B869FE60038EF3A /* VeganResourcesTVC.m in Sources */,
 				0E6232B91B8426BB00562474 /* BeverageSearchVC.m in Sources */,
 				0E6232881B84096000562474 /* main.m in Sources */,
 				0ED7BA111B8573980038EF3A /* RestaurantResultsTVC.m in Sources */,
+				0ED7BA1A1B869E910038EF3A /* FavoritePlacesTVC.m in Sources */,
 				0E6232B61B84262100562474 /* SearchEventsVC.m in Sources */,
 				0ED7BA171B869D0D0038EF3A /* BeverageResultsTVC.m in Sources */,
 				0ED7BA051B856F6E0038EF3A /* EventDetailVC.m in Sources */,
