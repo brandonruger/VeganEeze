@@ -347,7 +347,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5um-0S-hrj">
-                                <rect key="frame" x="36" y="141" width="64" height="21"/>
+                                <rect key="frame" x="36" y="141" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -420,6 +420,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="eventAddressLabel" destination="5um-0S-hrj" id="CWg-So-9Fu"/>
+                        <outlet property="eventNameLabel" destination="hd7-aC-gBz" id="LyV-Br-PbH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOC-gF-QCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -444,7 +448,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddV-zi-52F">
-                                <rect key="frame" x="36" y="149" width="64" height="21"/>
+                                <rect key="frame" x="36" y="149" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -687,6 +691,9 @@
                             <outlet property="delegate" destination="GvM-21-Yli" id="jhu-u2-fnX"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="eventResultsTV" destination="VsK-yT-hlp" id="Apx-5j-Gqm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIE-SZ-KmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

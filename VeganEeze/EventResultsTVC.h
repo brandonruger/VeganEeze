@@ -10,4 +10,11 @@
 
 @interface EventResultsTVC : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
+{
+    IBOutlet UITableView *eventResultsTV;
+    
+    NSArray *arrayOfEventNames;
+    NSArray *arrayOfEventLocations;
+}
+
 @end

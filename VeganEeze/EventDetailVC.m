@@ -13,6 +13,7 @@
 @end
 
 @implementation EventDetailVC
+@synthesize eventName, eventAddress;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +23,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    
+    //Set event name/address labels to display information passed over from segue
+    eventNameLabel.text = eventName;
+    eventAddressLabel.text = eventAddress;
 }
 
 /*

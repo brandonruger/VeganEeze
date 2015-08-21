@@ -27,7 +27,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
-    //Set restaurant name/address labels to display information passed over through segue
+    //Set restaurant name/address labels to display information passed over from segue
     nameLabel.text = restaurantName;
     addressLabel.text = restaurantAddress;
 }

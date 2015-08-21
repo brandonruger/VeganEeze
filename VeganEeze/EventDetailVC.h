@@ -10,4 +10,12 @@
 
 @interface EventDetailVC : UIViewController
 
+{
+    IBOutlet UILabel *eventNameLabel;
+    IBOutlet UILabel *eventAddressLabel;
+}
+
+@property (nonatomic, strong) NSString *eventName;
+@property (nonatomic, strong) NSString *eventAddress;
+
 @end

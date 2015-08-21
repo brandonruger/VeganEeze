@@ -7,6 +7,7 @@
 //
 
 #import "EventResultsTVC.h"
+#import "EventDetailVC.h"
 
 @interface EventResultsTVC ()
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    arrayOfEventNames = [[NSArray alloc]initWithObjects:@"Veg Festival", @"Vegan Fair", @"Dinner Theater", @"Celebration", nil];
+    arrayOfEventLocations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -41,11 +45,10 @@
     UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"EventsCell"];
     if (resultsCell != nil) {
         
-        NSArray *arrayOfEvents = [[NSArray alloc]initWithObjects:@"Veg Festival", @"Vegan Fair", @"Dinner Theater", @"Celebration", nil];
-        NSArray *eventLocations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
         
-        resultsCell.textLabel.text = [arrayOfEvents objectAtIndex:indexPath.row];
-        resultsCell.detailTextLabel.text = [eventLocations objectAtIndex:indexPath.row];
+        
+        resultsCell.textLabel.text = [arrayOfEventNames objectAtIndex:indexPath.row];
+        resultsCell.detailTextLabel.text = [arrayOfEventLocations objectAtIndex:indexPath.row];
     }
     
     return resultsCell;
@@ -95,14 +98,30 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+//Segue to pass data to detail view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    //Access detail view controller
+    EventDetailVC *eventDetailsVC = segue.destinationViewController;
+    if (eventDetailsVC != nil) {
+        
+        //Get cell that was clicked on
+        UITableViewCell *cellClicked = (UITableViewCell*)sender;
+        //Get index of cell that was clicked
+        NSIndexPath *indexOfCell = [eventResultsTV indexPathForCell:cellClicked];
+        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
+        //Get strings of restaurants name/location from array
+        NSString *eventNameStr = [arrayOfEventNames objectAtIndex:indexOfCell.row];
+        NSString *eventLocStr = [arrayOfEventLocations objectAtIndex:indexOfCell.row];
+        //Pass the restaurant's name/location to the properties in the detail view
+        eventDetailsVC.eventName = eventNameStr;
+        eventDetailsVC.eventAddress = eventLocStr;
+    }
+    
 }
-*/
 
 @end
