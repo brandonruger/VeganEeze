@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CreateNewAcctVC : UIViewController
+@interface CreateNewAcctVC : UIViewController <UITextFieldDelegate>
 
 //- (IBAction)createNewAccount:(id)sender;
+
+{
+    IBOutlet UITextField *selectUsername;
+    IBOutlet UITextField *selectPassword;
+    IBOutlet UITextField *confirmPassword;
+    IBOutlet UIButton *cancelButton;
+}
 
 @end

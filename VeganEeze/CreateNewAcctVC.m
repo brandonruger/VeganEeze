@@ -18,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //Set textfields' delegate
+    selectUsername.delegate = self;
+    selectPassword.delegate = self;
+    confirmPassword.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +40,37 @@
     if (createAcctAlert != nil) {
         [createAcctAlert show];
     }
+}
+
+#pragma mark - Keyboard
+
+//Method to check if keyboard is editing so cancel button can be displayed
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    //Show cancel button
+    cancelButton.hidden = false;
+}
+
+//When user presses return button
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //Dismiss keyboard
+    [self.view endEditing:YES];
+    
+    //Hide cancel button
+    cancelButton.hidden = true;
+    
+    return YES;
+}
+
+//Close keyboard when cancel button is pressed
+- (IBAction)cancelKeyboard:(id)sender
+{
+    //Dismiss keyboard
+    [self.view endEditing:YES];
+    
+    //Hide cancel button
+    cancelButton.hidden = true;
 }
 
 

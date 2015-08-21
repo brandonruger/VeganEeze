@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    //Set textfields' delegate
+    username.delegate = self;
+    password.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,6 +32,37 @@
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
+}
+
+#pragma mark - Keyboard
+
+//Method to check if keyboard is editing so cancel button can be displayed
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    //Show cancel button
+    cancelButton.hidden = false;
+}
+
+//When user presses return button
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //Dismiss keyboard
+    [self.view endEditing:YES];
+    
+    //Hide cancel button
+    cancelButton.hidden = true;
+    
+    return YES;
+}
+
+//Close keyboard when cancel button is pressed
+- (IBAction)cancelKeyboard:(id)sender
+{
+    //Dismiss keyboard
+    [self.view endEditing:YES];
+    
+    //Hide cancel button
+    cancelButton.hidden = true;
 }
 
 

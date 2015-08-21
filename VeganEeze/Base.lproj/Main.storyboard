@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="Login" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -47,9 +47,23 @@
                                     <segue destination="y67-0e-9iv" kind="presentation" identifier="segueToCreateNewAcctVC" id="R1a-aK-jyz"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eY-Jw-1wj">
+                                <rect key="frame" x="16" y="28" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelKeyboard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zKn-8z-ffh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="2eY-Jw-1wj" id="zSS-II-Al2"/>
+                        <outlet property="password" destination="h8F-9G-Jyx" id="Grq-sY-dag"/>
+                        <outlet property="username" destination="4uW-YY-nG6" id="sHy-4H-h32"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,9 +111,25 @@
                                     <segue destination="I6H-Si-tuv" kind="show" id="Glg-Ao-nnx"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8k-Ea-EvT">
+                                <rect key="frame" x="35" y="38" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelKeyboard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7Rr-30-weD"/>
+                                    <action selector="cancelKeyboard:" destination="y67-0e-9iv" eventType="touchUpInside" id="hn7-2U-gZ1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="U8k-Ea-EvT" id="9OI-3V-5n1"/>
+                        <outlet property="confirmPassword" destination="3h0-iQ-YTi" id="CBd-YC-0Hu"/>
+                        <outlet property="selectPassword" destination="X3W-cD-HWe" id="cSM-MI-fhV"/>
+                        <outlet property="selectUsername" destination="tLk-XB-Ydq" id="c9M-sx-qoj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSy-VC-kQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -852,6 +882,6 @@
         <image name="VeganEeze-Logo" width="640" height="641"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1yM-lX-rww"/>
+        <segue reference="Glg-Ao-nnx"/>
     </inferredMetricsTieBreakers>
 </document>
