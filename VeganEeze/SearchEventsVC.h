@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchEventsVC : UIViewController
+@interface SearchEventsVC : UIViewController <UISearchBarDelegate>
+
+{
+    IBOutlet UISearchBar *keyword;
+    IBOutlet UISearchBar *location;
+    IBOutlet UIButton *cancelButton;
+}
 
 @end

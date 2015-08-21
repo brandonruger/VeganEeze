@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FindARestaurantVC : UIViewController
+@interface FindARestaurantVC : UIViewController <UISearchBarDelegate>
+
+{
+    IBOutlet UISearchBar *keyword;
+    IBOutlet UISearchBar *location;
+    IBOutlet UIButton *cancelButton;
+}
 
 @end

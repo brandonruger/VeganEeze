@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BeverageSearchVC : UIViewController
+@interface BeverageSearchVC : UIViewController <UISearchBarDelegate>
+
+{
+    IBOutlet UISearchBar *beverageName;
+    IBOutlet UIButton *cancelButton;
+}
 
 @end

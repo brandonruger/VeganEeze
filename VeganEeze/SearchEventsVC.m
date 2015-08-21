@@ -17,11 +17,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //Set search bars' delegate
+    keyword.delegate = self;
+    location.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Keyboard
+
+//Method to check if search bars are editing so cancel button can be displayed
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    
+    //Show cancel button
+    cancelButton.hidden = false;
+}
+
+//Close keyboard when cancel button is pressed
+- (IBAction)cancelKeyboard:(id)sender
+{
+    //Dismiss keyboard
+    [self.view endEditing:YES];
+    
+    //Hide cancel button
+    cancelButton.hidden = true;
 }
 
 /*

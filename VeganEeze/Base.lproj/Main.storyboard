@@ -310,9 +310,23 @@
                                     <segue destination="zRR-M0-aB2" kind="show" id="SIl-9L-zvi"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-cE-YXG">
+                                <rect key="frame" x="10" y="72" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelKeyboard:" destination="swq-sF-hd9" eventType="touchUpInside" id="yKH-UW-DzF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="B8n-cE-YXG" id="BU2-We-4iF"/>
+                        <outlet property="keyword" destination="g8z-kR-0ys" id="di7-1C-XDx"/>
+                        <outlet property="location" destination="5cX-N8-H1d" id="p4W-WS-fL3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrD-qN-yZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -591,9 +605,22 @@
                                     <segue destination="FEZ-zh-ePW" kind="show" id="JgH-ZG-68A"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hZ-5f-ACX">
+                                <rect key="frame" x="16" y="72" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelKeyboard:" destination="HC7-S3-PmI" eventType="touchUpInside" id="MzF-Yr-mxc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="beverageName" destination="XUf-N8-me0" id="9RC-D3-FIh"/>
+                        <outlet property="cancelButton" destination="5hZ-5f-ACX" id="wso-UX-NNU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L69-bs-vyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -681,9 +708,23 @@
                                     <segue destination="GvM-21-Yli" kind="show" id="lFJ-zV-g4w"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-dS-XSB">
+                                <rect key="frame" x="16" y="72" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelKeyboard:" destination="kMl-5x-2O2" eventType="touchUpInside" id="xlP-Ey-wlz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="nfd-dS-XSB" id="p7F-2u-hDB"/>
+                        <outlet property="keyword" destination="MUf-KH-KIb" id="qNI-pQ-wuO"/>
+                        <outlet property="location" destination="Hi8-Do-t81" id="der-fk-ibm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTA-kb-uAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
