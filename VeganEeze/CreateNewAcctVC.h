@@ -10,6 +10,6 @@
 
 @interface CreateNewAcctVC : UIViewController
 
-- (IBAction)createNewAccount:(id)sender;
+//- (IBAction)createNewAccount:(id)sender;
 
 @end
