@@ -14,11 +14,17 @@
   
     IBOutlet UILabel *nameLabel;
     IBOutlet UILabel *addressLabel;
+    IBOutlet UILabel *cityStateLabel;
+    IBOutlet UIButton *urlLabel;
+    IBOutlet UILabel *phoneLabel;
     
 }
 
 @property (nonatomic, strong) NSString *restaurantName;
 @property (nonatomic, strong) NSString *restaurantAddress;
+@property (nonatomic, strong) NSString *restaurantCityState;
+@property (nonatomic, strong) NSString *restaurantURL;
+@property (nonatomic, strong) NSString *restaurantPhoneNo;
 
 
 

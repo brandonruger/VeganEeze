@@ -13,9 +13,15 @@
 {
     IBOutlet UILabel *eventNameLabel;
     IBOutlet UILabel *eventAddressLabel;
+    IBOutlet UILabel *eventCityStateLabel;
+    IBOutlet UIButton *eventUrlLabel;
+    IBOutlet UILabel *eventPhoneLabel;
 }
 
 @property (nonatomic, strong) NSString *eventName;
 @property (nonatomic, strong) NSString *eventAddress;
+@property (nonatomic, strong) NSString *eventCityState;
+@property (nonatomic, strong) NSString *eventURL;
+@property (nonatomic, strong) NSString *eventPhoneNo;
 
 @end

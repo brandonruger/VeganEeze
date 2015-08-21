@@ -13,7 +13,7 @@
 @end
 
 @implementation EventDetailVC
-@synthesize eventName, eventAddress;
+@synthesize eventName, eventAddress, eventCityState, eventPhoneNo, eventURL;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,9 +27,15 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
-    //Set event name/address labels to display information passed over from segue
+    //Set event labels to display information passed over from segue
     eventNameLabel.text = eventName;
     eventAddressLabel.text = eventAddress;
+    eventCityStateLabel.text = eventCityState;
+    eventPhoneLabel.text = eventPhoneNo;
+    
+    //Set URL button text
+    [eventUrlLabel setTitle:eventURL forState:UIControlStateNormal];
+    
 }
 
 /*

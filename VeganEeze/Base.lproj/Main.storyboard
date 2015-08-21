@@ -353,19 +353,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City, State Zip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azk-IB-EmF">
-                                <rect key="frame" x="36" y="170" width="109" height="21"/>
+                                <rect key="frame" x="36" y="170" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone #" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFA-0I-ZVl">
-                                <rect key="frame" x="410" y="141" width="64" height="21"/>
+                                <rect key="frame" x="410" y="141" width="154" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLt-7M-57r">
-                                <rect key="frame" x="36" y="199" width="146" height="30"/>
+                                <rect key="frame" x="36" y="199" width="280" height="30"/>
                                 <state key="normal" title="Restaurant's Website">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -422,7 +422,10 @@
                     </view>
                     <connections>
                         <outlet property="eventAddressLabel" destination="5um-0S-hrj" id="CWg-So-9Fu"/>
+                        <outlet property="eventCityStateLabel" destination="azk-IB-EmF" id="uBG-D7-QcR"/>
                         <outlet property="eventNameLabel" destination="hd7-aC-gBz" id="LyV-Br-PbH"/>
+                        <outlet property="eventPhoneLabel" destination="xFA-0I-ZVl" id="Pzv-f6-EKT"/>
+                        <outlet property="eventUrlLabel" destination="RLt-7M-57r" id="5Uj-bT-mLx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOC-gF-QCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -454,19 +457,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City, State Zip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jn-aR-pSe">
-                                <rect key="frame" x="36" y="178" width="109" height="21"/>
+                                <rect key="frame" x="36" y="178" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone #" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4F-J6-cpt">
-                                <rect key="frame" x="410" y="149" width="64" height="21"/>
+                                <rect key="frame" x="410" y="149" width="154" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCn-5I-fDK">
-                                <rect key="frame" x="36" y="207" width="146" height="30"/>
+                                <rect key="frame" x="36" y="207" width="280" height="30"/>
                                 <state key="normal" title="Restaurant's Website">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -523,7 +526,10 @@
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="ddV-zi-52F" id="qhn-xs-9Zq"/>
+                        <outlet property="cityStateLabel" destination="7jn-aR-pSe" id="OBc-wP-JNV"/>
                         <outlet property="nameLabel" destination="6zA-Kf-brf" id="aHY-gM-P4t"/>
+                        <outlet property="phoneLabel" destination="N4F-J6-cpt" id="cuu-mi-RMI"/>
+                        <outlet property="urlLabel" destination="TCn-5I-fDK" id="e8D-Va-AUS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQv-8c-nwb" userLabel="First Responder" sceneMemberID="firstResponder"/>

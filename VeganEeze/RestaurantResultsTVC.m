@@ -18,8 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    arrayOfRestaurantNames = [[NSArray alloc]initWithObjects:@"Ethos", @"Toasted", @"Dandelion Cafe", @"Loving Hut", nil];
-    restaurantLocations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
+    //Setup arrays w/ static data
+    restaurantNames = [[NSArray alloc]initWithObjects:@"Ethos", @"Toasted", @"Dandelion Cafe", @"Loving Hut", nil];
+    restaurantAddresses = [[NSArray alloc]initWithObjects:@"133 South St", @"2409 N Park Ave", @"849 East Orange Ln", @"9189 Apple Rd", nil];
+    restaurantCityStates = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
+    restaurantURLs = [[NSArray alloc]initWithObjects:@"www.ethos.com", @"www.toasted.com", @"www.dandelion.com", @"www.lovinghut.com", nil];
+    restaurantPhones = [[NSArray alloc]initWithObjects:@"727-401-2009", @"727-394-3928", @"727-293-1293", @"727-203-5039", nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -55,8 +59,8 @@
         
         
         
-        resultsCell.textLabel.text = [arrayOfRestaurantNames objectAtIndex:indexPath.row];
-        resultsCell.detailTextLabel.text = [restaurantLocations objectAtIndex:indexPath.row];
+        resultsCell.textLabel.text = [restaurantNames objectAtIndex:indexPath.row];
+        resultsCell.detailTextLabel.text = [restaurantCityStates objectAtIndex:indexPath.row];
     }
     
     return resultsCell;
@@ -123,12 +127,19 @@
         //Get index of cell that was clicked
         NSIndexPath *indexOfCell = [resultsTV indexPathForCell:cellClicked];
         NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
-        //Get strings of restaurants name/location from array
-        NSString *restaurantNameStr = [arrayOfRestaurantNames objectAtIndex:indexOfCell.row];
-        NSString *restaurantLocStr = [restaurantLocations objectAtIndex:indexOfCell.row];
-        //Pass the restaurant's name/location to the properties in the detail view
+        //Get strings of restaurant's data from arrays
+        NSString *restaurantNameStr = [restaurantNames objectAtIndex:indexOfCell.row];
+        NSString *restaurantAddressStr = [restaurantAddresses objectAtIndex:indexOfCell.row];
+        NSString *restaurantCityStateStr = [restaurantCityStates objectAtIndex:indexOfCell.row];
+        NSString *restaurantURLStr = [restaurantURLs objectAtIndex:indexOfCell.row];
+        NSString *restaurantPhoneStr = [restaurantPhones objectAtIndex:indexOfCell.row];
+        
+        //Pass the restaurant's information to the properties in the detail view
         restaurantDetailVC.restaurantName = restaurantNameStr;
-        restaurantDetailVC.restaurantAddress = restaurantLocStr;
+        restaurantDetailVC.restaurantAddress = restaurantAddressStr;
+        restaurantDetailVC.restaurantCityState = restaurantCityStateStr;
+        restaurantDetailVC.restaurantURL = restaurantURLStr;
+        restaurantDetailVC.restaurantPhoneNo = restaurantPhoneStr;
     }
     
 }

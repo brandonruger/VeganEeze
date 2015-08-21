@@ -13,8 +13,11 @@
 {
     IBOutlet UITableView *resultsTV;
     
-    NSArray *arrayOfRestaurantNames;
-    NSArray *restaurantLocations;
+    NSArray *restaurantNames;
+    NSArray *restaurantAddresses;
+    NSArray *restaurantCityStates;
+    NSArray *restaurantURLs;
+    NSArray *restaurantPhones;
 }
 
 @end

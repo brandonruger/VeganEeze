@@ -13,7 +13,7 @@
 @end
 
 @implementation RestaurantDetailVC
-@synthesize restaurantName, restaurantAddress;
+@synthesize restaurantName, restaurantAddress, restaurantCityState, restaurantPhoneNo, restaurantURL;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,9 +27,15 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
-    //Set restaurant name/address labels to display information passed over from segue
+    //Set restaurant labels to display information passed over from segue
     nameLabel.text = restaurantName;
     addressLabel.text = restaurantAddress;
+    cityStateLabel.text = restaurantCityState;
+    phoneLabel.text = restaurantPhoneNo;
+    
+    //Set URL button text
+    [urlLabel setTitle:restaurantURL forState:UIControlStateNormal];
+    
 }
 
 

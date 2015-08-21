@@ -13,8 +13,11 @@
 {
     IBOutlet UITableView *eventResultsTV;
     
-    NSArray *arrayOfEventNames;
-    NSArray *arrayOfEventLocations;
+    NSArray *eventNames;
+    NSArray *eventAddresses;
+    NSArray *eventCityStates;
+    NSArray *eventURLs;
+    NSArray *eventPhones;
 }
 
 @end
