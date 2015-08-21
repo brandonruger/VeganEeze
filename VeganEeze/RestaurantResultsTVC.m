@@ -7,6 +7,7 @@
 //
 
 #import "RestaurantResultsTVC.h"
+#import "RestaurantDetailVC.h"
 
 @interface RestaurantResultsTVC ()
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    arrayOfRestaurantNames = [[NSArray alloc]initWithObjects:@"Ethos", @"Toasted", @"Dandelion Cafe", @"Loving Hut", nil];
+    restaurantLocations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -49,8 +53,7 @@
     UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell"];
     if (resultsCell != nil) {
         
-        NSArray *arrayOfRestaurantNames = [[NSArray alloc]initWithObjects:@"Ethos", @"Toasted", @"Dandelion Cafe", @"Loving Hut", nil];
-        NSArray *restaurantLocations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
+        
         
         resultsCell.textLabel.text = [arrayOfRestaurantNames objectAtIndex:indexPath.row];
         resultsCell.detailTextLabel.text = [restaurantLocations objectAtIndex:indexPath.row];
@@ -103,14 +106,32 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+//Segue to pass data to detail view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    //Access detail view controller
+    RestaurantDetailVC *restaurantDetailVC = segue.destinationViewController;
+    if (restaurantDetailVC != nil) {
+        
+        //Get cell that was clicked on
+        UITableViewCell *cellClicked = (UITableViewCell*)sender;
+        //Get index of cell that was clicked
+        NSIndexPath *indexOfCell = [resultsTV indexPathForCell:cellClicked];
+        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
+        //Get strings of restaurants name/location from array
+        NSString *restaurantNameStr = [arrayOfRestaurantNames objectAtIndex:indexOfCell.row];
+        NSString *restaurantLocStr = [restaurantLocations objectAtIndex:indexOfCell.row];
+        //Pass the restaurant's name/location to the properties in the detail view
+        restaurantDetailVC.restaurantName = restaurantNameStr;
+        restaurantDetailVC.restaurantAddress = restaurantLocStr;
+    }
+    
 }
-*/
+
 
 @end

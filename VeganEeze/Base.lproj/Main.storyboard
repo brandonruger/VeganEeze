@@ -517,6 +517,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="ddV-zi-52F" id="qhn-xs-9Zq"/>
+                        <outlet property="nameLabel" destination="6zA-Kf-brf" id="aHY-gM-P4t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQv-8c-nwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -584,7 +588,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="MIn-9F-pad" kind="show" id="eNL-Z6-6AK"/>
+                                    <segue destination="MIn-9F-pad" kind="show" identifier="restaurantDetailSegue" id="eNL-Z6-6AK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -593,6 +597,9 @@
                             <outlet property="delegate" destination="zRR-M0-aB2" id="9QK-R8-2cW"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="resultsTV" destination="FIc-YK-fd0" id="NVi-h4-haj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8HV-Qn-njx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

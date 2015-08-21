@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RestaurantResultsTVC : UITableViewController
+@interface RestaurantResultsTVC : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+
+{
+    IBOutlet UITableView *resultsTV;
+    
+    NSArray *arrayOfRestaurantNames;
+    NSArray *restaurantLocations;
+}
 
 @end

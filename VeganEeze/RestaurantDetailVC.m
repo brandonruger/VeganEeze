@@ -13,6 +13,7 @@
 @end
 
 @implementation RestaurantDetailVC
+@synthesize restaurantName, restaurantAddress;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,14 +25,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) viewWillAppear:(BOOL)animated {
+    
+    //Set restaurant name/address labels to display information passed over through segue
+    nameLabel.text = restaurantName;
+    addressLabel.text = restaurantAddress;
 }
-*/
+
+
+//#pragma mark - Navigation
+//
+////Segue method to pass information to detail view
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//    
+//    
+//}
 
 @end

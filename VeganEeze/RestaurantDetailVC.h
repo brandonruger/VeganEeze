@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RestaurantDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface RestaurantDetailVC : UIViewController
+
+{
+  
+    IBOutlet UILabel *nameLabel;
+    IBOutlet UILabel *addressLabel;
+    
+}
+
+@property (nonatomic, strong) NSString *restaurantName;
+@property (nonatomic, strong) NSString *restaurantAddress;
+
+
+
+
+
 
 @end
