@@ -526,12 +526,6 @@
                                     <segue destination="sf1-14-qRg" kind="show" identifier="segueToWebBrowser" id="bwe-xQ-Z5M"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgO-u7-bEg">
-                                <rect key="frame" x="410" y="207" width="119" height="30"/>
-                                <state key="normal" title="Share Restaurant">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnH-Aw-91n">
                                 <rect key="frame" x="36" y="245" width="148" height="30"/>
                                 <state key="normal" title="Save as Place to Visit">
@@ -572,6 +566,15 @@
                                 <state key="normal" title="OK">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgO-u7-bEg">
+                                <rect key="frame" x="36" y="283" width="119" height="30"/>
+                                <state key="normal" title="Share Restaurant">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareToTwitter:" destination="MIn-9F-pad" eventType="touchUpInside" id="Odc-Ub-0hI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -968,7 +971,7 @@
         <image name="VeganEeze-Logo" width="640" height="641"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fkM-d4-h6z"/>
+        <segue reference="bwe-xQ-Z5M"/>
         <segue reference="Glg-Ao-nnx"/>
     </inferredMetricsTieBreakers>
 </document>
