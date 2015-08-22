@@ -7,6 +7,7 @@
 //
 
 #import "FavoritePlacesTVC.h"
+#import "SavedPlacesDetailVC.h"
 
 @interface FavoritePlacesTVC ()
 
@@ -105,6 +106,46 @@
         }
     }];
 }
+
+#pragma mark - Navigation
+
+//Segue to pass data to detail view
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    //Access detail view controller
+    SavedPlacesDetailVC *savedDetailsVC = segue.destinationViewController;
+    if (savedDetailsVC != nil) {
+        
+        //Get cell that was clicked on
+        UITableViewCell *cellClicked = (UITableViewCell*)sender;
+        //Get index of cell that was clicked
+        NSIndexPath *indexOfCell = [placesTableView indexPathForCell:cellClicked];
+        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
+        //Get strings of restaurant's data from arrays
+//        NSString *restaurantNameStr = [restaurantNames objectAtIndex:indexOfCell.row];
+//        NSString *restaurantAddressStr = [restaurantAddresses objectAtIndex:indexOfCell.row];
+//        NSString *restaurantCityStateStr = [restaurantCityStates objectAtIndex:indexOfCell.row];
+//        NSString *restaurantURLStr = [restaurantURLs objectAtIndex:indexOfCell.row];
+//        NSString *restaurantPhoneStr = [restaurantPhones objectAtIndex:indexOfCell.row];
+        
+        //Get object ID for item clicked on
+        NSString *currentObjId = [objectIDs objectAtIndex:indexOfCell.row];
+        
+        //Pass the restaurant's information to the properties in the detail view
+//        restaurantDetailVC.restaurantName = restaurantNameStr;
+//        restaurantDetailVC.restaurantAddress = restaurantAddressStr;
+//        restaurantDetailVC.restaurantCityState = restaurantCityStateStr;
+//        restaurantDetailVC.restaurantURL = restaurantURLStr;
+//        restaurantDetailVC.restaurantPhoneNo = restaurantPhoneStr;
+        
+        //Pass the object ID over to the detail view
+        savedDetailsVC.objectId = currentObjId;
+    }
+    
+}
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
