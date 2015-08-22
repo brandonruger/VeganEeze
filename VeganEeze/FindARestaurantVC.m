@@ -22,6 +22,9 @@
     keyword.delegate = self;
     location.delegate = self;
     
+    //Get current location
+    [self getCurrentLocation];
+    
     //Add target selectors to segmented control buttons
     [searchSegmentedControl addTarget:self action:@selector(howToSearch:) forControlEvents:UIControlEventValueChanged];
 }
@@ -100,14 +103,40 @@
     location.hidden = FALSE;
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Current Location
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)getCurrentLocation {
+    //Create location manager object
+    locationMgr = [[CLLocationManager alloc]init];
+    if (locationMgr != nil) {
+        
+        [locationMgr requestWhenInUseAuthorization];
+        
+        //Set location accuracy
+        locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
+        //Set delegate
+        locationMgr.delegate = self;
+        //Start gathering location info
+        [locationMgr startUpdatingLocation];
+    }
 }
-*/
+
+//Delegate method to get current locations
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations {
+    
+    CLLocation *currentLocation = [locations lastObject];
+    if (currentLocation != nil) {
+        //Get coordinates of current location
+        CLLocationCoordinate2D coordinates = currentLocation.coordinate;
+        
+        //Convert latitude/longitude coordinates to strings
+        NSString *latitudeCoord = [NSString stringWithFormat:@"%g", coordinates.latitude];
+        NSString *longitudeCoord = [NSString stringWithFormat:@"%g", coordinates.longitude];
+        
+        NSLog(@"Latitude = %@", latitudeCoord);
+        NSLog(@"Longitude = %@", longitudeCoord);
+    }
+}
 
 @end

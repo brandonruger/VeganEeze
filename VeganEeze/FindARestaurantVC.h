@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface FindARestaurantVC : UIViewController <UISearchBarDelegate>
+@interface FindARestaurantVC : UIViewController <UISearchBarDelegate, CLLocationManagerDelegate>
 
 {
     IBOutlet UISearchBar *keyword;
     IBOutlet UISearchBar *location;
     IBOutlet UIButton *cancelButton;
     IBOutlet UISegmentedControl *searchSegmentedControl;
+    
+    CLLocationManager *locationMgr;
 }
 
 @end

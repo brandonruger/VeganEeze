@@ -10,6 +10,7 @@
 		0E42C1C91B87FC7400708326 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E42C1C81B87FC7400708326 /* WebVC.m */; };
 		0E42C1CB1B88080400708326 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E42C1CA1B88080400708326 /* Accounts.framework */; };
 		0E42C1CD1B880A3F00708326 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E42C1CC1B880A3F00708326 /* Social.framework */; };
+		0E42C1CF1B88172100708326 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E42C1CE1B88172100708326 /* CoreLocation.framework */; };
 		0E6232881B84096000562474 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232871B84096000562474 /* main.m */; };
 		0E62328B1B84096000562474 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E62328A1B84096000562474 /* AppDelegate.m */; };
 		0E62328E1B84096000562474 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E62328D1B84096000562474 /* ViewController.m */; };
@@ -47,6 +48,7 @@
 		0E42C1C81B87FC7400708326 /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
 		0E42C1CA1B88080400708326 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		0E42C1CC1B880A3F00708326 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		0E42C1CE1B88172100708326 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0E6232821B84095E00562474 /* VeganEeze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeganEeze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6232861B84096000562474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E6232871B84096000562474 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E42C1CF1B88172100708326 /* CoreLocation.framework in Frameworks */,
 				0E42C1CD1B880A3F00708326 /* Social.framework in Frameworks */,
 				0E42C1CB1B88080400708326 /* Accounts.framework in Frameworks */,
 			);
@@ -111,6 +114,7 @@
 		0E6232791B84095E00562474 = {
 			isa = PBXGroup;
 			children = (
+				0E42C1CE1B88172100708326 /* CoreLocation.framework */,
 				0E42C1CC1B880A3F00708326 /* Social.framework */,
 				0E42C1CA1B88080400708326 /* Accounts.framework */,
 				0E6232841B84095F00562474 /* VeganEeze */,
