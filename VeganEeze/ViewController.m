@@ -18,6 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    //Hide back button on navigation bar
+    self.navigationItem.hidesBackButton = YES;
+    
     //Set textfields' delegate
     username.delegate = self;
     password.delegate = self;

@@ -7,6 +7,7 @@
 //
 
 #import "MainMenuTVC.h"
+//#import "ViewController.h"
 
 @interface MainMenuTVC ()
 
@@ -40,6 +41,21 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return 6;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //Check if logout button was pressed
+    if ([segue.identifier isEqualToString:@"logoutSegueToMainMenu"]) {
+        //ViewController *loginScreen = [segue destinationViewController];
+        
+        //Alert user they have been logged out
+        UIAlertView *logoutAlert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have been logged out." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //Show alert
+        [logoutAlert show];
+    }
+    
+    
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:

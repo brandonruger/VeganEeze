@@ -257,7 +257,13 @@
                             <outlet property="delegate" destination="gCr-q2-wjC" id="dew-H4-dTn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Main Menu" id="mph-A1-FaD"/>
+                    <navigationItem key="navigationItem" title="Main Menu" id="mph-A1-FaD">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="g47-Ld-ATo">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="show" identifier="logoutSegueToMainMenu" id="X63-85-SJm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onP-WC-6fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
