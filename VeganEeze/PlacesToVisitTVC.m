@@ -22,6 +22,15 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //Initialize mutable array
+    parsePlacesToVisit = [[NSMutableArray alloc]init];
+    placeName = [[NSMutableArray alloc]init];
+    placeCityState = [[NSMutableArray alloc]init];
+    objectIDs = [[NSMutableArray alloc]init];
+    
+    //Call method to retrieve objects from Parse server
+    [self retrievePlacesToVisit];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return [objectIDs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -41,14 +50,58 @@
     UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"ToVisitCell"];
     if (resultsCell != nil) {
         
-        NSArray *placesToVisit = [[NSArray alloc]initWithObjects:@"Place 1", @"Place 2", @"Place 3", @"Place 4", nil];
-        NSArray *locations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
+        //NSArray *placesToVisit = [[NSArray alloc]initWithObjects:@"Place 1", @"Place 2", @"Place 3", @"Place 4", nil];
+        //NSArray *locations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
         
-        resultsCell.textLabel.text = [placesToVisit objectAtIndex:indexPath.row];
-        resultsCell.detailTextLabel.text = [locations objectAtIndex:indexPath.row];
+        resultsCell.textLabel.text = [placeName objectAtIndex:indexPath.row];
+        resultsCell.detailTextLabel.text = [placeCityState objectAtIndex:indexPath.row];
     }
     
     return resultsCell;
+}
+
+#pragma mark - Parse
+
+//Method to retrieve Places to Visit saved on Parse
+- (void)retrievePlacesToVisit {
+    
+    //Create a PFQuery to search for the data on Parse
+    PFQuery *placeToVisitQuery = [PFQuery queryWithClassName:@"PlaceToVisit"];
+    
+    [placeToVisitQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            //No errors, found objects successfully
+            
+            //Loop through parse objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                
+                //Get name of place from object
+                NSString *placeToVisitName = object[@"name"];
+                //Get city/state of place from object
+                NSString *placeToVisitCityState = object[@"cityState"];
+                //Get object ID
+                NSString *objectID = object.objectId;
+                
+                //Add objects to NSMutableArray
+                //[parseFavorites addObject:object];
+                
+                //Add place names to array
+                [placeName addObject:placeToVisitName];
+                //Add city/state to array
+                [placeCityState addObject:placeToVisitCityState];
+                //Add object ID to array
+                [objectIDs addObject:objectID];
+            }
+            
+            //Refresh tableview
+            [placesToVisitTV reloadData];
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 /*

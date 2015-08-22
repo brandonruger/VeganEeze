@@ -73,7 +73,6 @@
     [favoritePlaceQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             //No errors, found objects successfully
-            NSLog(@"Successfully retrieved %d scores.", objects.count);
             
             //Loop through parse objects
             for (PFObject *object in objects) {

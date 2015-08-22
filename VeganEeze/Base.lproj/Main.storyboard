@@ -902,6 +902,9 @@
                             <outlet property="delegate" destination="Vh8-ho-dOw" id="1Jp-RY-faM"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="placesToVisitTV" destination="Pah-Ta-CHk" id="doL-rh-3fX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCF-HZ-DfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface PlacesToVisitTVC : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+
+{
+    NSMutableArray *parsePlacesToVisit;
+    NSMutableArray *placeName;
+    NSMutableArray *placeCityState;
+    NSMutableArray *objectIDs;
+    
+    IBOutlet UITableView *placesToVisitTV;
+}
 
 @end
