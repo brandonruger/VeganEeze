@@ -420,16 +420,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JR2-nO-DYi">
-                                <rect key="frame" x="410" y="199" width="119" height="30"/>
+                                <rect key="frame" x="16" y="275" width="119" height="30"/>
                                 <state key="normal" title="Share Event">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgF-dJ-JBu">
-                                <rect key="frame" x="36" y="237" width="148" height="30"/>
-                                <state key="normal" title="Save as Place to Visit">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <connections>
+                                    <action selector="shareToTwitter:" destination="BRz-si-Myg" eventType="touchUpInside" id="Lfa-7P-ydP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23E-t8-ZdW">
                                 <rect key="frame" x="410" y="237" width="114" height="30"/>
@@ -463,6 +460,12 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roB-sy-IoD">
                                 <rect key="frame" x="495" y="411" width="30" height="30"/>
                                 <state key="normal" title="OK">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgF-dJ-JBu">
+                                <rect key="frame" x="36" y="237" width="148" height="30"/>
+                                <state key="normal" title="Save as Place to Visit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -971,7 +974,7 @@
         <image name="VeganEeze-Logo" width="640" height="641"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bwe-xQ-Z5M"/>
+        <segue reference="fkM-d4-h6z"/>
         <segue reference="Glg-Ao-nnx"/>
     </inferredMetricsTieBreakers>
 </document>

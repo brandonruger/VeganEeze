@@ -8,6 +8,8 @@
 
 #import "EventDetailVC.h"
 #import "WebVC.h"
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
 
 @interface EventDetailVC ()
 
@@ -19,6 +21,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //Access user's Twitter account on device
+    ACAccountStore *accountStore = [[ACAccountStore alloc]init];
+    if (accountStore != nil) {
+        //Tell what type of account need to access
+        ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        if (accountType != nil) {
+            //Ask account store for direct access to Twitter account
+            [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
+                if (granted) {
+                    //Success, we have access
+                    NSArray *userTwitterAccts = [accountStore accountsWithAccountType:accountType];
+                    if (userTwitterAccts != nil) {
+                        //Access single account
+                        ACAccount *currentAcct = [userTwitterAccts objectAtIndex:0];
+                        if (currentAcct != nil) {
+                            NSLog(@"currentAccount=%@", currentAcct);
+                        }
+                        NSLog(@"twitter accounts = %@", userTwitterAccts);
+                    }
+                }
+                else {
+                    //User did not approve accessing Twitter account
+                    
+                    //***NEED TO HANDLE THIS***
+                }
+            }];
+        }
+    }
+}
+
+#pragma mark - Twitter Sharing
+-(IBAction)shareToTwitter:(id)sender {
+    
+    //Create view that allows user to post to Twitter
+    SLComposeViewController *slComposeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    
+    NSString *twitterPrefixString = @"Checkout this event: ";
+    NSString *twitterFullString = [twitterPrefixString stringByAppendingString:eventURL];
+    
+    //Add in default text to share
+    [slComposeVC setInitialText:twitterFullString];
+    
+    //Present view to user for posting
+    [self presentViewController:slComposeVC animated:TRUE completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
