@@ -19,10 +19,10 @@
     [super viewDidLoad];
     
     //Setup arrays w/ static data
-    eventNames = [[NSArray alloc]initWithObjects:@"Veg Festival", @"Vegan Fair", @"Dinner Theater", @"Celebration", nil];
+    eventNames = [[NSArray alloc]initWithObjects:@"Veg Festival", @"Vegan Fair", @"Dinner Theater", @"VegFestUK", nil];
     eventAddresses = [[NSArray alloc]initWithObjects:@"133 South St", @"2409 N Park Ave", @"849 East Orange Ln", @"9189 Apple Rd", nil];
     eventCityStates = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
-    eventURLs = [[NSArray alloc]initWithObjects:@"www.ethos.com", @"www.toasted.com", @"www.dandelion.com", @"www.lovinghut.com", nil];
+    eventURLs = [[NSArray alloc]initWithObjects:@"www.cfvegfest.org", @"www.veganstreetfair.com", @"www.sleuths.com", @"www.vegfest.co.uk", nil];
     eventPhones = [[NSArray alloc]initWithObjects:@"727-401-2009", @"727-394-3928", @"727-293-1293", @"727-203-5039", nil];
     
     // Uncomment the following line to preserve selection between presentations.
