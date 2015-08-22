@@ -37,6 +37,10 @@
 
 //Segue to main menu
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"segueNewAcctToMainMenu"]) {
+        [self createNewAccount];
+    }
 
     UIAlertView *createAcctAlert = [[UIAlertView alloc]initWithTitle:@"New Account" message:@"Your new account has been created." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     if (createAcctAlert != nil) {
@@ -77,27 +81,54 @@
 
 #pragma mark - Parse
 
-- (IBAction)createNewAccount:(id)sender {
+- (void)createNewAccount {
     //Create new user object
     PFUser *newUser = [PFUser user];
     //Set username, password and email to what user entered in text fields
     
+    //Gather info entered in text fields
+    username = selectUsername.text;
+    password = selectPassword.text;
+    secondPassword = confirmPassword.text;
+    emailAddress = enterEmail.text;
+    
+    
     //Make sure passwords in both fields match
-    if ([selectUsername.text isEqualToString:confirmPassword.text]) {
+    if ([password isEqualToString:secondPassword]) {
         //Both passwords match
         //Set username and password to what was entered
-        newUser.username = selectUsername.text;
-        newUser.password = selectPassword.text;
+        newUser.username = username;
+        newUser.password = password;
         
         //Verify email address format
         
-        newUser.email = enterEmail.text;
+        newUser.email = emailAddress;
         
         //Create account
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
-                //No errors, log user into app
-                [PFUser logInWithUsername:selectUsername.text password:selectPassword.text];
+                
+                //Alert user account has been created
+                UIAlertView *accountCreated = [[UIAlertView alloc]initWithTitle:@"Congratulations" message:@"Your new account has been created!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [accountCreated show];
+                
+                //Log user into app
+                [PFUser logInWithUsernameInBackground:username password:password
+                                                block:^(PFUser *user, NSError *error) {
+                                                    if (user) {
+                                                        //Successfully logged in, go to main menu
+                                                        [self performSegueWithIdentifier:@"segueToMainMenu" sender:self];
+                                                    } else {
+                                                        //Log in failed. Have user try again.
+                                                        UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                                        [loginFailed show];
+                                                        
+                                                        //Go back to login screen
+                                                        [self dismissViewControllerAnimated:true completion:nil];
+                                        
+                                                    }
+                                                }];
+
                 
             } else {
                 //There was an error
@@ -107,6 +138,7 @@
                 
                 //Alert user to try again
                 UIAlertView *createAccountError = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error setting up your account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [createAccountError show];
                 
             }
         }];

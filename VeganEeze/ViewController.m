@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <Parse/Parse.h>
+#import "MainMenuTVC.h"
 
 @interface ViewController ()
 
@@ -26,6 +26,14 @@
     username.delegate = self;
     password.delegate = self;
     
+    //Check if user is already logged in
+    loggedInUser = [PFUser currentUser];
+    if (loggedInUser) {
+        //User is logged in, go to main menu
+        [self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
+        
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,11 +41,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-//Segue to launch other view controllers
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-}
+////Segue to launch other view controllers
+//-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:@"segueLoginToMainMenu"] && loggedInUser ) {
+//        
+//        }
+//        
+//        //Call method to login to app
+//        [self loginToAccount];
+//    }
+//}
 
 #pragma mark - Keyboard
 
@@ -68,6 +82,66 @@
     
     //Hide cancel button
     cancelButton.hidden = true;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+
+//        //Check if segue for main menu was called
+//        if ([segue.identifier isEqualToString:@"segueToMainMenu"]) {
+//            //Call method to log user in to account
+//            [self loginToAccount];
+//            
+//        }
+
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString:@"segueLoginToMainMenu"]) {
+        if (loggedInUser) {
+            //User is logged in, okay to perform segue
+            return TRUE;
+        } else {
+            //User is not logged in, don't perform segue
+            //Call method to login to account
+            [self loginToAccount];
+            
+            return FALSE;
+        }
+    }
+    return FALSE;
+}
+
+#pragma mark - Parse
+- (void)loginToAccount {
+    
+    //Get username/password entered by user in text fields
+    usernameStr = username.text;
+    passwordStr = password.text;
+    
+    //Make sure fields were not blank
+    if ([usernameStr isEqualToString:@""] || [passwordStr isEqualToString:@""]) {
+        //Alert user they must enter both username and password
+        UIAlertView *blankField = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must enter username and password. Please try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [blankField show];
+    } else {
+        //Try to login to app
+        [PFUser logInWithUsernameInBackground:usernameStr password:passwordStr
+                                        block:^(PFUser *user, NSError *error) {
+                                            if (user) {
+                                                //Successfully logged in, go to main menu
+                                                [self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
+                                            } else {
+                                                //Log in failed. Have user try again.
+                                                UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                                [loginFailed show];
+                                                //Clear text fields
+                                                username.text = @"";
+                                                password.text = @"";
+                                            }
+                                        }];
+    }
 }
 
 

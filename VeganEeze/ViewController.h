@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 
@@ -14,6 +15,12 @@
     IBOutlet UITextField *username;
     IBOutlet UITextField *password;
     IBOutlet UIButton *cancelButton;
+    
+    NSString *usernameStr;
+    NSString *passwordStr;
+    
+    PFUser *loggedInUser;
+    
 }
 
 
