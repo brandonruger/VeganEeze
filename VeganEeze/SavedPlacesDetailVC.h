@@ -16,6 +16,12 @@
     IBOutlet UILabel *cityStateLabel;
     IBOutlet UIButton *urlLabel;
     IBOutlet UILabel *phoneLabel;
+    
+    NSString *nameOfPlace;
+    NSString *addressOfPlace;
+    NSString *cityStateOfPlace;
+    NSString *urlOfPlace;
+    NSString *phoneNoOfPlace;
 }
 
 //@property (nonatomic, strong) NSString *name;

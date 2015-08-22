@@ -17,11 +17,87 @@
 @end
 
 @implementation SavedPlacesDetailVC
-@synthesize name, address, cityState, phoneNo, url;
+//@synthesize name, address, cityState, phoneNo, url;
+@synthesize objectId;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //Setup queries to check both classes for object ID
+    PFQuery *favoritePlaceQuery = [PFQuery queryWithClassName:@"FavoritePlace"];
+    PFQuery *placeToVisitQuery = [PFQuery queryWithClassName:@"PlaceToVisit"];
+    
+    //Run first query to check for object ID
+    [favoritePlaceQuery getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
+        
+        if (!error) {
+            //Object ID was found
+            //Get strings out of object
+            nameOfPlace = savedPlace[@"name"];
+            addressOfPlace = savedPlace[@"address"];
+            cityStateOfPlace = savedPlace[@"cityState"];
+            urlOfPlace = savedPlace[@"url"];
+            phoneNoOfPlace = savedPlace[@"phoneNo"];
+            
+            //Set text labels to above object
+            nameLabel.text = nameOfPlace;
+            addressLabel.text = addressOfPlace;
+            cityStateLabel.text = cityStateOfPlace;
+            phoneLabel.text = phoneNoOfPlace;
+            
+            //Set button text
+            [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
+            
+        } else {
+            //Run second query to check for Object ID
+            [placeToVisitQuery getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
+                
+                if (!error) {
+                    //Object ID was found
+                    //Get strings out of object
+                    nameOfPlace = savedPlace[@"name"];
+                    addressOfPlace = savedPlace[@"address"];
+                    cityStateOfPlace = savedPlace[@"cityState"];
+                    urlOfPlace = savedPlace[@"url"];
+                    phoneNoOfPlace = savedPlace[@"phoneNo"];
+                    
+                    //Set text labels to above object
+                    nameLabel.text = nameOfPlace;
+                    addressLabel.text = addressOfPlace;
+                    cityStateLabel.text = cityStateOfPlace;
+                    phoneLabel.text = phoneNoOfPlace;
+                    
+                    //Set button text
+                    [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
+                }
+            }];
+        }
+        
+    }];
+    
+//    //Run query on both classes searching for current object ID that was passed over through segue
+//    PFQuery *queryBoth = [PFQuery orQueryWithSubqueries:@[favoritePlaceQuery, placeToVisitQuery]];
+//    [queryBoth getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
+//        if (!error) {
+//            //Object was found for this object ID
+//            //Get strings out of object
+//            nameOfPlace = savedPlace[@"name"];
+//            addressOfPlace = savedPlace[@"address"];
+//            cityStateOfPlace = savedPlace[@"cityState"];
+//            urlOfPlace = savedPlace[@"url"];
+//            phoneNoOfPlace = savedPlace[@"phoneNo"];
+//            
+//            //Set text labels to above object
+//            nameLabel.text = nameOfPlace;
+//            addressLabel.text = addressOfPlace;
+//            cityStateLabel.text = cityStateOfPlace;
+//            phoneLabel.text = phoneNoOfPlace;
+//            
+//            //Set button text
+//            [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
+//        }
+//    }];
     
     //Access user's Twitter account on device
     ACAccountStore *accountStore = [[ACAccountStore alloc]init];
@@ -61,7 +137,7 @@
     SLComposeViewController *slComposeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     
     NSString *twitterPrefixString = @"Check this place out: ";
-    NSString *twitterFullString = [twitterPrefixString stringByAppendingString:url];
+    NSString *twitterFullString = [twitterPrefixString stringByAppendingString:urlOfPlace];
     
     //Add in default text to share
     [slComposeVC setInitialText:twitterFullString];
@@ -73,13 +149,13 @@
 - (void) viewWillAppear:(BOOL)animated {
     
     //Set event labels to display information passed over from segue
-    nameLabel.text = name;
-    addressLabel.text = address;
-    cityStateLabel.text = cityState;
-    phoneLabel.text = phoneNo;
-    
-    //Set URL button text
-    [urlLabel setTitle:url forState:UIControlStateNormal];
+//    nameLabel.text = name;
+//    addressLabel.text = address;
+//    cityStateLabel.text = cityState;
+//    phoneLabel.text = phoneNo;
+//    
+//    //Set URL button text
+//    [urlLabel setTitle:url forState:UIControlStateNormal];
     
 }
 
@@ -91,7 +167,7 @@
     //Access the web view
     WebVC *webVC = segue.destinationViewController;
     //Pass restaurant's URL to web view
-    webVC.websiteStr = url;
+    webVC.websiteStr = urlOfPlace;
     
 }
 
