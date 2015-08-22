@@ -10,6 +10,7 @@
 #import "WebVC.h"
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
+#import <Parse/Parse.h>
 
 @interface RestaurantDetailVC ()
 
@@ -99,6 +100,36 @@
     
 }
 
+#pragma mark - Save Favorites
+
+//Method to save favorite places to Parse
+-(IBAction)saveFavoritePlace:(id)sender {
+    //Gather data for current restaurant and save as a favoritePlace Parse object
+    PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
+    favoritePlace[@"name"] = restaurantName;
+    favoritePlace[@"address"] = restaurantAddress;
+    favoritePlace[@"cityState"] = restaurantCityState;
+    favoritePlace[@"phoneNo"] = restaurantPhoneNo;
+    favoritePlace[@"url"] = restaurantURL;
+    
+    //Save in background on Parse server
+    [favoritePlace saveInBackground];
+}
+
+
+//Method to save places to visit to Parse
+-(IBAction)savePlaceToVisit:(id)sender {
+    //Gather data for current restaurant and save as a placeToVisit Parse object
+    PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
+    placeToVisit[@"name"] = restaurantName;
+    placeToVisit[@"address"] = restaurantAddress;
+    placeToVisit[@"cityState"] = restaurantCityState;
+    placeToVisit[@"phoneNo"] = restaurantPhoneNo;
+    placeToVisit[@"url"] = restaurantURL;
+    
+    //Save in background on Parse server
+    [placeToVisit saveInBackground];
+}
 
 
 

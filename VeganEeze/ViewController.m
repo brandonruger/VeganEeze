@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <Parse/Parse.h>
 
 @interface ViewController ()
 
@@ -24,6 +25,7 @@
     //Set textfields' delegate
     username.delegate = self;
     password.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
