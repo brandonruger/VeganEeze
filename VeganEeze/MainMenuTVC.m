@@ -7,6 +7,7 @@
 //
 
 #import "MainMenuTVC.h"
+#import <Parse/Parse.h>
 //#import "ViewController.h"
 
 @interface MainMenuTVC ()
@@ -48,6 +49,9 @@
     //Check if logout button was pressed
     if ([segue.identifier isEqualToString:@"logoutSegueToMainMenu"]) {
         //ViewController *loginScreen = [segue destinationViewController];
+        
+        //Log out of account
+        [PFUser logOut];
         
         //Alert user they have been logged out
         UIAlertView *logoutAlert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have been logged out." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];

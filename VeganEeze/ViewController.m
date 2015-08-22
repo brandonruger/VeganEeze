@@ -84,17 +84,17 @@
     cancelButton.hidden = true;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-
-//        //Check if segue for main menu was called
-//        if ([segue.identifier isEqualToString:@"segueToMainMenu"]) {
-//            //Call method to log user in to account
-//            [self loginToAccount];
-//            
-//        }
-
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//
+////        //Check if segue for main menu was called
+////        if ([segue.identifier isEqualToString:@"segueToMainMenu"]) {
+////            //Call method to log user in to account
+////            [self loginToAccount];
+////            
+////        }
+//
+//}
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
@@ -110,6 +110,11 @@
             return FALSE;
         }
     }
+    
+    if ([identifier isEqualToString:@"segueToCreateNewAcctVC"]) {
+        return TRUE;
+    }
+    
     return FALSE;
 }
 
