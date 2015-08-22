@@ -110,6 +110,9 @@
     favoritePlace[@"cityState"] = eventCityState;
     favoritePlace[@"phoneNo"] = eventPhoneNo;
     favoritePlace[@"url"] = eventURL;
+    //Restrict data to this user only
+    favoritePlace.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+
     
     //Save in background on Parse server
     [favoritePlace saveInBackground];
@@ -125,6 +128,9 @@
     placeToVisit[@"cityState"] = eventCityState;
     placeToVisit[@"phoneNo"] = eventPhoneNo;
     placeToVisit[@"url"] = eventURL;
+    //Restrict data to this user only
+    placeToVisit.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+
     
     //Save in background on Parse server
     [placeToVisit saveInBackground];
