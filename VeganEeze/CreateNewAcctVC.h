@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface CreateNewAcctVC : UIViewController <UITextFieldDelegate>
 
@@ -18,6 +19,13 @@
     IBOutlet UITextField *confirmPassword;
     IBOutlet UITextField *enterEmail;
     IBOutlet UIButton *cancelButton;
+    
+    NSString *username;
+    NSString *password;
+    NSString *secondPassword;
+    NSString *emailAddress;
+    
+    PFUser *loggedInUser;
 }
 
 @end

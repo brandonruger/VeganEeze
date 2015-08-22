@@ -8,7 +8,7 @@
 
 #import "CreateNewAcctVC.h"
 #import "MainMenuTVC.h"
-#import <Parse/Parse.h>
+
 
 @interface CreateNewAcctVC ()
 
@@ -35,17 +35,44 @@
 
 #pragma mark - Navigation
 
-//Segue to main menu
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([segue.identifier isEqualToString:@"segueNewAcctToMainMenu"]) {
-        [self createNewAccount];
-    }
+////Segue to main menu
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//    if ([segue.identifier isEqualToString:@"segueNewAcctToMainMenu"]) {
+//        [self createNewAccount];
+//    }
+//
+//    UIAlertView *createAcctAlert = [[UIAlertView alloc]initWithTitle:@"New Account" message:@"Your new account has been created." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    if (createAcctAlert != nil) {
+//        [createAcctAlert show];
+//    }
+//}
 
-    UIAlertView *createAcctAlert = [[UIAlertView alloc]initWithTitle:@"New Account" message:@"Your new account has been created." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    if (createAcctAlert != nil) {
-        [createAcctAlert show];
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString:@"segueNewAcctToMainMenu"]) {
+        if (loggedInUser) {
+            //User is logged in, okay to perform segue
+            return TRUE;
+        } else {
+            //User is not logged in, don't perform segue
+            //Call method to login to account
+            //[self loginToAccount];
+            
+//            //Log in failed. Have user try again.
+//            UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [loginFailed show];
+//            
+//            //Go back to login screen
+//            [self dismissViewControllerAnimated:true completion:nil];
+            
+            //Call method to create new account
+            [self createNewAccount];
+            
+            return FALSE;
+        }
     }
+    return FALSE;
 }
 
 #pragma mark - Keyboard
@@ -117,7 +144,7 @@
                                                 block:^(PFUser *user, NSError *error) {
                                                     if (user) {
                                                         //Successfully logged in, go to main menu
-                                                        [self performSegueWithIdentifier:@"segueToMainMenu" sender:self];
+                                                        [self performSegueWithIdentifier:@"segueNewAcctToMainMenu" sender:self];
                                                     } else {
                                                         //Log in failed. Have user try again.
                                                         UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
