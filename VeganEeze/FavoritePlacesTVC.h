@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface FavoritePlacesTVC : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
+{
+    NSMutableArray *parseFavorites;
+    NSMutableArray *placeName;
+    NSMutableArray *placeCityState;
+    NSMutableArray *objectIDs;
+    
+    IBOutlet UITableView *placesTableView;
+    
+}
 
 @end

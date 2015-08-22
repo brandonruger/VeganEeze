@@ -440,15 +440,6 @@
                                     <action selector="shareToTwitter:" destination="BRz-si-Myg" eventType="touchUpInside" id="Lfa-7P-ydP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23E-t8-ZdW">
-                                <rect key="frame" x="410" y="237" width="114" height="30"/>
-                                <state key="normal" title="Save as Favorite">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveFavoritePlace:" destination="BRz-si-Myg" eventType="touchUpInside" id="Qw9-8B-RqQ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apg-L0-siU">
                                 <rect key="frame" x="36" y="324" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -485,6 +476,15 @@
                                 </state>
                                 <connections>
                                     <action selector="savePlaceToVisit:" destination="BRz-si-Myg" eventType="touchUpInside" id="lu5-RB-4UB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23E-t8-ZdW">
+                                <rect key="frame" x="36" y="345" width="114" height="30"/>
+                                <state key="normal" title="Save as Favorite">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveFavoritePlace:" destination="BRz-si-Myg" eventType="touchUpInside" id="Qw9-8B-RqQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -556,15 +556,6 @@
                                     <action selector="savePlaceToVisit:" destination="MIn-9F-pad" eventType="touchUpInside" id="gpe-Cv-rEp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gef-Q3-SjI">
-                                <rect key="frame" x="410" y="245" width="114" height="30"/>
-                                <state key="normal" title="Save as Favorite">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveFavoritePlace:" destination="MIn-9F-pad" eventType="touchUpInside" id="Eis-X8-wLI"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-Va-J3Y">
                                 <rect key="frame" x="36" y="332" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -601,6 +592,15 @@
                                 </state>
                                 <connections>
                                     <action selector="shareToTwitter:" destination="MIn-9F-pad" eventType="touchUpInside" id="Odc-Ub-0hI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gef-Q3-SjI">
+                                <rect key="frame" x="36" y="361" width="114" height="30"/>
+                                <state key="normal" title="Save as Favorite">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveFavoritePlace:" destination="MIn-9F-pad" eventType="touchUpInside" id="Eis-X8-wLI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -859,6 +859,9 @@
                             <outlet property="delegate" destination="EHO-4N-4HV" id="ERD-6C-o3x"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="placesTableView" destination="IEl-Ka-9Km" id="I2Y-dN-nRD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooz-cK-tRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -22,6 +22,16 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //Initialize mutable array
+    parseFavorites = [[NSMutableArray alloc]init];
+    placeName = [[NSMutableArray alloc]init];
+    placeCityState = [[NSMutableArray alloc]init];
+    objectIDs = [[NSMutableArray alloc]init];
+    
+    //Call method to retrieve objects from Parse server
+    [self retrieveFavoritePlaces];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +43,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return [objectIDs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -41,14 +51,60 @@
     UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"PlacesCell"];
     if (resultsCell != nil) {
         
-        NSArray *favoritePlaces = [[NSArray alloc]initWithObjects:@"Favorite Place 1", @"Favorite Place 2", @"Favorite Place 3", @"Favorite Place 4", nil];
-        NSArray *locations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
+        //NSArray *favoritePlaces = [[NSArray alloc]initWithObjects:@"Favorite Place 1", @"Favorite Place 2", @"Favorite Place 3", @"Favorite Place 4", nil];
+        //NSArray *locations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
         
-        resultsCell.textLabel.text = [favoritePlaces objectAtIndex:indexPath.row];
-        resultsCell.detailTextLabel.text = [locations objectAtIndex:indexPath.row];
+        //Set cell labels to items stored in mutable arrays
+        resultsCell.textLabel.text = [placeName objectAtIndex:indexPath.row];
+        resultsCell.detailTextLabel.text = [placeCityState objectAtIndex:indexPath.row];
     }
     
     return resultsCell;
+}
+
+#pragma mark - Parse
+
+//Method to retrieve Favorite Places saved on Parse
+- (void)retrieveFavoritePlaces {
+    
+    //Create a PFQuery to search for the data on Parse
+    PFQuery *favoritePlaceQuery = [PFQuery queryWithClassName:@"FavoritePlace"];
+    
+    [favoritePlaceQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            //No errors, found objects successfully
+            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            
+            //Loop through parse objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                
+                //Get name of place from object
+                NSString *favoritePlaceName = object[@"name"];
+                //Get city/state of place from object
+                NSString *favoritePlaceCityState = object[@"cityState"];
+                //Get object ID
+                NSString *objectID = object.objectId;
+                
+                //Add objects to NSMutableArray
+                //[parseFavorites addObject:object];
+                
+                //Add place names to array
+                [placeName addObject:favoritePlaceName];
+                //Add city/state to array
+                [placeCityState addObject:favoritePlaceCityState];
+                //Add object ID to array
+                [objectIDs addObject:objectID];
+            }
+            
+            //Refresh tableview
+            [placesTableView reloadData];
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 /*
