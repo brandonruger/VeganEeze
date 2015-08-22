@@ -8,6 +8,7 @@
 
 #import "CreateNewAcctVC.h"
 #import "MainMenuTVC.h"
+#import <Parse/Parse.h>
 
 @interface CreateNewAcctVC ()
 
@@ -23,6 +24,7 @@
     selectUsername.delegate = self;
     selectPassword.delegate = self;
     confirmPassword.delegate = self;
+    enterEmail.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +73,53 @@
     
     //Hide cancel button
     cancelButton.hidden = true;
+}
+
+#pragma mark - Parse
+
+- (IBAction)createNewAccount:(id)sender {
+    //Create new user object
+    PFUser *newUser = [PFUser user];
+    //Set username, password and email to what user entered in text fields
+    
+    //Make sure passwords in both fields match
+    if ([selectUsername.text isEqualToString:confirmPassword.text]) {
+        //Both passwords match
+        //Set username and password to what was entered
+        newUser.username = selectUsername.text;
+        newUser.password = selectPassword.text;
+        
+        //Verify email address format
+        
+        newUser.email = enterEmail.text;
+        
+        //Create account
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                //No errors, log user into app
+                [PFUser logInWithUsername:selectUsername.text password:selectPassword.text];
+                
+            } else {
+                //There was an error
+                NSString *errorString = [error userInfo][@"error"];
+                //Log error
+                NSLog(@"create account error = %@", errorString);
+                
+                //Alert user to try again
+                UIAlertView *createAccountError = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error setting up your account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                
+            }
+        }];
+        
+    } else {
+        //Alert user that passwords do not match
+        UIAlertView *passwordError = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Passwords must match in order to create an account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //Show alert
+        [passwordError show];
+        //Clear password fields
+        selectPassword.text = @"";
+        confirmPassword.text = @"";
+    }
 }
 
 
