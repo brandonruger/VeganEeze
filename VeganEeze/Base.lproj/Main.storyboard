@@ -445,6 +445,9 @@
                                 <state key="normal" title="Save as Favorite">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveFavoritePlace:" destination="BRz-si-Myg" eventType="touchUpInside" id="Qw9-8B-RqQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apg-L0-siU">
                                 <rect key="frame" x="36" y="324" width="55" height="21"/>
@@ -480,6 +483,9 @@
                                 <state key="normal" title="Save as Place to Visit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="savePlaceToVisit:" destination="BRz-si-Myg" eventType="touchUpInside" id="lu5-RB-4UB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -993,6 +999,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EyI-RH-Lgu"/>
-        <segue reference="bwe-xQ-Z5M"/>
+        <segue reference="fkM-d4-h6z"/>
     </inferredMetricsTieBreakers>
 </document>

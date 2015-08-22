@@ -10,6 +10,7 @@
 #import "WebVC.h"
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
+#import <Parse/Parse.h>
 
 @interface EventDetailVC ()
 
@@ -97,5 +98,37 @@
     webVC.websiteStr = eventURL;
     
 }
+
+#pragma mark - Save Favorites
+
+//Method to save favorite places to Parse
+-(IBAction)saveFavoritePlace:(id)sender {
+    //Gather data for current restaurant and save as a favoritePlace Parse object
+    PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
+    favoritePlace[@"name"] = eventName;
+    favoritePlace[@"address"] = eventAddress;
+    favoritePlace[@"cityState"] = eventCityState;
+    favoritePlace[@"phoneNo"] = eventPhoneNo;
+    favoritePlace[@"url"] = eventURL;
+    
+    //Save in background on Parse server
+    [favoritePlace saveInBackground];
+}
+
+
+//Method to save places to visit to Parse
+-(IBAction)savePlaceToVisit:(id)sender {
+    //Gather data for current restaurant and save as a placeToVisit Parse object
+    PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
+    placeToVisit[@"name"] = eventName;
+    placeToVisit[@"address"] = eventAddress;
+    placeToVisit[@"cityState"] = eventCityState;
+    placeToVisit[@"phoneNo"] = eventPhoneNo;
+    placeToVisit[@"url"] = eventURL;
+    
+    //Save in background on Parse server
+    [placeToVisit saveInBackground];
+}
+
 
 @end
