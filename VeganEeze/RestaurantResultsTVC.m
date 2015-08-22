@@ -22,7 +22,7 @@
     restaurantNames = [[NSArray alloc]initWithObjects:@"Ethos", @"Toasted", @"Dandelion Cafe", @"Loving Hut", nil];
     restaurantAddresses = [[NSArray alloc]initWithObjects:@"133 South St", @"2409 N Park Ave", @"849 East Orange Ln", @"9189 Apple Rd", nil];
     restaurantCityStates = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
-    restaurantURLs = [[NSArray alloc]initWithObjects:@"www.ethos.com", @"www.toasted.com", @"www.dandelion.com", @"www.lovinghut.com", nil];
+    restaurantURLs = [[NSArray alloc]initWithObjects:@"www.ethosvegankitchen.com", @"www.igettoasted.com", @"www.dandelioncommunitea.com", @"www.lovinghut.us", nil];
     restaurantPhones = [[NSArray alloc]initWithObjects:@"727-401-2009", @"727-394-3928", @"727-293-1293", @"727-203-5039", nil];
     
     // Uncomment the following line to preserve selection between presentations.

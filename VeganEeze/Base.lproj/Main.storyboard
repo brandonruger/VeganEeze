@@ -519,6 +519,9 @@
                                 <state key="normal" title="Restaurant's Website">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="sf1-14-qRg" kind="show" identifier="segueToWebBrowser" id="bwe-xQ-Z5M"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgO-u7-bEg">
                                 <rect key="frame" x="410" y="207" width="119" height="30"/>
@@ -867,6 +870,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCF-HZ-DfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4069" y="2183"/>
+        </scene>
+        <!--Web Browser-->
+        <scene sceneID="elL-Ym-UUb">
+            <objects>
+                <viewController title="Web Browser" id="sf1-14-qRg" customClass="WebVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KLH-YX-1MN"/>
+                        <viewControllerLayoutGuide type="bottom" id="lGo-1D-d0l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l6w-Sd-TfB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6lE-8h-NyT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="6lE-8h-NyT" id="e9A-zl-pUc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VW2-Pd-JDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4009" y="2933"/>
         </scene>
         <!--Event Details-->
         <scene sceneID="hla-gq-g7X">

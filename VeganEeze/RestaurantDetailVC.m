@@ -7,6 +7,7 @@
 //
 
 #import "RestaurantDetailVC.h"
+#import "WebVC.h"
 
 @interface RestaurantDetailVC ()
 
@@ -39,15 +40,19 @@
 }
 
 
-//#pragma mark - Navigation
-//
-////Segue method to pass information to detail view
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//    
-//    
-//}
+#pragma mark - Navigation
+
+//Segue method to pass information to detail view
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    //Access the web view
+    WebVC *webVC = segue.destinationViewController;
+    //Pass restaurant's URL to web view
+    webVC.websiteStr = restaurantURL;
+    
+}
 
 @end
