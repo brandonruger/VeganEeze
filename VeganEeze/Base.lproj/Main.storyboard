@@ -286,7 +286,7 @@
                                     <segment title="Search by city/state"/>
                                 </segments>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-N8-H1d">
+                            <searchBar hidden="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-N8-H1d">
                                 <rect key="frame" x="72" y="294" width="457" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -308,7 +308,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zRR-M0-aB2" kind="show" id="SIl-9L-zvi"/>
+                                    <segue destination="zRR-M0-aB2" kind="show" identifier="segueToRestaurantResults" id="SIl-9L-zvi"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-cE-YXG">
@@ -327,6 +327,7 @@
                         <outlet property="cancelButton" destination="B8n-cE-YXG" id="BU2-We-4iF"/>
                         <outlet property="keyword" destination="g8z-kR-0ys" id="di7-1C-XDx"/>
                         <outlet property="location" destination="5cX-N8-H1d" id="p4W-WS-fL3"/>
+                        <outlet property="searchSegmentedControl" destination="XDe-8q-Vr0" id="OgN-2O-HCY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrD-qN-yZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -705,7 +706,7 @@
                                     <segment title="Search by city/state"/>
                                 </segments>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="Hi8-Do-t81">
+                            <searchBar hidden="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="Hi8-Do-t81">
                                 <rect key="frame" x="72" y="314" width="457" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -715,7 +716,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GvM-21-Yli" kind="show" id="lFJ-zV-g4w"/>
+                                    <segue destination="GvM-21-Yli" kind="show" identifier="segueToEventResults" id="lFJ-zV-g4w"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-dS-XSB">
@@ -734,6 +735,7 @@
                         <outlet property="cancelButton" destination="nfd-dS-XSB" id="p7F-2u-hDB"/>
                         <outlet property="keyword" destination="MUf-KH-KIb" id="qNI-pQ-wuO"/>
                         <outlet property="location" destination="Hi8-Do-t81" id="der-fk-ibm"/>
+                        <outlet property="searchSegmentedControl" destination="NcW-Kp-WOl" id="CBP-6D-gb3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTA-kb-uAt" userLabel="First Responder" sceneMemberID="firstResponder"/>

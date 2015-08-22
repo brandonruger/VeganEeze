@@ -21,6 +21,9 @@
     //Set search bars' delegate
     keyword.delegate = self;
     location.delegate = self;
+    
+    //Add target selectors to segmented control buttons
+    [searchSegmentedControl addTarget:self action:@selector(howToSearch:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +48,56 @@
     
     //Hide cancel button
     cancelButton.hidden = true;
+}
+
+//Called when search button is clicked on keyboard
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    //Perform segue to Beverage Search Results
+    [self performSegueWithIdentifier:@"segueToRestaurantResults" sender:self];
+    
+}
+
+//Called when cancel button on search bar is clicked
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    
+    //Dismiss keyboard
+    [self.view endEditing:YES];
+    
+    //Clear text from search bar
+    searchBar.text = @"";
+}
+
+#pragma mark - Segmented Control Button methods
+
+//Method called when segmented control button changes
+- (void)howToSearch:(UISegmentedControl *)sender {
+    //Get index of button pressed
+    NSInteger segmentControlSelected = sender.selectedSegmentIndex;
+    
+    if (segmentControlSelected == 0) { //
+        //Call the method to search by current location
+        [self searchByCurrentLoc];
+    } else {
+        //Call method to search by city/state
+        [self searchCityState];
+    }
+}
+
+//Method called when segmented control is set to "search current location"
+- (void)searchByCurrentLoc {
+    NSLog(@"Search by current location enabled");
+    
+    //Hide location search bar
+    location.hidden = TRUE;
+}
+
+//Method called when segmented control is set to "search by city/state"
+- (void)searchCityState {
+    NSLog(@"Search by city state enabled");
+    
+    //Show location search bar
+    location.hidden = FALSE;
 }
 
 /*
