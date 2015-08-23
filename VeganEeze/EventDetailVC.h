@@ -16,6 +16,8 @@
     IBOutlet UILabel *eventCityStateLabel;
     IBOutlet UIButton *eventUrlLabel;
     IBOutlet UILabel *eventPhoneLabel;
+    
+    IBOutlet UITextView *phoneNoTV;
 }
 
 @property (nonatomic, strong) NSString *eventName;

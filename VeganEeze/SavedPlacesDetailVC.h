@@ -17,6 +17,8 @@
     IBOutlet UIButton *urlLabel;
     IBOutlet UILabel *phoneLabel;
     
+    IBOutlet UITextView *phoneNoTV;
+    
     NSString *nameOfPlace;
     NSString *addressOfPlace;
     NSString *cityStateOfPlace;

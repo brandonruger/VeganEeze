@@ -49,6 +49,9 @@
             //Set button text
             [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
             
+            //Set phone # to appear in text view
+            phoneNoTV.text = phoneNoOfPlace;
+            
         } else {
             //Run second query to check for Object ID
             [placeToVisitQuery getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {

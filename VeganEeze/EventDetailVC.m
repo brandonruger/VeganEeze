@@ -85,6 +85,9 @@
     //Set URL button text
     [eventUrlLabel setTitle:eventURL forState:UIControlStateNormal];
     
+    //Set phone # to appear in text view
+    phoneNoTV.text = eventPhoneNo;
+    
 }
 
 #pragma mark - Navigation
