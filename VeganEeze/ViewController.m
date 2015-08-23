@@ -149,6 +149,29 @@
     }
 }
 
+#pragma mark - Forgot Password
+
+-(IBAction)forgotPassword:(id)sender {
+    //Show alert with text input for user to enter their email address
+    UIAlertView *forgotPassword = [[UIAlertView alloc]initWithTitle:@"Forgot Password?" message:@"Please enter your email address below to reset your password." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+    //Set style to allow text input
+    forgotPassword.alertViewStyle = UIAlertViewStylePlainTextInput;
+    //Show alert
+    [forgotPassword show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    //User clicked submit button
+    if (buttonIndex == 1) {
+        //Gather the email address user entered
+        NSString *emailAddressEntered = [[alertView textFieldAtIndex:0] text];
+        
+        //Request password reset via Parse
+        [PFUser requestPasswordResetForEmailInBackground:emailAddressEntered];
+    
+    }
+}
+
 
 
 @end
