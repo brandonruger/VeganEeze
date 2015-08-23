@@ -69,6 +69,9 @@
     //Set URL button text
     [urlLabel setTitle:restaurantURL forState:UIControlStateNormal];
     
+    //Set phone # to appear in text view
+    phoneNoTV.text = restaurantPhoneNo;
+    
 }
 
 #pragma mark - Twitter Sharing
@@ -136,6 +139,15 @@
     [placeToVisit saveInBackground];
 }
 
+//#pragma mark - Launch Phone Dialer
+//
+//-(IBAction)launchPhoneDialer:(id)sender {
+//    
+//    //Create string for phone number
+//    NSString *restaurantPhoneNo = [@"tel://" stringByAppendingString:restaurantPhoneNo];
+//    //Launch phone dialer app
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:restaurantPhoneNo]];
+//}
 
 
 

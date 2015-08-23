@@ -18,6 +18,8 @@
     IBOutlet UIButton *urlLabel;
     IBOutlet UILabel *phoneLabel;
     
+    IBOutlet UITextView *phoneNoTV;
+    
 }
 
 @property (nonatomic, strong) NSString *restaurantName;
