@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E03CDAC1B8BF57000CEE251 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E03CDAB1B8BF57000CEE251 /* CommentCell.m */; };
 		0E17C8271B88CE570088C466 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E17C8251B88CE570088C466 /* Bolts.framework */; };
 		0E17C8281B88CE570088C466 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E17C8261B88CE570088C466 /* Parse.framework */; };
 		0E17C82A1B88CE920088C466 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E17C8291B88CE920088C466 /* AudioToolbox.framework */; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E03CDAA1B8BF57000CEE251 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		0E03CDAB1B8BF57000CEE251 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		0E17C8251B88CE570088C466 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		0E17C8261B88CE570088C466 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0E17C8291B88CE920088C466 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -220,6 +223,8 @@
 				0E42C1C81B87FC7400708326 /* WebVC.m */,
 				0E17C83B1B8911CC0088C466 /* SavedPlacesDetailVC.h */,
 				0E17C83C1B8911CC0088C466 /* SavedPlacesDetailVC.m */,
+				0E03CDAA1B8BF57000CEE251 /* CommentCell.h */,
+				0E03CDAB1B8BF57000CEE251 /* CommentCell.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				0ED7BA0E1B85736B0038EF3A /* MainMenuTVC.m in Sources */,
 				0E62328E1B84096000562474 /* ViewController.m in Sources */,
 				0E62328B1B84096000562474 /* AppDelegate.m in Sources */,
+				0E03CDAC1B8BF57000CEE251 /* CommentCell.m in Sources */,
 				0E6232B31B8423AC00562474 /* FindARestaurantVC.m in Sources */,
 				0ED7BA1D1B869F390038EF3A /* PlacesToVisitTVC.m in Sources */,
 				0E6232AD1B8416D300562474 /* CreateNewAcctVC.m in Sources */,

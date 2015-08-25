@@ -139,6 +139,11 @@
     [placeToVisit saveInBackground];
 }
 
+#pragma mark - Launch Map app
+-(IBAction)launchMapForDirections:(id)sender {
+    
+}
+
 //#pragma mark - Launch Phone Dialer
 //
 //-(IBAction)launchPhoneDialer:(id)sender {
