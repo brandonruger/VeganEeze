@@ -538,6 +538,15 @@
                                     <outlet property="delegate" destination="BRz-si-Myg" id="okt-Dh-mk6"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM5-AV-7rd">
+                                <rect key="frame" x="237" y="379" width="130" height="30"/>
+                                <state key="normal" title="Add new comment">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewComment:" destination="BRz-si-Myg" eventType="touchUpInside" id="fwt-fb-Zvn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -701,10 +710,20 @@
                                     <outlet property="delegate" destination="MIn-9F-pad" id="3b2-hK-GJi"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GQ-Rw-xUM">
+                                <rect key="frame" x="238" y="387" width="130" height="30"/>
+                                <state key="normal" title="Add new comment">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewComment:" destination="MIn-9F-pad" eventType="touchUpInside" id="FaS-Mx-fu3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="addNewComment" destination="3GQ-Rw-xUM" id="o8e-GN-9kz"/>
                         <outlet property="addressLabel" destination="ddV-zi-52F" id="qhn-xs-9Zq"/>
                         <outlet property="cityStateLabel" destination="7jn-aR-pSe" id="OBc-wP-JNV"/>
                         <outlet property="commentsTV" destination="YBt-7O-VXc" id="O3h-Ks-ZxD"/>
@@ -1165,6 +1184,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EyI-RH-Lgu"/>
-        <segue reference="bwe-xQ-Z5M"/>
+        <segue reference="fkM-d4-h6z"/>
     </inferredMetricsTieBreakers>
 </document>

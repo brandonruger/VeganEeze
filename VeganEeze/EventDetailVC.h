@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface EventDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface EventDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 {
     IBOutlet UILabel *eventNameLabel;
@@ -20,8 +21,11 @@
     IBOutlet UITextView *phoneNoTV;
     
     IBOutlet UITableView *commentsTV;
-    NSArray *usernames;
-    NSArray *comments;
+    NSMutableArray *usernames;
+    NSMutableArray *comments;
+    
+    //IBOutlet UIButton *addNewComment;
+    PFUser *currentUser;
 }
 
 @property (nonatomic, strong) NSString *eventName;

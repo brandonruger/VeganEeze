@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface RestaurantDetailVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface RestaurantDetailVC : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 
 {
   
@@ -21,8 +22,11 @@
     IBOutlet UITextView *phoneNoTV;
     
     IBOutlet UITableView *commentsTV;
-    NSArray *usernames;
-    NSArray *comments;
+    NSMutableArray *usernames;
+    NSMutableArray *comments;
+    
+    //IBOutlet UIButton *addNewComment;
+    PFUser *currentUser;
     
 }
 

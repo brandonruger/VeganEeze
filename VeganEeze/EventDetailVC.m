@@ -25,10 +25,10 @@
     // Do any additional setup after loading the view.
     
     //Setup array for usernames
-    usernames = [[NSArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
+    usernames = [[NSMutableArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
     
     //Setup array for comments
-    comments = [[NSArray alloc]initWithObjects:@"This place was one of my favorites!", @"I absolutely love this place", @"I wanna go back", @"I love it here!", nil];
+    comments = [[NSMutableArray alloc]initWithObjects:@"This place was one of my favorites!", @"I absolutely love this place", @"I wanna go back", @"I love it here!", nil];
     
     //Access user's Twitter account on device
     ACAccountStore *accountStore = [[ACAccountStore alloc]init];
@@ -150,7 +150,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return [comments count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -172,5 +172,33 @@
     return commentsCell;
 }
 
+//Method to add new comment
+-(IBAction)addNewComment:(id)sender {
+    
+    //Show alert with text input for user to enter their comment
+    UIAlertView *newComment = [[UIAlertView alloc]initWithTitle:@"Add new comment" message:@"Enter comment below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+    //Set style to allow text input
+    newComment.alertViewStyle = UIAlertViewStylePlainTextInput;
+    //Show alert
+    [newComment show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    //User clicked submit button
+    if (buttonIndex == 1) {
+        //Gather the comment user entered
+        NSString *commentEntered = [[alertView textFieldAtIndex:0] text];
+        
+        //Get logged in user's username from Parse
+        NSString *currentUsername = [PFUser currentUser].username;
+        
+        //Add comment/username to mutable arrays
+        [usernames addObject:currentUsername];
+        [comments addObject:commentEntered];
+        
+        //Refresh tableview
+        [commentsTV reloadData];
+    }
+}
 
 @end
