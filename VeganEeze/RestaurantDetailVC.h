@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RestaurantDetailVC : UIViewController
+@interface RestaurantDetailVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 {
   
@@ -19,6 +19,10 @@
     IBOutlet UILabel *phoneLabel;
     
     IBOutlet UITextView *phoneNoTV;
+    
+    IBOutlet UITableView *commentsTV;
+    NSArray *usernames;
+    NSArray *comments;
     
 }
 

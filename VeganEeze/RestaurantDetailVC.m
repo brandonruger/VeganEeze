@@ -11,6 +11,7 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 #import <Parse/Parse.h>
+#import "CommentCell.h"
 
 @interface RestaurantDetailVC ()
 
@@ -22,6 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //Setup array for usernames
+    usernames = [[NSArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
+    
+    //Setup array for comments
+    comments = [[NSArray alloc]initWithObjects:@"This place was one of my favorites!", @"I absolutely love this place", @"I wanna go back", @"I love it here!", nil];
     
     //Access user's Twitter account on device
     ACAccountStore *accountStore = [[ACAccountStore alloc]init];
@@ -154,6 +161,30 @@
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:restaurantPhoneNo]];
 //}
 
+#pragma mark - Comments/Ratings
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CommentCell *commentsCell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+    if (commentsCell != nil) {
+        
+        //Get index of row and use index to get username/comments from array
+        NSString *currentUsername = [usernames objectAtIndex:indexPath.row];
+        NSString *currentComment = [comments objectAtIndex:indexPath.row];
+        
+        //Call cell's custom method to update cell
+        [commentsCell updateCellWithComments:currentUsername userComment:currentComment];
+        
+        //commentsCell.textLabel.text = [comments objectAtIndex:indexPath.row];
+        //commentsCell.detailTextLabel.text = [restaurantCityStates objectAtIndex:indexPath.row];
+    }
+    
+    return commentsCell;
+}
 
 @end
