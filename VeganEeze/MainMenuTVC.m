@@ -22,6 +22,11 @@
     //Hide back button on navigation bar
     self.navigationItem.hidesBackButton = YES;
     
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"mplus-1c-regular" size:21],
+      NSFontAttributeName, nil]];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

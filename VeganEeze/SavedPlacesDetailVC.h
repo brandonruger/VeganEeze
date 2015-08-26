@@ -12,7 +12,7 @@
 
 {
     IBOutlet UILabel *nameLabel;
-    IBOutlet UILabel *addressLabel;
+    IBOutlet UITextView *addressTV;
     IBOutlet UILabel *cityStateLabel;
     IBOutlet UIButton *urlLabel;
     IBOutlet UILabel *phoneLabel;

@@ -42,7 +42,7 @@
             
             //Set text labels to above object
             nameLabel.text = nameOfPlace;
-            addressLabel.text = addressOfPlace;
+            addressTV.text = addressOfPlace;
             cityStateLabel.text = cityStateOfPlace;
             phoneLabel.text = phoneNoOfPlace;
             
@@ -67,7 +67,7 @@
                     
                     //Set text labels to above object
                     nameLabel.text = nameOfPlace;
-                    addressLabel.text = addressOfPlace;
+                    addressTV.text = addressOfPlace;
                     cityStateLabel.text = cityStateOfPlace;
                     phoneLabel.text = phoneNoOfPlace;
                     
