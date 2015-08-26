@@ -14,12 +14,13 @@
 {
   
     IBOutlet UILabel *nameLabel;
-    IBOutlet UILabel *addressLabel;
+    //IBOutlet UILabel *addressLabel;
     IBOutlet UILabel *cityStateLabel;
     IBOutlet UIButton *urlLabel;
     IBOutlet UILabel *phoneLabel;
     
     IBOutlet UITextView *phoneNoTV;
+    IBOutlet UITextView *addressTV;
     
     IBOutlet UITableView *commentsTV;
     NSMutableArray *usernames;

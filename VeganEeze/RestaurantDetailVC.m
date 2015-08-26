@@ -69,7 +69,7 @@
     
     //Set restaurant labels to display information passed over from segue
     nameLabel.text = restaurantName;
-    addressLabel.text = restaurantAddress;
+    addressTV.text = restaurantAddress;
     cityStateLabel.text = restaurantCityState;
     phoneLabel.text = restaurantPhoneNo;
     

@@ -13,12 +13,14 @@
 
 {
     IBOutlet UILabel *eventNameLabel;
-    IBOutlet UILabel *eventAddressLabel;
+    //IBOutlet UILabel *eventAddressLabel;
     IBOutlet UILabel *eventCityStateLabel;
     IBOutlet UIButton *eventUrlLabel;
     IBOutlet UILabel *eventPhoneLabel;
     
     IBOutlet UITextView *phoneNoTV;
+    IBOutlet UITextView *addressTV;
+
     
     IBOutlet UITableView *commentsTV;
     NSMutableArray *usernames;
