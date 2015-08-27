@@ -900,7 +900,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FIc-YK-fd0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.37647058820000001" green="0.56862745100000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" textLabel="3zg-K3-ecq" detailTextLabel="R62-h7-xg0" style="IBUITableViewCellStyleValue1" id="Dl3-Er-XLG">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -921,6 +922,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="MIn-9F-pad" kind="show" identifier="restaurantDetailSegue" id="eNL-Z6-6AK"/>
                                 </connections>
@@ -1014,7 +1016,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VsK-yT-hlp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.37647058820000001" green="0.56862745100000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventsCell" textLabel="dCL-Ni-au9" detailTextLabel="hZr-uf-YRH" style="IBUITableViewCellStyleValue1" id="KIX-Oe-C8w">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1034,8 +1037,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.78039215689999997" green="0.69803921570000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="BRz-si-Myg" kind="show" id="ZHA-b2-W2S"/>
                                 </connections>
@@ -1061,7 +1064,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IEl-Ka-9Km">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.37647058820000001" green="0.56862745100000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlacesCell" textLabel="3QA-0I-nSC" detailTextLabel="mFD-nj-Ay5" style="IBUITableViewCellStyleValue1" id="Yid-9i-B6b">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1082,6 +1086,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="tLO-bQ-eIr" kind="show" identifier="segueFavoritesToDetails" id="wpT-E3-ivs"/>
                                 </connections>
@@ -1107,7 +1112,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Pah-Ta-CHk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.37647058820000001" green="0.56862745100000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToVisitCell" textLabel="fom-CT-jvw" detailTextLabel="nnR-sf-acx" style="IBUITableViewCellStyleValue1" id="1xm-hY-A9t">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1128,6 +1134,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1251,13 +1258,15 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kI1-m6-J2B">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.37647058820000001" green="0.56862745100000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResourceCell" id="OxV-Sd-dBR">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OxV-Sd-dBR" id="NmY-ax-NAw">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
