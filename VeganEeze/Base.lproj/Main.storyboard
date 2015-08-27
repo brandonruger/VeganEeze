@@ -953,56 +953,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="FWM-7J-OgL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="sau-dW-zlY">
                                 <rect key="frame" x="0.0" y="-3" width="600" height="605"/>
                             </imageView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="MUf-KH-KIb">
-                                <rect key="frame" x="72" y="241" width="457" height="44"/>
+                            <searchBar contentMode="redraw" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="4HZ-Oa-oLn">
+                                <rect key="frame" x="72" y="202" width="457" height="44"/>
+                                <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NcW-Kp-WOl">
-                                <rect key="frame" x="89" y="341" width="423" height="29"/>
-                                <segments>
-                                    <segment title="Search Current Location"/>
-                                    <segment title="Search by city/state"/>
-                                </segments>
-                            </segmentedControl>
-                            <searchBar hidden="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="Hi8-Do-t81">
-                                <rect key="frame" x="72" y="402" width="457" height="44"/>
+                            <searchBar hidden="YES" contentMode="redraw" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5lx-Uk-xA9">
+                                <rect key="frame" x="72" y="321" width="457" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahM-ma-TU5">
-                                <rect key="frame" x="72" y="467" width="48" height="30"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="Search">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="GvM-21-Yli" kind="show" identifier="segueToEventResults" id="lFJ-zV-g4w"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-dS-XSB">
-                                <rect key="frame" x="16" y="72" width="48" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yew-dG-tl9">
+                                <rect key="frame" x="10" y="69" width="46" height="31"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelKeyboard:" destination="kMl-5x-2O2" eventType="touchUpInside" id="xlP-Ey-wlz"/>
+                                    <action selector="cancelKeyboard:" destination="swq-sF-hd9" eventType="touchUpInside" id="svo-md-5fe"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IeX-RI-SOo">
-                                <rect key="frame" x="0.0" y="110" width="600" height="111"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
+                                <rect key="frame" x="72" y="382" width="44" height="31"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUO-1T-Rmi">
+                                <rect key="frame" x="0.0" y="61" width="600" height="162"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5t-kP-nqv">
+                                <rect key="frame" x="10" y="7" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-NA-kPy">
+                                <rect key="frame" x="89" y="273" width="423" height="29"/>
+                                <segments>
+                                    <segment title="Location"/>
+                                    <segment title="Search city"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5lx-Uk-xA9" firstAttribute="top" secondItem="Jmf-NA-kPy" secondAttribute="bottom" constant="20" id="5Rb-Tk-v7x"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="sau-dW-zlY" secondAttribute="bottom" constant="-2" id="6e7-If-NbA"/>
+                            <constraint firstItem="4HZ-Oa-oLn" firstAttribute="top" secondItem="oUO-1T-Rmi" secondAttribute="bottom" constant="-21" id="96I-RX-ZnG"/>
+                            <constraint firstItem="YoH-DB-ocY" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="BvF-fy-4J1"/>
+                            <constraint firstItem="yew-dG-tl9" firstAttribute="top" secondItem="XuW-PK-VUY" secondAttribute="bottom" constant="5" id="CCO-PF-5lw"/>
+                            <constraint firstItem="sau-dW-zlY" firstAttribute="top" secondItem="0SV-k8-GBf" secondAttribute="topMargin" constant="-3" id="HaJ-US-phF"/>
+                            <constraint firstItem="sau-dW-zlY" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="-16" id="JUC-ez-LbF"/>
+                            <constraint firstItem="yew-dG-tl9" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="-6" id="Mhu-wD-rZk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sau-dW-zlY" secondAttribute="trailing" constant="-16" id="Nxm-XD-1Hf"/>
+                            <constraint firstItem="Jmf-NA-kPy" firstAttribute="top" secondItem="4HZ-Oa-oLn" secondAttribute="bottom" constant="27" id="PSp-pU-Z4t"/>
+                            <constraint firstItem="4HZ-Oa-oLn" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="THU-H1-K0u"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jmf-NA-kPy" secondAttribute="trailing" constant="72" id="UXK-5k-DY6"/>
+                            <constraint firstItem="x5t-kP-nqv" firstAttribute="top" secondItem="0SV-k8-GBf" secondAttribute="topMargin" constant="7" id="Z1R-Lj-d4F"/>
+                            <constraint firstItem="oUO-1T-Rmi" firstAttribute="top" secondItem="x5t-kP-nqv" secondAttribute="bottom" constant="24" id="Z1d-ue-D9L"/>
+                            <constraint firstItem="oUO-1T-Rmi" firstAttribute="leading" secondItem="XuW-PK-VUY" secondAttribute="trailing" constant="-600" id="cff-jp-5bm"/>
+                            <constraint firstItem="x5t-kP-nqv" firstAttribute="leading" secondItem="yew-dG-tl9" secondAttribute="leading" id="eSD-dI-s1o"/>
+                            <constraint firstItem="oUO-1T-Rmi" firstAttribute="top" secondItem="0SV-k8-GBf" secondAttribute="topMargin" constant="61" id="g8C-0z-u3J"/>
+                            <constraint firstItem="4HZ-Oa-oLn" firstAttribute="top" secondItem="XuW-PK-VUY" secondAttribute="bottom" constant="138" id="gjp-VM-09b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4HZ-Oa-oLn" secondAttribute="trailing" constant="55" id="gzi-2r-ISN"/>
+                            <constraint firstItem="oUO-1T-Rmi" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="-16" id="h02-yp-u8O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5lx-Uk-xA9" secondAttribute="trailing" constant="55" id="o5S-if-LfW"/>
+                            <constraint firstItem="YoH-DB-ocY" firstAttribute="top" secondItem="5lx-Uk-xA9" secondAttribute="bottom" constant="17" id="ro9-yt-JOE"/>
+                            <constraint firstItem="Jmf-NA-kPy" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="73" id="rsh-Uj-H5w"/>
+                            <constraint firstItem="5lx-Uk-xA9" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="vgT-Vk-7aS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oUO-1T-Rmi" secondAttribute="trailing" constant="-16" id="yVG-iV-yfI"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Z1d-ue-D9L"/>
+                                <exclude reference="cff-jp-5bm"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="nfd-dS-XSB" id="p7F-2u-hDB"/>
-                        <outlet property="keyword" destination="MUf-KH-KIb" id="qNI-pQ-wuO"/>
-                        <outlet property="location" destination="Hi8-Do-t81" id="der-fk-ibm"/>
-                        <outlet property="searchSegmentedControl" destination="NcW-Kp-WOl" id="CBP-6D-gb3"/>
-                        <outlet property="veganChoicePicker" destination="IeX-RI-SOo" id="gWW-tE-o2V"/>
+                        <outlet property="cancelButton" destination="yew-dG-tl9" id="oZU-sk-hDV"/>
+                        <outlet property="keyword" destination="4HZ-Oa-oLn" id="sbW-ei-3Tu"/>
+                        <outlet property="location" destination="5lx-Uk-xA9" id="p4u-Jq-wds"/>
+                        <outlet property="searchSegmentedControl" destination="Jmf-NA-kPy" id="mp9-8j-jcV"/>
+                        <outlet property="veganChoicePicker" destination="oUO-1T-Rmi" id="iXE-ag-801"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTA-kb-uAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
