@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface FindARestaurantVC : UIViewController <UISearchBarDelegate, CLLocationManagerDelegate>
+@interface FindARestaurantVC : UIViewController <UISearchBarDelegate, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 {
     IBOutlet UISearchBar *keyword;
@@ -18,6 +18,9 @@
     IBOutlet UISegmentedControl *searchSegmentedControl;
     
     CLLocationManager *locationMgr;
+    
+    IBOutlet UIPickerView *veganChoicePicker;
+    NSArray *pickerChoices;
 }
 
 @end

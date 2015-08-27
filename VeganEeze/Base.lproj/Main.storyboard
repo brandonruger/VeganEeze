@@ -380,23 +380,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="foY-vG-jeb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="foY-vG-jeb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="605"/>
                             </imageView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-kR-0ys">
-                                <rect key="frame" x="72" y="133" width="457" height="44"/>
+                            <searchBar contentMode="redraw" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-kR-0ys">
+                                <rect key="frame" x="72" y="205" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XDe-8q-Vr0">
-                                <rect key="frame" x="89" y="232" width="423" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XDe-8q-Vr0">
+                                <rect key="frame" x="89" y="275" width="423" height="29"/>
                                 <segments>
-                                    <segment title="Search Current Location"/>
-                                    <segment title="Search by city/state"/>
+                                    <segment title="Location"/>
+                                    <segment title="Search city"/>
                                 </segments>
                             </segmentedControl>
-                            <searchBar hidden="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-N8-H1d">
-                                <rect key="frame" x="72" y="294" width="457" height="44"/>
+                            <searchBar hidden="YES" contentMode="redraw" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-N8-H1d">
+                                <rect key="frame" x="72" y="324" width="457" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLo-u4-RqU">
@@ -405,18 +405,23 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-cE-YXG">
-                                <rect key="frame" x="10" y="72" width="48" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-cE-YXG">
+                                <rect key="frame" x="10" y="72" width="46" height="31"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelKeyboard:" destination="swq-sF-hd9" eventType="touchUpInside" id="yKH-UW-DzF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA7-JX-gZG">
-                                <rect key="frame" x="72" y="361" width="166" height="30"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drP-JQ-4f3">
+                                <rect key="frame" x="0.0" y="64" width="600" height="162"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA7-JX-gZG">
+                                <rect key="frame" x="72" y="385" width="44" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Search">
@@ -429,12 +434,35 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5cX-N8-H1d" firstAttribute="top" secondItem="XDe-8q-Vr0" secondAttribute="bottom" constant="21" id="2zU-cC-IaU"/>
+                            <constraint firstItem="g8z-kR-0ys" firstAttribute="top" secondItem="drP-JQ-4f3" secondAttribute="bottom" constant="-21" id="6O3-5g-aUD"/>
+                            <constraint firstItem="g8z-kR-0ys" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="56" id="IZc-TQ-LUC"/>
+                            <constraint firstItem="B8n-cE-YXG" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="-6" id="KbS-LV-7Q3"/>
+                            <constraint firstItem="drP-JQ-4f3" firstAttribute="top" secondItem="a9h-w5-zk1" secondAttribute="bottom" id="RSJ-qu-WAy"/>
+                            <constraint firstItem="drP-JQ-4f3" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="-16" id="RfP-m0-ohD"/>
+                            <constraint firstItem="XDe-8q-Vr0" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="73" id="Tcm-eL-FHe"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="foY-vG-jeb" secondAttribute="bottom" constant="-5" id="Vgc-7h-xHd"/>
+                            <constraint firstItem="foY-vG-jeb" firstAttribute="top" secondItem="QKe-F0-P1P" secondAttribute="topMargin" id="b5q-Si-rV8"/>
+                            <constraint firstItem="5cX-N8-H1d" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="56" id="dF4-fb-llR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="foY-vG-jeb" secondAttribute="trailing" constant="-16" id="hAs-sa-4NZ"/>
+                            <constraint firstItem="hA7-JX-gZG" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="56" id="kAp-VY-Y8r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XDe-8q-Vr0" secondAttribute="trailing" constant="72" id="kD7-E3-A1z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g8z-kR-0ys" secondAttribute="trailing" constant="55" id="lzO-aA-lZ8"/>
+                            <constraint firstItem="hA7-JX-gZG" firstAttribute="top" secondItem="XDe-8q-Vr0" secondAttribute="bottom" constant="82" id="rjI-pX-vBs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5cX-N8-H1d" secondAttribute="trailing" constant="55" id="tk4-Te-vFr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="drP-JQ-4f3" secondAttribute="trailing" constant="-16" id="uS3-2l-DIt"/>
+                            <constraint firstItem="B8n-cE-YXG" firstAttribute="top" secondItem="a9h-w5-zk1" secondAttribute="bottom" constant="8" id="wrD-C7-dhr"/>
+                            <constraint firstItem="foY-vG-jeb" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="-16" id="yQk-CY-yvg"/>
+                            <constraint firstItem="XDe-8q-Vr0" firstAttribute="top" secondItem="g8z-kR-0ys" secondAttribute="bottom" constant="26" id="yr1-Bi-l01"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="B8n-cE-YXG" id="BU2-We-4iF"/>
                         <outlet property="keyword" destination="g8z-kR-0ys" id="di7-1C-XDx"/>
                         <outlet property="location" destination="5cX-N8-H1d" id="p4W-WS-fL3"/>
                         <outlet property="searchSegmentedControl" destination="XDe-8q-Vr0" id="OgN-2O-HCY"/>
+                        <outlet property="veganChoicePicker" destination="drP-JQ-4f3" id="3Ig-9y-Kr2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrD-qN-yZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -925,22 +953,22 @@
                                 <rect key="frame" x="0.0" y="-3" width="600" height="605"/>
                             </imageView>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="MUf-KH-KIb">
-                                <rect key="frame" x="72" y="153" width="457" height="44"/>
+                                <rect key="frame" x="72" y="241" width="457" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NcW-Kp-WOl">
-                                <rect key="frame" x="89" y="253" width="423" height="29"/>
+                                <rect key="frame" x="89" y="341" width="423" height="29"/>
                                 <segments>
                                     <segment title="Search Current Location"/>
                                     <segment title="Search by city/state"/>
                                 </segments>
                             </segmentedControl>
                             <searchBar hidden="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="Hi8-Do-t81">
-                                <rect key="frame" x="72" y="314" width="457" height="44"/>
+                                <rect key="frame" x="72" y="402" width="457" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahM-ma-TU5">
-                                <rect key="frame" x="72" y="379" width="48" height="30"/>
+                                <rect key="frame" x="72" y="467" width="48" height="30"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -959,6 +987,9 @@
                                     <action selector="cancelKeyboard:" destination="kMl-5x-2O2" eventType="touchUpInside" id="xlP-Ey-wlz"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IeX-RI-SOo">
+                                <rect key="frame" x="0.0" y="110" width="600" height="111"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -967,6 +998,7 @@
                         <outlet property="keyword" destination="MUf-KH-KIb" id="qNI-pQ-wuO"/>
                         <outlet property="location" destination="Hi8-Do-t81" id="der-fk-ibm"/>
                         <outlet property="searchSegmentedControl" destination="NcW-Kp-WOl" id="CBP-6D-gb3"/>
+                        <outlet property="veganChoicePicker" destination="IeX-RI-SOo" id="gWW-tE-o2V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTA-kb-uAt" userLabel="First Responder" sceneMemberID="firstResponder"/>

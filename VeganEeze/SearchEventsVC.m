@@ -22,6 +22,13 @@
     keyword.delegate = self;
     location.delegate = self;
     
+    //Setup array with choices for picker
+    pickerChoices = [[NSArray alloc]initWithObjects:@"Vegan", @"Vegetarian", @"Veg-Friendly", nil];
+    
+    //Connect picker view to delegates
+    veganChoicePicker.dataSource = self;
+    veganChoicePicker.delegate = self;
+    
     //Get current location
     [self getCurrentLocation];
     
@@ -139,6 +146,24 @@
     }
 }
 
+#pragma mark - Picker View
+
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    
+    return 1;
+}
+
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    
+    return [pickerChoices count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
+    return pickerChoices[row];
+}
 
 /*
 #pragma mark - Navigation
