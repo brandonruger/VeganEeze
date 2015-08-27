@@ -851,30 +851,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-eA-2Tc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-eA-2Tc">
                                 <rect key="frame" x="0.0" y="-5" width="600" height="605"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Ii-XFh">
-                                <rect key="frame" x="64" y="239" width="48" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Ii-XFh">
+                                <rect key="frame" x="64" y="239" width="44" height="31"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="FEZ-zh-ePW" kind="show" identifier="segueToBeverageResults" id="JgH-ZG-68A"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hZ-5f-ACX">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hZ-5f-ACX">
                                 <rect key="frame" x="16" y="72" width="48" height="30"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelKeyboard:" destination="HC7-S3-PmI" eventType="touchUpInside" id="MzF-Yr-mxc"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Enter name of product" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-N8-me0">
+                            <searchBar contentMode="redraw" placeholder="Enter name of product" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-N8-me0">
                                 <rect key="frame" x="64" y="171" width="473" height="44"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -883,6 +889,19 @@
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JNE-Ii-XFh" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="48" id="3vU-ga-5eV"/>
+                            <constraint firstItem="5hZ-5f-ACX" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" id="MNp-jl-OgO"/>
+                            <constraint firstItem="XUf-N8-me0" firstAttribute="top" secondItem="JTZ-wh-pBQ" secondAttribute="bottom" constant="107" id="NDZ-b4-Nc7"/>
+                            <constraint firstItem="O6v-DU-f3x" firstAttribute="top" secondItem="BC4-eA-2Tc" secondAttribute="bottom" id="Q6X-AM-Gdw"/>
+                            <constraint firstItem="JNE-Ii-XFh" firstAttribute="top" secondItem="XUf-N8-me0" secondAttribute="bottom" constant="24" id="Rab-1n-sDW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XUf-N8-me0" secondAttribute="trailing" constant="47" id="Sxn-TQ-7fC"/>
+                            <constraint firstItem="BC4-eA-2Tc" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="-16" id="VfD-Lx-n0u"/>
+                            <constraint firstItem="BC4-eA-2Tc" firstAttribute="top" secondItem="smP-Yt-79C" secondAttribute="topMargin" constant="-5" id="htM-W6-u35"/>
+                            <constraint firstItem="5hZ-5f-ACX" firstAttribute="top" secondItem="JTZ-wh-pBQ" secondAttribute="bottom" constant="8" id="i3F-oD-XCf"/>
+                            <constraint firstItem="XUf-N8-me0" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="48" id="qpo-OH-PbY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BC4-eA-2Tc" secondAttribute="trailing" constant="-16" id="w92-81-nZW"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="beverageName" destination="XUf-N8-me0" id="9RC-D3-FIh"/>
