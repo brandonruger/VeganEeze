@@ -10,4 +10,12 @@
 
 @interface VeganResourcesTVC : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
+{
+    NSString *websiteAddress;
+    
+    IBOutlet UITableView *resourcesTV;
+    
+    NSArray *resources;
+}
+
 @end

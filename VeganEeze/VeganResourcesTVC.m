@@ -7,6 +7,7 @@
 //
 
 #import "VeganResourcesTVC.h"
+#import "WebVC.h"
 
 @interface VeganResourcesTVC ()
 
@@ -41,12 +42,30 @@
     UITableViewCell *resourcesCell = [tableView dequeueReusableCellWithIdentifier:@"ResourceCell"];
     if (resourcesCell != nil) {
         
-        NSArray *resources = [[NSArray alloc]initWithObjects:@"Place 1", @"Place 2", @"Place 3", @"Place 4", nil];
+        resources = [[NSArray alloc]initWithObjects:@"www.peta.org", @"www.vegan.com", @"www.vegansociety.com", @"www.theveganrd.com", nil];
         
         resourcesCell.textLabel.text = [resources objectAtIndex:indexPath.row];
     }
     
     return resourcesCell;
+}
+
+//Segue method to pass information to detail view
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+    //Get cell that was clicked on
+    UITableViewCell *cellClicked = (UITableViewCell*)sender;
+    //Get index of cell that was clicked
+    NSIndexPath *indexOfCell = [resourcesTV indexPathForCell:cellClicked];
+    
+    websiteAddress = [resources objectAtIndex:indexOfCell.row];
+    
+    //Access the web view
+    WebVC *webVC = segue.destinationViewController;
+    //Pass website's URL to web view
+    webVC.websiteStr = websiteAddress;
+    
 }
 
 /*

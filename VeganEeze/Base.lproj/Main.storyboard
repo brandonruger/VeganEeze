@@ -1518,6 +1518,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="sf1-14-qRg" kind="show" identifier="resourcesSegueToWeb" id="sCp-Sf-fL5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1555,7 +1558,7 @@
         <image name="LoginScreen2" width="320" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bwe-xQ-Z5M"/>
+        <segue reference="sCp-Sf-fL5"/>
         <segue reference="EyI-RH-Lgu"/>
     </inferredMetricsTieBreakers>
 </document>
