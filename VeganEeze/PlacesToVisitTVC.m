@@ -7,6 +7,7 @@
 //
 
 #import "PlacesToVisitTVC.h"
+#import "SavedPlacesDetailVC.h"
 
 @interface PlacesToVisitTVC ()
 
@@ -103,6 +104,31 @@
         }
     }];
 }
+
+#pragma mark - Navigation
+
+//Segue to pass data to detail view
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //Access detail view controller
+    SavedPlacesDetailVC *savedDetailsVC = segue.destinationViewController;
+    if (savedDetailsVC != nil) {
+        
+        //Get cell that was clicked on
+        UITableViewCell *cellClicked = (UITableViewCell*)sender;
+        //Get index of cell that was clicked
+        NSIndexPath *indexOfCell = [placesToVisitTV indexPathForCell:cellClicked];
+        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
+        
+        //Get object ID for item clicked on
+        NSString *currentObjId = [objectIDs objectAtIndex:indexOfCell.row];
+        
+        //Pass the object ID over to the detail view
+        savedDetailsVC.objectId = currentObjId;
+    }
+    
+}
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

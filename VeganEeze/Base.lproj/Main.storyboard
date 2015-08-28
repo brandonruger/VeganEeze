@@ -1363,6 +1363,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="tLO-bQ-eIr" kind="show" id="xMA-oN-JMc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1573,5 +1576,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="h8U-nB-2Vf"/>
         <segue reference="EyI-RH-Lgu"/>
+        <segue reference="xMA-oN-JMc"/>
     </inferredMetricsTieBreakers>
 </document>
