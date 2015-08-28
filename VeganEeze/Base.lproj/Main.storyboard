@@ -46,7 +46,7 @@
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eY-Jw-1wj">
                                 <rect key="frame" x="34" y="28" width="46" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -518,11 +518,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="5Dr-WJ-pmU">
-                                <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="5Dr-WJ-pmU">
+                                <rect key="frame" x="0.0" y="64" width="600" height="480"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RX1-8N-f0D">
-                                <rect key="frame" x="16" y="72" width="57" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RX1-8N-f0D">
+                                <rect key="frame" x="16" y="72" width="52" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Favorite">
@@ -531,53 +531,79 @@
                                 </state>
                                 <connections>
                                     <action selector="saveFavoritePlace:" destination="BRz-si-Myg" eventType="touchUpInside" id="C8T-iw-1lb"/>
-                                    <action selector="saveFavoritePlace:" destination="MIn-9F-pad" eventType="touchUpInside" id="rgc-PW-Hen"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDl-wJ-dZ4">
-                                <rect key="frame" x="36" y="219" width="269" height="30"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDl-wJ-dZ4">
+                                <rect key="frame" x="36" y="213" width="158" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="CgD-NO-Qxq"/>
+                                    <constraint firstAttribute="width" constant="158" id="NN3-Zn-Vi3"/>
+                                    <constraint firstAttribute="width" secondItem="BDl-wJ-dZ4" secondAttribute="height" multiplier="269:30" id="tWr-Gf-eau"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
                                 <state key="normal" title="Restaurant's Website">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="tWr-Gf-eau"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="sf1-14-qRg" kind="show" id="h8U-nB-2Vf"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City, State Zip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0W-Bb-ubg">
-                                <rect key="frame" x="36" y="184" width="280" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City, State Zip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0W-Bb-ubg">
+                                <rect key="frame" x="36" y="178" width="280" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2s3-72-f9P"/>
+                                    <constraint firstAttribute="width" constant="280" id="VKB-kq-CNB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Address" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-mw-QJE">
-                                <rect key="frame" x="36" y="139" width="240" height="37"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Address" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-mw-QJE">
+                                <rect key="frame" x="36" y="133" width="240" height="37"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="raT-4F-kxI"/>
+                                    <constraint firstAttribute="width" constant="240" id="zrj-ho-jMt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" address="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6q-Wp-1Kj">
-                                <rect key="frame" x="381" y="360" width="22" height="22"/>
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvY-kG-KNk">
-                                <rect key="frame" x="41" y="79" width="523" height="69"/>
-                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvY-kG-KNk">
+                                <rect key="frame" x="39" y="77" width="523" height="24"/>
+                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Phone #" translatesAutoresizingMaskIntoConstraints="NO" id="VUR-S7-tbB">
-                                <rect key="frame" x="412" y="147" width="172" height="34"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Phone #" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="VUR-S7-tbB">
+                                <rect key="frame" x="412" y="141" width="172" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="7Gg-dj-Hls"/>
+                                    <constraint firstAttribute="width" constant="172" id="aaN-mt-y4G"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                             </textView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eGa-XE-Pyw">
-                                <rect key="frame" x="0.0" y="360" width="600" height="406"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eGa-XE-Pyw">
+                                <rect key="frame" x="0.0" y="354" width="600" height="406"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="406" id="8UG-iH-kWL"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="129" id="J4d-Wq-e6s" customClass="CommentCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -585,19 +611,29 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J4d-Wq-e6s" id="MMr-dT-UTw">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shq-dd-WgZ">
-                                                    <rect key="frame" x="12" y="39" width="576" height="81"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shq-dd-WgZ">
+                                                    <rect key="frame" x="12" y="30" width="576" height="81"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="1" blue="0.49803921569999998" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="81" id="BUa-6e-82d"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyu-kO-HPD">
-                                                    <rect key="frame" x="12" y="8" width="179" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyu-kO-HPD">
+                                                    <rect key="frame" x="12" y="8" width="51" height="14"/>
                                                     <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lyu-kO-HPD" firstAttribute="top" secondItem="MMr-dT-UTw" secondAttribute="topMargin" id="IEe-6a-Ecm"/>
+                                                <constraint firstItem="Lyu-kO-HPD" firstAttribute="leading" secondItem="MMr-dT-UTw" secondAttribute="leadingMargin" constant="4" id="LKW-Fq-sdN"/>
+                                                <constraint firstItem="Shq-dd-WgZ" firstAttribute="top" secondItem="Lyu-kO-HPD" secondAttribute="bottom" constant="8" id="QJ4-1I-6A4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Shq-dd-WgZ" secondAttribute="trailing" constant="4" id="hMT-5L-ONm"/>
+                                                <constraint firstItem="Shq-dd-WgZ" firstAttribute="leading" secondItem="MMr-dT-UTw" secondAttribute="leadingMargin" constant="4" id="zoM-Ya-xiQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -611,14 +647,14 @@
                                     <outlet property="delegate" destination="BRz-si-Myg" id="okt-Dh-mk6"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5 Stars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSH-30-nGj">
-                                <rect key="frame" x="91" y="274" width="60" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Stars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSH-30-nGj">
+                                <rect key="frame" x="84" y="268" width="45" height="19"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agG-tL-vZg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agG-tL-vZg">
                                 <rect key="frame" x="500" y="72" width="84" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -627,19 +663,18 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="savePlaceToVisit:" destination="MIn-9F-pad" eventType="touchUpInside" id="EiU-Eu-QYe"/>
                                     <action selector="savePlaceToVisit:" destination="BRz-si-Myg" eventType="touchUpInside" id="jGv-e8-BcA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8j-zo-Uoq">
-                                <rect key="frame" x="36" y="274" width="55" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8j-zo-Uoq">
+                                <rect key="frame" x="36" y="268" width="48" height="19"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdQ-L8-K3a">
-                                <rect key="frame" x="465" y="219" width="119" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdQ-L8-K3a">
+                                <rect key="frame" x="505" y="213" width="79" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Share Event">
@@ -648,11 +683,16 @@
                                 </state>
                                 <connections>
                                     <action selector="shareToTwitter:" destination="BRz-si-Myg" eventType="touchUpInside" id="GfQ-KG-RcF"/>
-                                    <action selector="shareToTwitter:" destination="MIn-9F-pad" eventType="touchUpInside" id="bu9-Vr-8Mz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tto-6c-NvM">
-                                <rect key="frame" x="237" y="304" width="130" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-pT-sXQ">
+                                <rect key="frame" x="16" y="325" width="80" height="21"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tto-6c-NvM">
+                                <rect key="frame" x="235" y="298" width="130" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Add new comment">
@@ -663,20 +703,49 @@
                                     <action selector="addNewComment:" destination="MIn-9F-pad" eventType="touchUpInside" id="Y3C-ir-Hts"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-pT-sXQ">
-                                <rect key="frame" x="16" y="331" width="81" height="21"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Dr-WJ-pmU" firstAttribute="leading" secondItem="cUu-iD-Ek9" secondAttribute="leadingMargin" constant="-16" id="7GR-8w-FqK"/>
+                            <constraint firstItem="5Dr-WJ-pmU" firstAttribute="top" secondItem="ybk-5a-1Vd" secondAttribute="bottom" id="ADR-Kf-Wpd"/>
+                            <constraint firstItem="eGa-XE-Pyw" firstAttribute="leading" secondItem="cUu-iD-Ek9" secondAttribute="leadingMargin" constant="-16" id="AFc-jd-aRp"/>
+                            <constraint firstItem="bSH-30-nGj" firstAttribute="top" secondItem="BDl-wJ-dZ4" secondAttribute="bottom" constant="24" id="Boy-RI-cKO"/>
+                            <constraint firstItem="bSH-30-nGj" firstAttribute="leading" secondItem="r8j-zo-Uoq" secondAttribute="trailing" id="C0x-X5-JK2"/>
+                            <constraint firstItem="D0W-Bb-ubg" firstAttribute="leading" secondItem="cUu-iD-Ek9" secondAttribute="leadingMargin" constant="20" id="Dfq-0a-yxR"/>
+                            <constraint firstItem="zdQ-L8-K3a" firstAttribute="trailing" secondItem="cUu-iD-Ek9" secondAttribute="trailingMargin" id="HT3-7c-pfl"/>
+                            <constraint firstItem="tto-6c-NvM" firstAttribute="top" secondItem="BDl-wJ-dZ4" secondAttribute="bottom" constant="54" id="Lp4-m3-Xp2"/>
+                            <constraint firstItem="RX1-8N-f0D" firstAttribute="leading" secondItem="cUu-iD-Ek9" secondAttribute="leadingMargin" id="N6c-64-akr"/>
+                            <constraint firstItem="D0W-Bb-ubg" firstAttribute="top" secondItem="Iec-mw-QJE" secondAttribute="bottom" constant="8" id="NEN-k0-UOw"/>
+                            <constraint firstItem="Iec-mw-QJE" firstAttribute="leading" secondItem="cUu-iD-Ek9" secondAttribute="leadingMargin" constant="20" id="PFL-yb-Yct"/>
+                            <constraint firstItem="agG-tL-vZg" firstAttribute="trailing" secondItem="cUu-iD-Ek9" secondAttribute="trailingMargin" id="QnJ-Lx-4Oj"/>
+                            <constraint firstItem="AvY-kG-KNk" firstAttribute="leading" secondItem="cUu-iD-Ek9" secondAttribute="leadingMargin" constant="23" id="Rtb-Cl-OQJ"/>
+                            <constraint firstItem="BDl-wJ-dZ4" firstAttribute="leading" secondItem="cUu-iD-Ek9" secondAttribute="leadingMargin" constant="20" id="UBQ-h3-u3R"/>
+                            <constraint firstItem="BDl-wJ-dZ4" firstAttribute="top" secondItem="D0W-Bb-ubg" secondAttribute="bottom" constant="14" id="Zgg-Bw-whF"/>
+                            <constraint firstItem="VUR-S7-tbB" firstAttribute="top" secondItem="AvY-kG-KNk" secondAttribute="bottom" constant="40" id="bmV-bf-X3O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eGa-XE-Pyw" secondAttribute="trailing" constant="-16" id="bmY-qh-e14"/>
+                            <constraint firstItem="RX1-8N-f0D" firstAttribute="top" secondItem="ybk-5a-1Vd" secondAttribute="bottom" constant="8" id="czA-W0-EBj"/>
+                            <constraint firstItem="dhm-pT-sXQ" firstAttribute="top" secondItem="r8j-zo-Uoq" secondAttribute="bottom" constant="38" id="ext-Xa-5Hv"/>
+                            <constraint firstItem="dhm-pT-sXQ" firstAttribute="leading" secondItem="cUu-iD-Ek9" secondAttribute="leadingMargin" id="f7v-4p-0D0"/>
+                            <constraint firstItem="eGa-XE-Pyw" firstAttribute="top" secondItem="dhm-pT-sXQ" secondAttribute="bottom" constant="8" id="gtT-7A-moJ"/>
+                            <constraint firstItem="r8j-zo-Uoq" firstAttribute="top" secondItem="BDl-wJ-dZ4" secondAttribute="bottom" constant="24" id="izq-Hx-Qxs"/>
+                            <constraint firstItem="tto-6c-NvM" firstAttribute="leading" secondItem="cUu-iD-Ek9" secondAttribute="leadingMargin" constant="219" id="jSk-F0-i1c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Dr-WJ-pmU" secondAttribute="trailing" constant="-16" id="klT-gR-tzM"/>
+                            <constraint firstItem="AvY-kG-KNk" firstAttribute="top" secondItem="ybk-5a-1Vd" secondAttribute="bottom" constant="13" id="n0k-ui-0hQ"/>
+                            <constraint firstItem="zdQ-L8-K3a" firstAttribute="top" secondItem="VUR-S7-tbB" secondAttribute="bottom" constant="38" id="n5g-Wm-1qx"/>
+                            <constraint firstItem="Iec-mw-QJE" firstAttribute="top" secondItem="AvY-kG-KNk" secondAttribute="bottom" constant="32" id="nhI-aK-NAF"/>
+                            <constraint firstItem="r8j-zo-Uoq" firstAttribute="leading" secondItem="cUu-iD-Ek9" secondAttribute="leadingMargin" constant="20" id="s3X-IC-kZV"/>
+                            <constraint firstItem="VUR-S7-tbB" firstAttribute="trailing" secondItem="cUu-iD-Ek9" secondAttribute="trailingMargin" id="tPp-Ox-NJD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tto-6c-NvM" secondAttribute="trailing" constant="219" id="tWf-Cw-Y5J"/>
+                            <constraint firstItem="agG-tL-vZg" firstAttribute="top" secondItem="ybk-5a-1Vd" secondAttribute="bottom" constant="8" id="vyh-5E-awp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AvY-kG-KNk" secondAttribute="trailing" constant="22" id="xII-CS-8zb"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addressTV" destination="Iec-mw-QJE" id="6uj-PW-JmU"/>
                         <outlet property="commentsTV" destination="eGa-XE-Pyw" id="cVy-di-03N"/>
                         <outlet property="eventCityStateLabel" destination="D0W-Bb-ubg" id="FX1-B0-Huz"/>
                         <outlet property="eventNameLabel" destination="AvY-kG-KNk" id="2vD-se-DvR"/>
+                        <outlet property="eventUrlLabel" destination="BDl-wJ-dZ4" id="dxT-Cv-csl"/>
                         <outlet property="phoneNoTV" destination="VUR-S7-tbB" id="2iV-RG-oLF"/>
                     </connections>
                 </viewController>
@@ -786,7 +855,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBr-9A-rLT">
                                                     <rect key="frame" x="8" y="8" width="179" height="23"/>
                                                     <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-DT-sPe">
@@ -828,12 +897,6 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" address="YES"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nre-jy-pAx">
-                                <rect key="frame" x="381" y="332" width="22" height="22"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnH-3C-4jh">
                                 <rect key="frame" x="16" y="358" width="81" height="21"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
@@ -1418,6 +1481,7 @@
         <image name="LoginScreen2" width="320" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eHx-vY-M9N"/>
+        <segue reference="h8U-nB-2Vf"/>
+        <segue reference="EyI-RH-Lgu"/>
     </inferredMetricsTieBreakers>
 </document>
