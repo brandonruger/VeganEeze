@@ -78,6 +78,16 @@
     searchBar.text = @"";
 }
 
+//Method to check when search bar finishes editing
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    
+    //Dismiss keyboard
+    [self.view endEditing:YES];
+    
+    //Hide cancel button
+    cancelButton.hidden = true;
+}
+
 #pragma mark - Segmented Control Button methods
 
 //Method called when segmented control button changes

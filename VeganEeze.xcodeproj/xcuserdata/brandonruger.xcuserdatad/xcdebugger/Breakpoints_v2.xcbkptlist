@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "462332963.098698"
+            timestampString = "462420494.586287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-searchByCurrentLoc"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "462332963.098698"
+            timestampString = "462420494.586287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "-howToSearch:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "462332963.098698"
+            timestampString = "462420494.586287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-locationManager:didUpdateLocations:"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "462332963.098698"
+            timestampString = "462420494.586287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "@implementation FindARestaurantVC"
             landmarkType = "3">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "462332963.098698"
+            timestampString = "462420494.586287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-locationManager:didUpdateLocations:"
             landmarkType = "5">
          </BreakpointContent>

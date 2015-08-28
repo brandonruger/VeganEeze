@@ -172,7 +172,16 @@
     return commentsCell;
 }
 
-
+//Method to add new comment
+-(IBAction)addNewComment:(id)sender {
+    
+    //Show alert with text input for user to enter their comment
+    UIAlertView *newComment = [[UIAlertView alloc]initWithTitle:@"Add new comment" message:@"Enter comment below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+    //Set style to allow text input
+    newComment.alertViewStyle = UIAlertViewStylePlainTextInput;
+    //Show alert
+    [newComment show];
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     //User clicked submit button
