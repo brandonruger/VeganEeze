@@ -410,7 +410,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelKeyboard:" destination="swq-sF-hd9" eventType="touchUpInside" id="yKH-UW-DzF"/>
+                                    <action selector="cancelKeyboard:" destination="swq-sF-hd9" eventType="touchUpInside" id="1kK-qu-u1f"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drP-JQ-4f3">
@@ -1157,7 +1157,6 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelKeyboard:" destination="kMl-5x-2O2" eventType="touchUpInside" id="aIx-cq-Q4F"/>
-                                    <action selector="cancelKeyboard:" destination="swq-sF-hd9" eventType="touchUpInside" id="svo-md-5fe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
