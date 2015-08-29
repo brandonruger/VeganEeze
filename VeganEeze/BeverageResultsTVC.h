@@ -10,4 +10,15 @@
 
 @interface BeverageResultsTVC : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
+{
+    NSString *alcoholBeverageName;
+    NSString *alcoholBeverageBrand;
+    NSString *alcoholBeverageVeganStatus;
+    
+    //Array to hold beverage custom objects
+    
+}
+
+@property (nonatomic, strong) NSMutableArray *arrayOfAlcoholBeverages;
+
 @end

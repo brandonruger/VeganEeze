@@ -7,12 +7,14 @@
 //
 
 #import "BeverageResultsTVC.h"
+#import "AlcoholBeverage.h"
 
 @interface BeverageResultsTVC ()
 
 @end
 
 @implementation BeverageResultsTVC
+@synthesize arrayOfAlcoholBeverages;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +24,9 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    //Initalize mutable array
+    //arrayOfAlcoholBeverages = [[NSMutableArray alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +38,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return [arrayOfAlcoholBeverages count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -41,11 +46,15 @@
     UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"BeverageCell"];
     if (resultsCell != nil) {
         
-        NSArray *beverageArray = [[NSArray alloc]initWithObjects:@"Barefoot Moscato", @"Riunite Moscato", @"Another Moscato", @"Last Moscato", nil];
-        NSArray *veganArray = [[NSArray alloc]initWithObjects:@"Vegan", @"Not Vegan", @"May Be Vegan", @"Vegan", nil];
+//        NSArray *beverageArray = [[NSArray alloc]initWithObjects:@"Barefoot Moscato", @"Riunite Moscato", @"Another Moscato", @"Last Moscato", nil];
+//        NSArray *veganArray = [[NSArray alloc]initWithObjects:@"Vegan", @"Not Vegan", @"May Be Vegan", @"Vegan", nil];
+//        
+//        resultsCell.textLabel.text = [beverageArray objectAtIndex:indexPath.row];
+//        resultsCell.detailTextLabel.text = [veganArray objectAtIndex:indexPath.row];
         
-        resultsCell.textLabel.text = [beverageArray objectAtIndex:indexPath.row];
-        resultsCell.detailTextLabel.text = [veganArray objectAtIndex:indexPath.row];
+        AlcoholBeverage *alcoholBevInfo = [arrayOfAlcoholBeverages objectAtIndex:indexPath.row];
+        resultsCell.textLabel.text = alcoholBevInfo.alcoholName;
+        resultsCell.detailTextLabel.text = alcoholBevInfo.veganOrNot;
     }
     
     return resultsCell;

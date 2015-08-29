@@ -8,6 +8,7 @@
 
 #import "BeverageSearchVC.h"
 #import "AlcoholBeverage.h"
+#import "BeverageResultsTVC.h"
 
 @interface BeverageSearchVC ()
 
@@ -25,7 +26,9 @@
     //Inititalize NSMutableArray which will hold AlcoholBeverage objects
     alcoholBeverageObjects = [[NSMutableArray alloc]init];
     
-
+    //Set bool to false since data has not been retrieved yet
+    dataRetrievalComplete = false;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -121,14 +124,26 @@
             [alcoholBeverageObjects addObject:alcoholBevDetails];
         }
     }
+    
+   // BeverageResultsTVC *bevResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BeverageResultsViewController"];
+    //Pass the array of AlcoholBeverage objects to the Beverage Results vc
+    //bevResultsTVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
+    
+    
+    //Set bool to true since data retrieval is complete
+    dataRetrievalComplete = TRUE;
 }
 
 //Method to create custom AlcoholBeverage objects and initalize each object
 -(AlcoholBeverage*)createAlcoholBeverageObjects:(NSDictionary*)alcoholBevDictionary {
     //Get items from the dictionary of data received from API call
-    NSString *alcoholBevName = [alcoholBevDictionary valueForKey:@""];
-    NSString *alcoholBrandName = [alcoholBevDictionary valueForKey:@""];
-    NSString *alcoholVeganStatus = [alcoholBevDictionary valueForKey:@""];
+    
+    //NSString *company = [alcoholBevDictionary valueForKey:@"company"];
+    NSDictionary *beverageDictionary = [alcoholBevDictionary objectForKey:@"company"];
+    
+    NSString *alcoholBevName = [beverageDictionary valueForKey:@"company_name"];
+    NSString *alcoholBrandName = [beverageDictionary valueForKey:@"company_name"];
+    NSString *alcoholVeganStatus = [beverageDictionary valueForKey:@"status"];
     
     //Use object's custom init method to initalize object
     AlcoholBeverage *newAlcoholBev = [[AlcoholBeverage alloc]initWithBeverage:alcoholBevName brandDesc:alcoholBrandName veganStatus:alcoholVeganStatus];
@@ -136,14 +151,38 @@
     return newAlcoholBev;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    //Access Beverage Results view controller
+    BeverageResultsTVC *bevResultsTVC = (BeverageResultsTVC *) segue.destinationViewController;
+    if (bevResultsTVC != nil) {
+        //Pass the array of AlcoholBeverage objects to the Beverage Results vc
+        bevResultsTVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
+        //bevResultsTVC.arrayOfAlcoholBeverages = [[NSArray alloc]initWithArray:alcoholBeverageObjects];
+    }
+    
 }
-*/
+
+//Prevent segue from going until data is retrieved
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"segueToBeverageResults"]) {
+        //Check if data retrieval is complete
+        if (dataRetrievalComplete) {
+            //Data retrieval is complete, OK to perform segue
+            return TRUE;
+        } else {
+            //Data retrieval is incomplete, don't perform segue
+            return FALSE;
+        }
+        
+    }
+    return FALSE;
+
+}
+
 
 @end

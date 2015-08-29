@@ -468,7 +468,7 @@
         <!--Beverage Results-->
         <scene sceneID="Yly-gP-nnT">
             <objects>
-                <tableViewController title="Beverage Results" id="FEZ-zh-ePW" customClass="BeverageResultsTVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="BeverageResultsViewController" title="Beverage Results" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FEZ-zh-ePW" customClass="BeverageResultsTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xGX-q0-a7J">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1038,7 +1038,7 @@
                                 </state>
                                 <connections>
                                     <action selector="searchAlcoholBeveragesAPI:" destination="HC7-S3-PmI" eventType="touchUpInside" id="Oun-OM-fja"/>
-                                    <segue destination="FEZ-zh-ePW" kind="show" identifier="segueToBeverageResults" id="JgH-ZG-68A"/>
+                                    <segue destination="FEZ-zh-ePW" kind="show" identifier="segueToBeverageResults" id="iKW-O9-ccr"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hZ-5f-ACX">

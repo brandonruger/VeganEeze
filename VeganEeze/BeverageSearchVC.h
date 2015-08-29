@@ -22,6 +22,8 @@
     NSArray *arrayOfJSONData;
     
     NSMutableArray *alcoholBeverageObjects;
+    
+    BOOL dataRetrievalComplete;
 }
 
 @end

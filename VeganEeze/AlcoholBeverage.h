@@ -12,10 +12,14 @@
 
 {
     //Strings for data that need to save for each object
-    NSString *alcoholName;
-    NSString *alcoholBrand;
-    NSString *veganOrNot;
+    
+    
+    
 }
+
+@property (nonatomic, strong) NSString *alcoholName;
+@property (nonatomic, strong) NSString *alcoholBrand;
+@property (nonatomic, strong) NSString *veganOrNot;
 
 -(id)initWithBeverage:(NSString*)nameOfAlcohol brandDesc:(NSString*)brandDesc veganStatus:(NSString*)veganStatus;
 

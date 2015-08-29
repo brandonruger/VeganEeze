@@ -9,6 +9,7 @@
 #import "AlcoholBeverage.h"
 
 @implementation AlcoholBeverage
+@synthesize alcoholName, alcoholBrand, veganOrNot;
 
 //Method to initalize AlcoholBeverage objects
 -(id)initWithBeverage:(NSString*)nameOfAlcohol brandDesc:(NSString*)brandDesc veganStatus:(NSString*)veganStatus {
