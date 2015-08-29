@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BeverageSearchVC : UIViewController <UISearchBarDelegate>
+@interface BeverageSearchVC : UIViewController <UISearchBarDelegate, NSURLConnectionDataDelegate>
 
 {
     IBOutlet UISearchBar *beverageName;
     IBOutlet UIButton *cancelButton;
+    
+    NSURLRequest *requestForData;
+    NSURL *urlForAPICall;
+    NSURLConnection *apiConnection;
+    NSMutableData *dataRetrieved;
+    NSString *searchKeyword;
+    NSArray *arrayOfJSONData;
 }
 
 @end

@@ -1037,6 +1037,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="searchAlcoholBeveragesAPI:" destination="HC7-S3-PmI" eventType="touchUpInside" id="Oun-OM-fja"/>
                                     <segue destination="FEZ-zh-ePW" kind="show" identifier="segueToBeverageResults" id="JgH-ZG-68A"/>
                                 </connections>
                             </button>
@@ -1574,8 +1575,8 @@
         <image name="LoginScreen2" width="320" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="h8U-nB-2Vf"/>
         <segue reference="EyI-RH-Lgu"/>
         <segue reference="xMA-oN-JMc"/>
+        <segue reference="bwe-xQ-Z5M"/>
     </inferredMetricsTieBreakers>
 </document>

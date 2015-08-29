@@ -20,6 +20,8 @@
     
     //Set search bar delegate
     beverageName.delegate = self;
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +64,49 @@
     
     //Clear text from search bar
     searchBar.text = @"";
+}
+
+#pragma mark - Barnivore API calls
+
+//Method to request data from Barnivore API
+-(IBAction)searchAlcoholBeveragesAPI:(id)sender {
+    
+    //String used to access API
+    NSString *partialURL = @"http://barnivore.com/search.json?keyword=";
+    //Get search term entered by user
+    searchKeyword = beverageName.text;
+    //Add search term to url for API call
+    NSString *completeURL = [partialURL stringByAppendingString:searchKeyword];
+    
+    //Set up URL for API call
+    urlForAPICall = [[NSURL alloc] initWithString:completeURL];
+    
+    //Set up request to send to server
+    requestForData = [[NSURLRequest alloc]initWithURL:urlForAPICall];
+    if (requestForData != nil) {
+        //Set up connection to get data from the server
+        apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
+        //Create mutableData object to hold data
+        dataRetrieved = [NSMutableData data];
+    }
+    
+}
+
+//Method called when data is received
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    //Check to make sure data is valid
+    if (data != nil) {
+        //Add this data to mutableData object
+        [dataRetrieved appendData:data];
+    }
+}
+
+///Method called when all data from request has been retrieved
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    //Serialize JSON data
+    arrayOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
+    NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];
+    NSLog(@"firstItem = %@", [firstItemRetrieved description]);
 }
 
 /*
