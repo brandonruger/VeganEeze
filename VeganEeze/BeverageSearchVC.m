@@ -31,6 +31,17 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    //Clear text from search field
+    beverageName.text = @"";
+    
+    //Remove all objects from array
+    if (alcoholBeverageObjects != nil) {
+        [alcoholBeverageObjects removeAllObjects];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -77,6 +88,7 @@
 
 //Method to request data from Barnivore API
 -(IBAction)searchAlcoholBeveragesAPI:(id)sender {
+    
     
     //String used to access API
     NSString *partialURL = @"http://barnivore.com/search.json?keyword=";
@@ -125,10 +137,12 @@
         }
     }
     
-   // BeverageResultsTVC *bevResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BeverageResultsViewController"];
+    BeverageResultsTVC *bevResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BeverageResultsViewController"];
     //Pass the array of AlcoholBeverage objects to the Beverage Results vc
-    //bevResultsTVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
-    
+    bevResultsTVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
+    //Instantiate new view controller
+    [self.navigationController pushViewController:bevResultsTVC animated:YES];
+
     
     //Set bool to true since data retrieval is complete
     dataRetrievalComplete = TRUE;
@@ -152,37 +166,37 @@
 }
 
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    //Access Beverage Results view controller
-    BeverageResultsTVC *bevResultsTVC = (BeverageResultsTVC *) segue.destinationViewController;
-    if (bevResultsTVC != nil) {
-        //Pass the array of AlcoholBeverage objects to the Beverage Results vc
-        bevResultsTVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
-        //bevResultsTVC.arrayOfAlcoholBeverages = [[NSArray alloc]initWithArray:alcoholBeverageObjects];
-    }
-    
-}
-
-//Prevent segue from going until data is retrieved
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if ([identifier isEqualToString:@"segueToBeverageResults"]) {
-        //Check if data retrieval is complete
-        if (dataRetrievalComplete) {
-            //Data retrieval is complete, OK to perform segue
-            return TRUE;
-        } else {
-            //Data retrieval is incomplete, don't perform segue
-            return FALSE;
-        }
-        
-    }
-    return FALSE;
-
-}
+//#pragma mark - Navigation
+//
+//// In a storyboard-based application, you will often want to do a little preparation before navigation
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//    //Access Beverage Results view controller
+//    BeverageResultsTVC *bevResultsTVC = (BeverageResultsTVC *) segue.destinationViewController;
+//    if (bevResultsTVC != nil) {
+//        //Pass the array of AlcoholBeverage objects to the Beverage Results vc
+//        bevResultsTVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
+//        //bevResultsTVC.arrayOfAlcoholBeverages = [[NSArray alloc]initWithArray:alcoholBeverageObjects];
+//    }
+//    
+//}
+//
+////Prevent segue from going until data is retrieved
+//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+//    if ([identifier isEqualToString:@"segueToBeverageResults"]) {
+//        //Check if data retrieval is complete
+//        if (dataRetrievalComplete) {
+//            //Data retrieval is complete, OK to perform segue
+//            return TRUE;
+//        } else {
+//            //Data retrieval is incomplete, don't perform segue
+//            return FALSE;
+//        }
+//        
+//    }
+//    return FALSE;
+//
+//}
 
 
 @end
