@@ -7,6 +7,7 @@
 //
 
 #import "BeverageSearchVC.h"
+#import "AlcoholBeverage.h"
 
 @interface BeverageSearchVC ()
 
@@ -20,6 +21,9 @@
     
     //Set search bar delegate
     beverageName.delegate = self;
+    
+    //Inititalize NSMutableArray which will hold AlcoholBeverage objects
+    alcoholBeverageObjects = [[NSMutableArray alloc]init];
     
 
 }
@@ -105,8 +109,31 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     //Serialize JSON data
     arrayOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
-    NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];
-    NSLog(@"firstItem = %@", [firstItemRetrieved description]);
+    //NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];
+    //NSLog(@"firstItem = %@", [firstItemRetrieved description]);
+    
+    //Loop through all results retrieved from API call
+    for (int i=0; i<[arrayOfJSONData count]; i++) {
+        //Use custom method to grab each object from dictionary and add each object to the NSMutableArray
+        AlcoholBeverage *alcoholBevDetails = [self createAlcoholBeverageObjects:[arrayOfJSONData objectAtIndex:i]];
+        if (alcoholBevDetails != nil) {
+            //Add object to array
+            [alcoholBeverageObjects addObject:alcoholBevDetails];
+        }
+    }
+}
+
+//Method to create custom AlcoholBeverage objects and initalize each object
+-(AlcoholBeverage*)createAlcoholBeverageObjects:(NSDictionary*)alcoholBevDictionary {
+    //Get items from the dictionary of data received from API call
+    NSString *alcoholBevName = [alcoholBevDictionary valueForKey:@""];
+    NSString *alcoholBrandName = [alcoholBevDictionary valueForKey:@""];
+    NSString *alcoholVeganStatus = [alcoholBevDictionary valueForKey:@""];
+    
+    //Use object's custom init method to initalize object
+    AlcoholBeverage *newAlcoholBev = [[AlcoholBeverage alloc]initWithBeverage:alcoholBevName brandDesc:alcoholBrandName veganStatus:alcoholVeganStatus];
+    
+    return newAlcoholBev;
 }
 
 /*

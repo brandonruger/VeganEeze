@@ -20,6 +20,8 @@
     NSMutableData *dataRetrieved;
     NSString *searchKeyword;
     NSArray *arrayOfJSONData;
+    
+    NSMutableArray *alcoholBeverageObjects;
 }
 
 @end
