@@ -20,4 +20,7 @@
     NSArray *restaurantPhones;
 }
 
+@property (nonatomic, strong) NSMutableArray *arrayOfRestaurantObjs;
+
+
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface FindARestaurantVC : UIViewController <UISearchBarDelegate, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface FindARestaurantVC : UIViewController <UISearchBarDelegate, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, NSURLConnectionDataDelegate>
 
 {
     IBOutlet UISearchBar *keyword;
@@ -21,6 +21,26 @@
     
     IBOutlet UIPickerView *veganChoicePicker;
     NSArray *pickerChoices;
+    
+    NSURLRequest *requestForData;
+    NSURL *urlForAPICall;
+    NSURLConnection *apiConnection;
+    NSMutableData *dataRetrieved;
+    NSString *searchKeyword;
+    NSArray *arrayOfJSONData;
+    
+    NSMutableArray *restaurantObjects;
+    
+    NSString *latitudeCoord;
+    NSString *longitudeCoord;
+    
+    BOOL searchCurrentLocation;
+    
+    NSString *partialURL;
+    NSString *completeURL;
+    
+    NSString *userAgent;
 }
+
 
 @end

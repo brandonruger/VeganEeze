@@ -23,7 +23,7 @@
     
     NSMutableArray *alcoholBeverageObjects;
     
-    BOOL dataRetrievalComplete;
+    //BOOL dataRetrievalComplete;
 }
 
 @end

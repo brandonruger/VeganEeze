@@ -25,9 +25,9 @@
     
     //Inititalize NSMutableArray which will hold AlcoholBeverage objects
     alcoholBeverageObjects = [[NSMutableArray alloc]init];
-    
-    //Set bool to false since data has not been retrieved yet
-    dataRetrievalComplete = false;
+//    
+//    //Set bool to false since data has not been retrieved yet
+//    dataRetrievalComplete = false;
     
 }
 
@@ -120,7 +120,7 @@
     }
 }
 
-///Method called when all data from request has been retrieved
+//Method called when all data from request has been retrieved
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     //Serialize JSON data
     arrayOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
@@ -145,7 +145,7 @@
 
     
     //Set bool to true since data retrieval is complete
-    dataRetrievalComplete = TRUE;
+    //dataRetrievalComplete = TRUE;
 }
 
 //Method to create custom AlcoholBeverage objects and initalize each object

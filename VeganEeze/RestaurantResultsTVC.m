@@ -14,6 +14,7 @@
 @end
 
 @implementation RestaurantResultsTVC
+@synthesize arrayOfRestaurantObjs;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

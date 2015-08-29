@@ -7,6 +7,8 @@
 //
 
 #import "FindARestaurantVC.h"
+#import "RestaurantResultsTVC.h"
+#import "VeganRestaurant.h"
 
 @interface FindARestaurantVC ()
 
@@ -29,11 +31,31 @@
     veganChoicePicker.dataSource = self;
     veganChoicePicker.delegate = self;
     
+    searchCurrentLocation = TRUE;
+    
     //Get current location
     [self getCurrentLocation];
     
     //Add target selectors to segmented control buttons
     [searchSegmentedControl addTarget:self action:@selector(howToSearch:) forControlEvents:UIControlEventValueChanged];
+    
+    //Initialize NSMutableArray which will hold VeganRestaurant objects
+    restaurantObjects = [[NSMutableArray alloc]init];
+    
+    //Set user agent for API call
+    userAgent = @"VeganEeze App/v1.0";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    //Clear text from search bars
+    keyword.text = @"";
+    location.text = @"";
+    
+    //Remove all objects from array
+    if (restaurantObjects != nil) {
+        [restaurantObjects removeAllObjects];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,9 +120,13 @@
     if (segmentControlSelected == 0) { //
         //Call the method to search by current location
         [self searchByCurrentLoc];
+        //Set bool to true
+        searchCurrentLocation = TRUE;
     } else {
         //Call method to search by city/state
         [self searchCityState];
+        //Set bool to false
+        searchCurrentLocation = FALSE;
     }
 }
 
@@ -148,8 +174,8 @@
         CLLocationCoordinate2D coordinates = currentLocation.coordinate;
         
         //Convert latitude/longitude coordinates to strings
-        NSString *latitudeCoord = [NSString stringWithFormat:@"%g", coordinates.latitude];
-        NSString *longitudeCoord = [NSString stringWithFormat:@"%g", coordinates.longitude];
+        latitudeCoord = [NSString stringWithFormat:@"%g", coordinates.latitude];
+        longitudeCoord = [NSString stringWithFormat:@"%g", coordinates.longitude];
         
         NSLog(@"Latitude = %@", latitudeCoord);
         NSLog(@"Longitude = %@", longitudeCoord);
@@ -175,5 +201,100 @@
     return pickerChoices[row];
 }
 
+#pragma mark - VegGuide API Calls
+
+//Method to request data from VegGuide API
+-(IBAction)searchForVeganRestaurants:(id)sender {
+    
+    //Check how user wants to search
+    if (searchCurrentLocation) {
+        //User has chosen to search by current location
+        
+        //String used to access API
+        partialURL = @"https://www.vegguide.org/search/by-lat-long/";
+        //Create a string to hold latititude/longitude coordinates
+        NSString *coordinates = [NSString stringWithFormat:@"%@ , %@", latitudeCoord, longitudeCoord];
+        
+        //Add coordinates term to url for API call
+        completeURL = [partialURL stringByAppendingString:coordinates];
+        
+    } else {
+        //User wants to search by address
+        partialURL = @"https://www.vegguide.org/search/by-address/";
+        
+        //Get string user entered in search field
+        NSString *userEnteredLocation = location.text;
+        
+        //Append string to form complete URL
+        completeURL = [partialURL stringByAppendingString:userEnteredLocation];
+    }
+    
+    //Set up URL for API call
+    urlForAPICall = [[NSURL alloc] initWithString:completeURL];
+    
+    //Set up request to send to server
+    requestForData = [[NSURLRequest alloc]initWithURL:urlForAPICall];
+    if (requestForData != nil) {
+        //Set up connection to get data from the server
+        apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
+        //Create mutableData object to hold data
+        dataRetrieved = [NSMutableData data];
+    }
+}
+
+//Method called when data is received
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    //Check to make sure data is valid
+    if (data != nil) {
+        //Add this data to mutableData object
+        [dataRetrieved appendData:data];
+    }
+}
+
+//Method called when all data from request has been retrieved
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    //Serialize JSON data
+    arrayOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
+    //NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];
+    //NSLog(@"firstItem = %@", [firstItemRetrieved description]);
+    
+    //Loop through all results retrieved from API call
+    for (int i=0; i<[arrayOfJSONData count]; i++) {
+        //Use custom method to grab each object from dictionary and add each object to the NSMutableArray
+        VeganRestaurant *veganRestDetails = [self createRestaurantObjects:[arrayOfJSONData objectAtIndex:i]];
+        if (veganRestDetails != nil) {
+            //Add object to array
+            [restaurantObjects addObject:veganRestDetails];
+        }
+    }
+    
+    RestaurantResultsTVC *restResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantResultsViewController"];
+    //Pass the array of AlcoholBeverage objects to the Beverage Results vc
+    restResultsTVC.arrayOfRestaurantObjs = restaurantObjects;
+    //Instantiate new view controller
+    [self.navigationController pushViewController:restResultsTVC animated:YES];
+    
+    
+    //Set bool to true since data retrieval is complete
+    //dataRetrievalComplete = TRUE;
+}
+
+//Method to create custom AlcoholBeverage objects and initalize each object
+-(VeganRestaurant*)createRestaurantObjects:(NSDictionary*)restaurantDictionary {
+    //Get items from the dictionary of data received from API call
+    
+    //NSString *company = [alcoholBevDictionary valueForKey:@"company"];
+    NSDictionary *vegRestDictionary = [restaurantDictionary objectForKey:@""];
+    
+    NSString *restaurantsName = [restaurantDictionary valueForKey:@""];
+    NSString *restaurantsAddress = [restaurantDictionary valueForKey:@""];
+    NSString *restaurantsPhone = [restaurantDictionary valueForKey:@""];
+    NSString *restaurantsWebsite = [restaurantDictionary valueForKey:@""];
+    
+    //Use object's custom init method to initalize object
+    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite];
+    
+    return newRestaurant;
+}
 
 @end

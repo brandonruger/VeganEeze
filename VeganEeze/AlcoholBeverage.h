@@ -10,13 +10,6 @@
 
 @interface AlcoholBeverage : NSObject
 
-{
-    //Strings for data that need to save for each object
-    
-    
-    
-}
-
 @property (nonatomic, strong) NSString *alcoholName;
 @property (nonatomic, strong) NSString *alcoholBrand;
 @property (nonatomic, strong) NSString *veganOrNot;
