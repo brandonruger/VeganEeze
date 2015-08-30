@@ -33,6 +33,9 @@
     
     searchCurrentLocation = TRUE;
     
+    //Set default for picker choice
+    pickerChoiceSelected = @"5";
+    
     //Get current location
     [self getCurrentLocation];
     
@@ -240,8 +243,14 @@
         //Add coordinates term to url for API call
         completeURL = [partialURL stringByAppendingString:coordinates];
         
-        NSLog(@"completeURL= %@", completeURL);
-        NSLog(@"coordinates= %@", coordinates);
+        //Add filter to search
+        NSString *searchFilter = [NSString stringWithFormat:@"/filter/veg_level=%@", pickerChoiceSelected];
+        
+        //Add filter to completed URL
+        filterURL = [completeURL stringByAppendingString:searchFilter];
+        
+        //NSLog(@"completeURL= %@", completeURL);
+        //NSLog(@"coordinates= %@", coordinates);
         
     } else {
         //User wants to search by address
@@ -252,10 +261,16 @@
         
         //Append string to form complete URL
         completeURL = [partialURL stringByAppendingString:userEnteredLocation];
+        
+        //Add filter to search
+        NSString *searchFilter = [NSString stringWithFormat:@"/filter/veg_level=%@", pickerChoiceSelected];
+        
+        //Add filter to completed URL
+        filterURL = [completeURL stringByAppendingString:searchFilter];
     }
     
     //Set up URL for API call
-    urlForAPICall = [[NSURL alloc] initWithString:completeURL];
+    urlForAPICall = [[NSURL alloc] initWithString:filterURL];
     
     //Set up request to send to server
     requestForData = [[NSMutableURLRequest alloc]initWithURL:urlForAPICall];

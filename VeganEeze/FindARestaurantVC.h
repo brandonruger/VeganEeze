@@ -39,6 +39,7 @@
     
     NSString *partialURL;
     NSString *completeURL;
+    NSString *filterURL;
     
     NSString *userAgent;
     
