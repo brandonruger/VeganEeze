@@ -213,10 +213,13 @@
         //String used to access API
         partialURL = @"https://www.vegguide.org/search/by-lat-long/";
         //Create a string to hold latititude/longitude coordinates
-        NSString *coordinates = [NSString stringWithFormat:@"%@ , %@", latitudeCoord, longitudeCoord];
+        NSString *coordinates = [NSString stringWithFormat:@"%@,%@", latitudeCoord, longitudeCoord];
         
         //Add coordinates term to url for API call
         completeURL = [partialURL stringByAppendingString:coordinates];
+        
+        NSLog(@"completeURL= %@", completeURL);
+        NSLog(@"coordinates= %@", coordinates);
         
     } else {
         //User wants to search by address
@@ -233,8 +236,11 @@
     urlForAPICall = [[NSURL alloc] initWithString:completeURL];
     
     //Set up request to send to server
-    requestForData = [[NSURLRequest alloc]initWithURL:urlForAPICall];
+    requestForData = [[NSMutableURLRequest alloc]initWithURL:urlForAPICall];
     if (requestForData != nil) {
+        
+        [requestForData setValue:userAgent forHTTPHeaderField:@"User-Agent"];
+        
         //Set up connection to get data from the server
         apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
         //Create mutableData object to hold data
@@ -254,14 +260,15 @@
 //Method called when all data from request has been retrieved
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     //Serialize JSON data
-    arrayOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
+    dictOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
     //NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];
-    //NSLog(@"firstItem = %@", [firstItemRetrieved description]);
+    NSArray *restaurantsRetrieved = [dictOfJSONData objectForKey:@"entries"];
+   // NSLog(@"firstItem = %@", [firstItemRetrieved description]);
     
     //Loop through all results retrieved from API call
-    for (int i=0; i<[arrayOfJSONData count]; i++) {
+    for (int i=0; i<[restaurantsRetrieved count]; i++) {
         //Use custom method to grab each object from dictionary and add each object to the NSMutableArray
-        VeganRestaurant *veganRestDetails = [self createRestaurantObjects:[arrayOfJSONData objectAtIndex:i]];
+        VeganRestaurant *veganRestDetails = [self createRestaurantObjects:[restaurantsRetrieved objectAtIndex:i]];
         if (veganRestDetails != nil) {
             //Add object to array
             [restaurantObjects addObject:veganRestDetails];
@@ -280,19 +287,24 @@
 }
 
 //Method to create custom AlcoholBeverage objects and initalize each object
--(VeganRestaurant*)createRestaurantObjects:(NSDictionary*)restaurantDictionary {
+-(VeganRestaurant*)createRestaurantObjects:(NSDictionary*)restaurantsDictionary {
     //Get items from the dictionary of data received from API call
     
-    //NSString *company = [alcoholBevDictionary valueForKey:@"company"];
-    NSDictionary *vegRestDictionary = [restaurantDictionary objectForKey:@""];
     
-    NSString *restaurantsName = [restaurantDictionary valueForKey:@""];
-    NSString *restaurantsAddress = [restaurantDictionary valueForKey:@""];
-    NSString *restaurantsPhone = [restaurantDictionary valueForKey:@""];
-    NSString *restaurantsWebsite = [restaurantDictionary valueForKey:@""];
+    //NSString *company = [alcoholBevDictionary valueForKey:@"company"];
+    //NSArray *vegRestaurants = [restaurantsDictionary objectForKey:@"entries"];
+    
+    NSString *restaurantsName = [restaurantsDictionary valueForKey:@"name"];
+    NSLog(@"restaurantsName = %@", restaurantsName);
+    NSString *restaurantsAddress = [restaurantsDictionary valueForKey:@"address1"];
+    NSString *restaurantsCity = [restaurantsDictionary valueForKey:@"city"];
+    NSString *restaurantsState = [restaurantsDictionary valueForKey:@"region"];
+    NSString *restaurantsZip = [restaurantsDictionary valueForKey:@"postal_code"];
+    NSString *restaurantsPhone = [restaurantsDictionary valueForKey:@"phone"];
+    NSString *restaurantsWebsite = [restaurantsDictionary valueForKey:@"website"];
     
     //Use object's custom init method to initalize object
-    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite];
+    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress cityOfRestaurant:restaurantsCity stateOfRestaurant:restaurantsState zipOfRestaurant:restaurantsZip phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite];
     
     return newRestaurant;
 }

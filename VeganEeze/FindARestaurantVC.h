@@ -22,12 +22,13 @@
     IBOutlet UIPickerView *veganChoicePicker;
     NSArray *pickerChoices;
     
-    NSURLRequest *requestForData;
+    NSMutableURLRequest *requestForData;
     NSURL *urlForAPICall;
     NSURLConnection *apiConnection;
     NSMutableData *dataRetrieved;
     NSString *searchKeyword;
-    NSArray *arrayOfJSONData;
+    //NSArray *arrayOfJSONData;
+    NSDictionary *dictOfJSONData;
     
     NSMutableArray *restaurantObjects;
     
