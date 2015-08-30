@@ -201,6 +201,28 @@
     return pickerChoices[row];
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    switch (row) {
+        case 0:
+            //User selected first row
+            pickerChoiceSelected = @"5"; //Vegan
+            break;
+            
+        case 1:
+            //User selected second row
+            pickerChoiceSelected = @"4"; //Vegetarian
+            break;
+        
+        case 2:
+            //User selected 3rd row
+            pickerChoiceSelected = @"2"; //Vegan-Friendly
+        default:
+            pickerChoiceSelected = @"5"; //Default choice is vegan
+            break;
+    }
+}
+
 #pragma mark - VegGuide API Calls
 
 //Method to request data from VegGuide API

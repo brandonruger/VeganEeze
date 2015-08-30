@@ -41,6 +41,8 @@
     NSString *completeURL;
     
     NSString *userAgent;
+    
+    NSString *pickerChoiceSelected;
 }
 
 
