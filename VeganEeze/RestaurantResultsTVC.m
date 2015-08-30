@@ -120,15 +120,22 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-//    //Access detail view controller
-//    RestaurantDetailVC *restaurantDetailVC = segue.destinationViewController;
-//    if (restaurantDetailVC != nil) {
-//        
-//        //Get cell that was clicked on
-//        UITableViewCell *cellClicked = (UITableViewCell*)sender;
-//        //Get index of cell that was clicked
-//        NSIndexPath *indexOfCell = [resultsTV indexPathForCell:cellClicked];
-//        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
+    //Access detail view controller
+    RestaurantDetailVC *restaurantDetailVC = segue.destinationViewController;
+    if (restaurantDetailVC != nil) {
+        
+        //Get cell that was clicked on
+        UITableViewCell *cellClicked = (UITableViewCell*)sender;
+        //Get index of cell that was clicked
+        NSIndexPath *indexOfCell = [resultsTV indexPathForCell:cellClicked];
+        //NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
+        
+        //Get current restaurant object from Array to pass over to detail view
+        VeganRestaurant *restaurantClicked = [arrayOfRestaurantObjs objectAtIndex:indexOfCell.row];
+        
+        //Pass over restaurant object
+        restaurantDetailVC.currentRestaurant = restaurantClicked;
+        
 //        //Get strings of restaurant's data from arrays
 //        NSString *restaurantNameStr = [restaurantNames objectAtIndex:indexOfCell.row];
 //        NSString *restaurantAddressStr = [restaurantAddresses objectAtIndex:indexOfCell.row];
@@ -142,7 +149,7 @@
 //        restaurantDetailVC.restaurantCityState = restaurantCityStateStr;
 //        restaurantDetailVC.restaurantURL = restaurantURLStr;
 //        restaurantDetailVC.restaurantPhoneNo = restaurantPhoneStr;
-//    }
+    }
     
 }
 

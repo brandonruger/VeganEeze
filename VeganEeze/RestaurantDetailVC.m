@@ -18,7 +18,7 @@
 @end
 
 @implementation RestaurantDetailVC
-@synthesize restaurantName, restaurantAddress, restaurantCityState, restaurantPhoneNo, restaurantURL;
+@synthesize currentRestaurant;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,10 +67,21 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
+    //Set strings to values from current restaurant object
+    restaurantName = currentRestaurant.restaurantName;
+    restaurantAddress = currentRestaurant.restaurantAddress;
+    restaurantCity = currentRestaurant.restaurantCity;
+    restaurantState = currentRestaurant.restaurantState;
+    restaurantZip = currentRestaurant.restaurantZip;
+    restaurantURL = currentRestaurant.restaurantURL;
+    restaurantPhoneNo = currentRestaurant.restaurantPhone;
+    
     //Set restaurant labels to display information passed over from segue
     nameLabel.text = restaurantName;
     addressTV.text = restaurantAddress;
-    cityStateLabel.text = restaurantCityState;
+    cityLabel.text = restaurantCity;
+    stateLabel.text = restaurantState;
+    zipLabel.text = restaurantZip;
     phoneLabel.text = restaurantPhoneNo;
     
     //Set URL button text
@@ -118,7 +129,9 @@
     PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
     favoritePlace[@"name"] = restaurantName;
     favoritePlace[@"address"] = restaurantAddress;
-    favoritePlace[@"cityState"] = restaurantCityState;
+    favoritePlace[@"city"] = restaurantCity;
+    favoritePlace[@"state"] = restaurantState;
+    favoritePlace[@"zip"] = restaurantZip;
     favoritePlace[@"phoneNo"] = restaurantPhoneNo;
     favoritePlace[@"url"] = restaurantURL;
     //Restrict data to this user only
@@ -135,7 +148,9 @@
     PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
     placeToVisit[@"name"] = restaurantName;
     placeToVisit[@"address"] = restaurantAddress;
-    placeToVisit[@"cityState"] = restaurantCityState;
+    placeToVisit[@"city"] = restaurantCity;
+    placeToVisit[@"state"] = restaurantState;
+    placeToVisit[@"zip"] = restaurantZip;
     placeToVisit[@"phoneNo"] = restaurantPhoneNo;
     placeToVisit[@"url"] = restaurantURL;
     //Restrict data to this user only

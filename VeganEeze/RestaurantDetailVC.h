@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "VeganRestaurant.h"
 
 @interface RestaurantDetailVC : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 
@@ -15,7 +16,9 @@
   
     IBOutlet UILabel *nameLabel;
     //IBOutlet UILabel *addressLabel;
-    IBOutlet UILabel *cityStateLabel;
+    IBOutlet UILabel *cityLabel;
+    IBOutlet UILabel *stateLabel;
+    IBOutlet UILabel *zipLabel;
     IBOutlet UIButton *urlLabel;
     IBOutlet UILabel *phoneLabel;
     
@@ -29,13 +32,23 @@
     //IBOutlet UIButton *addNewComment;
     PFUser *currentUser;
     
+    NSString *restaurantName;
+    NSString *restaurantAddress;
+    NSString *restaurantCity;
+    NSString *restaurantState;
+    NSString *restaurantZip;
+    NSString *restaurantURL;
+    NSString *restaurantPhoneNo;
+    
 }
 
-@property (nonatomic, strong) NSString *restaurantName;
-@property (nonatomic, strong) NSString *restaurantAddress;
-@property (nonatomic, strong) NSString *restaurantCityState;
-@property (nonatomic, strong) NSString *restaurantURL;
-@property (nonatomic, strong) NSString *restaurantPhoneNo;
+//@property (nonatomic, strong) NSString *restaurantName;
+//@property (nonatomic, strong) NSString *restaurantAddress;
+//@property (nonatomic, strong) NSString *restaurantCityState;
+//@property (nonatomic, strong) NSString *restaurantURL;
+//@property (nonatomic, strong) NSString *restaurantPhoneNo;
+
+@property (nonatomic, strong) VeganRestaurant *currentRestaurant;
 
 
 
