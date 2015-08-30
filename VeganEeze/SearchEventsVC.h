@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface SearchEventsVC : UIViewController <UISearchBarDelegate, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface SearchEventsVC : UIViewController <UISearchBarDelegate, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, NSURLConnectionDataDelegate>
 
 {
     IBOutlet UISearchBar *keyword;
@@ -21,6 +21,29 @@
     
     IBOutlet UIPickerView *veganChoicePicker;
     NSArray *pickerChoices;
+    
+    NSMutableURLRequest *requestForData;
+    NSURL *urlForAPICall;
+    NSURLConnection *apiConnection;
+    NSMutableData *dataRetrieved;
+    NSString *searchKeyword;
+    //NSArray *arrayOfJSONData;
+    NSDictionary *dictOfJSONData;
+    
+    NSMutableArray *eventObjects;
+    
+    NSString *latitudeCoord;
+    NSString *longitudeCoord;
+    
+    BOOL searchCurrentLocation;
+    
+    NSString *partialURL;
+    NSString *completeURL;
+    NSString *filterURL;
+    
+    NSString *pickerChoiceSelected;
+    
+    
 }
 
 @end

@@ -47,6 +47,7 @@
     
     //Set user agent for API call
     userAgent = @"VeganEeze App/v1.0";
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,6 +55,8 @@
     //Clear text from search bars
     keyword.text = @"";
     location.text = @"";
+    
+    searchKeyword = @"";
     
     //Remove all objects from array
     if (restaurantObjects != nil) {
@@ -231,6 +234,10 @@
 //Method to request data from VegGuide API
 -(IBAction)searchForVeganRestaurants:(id)sender {
     
+    //Set search keyword to keyword user entered
+    searchKeyword = keyword.text;
+    
+    
     //Check how user wants to search
     if (searchCurrentLocation) {
         //User has chosen to search by current location
@@ -243,11 +250,33 @@
         //Add coordinates term to url for API call
         completeURL = [partialURL stringByAppendingString:coordinates];
         
-        //Add filter to search
-        NSString *searchFilter = [NSString stringWithFormat:@"/filter/veg_level=%@", pickerChoiceSelected];
+        //Check if user entered a search keyword or not
+        if ([searchKeyword isEqualToString:@""]) {
+            //User did not enter a keywrod
+            
+            //Add filter to search
+            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
+            
+            //Add filter to completed URL
+            filterURL = [completeURL stringByAppendingString:searchFilter];
+            
+        } else {
+            //User entered a search keyword, need to add it to URL
+            
+            
+            //Add filter to search
+            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
+            
+            //Add filter to completed URL
+            filterURL = [completeURL stringByAppendingString:searchFilter];
+            
+        }
         
-        //Add filter to completed URL
-        filterURL = [completeURL stringByAppendingString:searchFilter];
+//        //Add filter to search
+//        NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
+//        
+//        //Add filter to completed URL
+//        filterURL = [completeURL stringByAppendingString:searchFilter];
         
         //NSLog(@"completeURL= %@", completeURL);
         //NSLog(@"coordinates= %@", coordinates);
@@ -262,11 +291,33 @@
         //Append string to form complete URL
         completeURL = [partialURL stringByAppendingString:userEnteredLocation];
         
-        //Add filter to search
-        NSString *searchFilter = [NSString stringWithFormat:@"/filter/veg_level=%@", pickerChoiceSelected];
+        //Check if user entered a search keyword or not
+        if ([searchKeyword isEqualToString:@""]) {
+            //User did not enter a keywrod
+            
+            //Add filter to search
+            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
+            
+            //Add filter to completed URL
+            filterURL = [completeURL stringByAppendingString:searchFilter];
+            
+        } else {
+            //User entered a search keyword, need to add it to URL
+            
+            
+            //Add filter to search
+            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
+            
+            //Add filter to completed URL
+            filterURL = [completeURL stringByAppendingString:searchFilter];
+            
+        }
         
-        //Add filter to completed URL
-        filterURL = [completeURL stringByAppendingString:searchFilter];
+//        //Add filter to search
+//        NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
+//        
+//        //Add filter to completed URL
+//        filterURL = [completeURL stringByAppendingString:searchFilter];
     }
     
     //Set up URL for API call
@@ -339,9 +390,10 @@
     NSString *restaurantsZip = [restaurantsDictionary valueForKey:@"postal_code"];
     NSString *restaurantsPhone = [restaurantsDictionary valueForKey:@"phone"];
     NSString *restaurantsWebsite = [restaurantsDictionary valueForKey:@"website"];
+    NSString *restaurantReviewURI = [restaurantsDictionary valueForKey:@"reviews_uri"];
     
     //Use object's custom init method to initalize object
-    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress cityOfRestaurant:restaurantsCity stateOfRestaurant:restaurantsState zipOfRestaurant:restaurantsZip phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite];
+    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress cityOfRestaurant:restaurantsCity stateOfRestaurant:restaurantsState zipOfRestaurant:restaurantsZip phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite reviewsOfRestaurant:restaurantReviewURI];
     
     return newRestaurant;
 }

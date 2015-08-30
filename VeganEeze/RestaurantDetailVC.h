@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "VeganRestaurant.h"
 
-@interface RestaurantDetailVC : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
+@interface RestaurantDetailVC : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate, NSURLConnectionDataDelegate>
 
 {
   
@@ -39,6 +39,15 @@
     NSString *restaurantZip;
     NSString *restaurantURL;
     NSString *restaurantPhoneNo;
+    NSString *restaurantReviewURI;
+    
+    NSURL *urlForReviews;
+    NSMutableURLRequest *reviewsRequest;
+    NSURLConnection *reviewsConnection;
+    NSMutableData *reviewData;
+    NSDictionary *reviewDictionary;
+    NSArray *reviewsArray;
+    NSString *userAgent;
     
 }
 

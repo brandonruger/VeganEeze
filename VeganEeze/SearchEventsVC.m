@@ -7,6 +7,8 @@
 //
 
 #import "SearchEventsVC.h"
+#import "EventResultsTVC.h"
+#import "VeganEvent.h"
 
 @interface SearchEventsVC ()
 
@@ -29,11 +31,33 @@
     veganChoicePicker.dataSource = self;
     veganChoicePicker.delegate = self;
     
+    searchCurrentLocation = TRUE;
+    
+    //Set default for picker choice
+    pickerChoiceSelected = @"vegan";
+    
     //Get current location
     [self getCurrentLocation];
     
     //Add target selectors to segmented control buttons
     [searchSegmentedControl addTarget:self action:@selector(howToSearch:) forControlEvents:UIControlEventValueChanged];
+    
+    //Initalize NSMutableArray which will hold event objects
+    eventObjects = [[NSMutableArray alloc]init];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    //Clear text from search bars
+    keyword.text = @"";
+    location.text = @"";
+    
+    searchKeyword = @"";
+    
+    //Remove all objects from array
+    if (eventObjects != nil) {
+        [eventObjects removeAllObjects];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,9 +122,15 @@
     if (segmentControlSelected == 0) { //
         //Call the method to search by current location
         [self searchByCurrentLoc];
+        
+        //Set bool to true
+        searchCurrentLocation = TRUE;
     } else {
         //Call method to search by city/state
         [self searchCityState];
+        
+        //Set bool to false
+        searchCurrentLocation = FALSE;
     }
 }
 
@@ -148,8 +178,8 @@
         CLLocationCoordinate2D coordinates = currentLocation.coordinate;
         
         //Convert latitude/longitude coordinates to strings
-        NSString *latitudeCoord = [NSString stringWithFormat:@"%g", coordinates.latitude];
-        NSString *longitudeCoord = [NSString stringWithFormat:@"%g", coordinates.longitude];
+        latitudeCoord = [NSString stringWithFormat:@"%g", coordinates.latitude];
+        longitudeCoord = [NSString stringWithFormat:@"%g", coordinates.longitude];
         
         NSLog(@"Latitude = %@", latitudeCoord);
         NSLog(@"Longitude = %@", longitudeCoord);
@@ -175,14 +205,139 @@
     return pickerChoices[row];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    switch (row) {
+        case 0:
+            //User selected first row
+            pickerChoiceSelected = @"vegan"; //Vegan
+            break;
+            
+        case 1:
+            //User selected second row
+            pickerChoiceSelected = @"vegetarian"; //Vegetarian
+            break;
+            
+        case 2:
+            //User selected 3rd row
+            pickerChoiceSelected = @"veg friendly"; //Vegan-Friendly
+        default:
+            pickerChoiceSelected = @"vegan"; //Default choice is vegan
+            break;
+    }
 }
-*/
+
+#pragma mark - Eventful API calls
+
+//API key- VrdtgSDWhZCHjRcK
+
+-(IBAction)searchVeganEvents:(id)sender {
+    //Set search keyword to keyword user entered
+    searchKeyword = keyword.text;
+    
+    
+    //Check how user wants to search
+    if (searchCurrentLocation) {
+        //User has chosen to search by current location
+        
+        //String used to access API
+        partialURL = @"http://eventful.com/events";
+        //Create a string to hold latititude/longitude coordinates
+        NSString *coordinates = [NSString stringWithFormat:@"%@,%@", latitudeCoord, longitudeCoord];
+        
+        //Add coordinates term to url for API call
+        completeURL = [partialURL stringByAppendingString:coordinates];
+        
+        //Check if user entered a search keyword or not
+        if ([searchKeyword isEqualToString:@""]) {
+            //User did not enter a keywrod
+            
+            //Add filter to search
+            NSString *searchFilter = [NSString stringWithFormat:@"%@", pickerChoiceSelected];
+            
+            //Add filter to completed URL
+            filterURL = [completeURL stringByAppendingString:searchFilter];
+            
+        } else {
+            //User entered a search keyword, need to add it to URL
+            
+            
+            //Add filter to search
+            NSString *searchFilter = [NSString stringWithFormat:@"%@,%@", pickerChoiceSelected, searchKeyword];
+            
+            //Add filter to completed URL
+            filterURL = [completeURL stringByAppendingString:searchFilter];
+            
+        }
+
+    } else {
+        //User wants to search by address
+        partialURL = @"";
+        
+        //Get string user entered in search field
+        NSString *userEnteredLocation = location.text;
+        
+        //Append string to form complete URL
+        completeURL = [partialURL stringByAppendingString:userEnteredLocation];
+        
+        //Check if user entered a search keyword or not
+        if ([searchKeyword isEqualToString:@""]) {
+            //User did not enter a keywrod
+            
+            //Add filter to search
+            NSString *searchFilter = [NSString stringWithFormat:@"%@", pickerChoiceSelected];
+            
+            //Add filter to completed URL
+            filterURL = [completeURL stringByAppendingString:searchFilter];
+            
+        } else {
+            //User entered a search keyword, need to add it to URL
+            
+            
+            //Add filter to search
+            NSString *searchFilter = [NSString stringWithFormat:@"%@,%@", pickerChoiceSelected, searchKeyword];
+            
+            //Add filter to completed URL
+            filterURL = [completeURL stringByAppendingString:searchFilter];
+            
+        }
+        
+    }
+    
+    //Set up URL for API call
+    urlForAPICall = [[NSURL alloc] initWithString:filterURL];
+    
+    //Set up request to send to server
+    requestForData = [[NSMutableURLRequest alloc]initWithURL:urlForAPICall];
+    if (requestForData != nil) {
+        
+        //Set up connection to get data from the server
+        apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
+        //Create mutableData object to hold data
+        dataRetrieved = [NSMutableData data];
+    }
+
+}
+
+//Method called when data is received
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    //Check to make sure data is valid
+    if (data != nil) {
+        //Add this data to mutableData object
+        [dataRetrieved appendData:data];
+    }
+}
+
+//Method called when all data from request has been retrieved
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+}
+
+//Method to create custom AlcoholBeverage objects and initalize each object
+-(VeganEvent*)createEventObjects:(NSDictionary*)eventDictionary {
+
+    return nil;
+}
+
 
 @end

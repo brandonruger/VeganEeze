@@ -24,6 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    userAgent = @"VeganEeze App/v1.0";
+    
     //Setup array for usernames
     usernames = [[NSMutableArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
     
@@ -75,6 +77,12 @@
     restaurantZip = currentRestaurant.restaurantZip;
     restaurantURL = currentRestaurant.restaurantURL;
     restaurantPhoneNo = currentRestaurant.restaurantPhone;
+    
+    //Get URI for restaurants reviews
+    restaurantReviewURI = currentRestaurant.reviewsURI;
+    NSLog(@"URI = %@", restaurantReviewURI);
+    //Call method to get restaurant reviews from API
+    [self getRestaurantReviews];
     
     //Set restaurant labels to display information passed over from segue
     nameLabel.text = restaurantName;
@@ -230,5 +238,60 @@
         [commentsTV reloadData];
     }
 }
+
+#pragma mark - Review API calls
+
+//Method to get restaurant reviews
+-(void)getRestaurantReviews {
+    
+    //Set up URL for API call
+    urlForReviews = [[NSURL alloc] initWithString:restaurantReviewURI];
+    
+    //Set up request to send to server
+    reviewsRequest = [[NSMutableURLRequest alloc]initWithURL:urlForReviews];
+    if (reviewsRequest != nil) {
+        [reviewsRequest setValue:userAgent forHTTPHeaderField:@"User-Agent"];
+        
+        //Set up connection to get data from server
+        reviewsConnection = [[NSURLConnection alloc]initWithRequest:reviewsRequest delegate:self];
+        //Create mutableData object to store data
+        reviewData = [NSMutableData data];
+    }
+}
+
+//Method called when data is received
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    //Check to make sure data is valid
+    if (data != nil) {
+        //Add this data to mutableData object
+        [reviewData appendData:data];
+        
+    }
+}
+
+//Method called when all data from request has been retrieved
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    reviewsArray = [NSKeyedUnarchiver unarchiveObjectWithData:reviewData];
+    
+    NSLog(@"reviewsArray = %@", reviewsArray);
+    
+    //Serialize JSON data
+    //reviewDictionary = [NSJSONSerialization JSONObjectWithData:reviewData options:0 error:nil];
+   // reviewsArray = [reviewDictionary objectForKey:@"entries"];
+    
+    //reviewsArray = [[NSArray alloc] initWithArray:[NSJSONSerialization JSONObjectWithData:reviewData options:0 error:nil]];
+
+    
+    //NSLog(@"array count = %lu", (unsigned long)[reviewsArray count]);
+    
+    //NSArray *reviewsRetrieved = [reviewDictionary objectForKey:@""];
+    //NSString *reviewComment = [reviewsArray valueForKey:@"body"];
+    
+    //NSString *dataString = [[NSString alloc]initWithData:reviewData encoding:NSASCIIStringEncoding];
+    //NSLog(@"%@", dataString);
+}
+
+
 
 @end
