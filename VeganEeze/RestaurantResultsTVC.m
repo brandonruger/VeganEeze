@@ -8,6 +8,7 @@
 
 #import "RestaurantResultsTVC.h"
 #import "RestaurantDetailVC.h"
+#import "VeganRestaurant.h"
 
 @interface RestaurantResultsTVC ()
 
@@ -19,12 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //Setup arrays w/ static data
-    restaurantNames = [[NSArray alloc]initWithObjects:@"Ethos", @"Toasted", @"Dandelion Cafe", @"Loving Hut", nil];
-    restaurantAddresses = [[NSArray alloc]initWithObjects:@"133 South St", @"2409 N Park Ave", @"849 East Orange Ln", @"9189 Apple Rd", nil];
-    restaurantCityStates = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
-    restaurantURLs = [[NSArray alloc]initWithObjects:@"www.ethosvegankitchen.com", @"www.igettoasted.com", @"www.dandelioncommunitea.com", @"www.lovinghut.us", nil];
-    restaurantPhones = [[NSArray alloc]initWithObjects:@"727-401-2009", @"727-394-3928", @"727-293-1293", @"727-203-5039", nil];
+//    //Setup arrays w/ static data
+//    restaurantNames = [[NSArray alloc]initWithObjects:@"Ethos", @"Toasted", @"Dandelion Cafe", @"Loving Hut", nil];
+//    restaurantAddresses = [[NSArray alloc]initWithObjects:@"133 South St", @"2409 N Park Ave", @"849 East Orange Ln", @"9189 Apple Rd", nil];
+//    restaurantCityStates = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
+//    restaurantURLs = [[NSArray alloc]initWithObjects:@"www.ethosvegankitchen.com", @"www.igettoasted.com", @"www.dandelioncommunitea.com", @"www.lovinghut.us", nil];
+//    restaurantPhones = [[NSArray alloc]initWithObjects:@"727-401-2009", @"727-394-3928", @"727-293-1293", @"727-203-5039", nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -50,7 +51,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return [arrayOfRestaurantObjs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -58,10 +59,10 @@
     UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell"];
     if (resultsCell != nil) {
         
+        VeganRestaurant *veganRestaurantInfo = [arrayOfRestaurantObjs objectAtIndex:indexPath.row];
         
-        
-        resultsCell.textLabel.text = [restaurantNames objectAtIndex:indexPath.row];
-        resultsCell.detailTextLabel.text = [restaurantCityStates objectAtIndex:indexPath.row];
+        resultsCell.textLabel.text = veganRestaurantInfo.restaurantName;
+        resultsCell.detailTextLabel.text = veganRestaurantInfo.restaurantCity;
     }
     
     return resultsCell;
@@ -119,29 +120,29 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    //Access detail view controller
-    RestaurantDetailVC *restaurantDetailVC = segue.destinationViewController;
-    if (restaurantDetailVC != nil) {
-        
-        //Get cell that was clicked on
-        UITableViewCell *cellClicked = (UITableViewCell*)sender;
-        //Get index of cell that was clicked
-        NSIndexPath *indexOfCell = [resultsTV indexPathForCell:cellClicked];
-        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
-        //Get strings of restaurant's data from arrays
-        NSString *restaurantNameStr = [restaurantNames objectAtIndex:indexOfCell.row];
-        NSString *restaurantAddressStr = [restaurantAddresses objectAtIndex:indexOfCell.row];
-        NSString *restaurantCityStateStr = [restaurantCityStates objectAtIndex:indexOfCell.row];
-        NSString *restaurantURLStr = [restaurantURLs objectAtIndex:indexOfCell.row];
-        NSString *restaurantPhoneStr = [restaurantPhones objectAtIndex:indexOfCell.row];
-        
-        //Pass the restaurant's information to the properties in the detail view
-        restaurantDetailVC.restaurantName = restaurantNameStr;
-        restaurantDetailVC.restaurantAddress = restaurantAddressStr;
-        restaurantDetailVC.restaurantCityState = restaurantCityStateStr;
-        restaurantDetailVC.restaurantURL = restaurantURLStr;
-        restaurantDetailVC.restaurantPhoneNo = restaurantPhoneStr;
-    }
+//    //Access detail view controller
+//    RestaurantDetailVC *restaurantDetailVC = segue.destinationViewController;
+//    if (restaurantDetailVC != nil) {
+//        
+//        //Get cell that was clicked on
+//        UITableViewCell *cellClicked = (UITableViewCell*)sender;
+//        //Get index of cell that was clicked
+//        NSIndexPath *indexOfCell = [resultsTV indexPathForCell:cellClicked];
+//        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
+//        //Get strings of restaurant's data from arrays
+//        NSString *restaurantNameStr = [restaurantNames objectAtIndex:indexOfCell.row];
+//        NSString *restaurantAddressStr = [restaurantAddresses objectAtIndex:indexOfCell.row];
+//        NSString *restaurantCityStateStr = [restaurantCityStates objectAtIndex:indexOfCell.row];
+//        NSString *restaurantURLStr = [restaurantURLs objectAtIndex:indexOfCell.row];
+//        NSString *restaurantPhoneStr = [restaurantPhones objectAtIndex:indexOfCell.row];
+//        
+//        //Pass the restaurant's information to the properties in the detail view
+//        restaurantDetailVC.restaurantName = restaurantNameStr;
+//        restaurantDetailVC.restaurantAddress = restaurantAddressStr;
+//        restaurantDetailVC.restaurantCityState = restaurantCityStateStr;
+//        restaurantDetailVC.restaurantURL = restaurantURLStr;
+//        restaurantDetailVC.restaurantPhoneNo = restaurantPhoneStr;
+//    }
     
 }
 
