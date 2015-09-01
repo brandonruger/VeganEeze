@@ -33,6 +33,8 @@
     
     searchCurrentLocation = TRUE;
     
+    appKey = @"&app_key=VrdtgSDWhZCHjRcK";
+    
     //Set default for picker choice
     pickerChoiceSelected = @"vegan";
     
@@ -220,7 +222,7 @@
             
         case 2:
             //User selected 3rd row
-            pickerChoiceSelected = @"veg friendly"; //Vegan-Friendly
+            pickerChoiceSelected = @"veg+friendly"; //Vegan-Friendly
         default:
             pickerChoiceSelected = @"vegan"; //Default choice is vegan
             break;
@@ -230,6 +232,8 @@
 #pragma mark - Eventful API calls
 
 //API key- VrdtgSDWhZCHjRcK
+
+//Format = http://api.eventful.com/json/events/search?...&location=San+Diego
 
 -(IBAction)searchVeganEvents:(id)sender {
     //Set search keyword to keyword user entered
@@ -241,71 +245,86 @@
         //User has chosen to search by current location
         
         //String used to access API
-        partialURL = @"http://eventful.com/events";
-        //Create a string to hold latititude/longitude coordinates
-        NSString *coordinates = [NSString stringWithFormat:@"%@,%@", latitudeCoord, longitudeCoord];
+        partialURL = @"http://api.eventful.com/json/events/search?q=";
         
-        //Add coordinates term to url for API call
-        completeURL = [partialURL stringByAppendingString:coordinates];
+        //Add on picker choice selected to URL
+        partialURL = [partialURL stringByAppendingString:pickerChoiceSelected];
         
-        //Check if user entered a search keyword or not
-        if ([searchKeyword isEqualToString:@""]) {
-            //User did not enter a keywrod
-            
-            //Add filter to search
-            NSString *searchFilter = [NSString stringWithFormat:@"%@", pickerChoiceSelected];
-            
-            //Add filter to completed URL
-            filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-        } else {
-            //User entered a search keyword, need to add it to URL
-            
-            
-            //Add filter to search
-            NSString *searchFilter = [NSString stringWithFormat:@"%@,%@", pickerChoiceSelected, searchKeyword];
-            
-            //Add filter to completed URL
-            filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-        }
+        NSString *locationCoordinates = [NSString stringWithFormat:@"&l=%@,%@", latitudeCoord, longitudeCoord];
+        
+        //Add location
+        NSString *locationURL = [partialURL stringByAppendingString:locationCoordinates];
+        
+        //Add App key
+        completeURL = [locationURL stringByAppendingString:appKey];
+        
+        NSLog(@"completeURL = %@", completeURL);
+        
+//        //Check if user entered a search keyword or not
+//        if ([searchKeyword isEqualToString:@""]) {
+//            //User did not enter a keywrod
+//            
+//            //Add filter to search
+//            NSString *searchFilter = [NSString stringWithFormat:@"%@", pickerChoiceSelected];
+//            
+//            //Add filter to completed URL
+//            filterURL = [completeURL stringByAppendingString:searchFilter];
+//            
+//        } else {
+//            //User entered a search keyword, need to add it to URL
+//            
+//            
+//            //Add filter to search
+//            NSString *searchFilter = [NSString stringWithFormat:@"%@,%@", pickerChoiceSelected, searchKeyword];
+//            
+//            //Add filter to completed URL
+//            filterURL = [completeURL stringByAppendingString:searchFilter];
+//            
+//        }
 
     } else {
         //User wants to search by address
-        partialURL = @"";
+        partialURL = @"http://api.eventful.com/json/events/search?q=";
+        
+        //Add on picker choice selected to URL
+        partialURL = [partialURL stringByAppendingString:pickerChoiceSelected];
         
         //Get string user entered in search field
         NSString *userEnteredLocation = location.text;
         
         //Append string to form complete URL
-        completeURL = [partialURL stringByAppendingString:userEnteredLocation];
+        NSString *locationURL = [partialURL stringByAppendingString:userEnteredLocation];
         
-        //Check if user entered a search keyword or not
-        if ([searchKeyword isEqualToString:@""]) {
-            //User did not enter a keywrod
-            
-            //Add filter to search
-            NSString *searchFilter = [NSString stringWithFormat:@"%@", pickerChoiceSelected];
-            
-            //Add filter to completed URL
-            filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-        } else {
-            //User entered a search keyword, need to add it to URL
-            
-            
-            //Add filter to search
-            NSString *searchFilter = [NSString stringWithFormat:@"%@,%@", pickerChoiceSelected, searchKeyword];
-            
-            //Add filter to completed URL
-            filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-        }
+        //Add App key
+        completeURL = [locationURL stringByAppendingString:appKey];
+        NSLog(@"completeURL = %@", completeURL);
+        
+//        //Check if user entered a search keyword or not
+//        if ([searchKeyword isEqualToString:@""]) {
+//            //User did not enter a keywrod
+//            
+//            //Add filter to search
+//            NSString *searchFilter = [NSString stringWithFormat:@"%@", pickerChoiceSelected];
+//            
+//            //Add filter to completed URL
+//            filterURL = [completeURL stringByAppendingString:searchFilter];
+//            
+//        } else {
+//            //User entered a search keyword, need to add it to URL
+//            
+//            
+//            //Add filter to search
+//            NSString *searchFilter = [NSString stringWithFormat:@"%@,%@", pickerChoiceSelected, searchKeyword];
+//            
+//            //Add filter to completed URL
+//            filterURL = [completeURL stringByAppendingString:searchFilter];
+//            
+//        }
         
     }
     
     //Set up URL for API call
-    urlForAPICall = [[NSURL alloc] initWithString:filterURL];
+    urlForAPICall = [[NSURL alloc] initWithString:completeURL];
     
     //Set up request to send to server
     requestForData = [[NSMutableURLRequest alloc]initWithURL:urlForAPICall];
@@ -331,6 +350,8 @@
 //Method called when all data from request has been retrieved
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
+    dictOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
+
 }
 
 //Method to create custom AlcoholBeverage objects and initalize each object

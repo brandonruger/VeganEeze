@@ -1202,6 +1202,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="searchVeganEvents:" destination="kMl-5x-2O2" eventType="touchUpInside" id="GJ6-4X-HwL"/>
                                     <segue destination="GvM-21-Yli" kind="show" identifier="segueToEventResults" id="nI7-gK-PA6"/>
                                 </connections>
                             </button>

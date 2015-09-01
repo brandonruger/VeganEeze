@@ -41,6 +41,8 @@
     NSString *completeURL;
     NSString *filterURL;
     
+    NSString *appKey;
+    
     NSString *pickerChoiceSelected;
     
     
