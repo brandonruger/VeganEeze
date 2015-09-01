@@ -1203,7 +1203,6 @@
                                 </state>
                                 <connections>
                                     <action selector="searchVeganEvents:" destination="kMl-5x-2O2" eventType="touchUpInside" id="GJ6-4X-HwL"/>
-                                    <segue destination="GvM-21-Yli" kind="show" identifier="segueToEventResults" id="nI7-gK-PA6"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUO-1T-Rmi">
@@ -1263,7 +1262,7 @@
         <!--Event Results-->
         <scene sceneID="rmE-LL-src">
             <objects>
-                <tableViewController title="Event Results" id="GvM-21-Yli" customClass="EventResultsTVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EventResultsViewController" title="Event Results" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GvM-21-Yli" customClass="EventResultsTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VsK-yT-hlp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

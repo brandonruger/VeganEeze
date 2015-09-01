@@ -8,22 +8,24 @@
 
 #import "EventResultsTVC.h"
 #import "EventDetailVC.h"
+#import "VeganEvent.h"
 
 @interface EventResultsTVC ()
 
 @end
 
 @implementation EventResultsTVC
+@synthesize arrayOfEvents;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //Setup arrays w/ static data
-    eventNames = [[NSArray alloc]initWithObjects:@"Veg Festival", @"Vegan Fair", @"Dinner Theater", @"VegFestUK", nil];
-    eventAddresses = [[NSArray alloc]initWithObjects:@"133 South St", @"2409 N Park Ave", @"849 East Orange Ln", @"9189 Apple Rd", nil];
-    eventCityStates = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
-    eventURLs = [[NSArray alloc]initWithObjects:@"www.cfvegfest.org", @"www.veganstreetfair.com", @"www.sleuths.com", @"www.vegfest.co.uk", nil];
-    eventPhones = [[NSArray alloc]initWithObjects:@"727-401-2009", @"727-394-3928", @"727-293-1293", @"727-203-5039", nil];
+//    eventNames = [[NSArray alloc]initWithObjects:@"Veg Festival", @"Vegan Fair", @"Dinner Theater", @"VegFestUK", nil];
+//    eventAddresses = [[NSArray alloc]initWithObjects:@"133 South St", @"2409 N Park Ave", @"849 East Orange Ln", @"9189 Apple Rd", nil];
+//    eventCityStates = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
+//    eventURLs = [[NSArray alloc]initWithObjects:@"www.cfvegfest.org", @"www.veganstreetfair.com", @"www.sleuths.com", @"www.vegfest.co.uk", nil];
+//    eventPhones = [[NSArray alloc]initWithObjects:@"727-401-2009", @"727-394-3928", @"727-293-1293", @"727-203-5039", nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -41,7 +43,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return [arrayOfEvents count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -49,10 +51,10 @@
     UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"EventsCell"];
     if (resultsCell != nil) {
         
+        VeganEvent *veganEventInfo = [arrayOfEvents objectAtIndex:indexPath.row];
         
-        
-        resultsCell.textLabel.text = [eventNames objectAtIndex:indexPath.row];
-        resultsCell.detailTextLabel.text = [eventCityStates objectAtIndex:indexPath.row];
+        resultsCell.textLabel.text = veganEventInfo.eventName;
+        resultsCell.detailTextLabel.text = veganEventInfo.eventCity;
     }
     
     return resultsCell;
@@ -117,20 +119,20 @@
         UITableViewCell *cellClicked = (UITableViewCell*)sender;
         //Get index of cell that was clicked
         NSIndexPath *indexOfCell = [eventResultsTV indexPathForCell:cellClicked];
-        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
-        //Get strings of event's data from arrays
-        NSString *eventNameStr = [eventNames objectAtIndex:indexOfCell.row];
-        NSString *eventAddressStr = [eventAddresses objectAtIndex:indexOfCell.row];
-        NSString *eventCityStateStr = [eventCityStates objectAtIndex:indexOfCell.row];
-        NSString *eventURLStr = [eventURLs objectAtIndex:indexOfCell.row];
-        NSString *eventPhoneStr = [eventPhones objectAtIndex:indexOfCell.row];
-        
-        //Pass the event's information to the properties in the detail view
-        eventDetailsVC.eventName = eventNameStr;
-        eventDetailsVC.eventAddress = eventAddressStr;
-        eventDetailsVC.eventCityState = eventCityStateStr;
-        eventDetailsVC.eventURL = eventURLStr;
-        eventDetailsVC.eventPhoneNo = eventPhoneStr;
+//        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
+//        //Get strings of event's data from arrays
+//        NSString *eventNameStr = [eventNames objectAtIndex:indexOfCell.row];
+//        NSString *eventAddressStr = [eventAddresses objectAtIndex:indexOfCell.row];
+//        NSString *eventCityStateStr = [eventCityStates objectAtIndex:indexOfCell.row];
+//        NSString *eventURLStr = [eventURLs objectAtIndex:indexOfCell.row];
+//        NSString *eventPhoneStr = [eventPhones objectAtIndex:indexOfCell.row];
+//        
+//        //Pass the event's information to the properties in the detail view
+//        eventDetailsVC.eventName = eventNameStr;
+//        eventDetailsVC.eventAddress = eventAddressStr;
+//        eventDetailsVC.eventCityState = eventCityStateStr;
+//        eventDetailsVC.eventURL = eventURLStr;
+//        eventDetailsVC.eventPhoneNo = eventPhoneStr;
     }
     
 }

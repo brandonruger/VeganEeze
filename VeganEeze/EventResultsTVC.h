@@ -13,11 +13,13 @@
 {
     IBOutlet UITableView *eventResultsTV;
     
-    NSArray *eventNames;
-    NSArray *eventAddresses;
-    NSArray *eventCityStates;
-    NSArray *eventURLs;
-    NSArray *eventPhones;
+//    NSArray *eventNames;
+//    NSArray *eventAddresses;
+//    NSArray *eventCityStates;
+//    NSArray *eventURLs;
+//    NSArray *eventPhones;
 }
+
+@property (nonatomic, strong) NSMutableArray *arrayOfEvents;
 
 @end

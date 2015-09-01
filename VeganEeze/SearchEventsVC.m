@@ -364,6 +364,12 @@
             [eventObjects addObject:event];
         }
     }
+    
+    EventResultsTVC *eventResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EventResultsViewController"];
+    //Pass the array of VeganEvent objects to the Results view controller
+    eventResultsTVC.arrayOfEvents = eventObjects;
+    //Instantiate new view controller
+    [self.navigationController pushViewController:eventResultsTVC animated:YES];
 }
 
 //Method to create custom AlcoholBeverage objects and initalize each object

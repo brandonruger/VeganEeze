@@ -364,7 +364,7 @@
     }
     
     RestaurantResultsTVC *restResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantResultsViewController"];
-    //Pass the array of AlcoholBeverage objects to the Beverage Results vc
+    //Pass the array of VeganRestaurant objects to the Restaurant Results vc
     restResultsTVC.arrayOfRestaurantObjs = restaurantObjects;
     //Instantiate new view controller
     [self.navigationController pushViewController:restResultsTVC animated:YES];
