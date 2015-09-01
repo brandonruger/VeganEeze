@@ -18,6 +18,7 @@
         restaurantName = [nameOfRestaurant copy];
         restaurantAddress = [addressOfRestaurant copy];
         restaurantCity = [cityOfRestaurant copy];
+        restaurantState = [stateOfRestaurant copy];
         restaurantZip = [zipOfRestaurant copy];
         restaurantPhone = [phoneNo copy];
         restaurantURL = [urlOfRestaurant copy];

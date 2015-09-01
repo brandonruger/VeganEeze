@@ -351,13 +351,37 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
     dictOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
-
+    //NSArray *eventsRetrieved = [dictOfJSONData objectForKey:@"events"];
+    NSDictionary *eventsRetrieved = [dictOfJSONData objectForKey:@"events"];
+    NSArray *eventsRetrievedArray = [eventsRetrieved valueForKey:@"event"];
+    
+    //Loop through array of events
+    for (int i=0; i<[eventsRetrievedArray count]; i++) {
+        //Use custom method to grab each object from dictionary and add each object to mutable array
+        VeganEvent *event = [self createEventObjects:[eventsRetrievedArray objectAtIndex:i]];
+        if (event != nil) {
+            //Add object to array
+            [eventObjects addObject:event];
+        }
+    }
 }
 
 //Method to create custom AlcoholBeverage objects and initalize each object
 -(VeganEvent*)createEventObjects:(NSDictionary*)eventDictionary {
 
-    return nil;
+    NSString *eventName = [eventDictionary valueForKey:@"title"];
+    NSLog(@"eventName = %@", eventName);
+    NSString *eventAddress = [eventDictionary valueForKey:@"venue_address"];
+    NSString *eventCity = [eventDictionary valueForKey:@"city_name"];
+    NSString *eventState = [eventDictionary valueForKey:@"region_abbr"];
+    NSString *eventZip = [eventDictionary valueForKey:@"postal_code"];
+    //NSString *eventPhone = [eventDictionary valueForKey:@""];
+    NSString *eventWebsite = [eventDictionary valueForKey:@"url"];
+    
+    //Use object's custom init method to initialize object
+    VeganEvent *newEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite];
+    
+    return newEvent;
 }
 
 
