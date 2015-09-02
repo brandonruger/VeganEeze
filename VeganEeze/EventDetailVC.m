@@ -18,7 +18,7 @@
 @end
 
 @implementation EventDetailVC
-@synthesize eventName, eventAddress, eventCityState, eventPhoneNo, eventURL;
+@synthesize currentEvent;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -83,17 +83,34 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
-    //Set event labels to display information passed over from segue
+    //Set strings to values from current event object
+    eventName = currentEvent.eventName;
+    eventAddress = currentEvent.eventAddress;
+    eventCity = currentEvent.eventCity;
+    eventState = currentEvent.eventState;
+    eventZip = currentEvent.eventZip;
+    eventURL = currentEvent.eventURL;
+    
+    //Get object ID for retrieving reviews
+    eventID = currentEvent.eventID;
+    //Call method to get event reviews from API
+    //[self getEventReviews];
+    
+    //Set labels to display information
     eventNameLabel.text = eventName;
     addressTV.text = eventAddress;
-    eventCityStateLabel.text = eventCityState;
-    eventPhoneLabel.text = eventPhoneNo;
+    eventCityLabel.text = eventCity;
+    eventStateLabel.text = eventState;
+    eventZipLabel.text = eventZip;
+    
+    //eventCityStateLabel.text = eventCityState;
+    //eventPhoneLabel.text = eventPhoneNo;
     
     //Set URL button text
     [eventUrlLabel setTitle:eventURL forState:UIControlStateNormal];
     
     //Set phone # to appear in text view
-    phoneNoTV.text = eventPhoneNo;
+    //phoneNoTV.text = eventPhoneNo;
     
 }
 
@@ -117,8 +134,10 @@
     PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
     favoritePlace[@"name"] = eventName;
     favoritePlace[@"address"] = eventAddress;
-    favoritePlace[@"cityState"] = eventCityState;
-    favoritePlace[@"phoneNo"] = eventPhoneNo;
+    favoritePlace[@"city"] = eventCity;
+    favoritePlace[@"state"] = eventState;
+    favoritePlace[@"zip"] = eventZip;
+    //favoritePlace[@"phoneNo"] = eventPhoneNo;
     favoritePlace[@"url"] = eventURL;
     //Restrict data to this user only
     favoritePlace.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
@@ -135,8 +154,11 @@
     PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
     placeToVisit[@"name"] = eventName;
     placeToVisit[@"address"] = eventAddress;
-    placeToVisit[@"cityState"] = eventCityState;
-    placeToVisit[@"phoneNo"] = eventPhoneNo;
+    placeToVisit[@"city"] = eventCity;
+    placeToVisit[@"state"] = eventState;
+    placeToVisit[@"zip"] = eventZip;
+    //placeToVisit[@"cityState"] = eventCityState;
+    //placeToVisit[@"phoneNo"] = eventPhoneNo;
     placeToVisit[@"url"] = eventURL;
     //Restrict data to this user only
     placeToVisit.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
@@ -199,6 +221,13 @@
         //Refresh tableview
         [commentsTV reloadData];
     }
+}
+
+#pragma mark - Reviews API calls
+
+//Method to get event reviews
+-(void)getEventReviews {
+    
 }
 
 @end

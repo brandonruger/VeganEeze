@@ -119,6 +119,14 @@
         UITableViewCell *cellClicked = (UITableViewCell*)sender;
         //Get index of cell that was clicked
         NSIndexPath *indexOfCell = [eventResultsTV indexPathForCell:cellClicked];
+        
+        //Get current event object to pass over to detail view
+        VeganEvent *eventClicked = [arrayOfEvents objectAtIndex:indexOfCell.row];
+        
+        //Pass over event object to detail view
+        eventDetailsVC.currentEvent = eventClicked;
+        
+        
 //        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
 //        //Get strings of event's data from arrays
 //        NSString *eventNameStr = [eventNames objectAtIndex:indexOfCell.row];

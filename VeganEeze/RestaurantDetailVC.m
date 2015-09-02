@@ -272,7 +272,7 @@
 //Method called when all data from request has been retrieved
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
-    reviewsArray = [NSKeyedUnarchiver unarchiveObjectWithData:reviewData];
+    //reviewsArray = [NSKeyedUnarchiver unarchiveObjectWithData:reviewData];
     
     NSLog(@"reviewsArray = %@", reviewsArray);
     

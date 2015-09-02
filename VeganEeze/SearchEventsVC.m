@@ -383,9 +383,10 @@
     NSString *eventZip = [eventDictionary valueForKey:@"postal_code"];
     //NSString *eventPhone = [eventDictionary valueForKey:@""];
     NSString *eventWebsite = [eventDictionary valueForKey:@"url"];
+    NSString *eventID = [eventDictionary valueForKey:@"id"];
     
     //Use object's custom init method to initialize object
-    VeganEvent *newEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite];
+    VeganEvent *newEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite idForEvent:eventID];
     
     return newEvent;
 }

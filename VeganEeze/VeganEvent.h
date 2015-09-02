@@ -18,7 +18,8 @@
 //@property (nonatomic, strong) NSString *eventPhone;
 @property (nonatomic, strong) NSString *eventURL;
 //@property (nonatomic, strong) NSString *eventComments;
+@property (nonatomic, strong) NSString *eventID;
 
--(id)initWithEvent:(NSString*)nameOfEvent addressForEvent:(NSString*)addressForEvent cityOfEvent:(NSString*)cityOfEvent stateOfEvent:(NSString*)stateOfEvent zipOfEvent:(NSString*)zipOfEvent websiteForEvent:(NSString*)websiteForEvent;
+-(id)initWithEvent:(NSString*)nameOfEvent addressForEvent:(NSString*)addressForEvent cityOfEvent:(NSString*)cityOfEvent stateOfEvent:(NSString*)stateOfEvent zipOfEvent:(NSString*)zipOfEvent websiteForEvent:(NSString*)websiteForEvent idForEvent:(NSString*)idForEvent;
 
 @end
