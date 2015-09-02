@@ -292,8 +292,10 @@
         //Get string user entered in search field
         NSString *userEnteredLocation = location.text;
         
+        NSString *locationToSearch = [NSString stringWithFormat:@"&l=%@", userEnteredLocation];
+        
         //Append string to form complete URL
-        NSString *locationURL = [partialURL stringByAppendingString:userEnteredLocation];
+        NSString *locationURL = [partialURL stringByAppendingString:locationToSearch];
         
         //Add App key
         completeURL = [locationURL stringByAppendingString:appKey];

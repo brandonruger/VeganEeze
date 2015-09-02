@@ -24,6 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    appKey = @"&app_key=VrdtgSDWhZCHjRcK";
+    
     //Setup array for usernames
     usernames = [[NSMutableArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
     
@@ -94,7 +96,7 @@
     //Get object ID for retrieving reviews
     eventID = currentEvent.eventID;
     //Call method to get event reviews from API
-    //[self getEventReviews];
+    [self getEventReviews];
     
     //Set labels to display information
     eventNameLabel.text = eventName;
@@ -228,6 +230,41 @@
 //Method to get event reviews
 -(void)getEventReviews {
     
+    NSString *getReviewByID = @"http://api.eventful.com/json/events/get?id=";
+    //Add event ID to above URL
+    NSString *eventIDURL = [getReviewByID stringByAppendingString:eventID];
+    //Add app key to URL
+    NSString *reviewsURLStr = [eventIDURL stringByAppendingString:appKey];
+    
+    //Set up URL for API call
+    urlForReviews = [[NSURL alloc]initWithString:reviewsURLStr];
+    
+    //Set up request to send to server
+    reviewsRequest = [[NSMutableURLRequest alloc] initWithURL:urlForReviews];
+    if (reviewsRequest != nil) {
+        
+        //Set up connection to get data from server
+        reviewsConnection = [[NSURLConnection alloc]initWithRequest:reviewsRequest delegate:self];
+        //Create mutableData object to store data
+        reviewData = [NSMutableData data];
+    }
+}
+
+//Method called when data is received
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    //Check to make sure data is valid
+    if (data != nil) {
+        //Add this data to mutableData object
+        [reviewData appendData:data];
+        
+    }
+}
+
+//Method called when all data from request has been retrieved
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    reviewDictionary = [NSJSONSerialization JSONObjectWithData:reviewData options:0 error:nil];
+    NSDictionary *commentsRetrieved = [reviewDictionary objectForKey:@"comments"];
 }
 
 @end

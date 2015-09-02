@@ -46,6 +46,7 @@
     NSMutableData *reviewData;
     NSDictionary *reviewDictionary;
     NSArray *reviewsArray;
+    NSString *appKey;
     
 }
 
