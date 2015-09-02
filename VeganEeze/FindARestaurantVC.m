@@ -183,8 +183,8 @@
         latitudeCoord = [NSString stringWithFormat:@"%g", coordinates.latitude];
         longitudeCoord = [NSString stringWithFormat:@"%g", coordinates.longitude];
         
-        NSLog(@"Latitude = %@", latitudeCoord);
-        NSLog(@"Longitude = %@", longitudeCoord);
+        //NSLog(@"Latitude = %@", latitudeCoord);
+        //NSLog(@"Longitude = %@", longitudeCoord);
     }
 }
 
@@ -347,6 +347,11 @@
 
 //Method called when all data from request has been retrieved
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    NSString *strData = [[NSString alloc]initWithData:dataRetrieved encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"reviewData = %@", strData);
+    
     //Serialize JSON data
     dictOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
     //NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];

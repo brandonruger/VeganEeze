@@ -246,11 +246,16 @@
     
     //Set up URL for API call
     urlForReviews = [[NSURL alloc] initWithString:restaurantReviewURI];
+    //urlForReviews = [[NSURL alloc] initWithString:@"http://www.vegguide.org/4669/reviews"];
     
     //Set up request to send to server
     reviewsRequest = [[NSMutableURLRequest alloc]initWithURL:urlForReviews];
+    
+    [reviewsRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [reviewsRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
     if (reviewsRequest != nil) {
-        [reviewsRequest setValue:userAgent forHTTPHeaderField:@"User-Agent"];
+       // [reviewsRequest setValue:userAgent forHTTPHeaderField:@"User-Agent"];
         
         //Set up connection to get data from server
         reviewsConnection = [[NSURLConnection alloc]initWithRequest:reviewsRequest delegate:self];
@@ -272,12 +277,46 @@
 //Method called when all data from request has been retrieved
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
+    NSString *strData = [[NSString alloc]initWithData:reviewData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"reviewData = %@", strData);
+    
     //reviewsArray = [NSKeyedUnarchiver unarchiveObjectWithData:reviewData];
     
-    NSLog(@"reviewsArray = %@", reviewsArray);
+    //NSLog(@"reviewsArray = %@", reviewsArray);
+    
+    //https://www.vegguide.org/entry/4669/reviews
+    
+    NSError *error = nil;
+    
+    //NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:reviewData options:NSJSONReadingAllowFragments error:&error];
+    
+    
     
     //Serialize JSON data
-    //reviewDictionary = [NSJSONSerialization JSONObjectWithData:reviewData options:0 error:nil];
+    reviewsArray = [NSJSONSerialization JSONObjectWithData:reviewData options:NSJSONReadingAllowFragments error:&error];
+    
+    if (error != nil) {
+        NSLog(@"Error parsing JSON");
+    } else {
+        NSLog(@"Array: %@", reviewsArray);
+        
+        //Loop through array
+        for (int i=0; i<[reviewsArray count]; i++) {
+            NSDictionary *currentDictionary = [reviewsArray objectAtIndex:i];
+            NSDictionary *dictionaryForComment = [currentDictionary objectForKey:@"body"];
+            
+            NSString *commentStr = [dictionaryForComment valueForKey:@"text/vnd.vegguide.org-wikitext"];
+            NSLog(@"commentStr = %@", commentStr);
+            
+            //NSString *comment = [currentDictionary valueForKey:@"body"];
+            //NSLog(@"comment = %@", comment);
+        }
+        
+        //NSArray *comments = [reviewDictionary objectForKey:@"commen]
+    }
+    
+   // NSDictionary *commentsRetrieved = [reviewDictionary objectForKey:@"comments"];
    // reviewsArray = [reviewDictionary objectForKey:@"entries"];
     
     //reviewsArray = [[NSArray alloc] initWithArray:[NSJSONSerialization JSONObjectWithData:reviewData options:0 error:nil]];

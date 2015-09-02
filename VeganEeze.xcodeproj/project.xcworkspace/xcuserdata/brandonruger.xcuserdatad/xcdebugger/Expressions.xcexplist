@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[EventDetailVC connection:didReceiveData:]:EventDetailVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RestaurantDetailVC connectionDidFinishLoading:]:RestaurantDetailVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "main:main.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[FindARestaurantVC connectionDidFinishLoading:]:FindARestaurantVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[EventDetailVC connectionDidFinishLoading:]:EventDetailVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[FindARestaurantVC createRestaurantObjects:]:FindARestaurantVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SearchEventsVC connectionDidFinishLoading:]:SearchEventsVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BeverageResultsTVC tableView:numberOfRowsInSection:]:BeverageResultsTVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SearchEventsVC createEventObjects:]:SearchEventsVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BeverageSearchVC createAlcoholBeverageObjects:]:BeverageSearchVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BeverageResultsTVC tableView:cellForRowAtIndexPath:]:BeverageResultsTVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BeverageSearchVC connectionDidFinishLoading:]:BeverageSearchVC.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
