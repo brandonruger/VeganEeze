@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "VeganEvent.h"
+#import "EventReview.h"
 
 @interface EventDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, NSURLConnectionDataDelegate>
 
@@ -26,8 +27,10 @@
 
     
     IBOutlet UITableView *commentsTV;
-    NSMutableArray *usernames;
-    NSMutableArray *comments;
+//    NSMutableArray *usernames;
+//    NSMutableArray *comments;
+    
+    NSMutableArray *eventReviewsArray;
     
     //IBOutlet UIButton *addNewComment;
     PFUser *currentUser;

@@ -38,6 +38,8 @@
 		0E7053A71B91FDA6008518A1 /* AlcoholBeverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053A61B91FDA6008518A1 /* AlcoholBeverage.m */; };
 		0E7053AA1B923D92008518A1 /* VeganRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053A91B923D92008518A1 /* VeganRestaurant.m */; };
 		0E7053AD1B939F33008518A1 /* VeganEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053AC1B939F33008518A1 /* VeganEvent.m */; };
+		0E7053B01B97BA53008518A1 /* EventReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053AF1B97BA53008518A1 /* EventReview.m */; };
+		0E7053B31B97BF8F008518A1 /* RestaurantReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053B21B97BF8F008518A1 /* RestaurantReview.m */; };
 		0ED7BA021B856F5C0038EF3A /* RestaurantDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */; };
 		0ED7BA051B856F6E0038EF3A /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA041B856F6E0038EF3A /* EventDetailVC.m */; };
 		0ED7BA0E1B85736B0038EF3A /* MainMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA0D1B85736B0038EF3A /* MainMenuTVC.m */; };
@@ -107,6 +109,10 @@
 		0E7053A91B923D92008518A1 /* VeganRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeganRestaurant.m; sourceTree = "<group>"; };
 		0E7053AB1B939F33008518A1 /* VeganEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeganEvent.h; sourceTree = "<group>"; };
 		0E7053AC1B939F33008518A1 /* VeganEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeganEvent.m; sourceTree = "<group>"; };
+		0E7053AE1B97BA53008518A1 /* EventReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventReview.h; sourceTree = "<group>"; };
+		0E7053AF1B97BA53008518A1 /* EventReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventReview.m; sourceTree = "<group>"; };
+		0E7053B11B97BF8F008518A1 /* RestaurantReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantReview.h; sourceTree = "<group>"; };
+		0E7053B21B97BF8F008518A1 /* RestaurantReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantReview.m; sourceTree = "<group>"; };
 		0ED7BA001B856F5C0038EF3A /* RestaurantDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailVC.h; sourceTree = "<group>"; };
 		0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailVC.m; sourceTree = "<group>"; };
 		0ED7BA031B856F6E0038EF3A /* EventDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailVC.h; sourceTree = "<group>"; };
@@ -240,6 +246,10 @@
 				0E7053A91B923D92008518A1 /* VeganRestaurant.m */,
 				0E7053AB1B939F33008518A1 /* VeganEvent.h */,
 				0E7053AC1B939F33008518A1 /* VeganEvent.m */,
+				0E7053AE1B97BA53008518A1 /* EventReview.h */,
+				0E7053AF1B97BA53008518A1 /* EventReview.m */,
+				0E7053B11B97BF8F008518A1 /* RestaurantReview.h */,
+				0E7053B21B97BF8F008518A1 /* RestaurantReview.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -370,7 +380,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E7053B31B97BF8F008518A1 /* RestaurantReview.m in Sources */,
 				0ED7BA0E1B85736B0038EF3A /* MainMenuTVC.m in Sources */,
+				0E7053B01B97BA53008518A1 /* EventReview.m in Sources */,
 				0E62328E1B84096000562474 /* ViewController.m in Sources */,
 				0E62328B1B84096000562474 /* AppDelegate.m in Sources */,
 				0E03CDAC1B8BF57000CEE251 /* CommentCell.m in Sources */,

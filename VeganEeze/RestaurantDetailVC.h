@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "VeganRestaurant.h"
+#import "RestaurantReview.h"
 
 @interface RestaurantDetailVC : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate, NSURLConnectionDataDelegate>
 
@@ -26,8 +27,9 @@
     IBOutlet UITextView *addressTV;
     
     IBOutlet UITableView *commentsTV;
-    NSMutableArray *usernames;
-    NSMutableArray *comments;
+//    NSMutableArray *usernames;
+//    NSMutableArray *comments;
+    NSMutableArray *restaurantReviewsArray;
     
     //IBOutlet UIButton *addNewComment;
     PFUser *currentUser;

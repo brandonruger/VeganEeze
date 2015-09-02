@@ -27,10 +27,13 @@
     appKey = @"&app_key=VrdtgSDWhZCHjRcK";
     
     //Setup array for usernames
-    usernames = [[NSMutableArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
+    //usernames = [[NSMutableArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
     
     //Setup array for comments
-    comments = [[NSMutableArray alloc]initWithObjects:@"This place was one of my favorites!", @"I absolutely love this place", @"I wanna go back", @"I love it here!", nil];
+    //comments = [[NSMutableArray alloc]initWithObjects:@"This place was one of my favorites!", @"I absolutely love this place", @"I wanna go back", @"I love it here!", nil];
+    
+    //Initialize array for reviews
+    eventReviewsArray = [[NSMutableArray alloc]init];
     
     //Access user's Twitter account on device
     ACAccountStore *accountStore = [[ACAccountStore alloc]init];
@@ -174,7 +177,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [comments count];
+    return [eventReviewsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -182,12 +185,14 @@
     CommentCell *commentsCell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
     if (commentsCell != nil) {
         
-        //Get index of row and use index to get username/comments from array
-        NSString *currentUsername = [usernames objectAtIndex:indexPath.row];
-        NSString *currentComment = [comments objectAtIndex:indexPath.row];
+        //Get current object out of array
+        EventReview *eventForCell = [eventReviewsArray objectAtIndex:indexPath.row];
+        //Get strings from current object for username/review
+        NSString *cellUsername = eventForCell.username;
+        NSString *cellComment = eventForCell.comment;
         
         //Call cell's custom method to update cell
-        [commentsCell updateCellWithComments:currentUsername userComment:currentComment];
+        [commentsCell updateCellWithComments:cellUsername userComment:cellComment];
         
         //commentsCell.textLabel.text = [comments objectAtIndex:indexPath.row];
         //commentsCell.detailTextLabel.text = [restaurantCityStates objectAtIndex:indexPath.row];
@@ -216,9 +221,9 @@
         //Get logged in user's username from Parse
         NSString *currentUsername = [PFUser currentUser].username;
         
-        //Add comment/username to mutable arrays
-        [usernames addObject:currentUsername];
-        [comments addObject:commentEntered];
+//        //Add comment/username to mutable arrays
+//        [usernames addObject:currentUsername];
+//        [comments addObject:commentEntered];
         
         //Refresh tableview
         [commentsTV reloadData];
@@ -264,7 +269,32 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
     reviewDictionary = [NSJSONSerialization JSONObjectWithData:reviewData options:0 error:nil];
-    NSDictionary *commentsRetrieved = [reviewDictionary objectForKey:@"comments"];
+    NSArray *commentsRetrieved = [reviewDictionary objectForKey:@"comments"];
+    
+    //Loop through objects retrieved
+    for (int i=0; i<[commentsRetrieved count]; i++) {
+        //Use custom method to grab each object and add object to the array
+        EventReview *currentReview = [self createEventObjects:[commentsRetrieved objectAtIndex:i]];
+        if (currentReview != nil) {
+            //Add object to array
+            [eventReviewsArray addObject:currentReview];
+        }
+    }
+    
+    //Refresh table view with current data
+    [commentsTV reloadData];
+}
+
+//Method to create custom EventReview objects and initalize each object
+-(EventReview*)createEventObjects:(NSDictionary*)eventReviewDictionary {
+    
+    NSString *reviewAuthor = [eventReviewDictionary valueForKey:@"user"];
+    NSString *review = [eventReviewDictionary valueForKey:@"body"];
+    
+    //Use object's custom init method to initialize object
+    EventReview *newEvent = [[EventReview alloc]initWithReview:review whoWroteReview:reviewAuthor];
+    
+    return newEvent;
 }
 
 @end

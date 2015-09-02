@@ -26,11 +26,14 @@
     
     userAgent = @"VeganEeze App/v1.0";
     
-    //Setup array for usernames
-    usernames = [[NSMutableArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
+//    //Setup array for usernames
+//    usernames = [[NSMutableArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
+//    
+//    //Setup array for comments
+//    comments = [[NSMutableArray alloc]initWithObjects:@"This place was one of my favorites!", @"I absolutely love this place", @"I wanna go back", @"I love it here!", nil];
     
-    //Setup array for comments
-    comments = [[NSMutableArray alloc]initWithObjects:@"This place was one of my favorites!", @"I absolutely love this place", @"I wanna go back", @"I love it here!", nil];
+    //Initialize array for reviews
+    restaurantReviewsArray = [[NSMutableArray alloc]init];
     
     //Access user's Twitter account on device
     ACAccountStore *accountStore = [[ACAccountStore alloc]init];
@@ -188,7 +191,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [comments count];
+    return [restaurantReviewsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -196,9 +199,12 @@
     CommentCell *commentsCell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
     if (commentsCell != nil) {
         
+        //Get current object out of array
+        RestaurantReview *currentReview = [restaurantReviewsArray objectAtIndex:indexPath.row];
+        
         //Get index of row and use index to get username/comments from array
-        NSString *currentUsername = [usernames objectAtIndex:indexPath.row];
-        NSString *currentComment = [comments objectAtIndex:indexPath.row];
+        NSString *currentUsername = currentReview.username;
+        NSString *currentComment = currentReview.comment;
         
         //Call cell's custom method to update cell
         [commentsCell updateCellWithComments:currentUsername userComment:currentComment];
@@ -224,15 +230,15 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     //User clicked submit button
     if (buttonIndex == 1) {
-        //Gather the comment user entered
-        NSString *commentEntered = [[alertView textFieldAtIndex:0] text];
-        
-        //Get logged in user's username from Parse
-        NSString *currentUsername = [PFUser currentUser].username;
-        
-        //Add comment/username to mutable arrays
-        [usernames addObject:currentUsername];
-        [comments addObject:commentEntered];
+//        //Gather the comment user entered
+//        NSString *commentEntered = [[alertView textFieldAtIndex:0] text];
+//        
+//        //Get logged in user's username from Parse
+//        NSString *currentUsername = [PFUser currentUser].username;
+//        
+//        //Add comment/username to mutable arrays
+//        [usernames addObject:currentUsername];
+//        [comments addObject:commentEntered];
         
         //Refresh tableview
         [commentsTV reloadData];
@@ -301,17 +307,29 @@
     } else {
         NSLog(@"Array: %@", reviewsArray);
         
+        
+        
         //Loop through array
         for (int i=0; i<[reviewsArray count]; i++) {
             NSDictionary *currentDictionary = [reviewsArray objectAtIndex:i];
+            //Dictionary for comment
             NSDictionary *dictionaryForComment = [currentDictionary objectForKey:@"body"];
-            
             NSString *commentStr = [dictionaryForComment valueForKey:@"text/vnd.vegguide.org-wikitext"];
             NSLog(@"commentStr = %@", commentStr);
+            
+            //Dictionary for username
+            NSDictionary *dictionaryForUsername = [currentDictionary objectForKey:@"user"];
+            NSString *currentUsername = [dictionaryForUsername valueForKey:@"name"];
+            
+            //Call custom method to create object with information
+            [self createReviewObjects:commentStr authorOfReview:currentUsername];
             
             //NSString *comment = [currentDictionary valueForKey:@"body"];
             //NSLog(@"comment = %@", comment);
         }
+        
+        //Refresh tableview
+        [commentsTV reloadData];
         
         //NSArray *comments = [reviewDictionary objectForKey:@"commen]
     }
@@ -331,6 +349,17 @@
     //NSLog(@"%@", dataString);
 }
 
+//Method to create RestaurantReview objects and initialize each object
+-(RestaurantReview*)createReviewObjects:(NSString*)review authorOfReview:(NSString*)authorOfReview {
+    
+    //Use object's custom init method to initialize object
+    RestaurantReview *newReview = [[RestaurantReview alloc]initWithReview:review whoWroteReview:authorOfReview];
+    
+    //Add review object to array
+    [restaurantReviewsArray addObject:newReview];
+    
+    return newReview;
+}
 
 
 @end
