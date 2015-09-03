@@ -130,23 +130,31 @@
     //NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];
     //NSLog(@"firstItem = %@", [firstItemRetrieved description]);
     
-    //Loop through all results retrieved from API call
-    for (int i=0; i<[arrayOfJSONData count]; i++) {
-        //Use custom method to grab each object from dictionary and add each object to the NSMutableArray
-        AlcoholBeverage *alcoholBevDetails = [self createAlcoholBeverageObjects:[arrayOfJSONData objectAtIndex:i]];
-        if (alcoholBevDetails != nil) {
-            //Add object to array
-            [alcoholBeverageObjects addObject:alcoholBevDetails];
+    //Check to make sure results were found
+    if (arrayOfJSONData.count == 0) {
+        //No results found, alert user
+        //Alert user no results were found
+        UIAlertView *noResults = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No results found. Please revise your search and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noResults show];
+    } else {
+        
+        //Loop through all results retrieved from API call
+        for (int i=0; i<[arrayOfJSONData count]; i++) {
+            //Use custom method to grab each object from dictionary and add each object to the NSMutableArray
+            AlcoholBeverage *alcoholBevDetails = [self createAlcoholBeverageObjects:[arrayOfJSONData objectAtIndex:i]];
+            if (alcoholBevDetails != nil) {
+                //Add object to array
+                [alcoholBeverageObjects addObject:alcoholBevDetails];
+            }
         }
+        
+        BeverageResultsTVC *bevResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BeverageResultsViewController"];
+        //Pass the array of AlcoholBeverage objects to the Beverage Results vc
+        bevResultsTVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
+        //Instantiate new view controller
+        [self.navigationController pushViewController:bevResultsTVC animated:YES];
+        
     }
-    
-    BeverageResultsTVC *bevResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BeverageResultsViewController"];
-    //Pass the array of AlcoholBeverage objects to the Beverage Results vc
-    bevResultsTVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
-    //Instantiate new view controller
-    [self.navigationController pushViewController:bevResultsTVC animated:YES];
-
-    
     //Set bool to true since data retrieval is complete
     //dataRetrievalComplete = TRUE;
 }
