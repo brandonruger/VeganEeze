@@ -20,12 +20,12 @@
     // Do any additional setup after loading the view.
     NSLog(@"restaurant URL = %@", websiteStr);
     
-    NSString *urlPrefix = @"http://";
+    //NSString *urlPrefix = @"http://";
     //Concatenate string with http:// prefix
-    NSString *completeURL = [urlPrefix stringByAppendingString:websiteStr];
+    //NSString *completeURL = [urlPrefix stringByAppendingString:websiteStr];
     
     //Create URL object
-    NSURL *restaurantURL = [[NSURL alloc]initWithString:completeURL];
+    NSURL *restaurantURL = [[NSURL alloc]initWithString:websiteStr];
     if (restaurantURL != nil) {
         //Create NSURLRequest for launching website
         NSURLRequest *urlRequest = [[NSURLRequest alloc]initWithURL:restaurantURL];

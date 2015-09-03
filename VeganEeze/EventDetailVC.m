@@ -90,11 +90,18 @@
     
     //Set strings to values from current event object
     eventName = currentEvent.eventName;
+    eventURL = currentEvent.eventURL;
+    
     eventAddress = currentEvent.eventAddress;
     eventCity = currentEvent.eventCity;
     eventState = currentEvent.eventState;
     eventZip = currentEvent.eventZip;
-    eventURL = currentEvent.eventURL;
+    
+    NSString *completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", eventAddress, eventCity, eventZip];
+    
+    NSString *ratingLabelStr = @"Rating: ";
+    
+    
     
     //Get object ID for retrieving reviews
     eventID = currentEvent.eventID;
@@ -103,16 +110,16 @@
     
     //Set labels to display information
     eventNameLabel.text = eventName;
-    addressTV.text = eventAddress;
-    eventCityLabel.text = eventCity;
-    eventStateLabel.text = eventState;
-    eventZipLabel.text = eventZip;
+    addressTV.text = completeAddress;
+//    eventCityLabel.text = eventCity;
+//    eventStateLabel.text = eventState;
+//    eventZipLabel.text = eventZip;
     
     //eventCityStateLabel.text = eventCityState;
     //eventPhoneLabel.text = eventPhoneNo;
     
     //Set URL button text
-    [eventUrlLabel setTitle:eventURL forState:UIControlStateNormal];
+    //[eventUrlLabel setTitle:eventURL forState:UIControlStateNormal];
     
     //Set phone # to appear in text view
     //phoneNoTV.text = eventPhoneNo;

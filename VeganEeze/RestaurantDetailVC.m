@@ -108,7 +108,7 @@
     ratingLabel.text = restaurantRating;
     
     //Set URL button text
-    [urlLabel setTitle:restaurantURL forState:UIControlStateNormal];
+    //[urlLabel setTitle:restaurantURL forState:UIControlStateNormal];
     
     //Set phone # to appear in text view
     phoneNoTV.text = restaurantPhoneNo;
