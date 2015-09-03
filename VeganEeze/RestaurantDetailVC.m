@@ -81,6 +81,11 @@
     restaurantURL = currentRestaurant.restaurantURL;
     restaurantPhoneNo = currentRestaurant.restaurantPhone;
     
+    NSString *ratingLabelStr = @"Rating: ";
+    NSString *ratingForRestaurant = currentRestaurant.restaurantRating;
+    //restaurantRating = [ratingLabelStr stringByAppendingString:ratingForRestaurant];
+    restaurantRating = [NSString stringWithFormat:@"%@ %@ Stars", ratingLabelStr, ratingForRestaurant];
+    
     //Get URI for restaurants reviews
     restaurantReviewURI = currentRestaurant.reviewsURI;
     NSLog(@"URI = %@", restaurantReviewURI);
@@ -94,6 +99,7 @@
     stateLabel.text = restaurantState;
     zipLabel.text = restaurantZip;
     phoneLabel.text = restaurantPhoneNo;
+    ratingLabel.text = restaurantRating;
     
     //Set URL button text
     [urlLabel setTitle:restaurantURL forState:UIControlStateNormal];

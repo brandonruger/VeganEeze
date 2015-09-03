@@ -396,9 +396,10 @@
     NSString *restaurantsPhone = [restaurantsDictionary valueForKey:@"phone"];
     NSString *restaurantsWebsite = [restaurantsDictionary valueForKey:@"website"];
     NSString *restaurantReviewURI = [restaurantsDictionary valueForKey:@"reviews_uri"];
+    NSString *restaurantRating = [restaurantsDictionary valueForKey:@"weighted_rating"];
     
     //Use object's custom init method to initalize object
-    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress cityOfRestaurant:restaurantsCity stateOfRestaurant:restaurantsState zipOfRestaurant:restaurantsZip phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite reviewsOfRestaurant:restaurantReviewURI];
+    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress cityOfRestaurant:restaurantsCity stateOfRestaurant:restaurantsState zipOfRestaurant:restaurantsZip phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite reviewsOfRestaurant:restaurantReviewURI rating:restaurantRating];
     
     return newRestaurant;
 }

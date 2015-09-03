@@ -9,9 +9,9 @@
 #import "VeganRestaurant.h"
 
 @implementation VeganRestaurant
-@synthesize restaurantName, restaurantAddress, restaurantCity, restaurantState, restaurantZip, restaurantPhone, restaurantURL, reviewsURI;
+@synthesize restaurantName, restaurantAddress, restaurantCity, restaurantState, restaurantZip, restaurantPhone, restaurantURL, reviewsURI, restaurantRating;
 
--(id)initWithRestaurant:(NSString*)nameOfRestaurant addressOfRestaurant:(NSString*)addressOfRestaurant cityOfRestaurant:(NSString*)cityOfRestaurant stateOfRestaurant:(NSString*)stateOfRestaurant zipOfRestaurant:(NSString*)zipOfRestaurant phoneNo:(NSString*)phoneNo urlOfRestaurant:(NSString*)urlOfRestaurant reviewsOfRestaurant:(NSString *)reviewsOfRestaurant {
+-(id)initWithRestaurant:(NSString*)nameOfRestaurant addressOfRestaurant:(NSString*)addressOfRestaurant cityOfRestaurant:(NSString*)cityOfRestaurant stateOfRestaurant:(NSString*)stateOfRestaurant zipOfRestaurant:(NSString*)zipOfRestaurant phoneNo:(NSString*)phoneNo urlOfRestaurant:(NSString*)urlOfRestaurant reviewsOfRestaurant:(NSString *)reviewsOfRestaurant rating:(NSString*)rating {
     
     //Initialize object
     if (self = [super init]) {
@@ -23,6 +23,7 @@
         restaurantPhone = [phoneNo copy];
         restaurantURL = [urlOfRestaurant copy];
         reviewsURI = [reviewsOfRestaurant copy];
+        restaurantRating = [rating copy];
     }
     
     return self;

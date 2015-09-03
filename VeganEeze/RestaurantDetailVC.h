@@ -26,6 +26,8 @@
     IBOutlet UITextView *phoneNoTV;
     IBOutlet UITextView *addressTV;
     
+    IBOutlet UILabel *ratingLabel;
+    
     IBOutlet UITableView *commentsTV;
 //    NSMutableArray *usernames;
 //    NSMutableArray *comments;
@@ -42,6 +44,7 @@
     NSString *restaurantURL;
     NSString *restaurantPhoneNo;
     NSString *restaurantReviewURI;
+    NSString *restaurantRating;
     
     NSURL *urlForReviews;
     NSMutableURLRequest *reviewsRequest;
