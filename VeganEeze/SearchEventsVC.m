@@ -364,21 +364,33 @@
     NSDictionary *eventsRetrieved = [dictOfJSONData objectForKey:@"events"];
     NSArray *eventsRetrievedArray = [eventsRetrieved valueForKey:@"event"];
     
-    //Loop through array of events
-    for (int i=0; i<[eventsRetrievedArray count]; i++) {
-        //Use custom method to grab each object from dictionary and add each object to mutable array
-        VeganEvent *event = [self createEventObjects:[eventsRetrievedArray objectAtIndex:i]];
-        if (event != nil) {
-            //Add object to array
-            [eventObjects addObject:event];
+    //Check to make sure array is not null or empy
+    if ([eventsRetrievedArray isEqual:[NSNull null]]) {
+        
+        //Alert user no results were found
+        UIAlertView *noResults = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No events found. Please revise your search and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noResults show];
+    } else {
+        //Results found
+        
+        //Loop through array of events
+        for (int i=0; i<[eventsRetrievedArray count]; i++) {
+            //Use custom method to grab each object from dictionary and add each object to mutable array
+            VeganEvent *event = [self createEventObjects:[eventsRetrievedArray objectAtIndex:i]];
+            if (event != nil) {
+                //Add object to array
+                [eventObjects addObject:event];
+            }
         }
+        
+        EventResultsTVC *eventResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EventResultsViewController"];
+        //Pass the array of VeganEvent objects to the Results view controller
+        eventResultsTVC.arrayOfEvents = eventObjects;
+        //Instantiate new view controller
+        [self.navigationController pushViewController:eventResultsTVC animated:YES];
     }
     
-    EventResultsTVC *eventResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EventResultsViewController"];
-    //Pass the array of VeganEvent objects to the Results view controller
-    eventResultsTVC.arrayOfEvents = eventObjects;
-    //Instantiate new view controller
-    [self.navigationController pushViewController:eventResultsTVC animated:YES];
+    
 }
 
 //Method to create custom AlcoholBeverage objects and initalize each object
