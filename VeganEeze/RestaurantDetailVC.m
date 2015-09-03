@@ -74,12 +74,18 @@
     
     //Set strings to values from current restaurant object
     restaurantName = currentRestaurant.restaurantName;
+    restaurantURL = currentRestaurant.restaurantURL;
+    restaurantPhoneNo = currentRestaurant.restaurantPhone;
+    
     restaurantAddress = currentRestaurant.restaurantAddress;
     restaurantCity = currentRestaurant.restaurantCity;
     restaurantState = currentRestaurant.restaurantState;
-    restaurantZip = currentRestaurant.restaurantZip;
-    restaurantURL = currentRestaurant.restaurantURL;
-    restaurantPhoneNo = currentRestaurant.restaurantPhone;
+    currentRestaurantZip = currentRestaurant.restaurantZip;
+    
+    NSLog(@"restaurantZip = %@", currentRestaurantZip);
+    
+    NSString *completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", restaurantAddress, restaurantCity, restaurantState, currentRestaurantZip];
+    
     
     NSString *ratingLabelStr = @"Rating: ";
     NSString *ratingForRestaurant = currentRestaurant.restaurantRating;
@@ -94,10 +100,10 @@
     
     //Set restaurant labels to display information passed over from segue
     nameLabel.text = restaurantName;
-    addressTV.text = restaurantAddress;
-    cityLabel.text = restaurantCity;
-    stateLabel.text = restaurantState;
-    zipLabel.text = restaurantZip;
+    addressTV.text = completeAddress;
+    //cityLabel.text = restaurantCity;
+    //stateLabel.text = restaurantState;
+    //zipLabel.text = restaurantZip;
     phoneLabel.text = restaurantPhoneNo;
     ratingLabel.text = restaurantRating;
     
@@ -148,7 +154,7 @@
     favoritePlace[@"address"] = restaurantAddress;
     favoritePlace[@"city"] = restaurantCity;
     favoritePlace[@"state"] = restaurantState;
-    favoritePlace[@"zip"] = restaurantZip;
+    favoritePlace[@"zip"] = currentRestaurantZip;
     favoritePlace[@"phoneNo"] = restaurantPhoneNo;
     favoritePlace[@"url"] = restaurantURL;
     //Restrict data to this user only
@@ -167,7 +173,7 @@
     placeToVisit[@"address"] = restaurantAddress;
     placeToVisit[@"city"] = restaurantCity;
     placeToVisit[@"state"] = restaurantState;
-    placeToVisit[@"zip"] = restaurantZip;
+    placeToVisit[@"zip"] = currentRestaurantZip;
     placeToVisit[@"phoneNo"] = restaurantPhoneNo;
     placeToVisit[@"url"] = restaurantURL;
     //Restrict data to this user only

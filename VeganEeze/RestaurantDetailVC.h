@@ -40,7 +40,8 @@
     NSString *restaurantAddress;
     NSString *restaurantCity;
     NSString *restaurantState;
-    NSString *restaurantZip;
+    //NSString *restaurantZip;
+    NSString *currentRestaurantZip;
     NSString *restaurantURL;
     NSString *restaurantPhoneNo;
     NSString *restaurantReviewURI;
