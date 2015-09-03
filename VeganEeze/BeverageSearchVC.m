@@ -92,8 +92,11 @@
     
     //String used to access API
     NSString *partialURL = @"http://barnivore.com/search.json?keyword=";
-    //Get search term entered by user
-    searchKeyword = beverageName.text;
+    
+    //Get text user entered in search field
+    NSString *searchKeywordEntered = beverageName.text;
+    //Encode text
+    searchKeyword = [searchKeywordEntered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //Add search term to url for API call
     NSString *completeURL = [partialURL stringByAppendingString:searchKeyword];
     

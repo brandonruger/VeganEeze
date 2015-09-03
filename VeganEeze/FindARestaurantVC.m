@@ -234,8 +234,14 @@
 //Method to request data from VegGuide API
 -(IBAction)searchForVeganRestaurants:(id)sender {
     
-    //Set search keyword to keyword user entered
-    searchKeyword = keyword.text;
+    //Get text user entered in keyword field
+    NSString *keywordText = keyword.text;
+    
+    //Encode text user entered
+    searchKeyword = [keywordText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+//    //Set search keyword to keyword user entered
+//    searchKeyword = keyword.text;
     
     
     //Check how user wants to search
@@ -288,8 +294,11 @@
         //Get string user entered in search field
         NSString *userEnteredLocation = location.text;
         
+        //Encode text user entered
+        NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
         //Append string to form complete URL
-        completeURL = [partialURL stringByAppendingString:userEnteredLocation];
+        completeURL = [partialURL stringByAppendingString:encodedLocation];
         
         //Check if user entered a search keyword or not
         if ([searchKeyword isEqualToString:@""]) {

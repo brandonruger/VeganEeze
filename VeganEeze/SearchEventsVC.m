@@ -236,8 +236,12 @@
 //Format = http://api.eventful.com/json/events/search?...&location=San+Diego
 
 -(IBAction)searchVeganEvents:(id)sender {
-    //Set search keyword to keyword user entered
-    searchKeyword = keyword.text;
+    
+    //Get text user entered in keyword field
+    NSString *keywordText = keyword.text;
+    
+    //Encode text user entered
+    searchKeyword = [keywordText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
     //Check how user wants to search
@@ -292,7 +296,10 @@
         //Get string user entered in search field
         NSString *userEnteredLocation = location.text;
         
-        NSString *locationToSearch = [NSString stringWithFormat:@"&l=%@", userEnteredLocation];
+        //Encode text user entered
+        NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        
+        NSString *locationToSearch = [NSString stringWithFormat:@"&l=%@", encodedLocation];
         
         //Append string to form complete URL
         NSString *locationURL = [partialURL stringByAppendingString:locationToSearch];
