@@ -357,9 +357,9 @@
 //Method called when all data from request has been retrieved
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
-    NSString *strData = [[NSString alloc]initWithData:dataRetrieved encoding:NSUTF8StringEncoding];
+    //NSString *strData = [[NSString alloc]initWithData:dataRetrieved encoding:NSUTF8StringEncoding];
     
-    NSLog(@"reviewData = %@", strData);
+    //NSLog(@"reviewData = %@", strData);
     
     //Serialize JSON data
     dictOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
@@ -367,21 +367,30 @@
     NSArray *restaurantsRetrieved = [dictOfJSONData objectForKey:@"entries"];
    // NSLog(@"firstItem = %@", [firstItemRetrieved description]);
     
-    //Loop through all results retrieved from API call
-    for (int i=0; i<[restaurantsRetrieved count]; i++) {
-        //Use custom method to grab each object from dictionary and add each object to the NSMutableArray
-        VeganRestaurant *veganRestDetails = [self createRestaurantObjects:[restaurantsRetrieved objectAtIndex:i]];
-        if (veganRestDetails != nil) {
-            //Add object to array
-            [restaurantObjects addObject:veganRestDetails];
+    if (restaurantsRetrieved != nil) {
+        //Results were found
+        //Loop through all results retrieved from API call
+        for (int i=0; i<[restaurantsRetrieved count]; i++) {
+            //Use custom method to grab each object from dictionary and add each object to the NSMutableArray
+            VeganRestaurant *veganRestDetails = [self createRestaurantObjects:[restaurantsRetrieved objectAtIndex:i]];
+            if (veganRestDetails != nil) {
+                //Add object to array
+                [restaurantObjects addObject:veganRestDetails];
+            }
         }
+        
+        RestaurantResultsTVC *restResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantResultsViewController"];
+        //Pass the array of VeganRestaurant objects to the Restaurant Results vc
+        restResultsTVC.arrayOfRestaurantObjs = restaurantObjects;
+        //Instantiate new view controller
+        [self.navigationController pushViewController:restResultsTVC animated:YES];
+    } else {
+        //No results found
+        //Alert user no results were found
+        UIAlertView *noResults = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No restaurants found. Please revise your search and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noResults show];
     }
     
-    RestaurantResultsTVC *restResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantResultsViewController"];
-    //Pass the array of VeganRestaurant objects to the Restaurant Results vc
-    restResultsTVC.arrayOfRestaurantObjs = restaurantObjects;
-    //Instantiate new view controller
-    [self.navigationController pushViewController:restResultsTVC animated:YES];
     
     
     //Set bool to true since data retrieval is complete

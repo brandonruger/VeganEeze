@@ -214,7 +214,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "462936984.361392"
+            timestampString = "463016176.956313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "-createRestaurantObjects:"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "462936984.361392"
+            timestampString = "463016176.956313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
+            startingLineNumber = "401"
+            endingLineNumber = "401"
             landmarkName = "-createRestaurantObjects:"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "462936984.361392"
+            timestampString = "463016176.956313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
             landmarkName = "-createRestaurantObjects:"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "462936984.361392"
+            timestampString = "463016176.956313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
             landmarkName = "-createRestaurantObjects:"
             landmarkType = "5">
          </BreakpointContent>
@@ -778,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/SearchEventsVC.m"
-            timestampString = "463015924.744848"
+            timestampString = "463015996.076126"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
             landmarkName = "-createEventObjects:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1098,11 +1098,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "462936984.361392"
+            timestampString = "463016176.956313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "404"
-            endingLineNumber = "404"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
             landmarkName = "-createRestaurantObjects:"
             landmarkType = "5">
          </BreakpointContent>
