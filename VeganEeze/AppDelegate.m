@@ -28,6 +28,19 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *veganEezeSB = [UIStoryboard storyboardWithName:@"VeganEezeStoryboard" bundle:nil];
+    
+    //Check if user is currently logged in
+    PFUser *loggedInUser = [PFUser currentUser];
+    if (loggedInUser) {
+        //User is logged in, make Main Menu the root view controller
+        UIViewController *
+    } else {
+        //User is not logged in, make login screen the root view controller
+    }
+    
+    
     return YES;
 }
 
