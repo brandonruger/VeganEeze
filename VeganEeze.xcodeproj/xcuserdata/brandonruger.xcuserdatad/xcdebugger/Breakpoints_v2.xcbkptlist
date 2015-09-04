@@ -1189,6 +1189,7 @@
       </BreakpointProxy>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -1228,5 +1229,7 @@
 >>>>>>> parent of cc494da... Fixed beverage search so it alerts user when no results found
 =======
 >>>>>>> parent of 2d9f34f... Trying to change initial view controller
+=======
+>>>>>>> parent of cc494da... Fixed beverage search so it alerts user when no results found
    </Breakpoints>
 </Bucket>
