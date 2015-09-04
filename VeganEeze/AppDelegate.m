@@ -30,6 +30,31 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    //Check if current user is logged in
+    PFUser *loggedInUser = [PFUser currentUser];
+    if (loggedInUser) {
+        //User is logged in, launch Main Menu
+        UIStoryboard *veganEezeSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainMenuTVC *mainMenuVC = (MainMenuTVC*)[veganEezeSB instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainMenuVC];
+        
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        [self.window setRootViewController:navController];
+        //[self.window setBackgroundColor:[UIColor whiteColor]];
+        [self.window makeKeyAndVisible];
+    } else {
+        //User is not logged in, go to login view
+        UIStoryboard *veganEezeSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController *loginVC = (ViewController*)[veganEezeSB instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        [self.window setRootViewController:navController];
+        //[self.window setBackgroundColor:[UIColor whiteColor]];
+        [self.window makeKeyAndVisible];
+    }
+    
+    
 
 //    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 //    UIStoryboard *veganEezeSB = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];

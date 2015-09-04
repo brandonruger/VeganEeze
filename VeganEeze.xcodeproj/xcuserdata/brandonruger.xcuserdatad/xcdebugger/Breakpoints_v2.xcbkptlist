@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/BeverageSearchVC.m"
-            timestampString = "462936984.361392"
+            timestampString = "463016566.019573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "-connectionDidFinishLoading:"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeganEeze/BeverageSearchVC.m"
-            timestampString = "462936984.361392"
+            timestampString = "463016566.019573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "-createAlcoholBeverageObjects:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1187,10 +1187,6 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -1207,32 +1203,5 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
-<<<<<<< HEAD
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/ViewController.m"
-            timestampString = "463018675.096009"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-shouldPerformSegueWithIdentifier:sender:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-=======
->>>>>>> parent of cc494da... Fixed beverage search so it alerts user when no results found
-=======
->>>>>>> parent of cc494da... Fixed beverage search so it alerts user when no results found
-=======
->>>>>>> parent of 2d9f34f... Trying to change initial view controller
-=======
->>>>>>> parent of cc494da... Fixed beverage search so it alerts user when no results found
-=======
->>>>>>> parent of cc494da... Fixed beverage search so it alerts user when no results found
    </Breakpoints>
 </Bucket>
