@@ -30,13 +30,7 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-=======
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
+
 //    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 //    UIStoryboard *veganEezeSB = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 //    
@@ -54,14 +48,7 @@
 //        self.window.rootViewController = loginVC;
 //        [self.window makeKeyAndVisible];
 //    }
-    
-    
-=======
->>>>>>> parent of 2d9f34f... Trying to change initial view controller
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
+
     return YES;
 }
 
