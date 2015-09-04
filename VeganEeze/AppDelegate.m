@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "MainMenuTVC.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -28,6 +30,38 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+<<<<<<< HEAD
+<<<<<<< HEAD
+    
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
+//    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//    UIStoryboard *veganEezeSB = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+//    
+//    //Check if user is currently logged in
+//    PFUser *loggedInUser = [PFUser currentUser];
+//    if (loggedInUser) {
+//        //User is logged in, make Main Menu the root view controller
+//        UIViewController *mainMenuVC = [veganEezeSB instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+//        self.window.rootViewController = mainMenuVC;
+//        [self.window makeKeyAndVisible];
+//        
+//    } else {
+//        //User is not logged in, make login screen the root view controller
+//        UIViewController *loginVC = [veganEezeSB instantiateViewControllerWithIdentifier:@"LoginViewController"];
+//        self.window.rootViewController = loginVC;
+//        [self.window makeKeyAndVisible];
+//    }
+    
+    
+=======
+>>>>>>> parent of 2d9f34f... Trying to change initial view controller
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
     return YES;
 }
 

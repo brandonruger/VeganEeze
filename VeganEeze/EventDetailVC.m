@@ -97,7 +97,7 @@
     eventState = currentEvent.eventState;
     eventZip = currentEvent.eventZip;
     
-    NSString *completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", eventAddress, eventCity, eventZip];
+    NSString *completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", eventAddress, eventCity, eventState, eventZip];
     
     NSString *ratingLabelStr = @"Rating: ";
     
