@@ -21,6 +21,7 @@
     
     //Hide back button on navigation bar
     self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.leftBarButtonItem = nil;
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:

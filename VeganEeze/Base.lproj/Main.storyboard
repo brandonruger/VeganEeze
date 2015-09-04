@@ -8,10 +8,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -43,7 +43,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="I6H-Si-tuv" kind="show" identifier="segueLoginToMainMenu" id="EyI-RH-Lgu"/>
+                                    <action selector="loginToAccount:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MHX-qx-y4y"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eY-Jw-1wj">
@@ -159,7 +159,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelKeyboard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7Rr-30-weD"/>
                                     <action selector="cancelKeyboard:" destination="y67-0e-9iv" eventType="touchUpInside" id="hn7-2U-gZ1"/>
                                 </connections>
                             </button>
@@ -1535,7 +1534,6 @@
         <image name="LoginScreen2" width="320" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EyI-RH-Lgu"/>
         <segue reference="xMA-oN-JMc"/>
         <segue reference="bwe-xQ-Z5M"/>
     </inferredMetricsTieBreakers>

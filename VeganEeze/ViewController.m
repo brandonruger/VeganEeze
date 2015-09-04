@@ -96,31 +96,31 @@
 //
 //}
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    if ([identifier isEqualToString:@"segueLoginToMainMenu"]) {
-        if (loggedInUser) {
-            //User is logged in, okay to perform segue
-            return TRUE;
-        } else {
-            //User is not logged in, don't perform segue
-            //Call method to login to account
-            [self loginToAccount];
-            
-            return FALSE;
-        }
-    }
-    
-    if ([identifier isEqualToString:@"segueToCreateNewAcctVC"]) {
-        return TRUE;
-    }
-    
-    return FALSE;
-}
+//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+//{
+//    if ([identifier isEqualToString:@"segueLoginToMainMenu"]) {
+//        if (loggedInUser) {
+//            //User is logged in, okay to perform segue
+//            return TRUE;
+//        } else {
+//            //User is not logged in, don't perform segue
+//            //Call method to login to account
+//            [self loginToAccount];
+//            
+//            return FALSE;
+//        }
+//    }
+//    
+//    if ([identifier isEqualToString:@"segueToCreateNewAcctVC"]) {
+//        return TRUE;
+//    }
+//    
+//    return FALSE;
+//}
 
 #pragma mark - Parse
-- (void)loginToAccount {
-    
+//- (void)loginToAccount {
+-(IBAction)loginToAccount:(id)sender {
     //Get username/password entered by user in text fields
     usernameStr = username.text;
     passwordStr = password.text;
@@ -136,7 +136,12 @@
                                         block:^(PFUser *user, NSError *error) {
                                             if (user) {
                                                 //Successfully logged in, go to main menu
-                                                [self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
+                                                //[self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
+                                                
+                                                MainMenuTVC *mainMenuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+                                                //Instantiate new view controller
+                                                [self.navigationController pushViewController:mainMenuVC animated:YES];
+                                                
                                             } else {
                                                 //Log in failed. Have user try again.
                                                 UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
