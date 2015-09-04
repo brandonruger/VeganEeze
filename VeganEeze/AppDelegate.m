@@ -28,6 +28,7 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+<<<<<<< HEAD
 //    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 //    UIStoryboard *veganEezeSB = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 //    
@@ -47,6 +48,8 @@
 //    }
     
     
+=======
+>>>>>>> parent of 2d9f34f... Trying to change initial view controller
     return YES;
 }
 

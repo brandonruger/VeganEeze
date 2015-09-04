@@ -26,33 +26,14 @@
     username.delegate = self;
     password.delegate = self;
     
-//    loggedInUser = [PFUser currentUser];
-//    if (loggedInUser != nil) {
-//        //User is logged in, go to main menu
-//        //[self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
-//        MainMenuTVC *mainMenuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
-//        [self.navigationController pushViewController:mainMenuVC animated:YES];
-//    }
-    
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    
+    //Check if user is already logged in
     loggedInUser = [PFUser currentUser];
     if (loggedInUser) {
-        //User is logged in
-        UINavigationController *navController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
-        [self.navigationController pushViewController:navController animated:YES];
+        //User is logged in, go to main menu
+        [self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
+        
     }
     
-//    //Check if user is already logged in
-//    loggedInUser = [PFUser currentUser];
-//    if (loggedInUser != nil) {
-//        //User is logged in, go to main menu
-//        [self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
-//        
-//
-//    }
 }
 
 - (void)didReceiveMemoryWarning {
