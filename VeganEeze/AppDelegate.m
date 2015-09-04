@@ -35,9 +35,15 @@
     PFUser *loggedInUser = [PFUser currentUser];
     if (loggedInUser) {
         //User is logged in, make Main Menu the root view controller
-        UIViewController *
+        UIViewController *mainMenuVC = [veganEezeSB instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+        self.window.rootViewController = mainMenuVC;
+        [self.window makeKeyAndVisible];
+        
     } else {
         //User is not logged in, make login screen the root view controller
+        UIViewController *loginVC = [veganEezeSB instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        self.window.rootViewController = loginVC;
+        [self.window makeKeyAndVisible];
     }
     
     
