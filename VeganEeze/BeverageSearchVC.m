@@ -130,15 +130,24 @@
     //NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];
     //NSLog(@"firstItem = %@", [firstItemRetrieved description]);
     
-    //Loop through all results retrieved from API call
-    for (int i=0; i<[arrayOfJSONData count]; i++) {
-        //Use custom method to grab each object from dictionary and add each object to the NSMutableArray
-        AlcoholBeverage *alcoholBevDetails = [self createAlcoholBeverageObjects:[arrayOfJSONData objectAtIndex:i]];
-        if (alcoholBevDetails != nil) {
-            //Add object to array
-            [alcoholBeverageObjects addObject:alcoholBevDetails];
+    if (arrayOfJSONData != nil) {
+        //Loop through all results retrieved from API call
+        for (int i=0; i<[arrayOfJSONData count]; i++) {
+            //Use custom method to grab each object from dictionary and add each object to the NSMutableArray
+            AlcoholBeverage *alcoholBevDetails = [self createAlcoholBeverageObjects:[arrayOfJSONData objectAtIndex:i]];
+            if (alcoholBevDetails != nil) {
+                //Add object to array
+                [alcoholBeverageObjects addObject:alcoholBevDetails];
+            }
         }
+        
+        BeverageResultsTVC *bevResultsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BeverageResultsViewController"];
+        //Pass the array of VeganRestaurant objects to the Restaurant Results vc
+        bevResultsVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
+        //Instantiate new view controller
+        [self.navigationController pushViewController:bevResultsVC animated:YES];
     }
+    
 
     
     //Set bool to true since data retrieval is complete
