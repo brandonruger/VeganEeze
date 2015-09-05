@@ -18,4 +18,6 @@
 
 - (void)updateCellWithComments:(NSString*)usersScreenName userComment:(NSString*)usersComment usersRating:(NSString*)usersRating;
 
+-(void)updateCellWithEventComments:(NSString*)usersScreenName userComment:(NSString*)usersComment;
+
 @end

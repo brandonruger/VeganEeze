@@ -34,9 +34,20 @@
         
         rating.text = ratingStr;
         
+    } else {
+        //Hide rating label
+        rating.hidden = TRUE;
     }
     
 
+}
+
+//Update event cells
+-(void)updateCellWithEventComments:(NSString*)usersScreenName userComment:(NSString*)usersComment {
+    
+    username.text = usersScreenName;
+    comment.text = usersComment;
+    rating.hidden = TRUE;
 }
 
 @end

@@ -199,7 +199,7 @@
         NSString *cellComment = eventForCell.comment;
         
         //Call cell's custom method to update cell
-        [commentsCell updateCellWithComments:cellUsername userComment:cellComment usersRating:nil];
+        [commentsCell updateCellWithEventComments:cellUsername userComment:cellComment];
         
         //commentsCell.textLabel.text = [comments objectAtIndex:indexPath.row];
         //commentsCell.detailTextLabel.text = [restaurantCityStates objectAtIndex:indexPath.row];
@@ -278,18 +278,28 @@
     reviewDictionary = [NSJSONSerialization JSONObjectWithData:reviewData options:0 error:nil];
     NSArray *commentsRetrieved = [reviewDictionary objectForKey:@"comments"];
     
-    //Loop through objects retrieved
-    for (int i=0; i<[commentsRetrieved count]; i++) {
-        //Use custom method to grab each object and add object to the array
-        EventReview *currentReview = [self createEventObjects:[commentsRetrieved objectAtIndex:i]];
-        if (currentReview != nil) {
-            //Add object to array
-            [eventReviewsArray addObject:currentReview];
+    if ([commentsRetrieved isEqual:[NSNull null]]) {
+        
+        //Do nothing
+        
+        
+    } else {
+        
+        //Loop through objects retrieved
+        for (int i=0; i<[commentsRetrieved count]; i++) {
+            //Use custom method to grab each object and add object to the array
+            EventReview *currentReview = [self createEventObjects:[commentsRetrieved objectAtIndex:i]];
+            if (currentReview != nil) {
+                //Add object to array
+                [eventReviewsArray addObject:currentReview];
+            }
         }
     }
     
     //Refresh table view with current data
     [commentsTV reloadData];
+    
+    
 }
 
 //Method to create custom EventReview objects and initalize each object
