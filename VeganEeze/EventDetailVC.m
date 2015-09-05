@@ -99,7 +99,7 @@
     
     NSString *completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", eventAddress, eventCity, eventState, eventZip];
     
-    NSString *ratingLabelStr = @"Rating: ";
+    //NSString *ratingLabelStr = @"Rating: ";
     
     
     
@@ -223,10 +223,10 @@
     //User clicked submit button
     if (buttonIndex == 1) {
         //Gather the comment user entered
-        NSString *commentEntered = [[alertView textFieldAtIndex:0] text];
+       // NSString *commentEntered = [[alertView textFieldAtIndex:0] text];
         
         //Get logged in user's username from Parse
-        NSString *currentUsername = [PFUser currentUser].username;
+       // NSString *currentUsername = [PFUser currentUser].username;
         
 //        //Add comment/username to mutable arrays
 //        [usernames addObject:currentUsername];
