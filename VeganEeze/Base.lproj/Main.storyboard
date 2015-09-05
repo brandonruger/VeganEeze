@@ -755,27 +755,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Restaurant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zA-Kf-brf">
-                                <rect key="frame" x="39" y="72" width="523" height="24"/>
+                                <rect key="frame" x="39" y="20" width="523" height="24"/>
                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Address" translatesAutoresizingMaskIntoConstraints="NO" id="tnD-fe-lgp">
-                                <rect key="frame" x="36" y="133" width="240" height="66"/>
+                                <rect key="frame" x="16" y="127" width="240" height="66"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="B1h-N1-8vK"/>
+                                    <constraint firstAttribute="width" constant="240" id="pJM-lk-7fE"/>
+                                    <constraint firstAttribute="height" constant="66" id="pYK-3o-6KF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" address="YES"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCn-5I-fDK">
-                                <rect key="frame" x="36" y="207" width="158" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCn-5I-fDK">
+                                <rect key="frame" x="16" y="208" width="84" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="158" id="soR-9g-Xxa"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Visit Website">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -786,7 +784,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnH-Aw-91n">
-                                <rect key="frame" x="500" y="72" width="84" height="31"/>
+                                <rect key="frame" x="500" y="52" width="84" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Place to Visit">
@@ -798,7 +796,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gef-Q3-SjI">
-                                <rect key="frame" x="16" y="71" width="52" height="31"/>
+                                <rect key="frame" x="16" y="52" width="52" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Favorite">
@@ -809,8 +807,8 @@
                                     <action selector="saveFavoritePlace:" destination="MIn-9F-pad" eventType="touchUpInside" id="Eis-X8-wLI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgO-u7-bEg">
-                                <rect key="frame" x="472" y="207" width="112" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgO-u7-bEg">
+                                <rect key="frame" x="472" y="208" width="112" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Share Restaurant">
@@ -822,24 +820,21 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Phone #" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="kw1-zS-ox8">
-                                <rect key="frame" x="412" y="135" width="172" height="34"/>
+                                <rect key="frame" x="412" y="127" width="172" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="172" id="gDt-cr-b52"/>
-                                    <constraint firstAttribute="height" constant="34" id="lu6-YC-aW6"/>
+                                    <constraint firstAttribute="height" constant="34" id="MkV-3U-atO"/>
+                                    <constraint firstAttribute="width" constant="172" id="ZAy-fk-2ix"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                             </textView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YBt-7O-VXc">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="191" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YBt-7O-VXc">
                                 <rect key="frame" x="0.0" y="387" width="600" height="353"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="353" id="sKa-xn-ZBw"/>
-                                </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="129" id="u6H-4f-rk2" customClass="CommentCell">
+                                    <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="191" id="u6H-4f-rk2" customClass="CommentCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u6H-4f-rk2" id="BbF-Pd-Ipd">
@@ -851,27 +846,36 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-DT-sPe">
-                                                    <rect key="frame" x="12" y="39" width="576" height="81"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-DT-sPe">
+                                                    <rect key="frame" x="12" y="30" width="576" height="152"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="1" blue="0.49803921569999998" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="81" id="o6V-IL-hLS"/>
+                                                        <constraint firstAttribute="height" constant="152" id="lds-Ul-6PP"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sL-iN-idv">
+                                                    <rect key="frame" x="541" y="8" width="36" height="14"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="TBr-9A-rLT" firstAttribute="top" secondItem="BbF-Pd-Ipd" secondAttribute="topMargin" id="2F4-GQ-KSy"/>
-                                                <constraint firstItem="Rsa-DT-sPe" firstAttribute="leading" secondItem="BbF-Pd-Ipd" secondAttribute="leadingMargin" constant="4" id="KNv-rd-MmD"/>
-                                                <constraint firstItem="Rsa-DT-sPe" firstAttribute="top" secondItem="TBr-9A-rLT" secondAttribute="bottom" constant="17" id="p1f-7D-dmG"/>
-                                                <constraint firstItem="TBr-9A-rLT" firstAttribute="leading" secondItem="BbF-Pd-Ipd" secondAttribute="leadingMargin" id="p54-uF-0Wn"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Rsa-DT-sPe" secondAttribute="trailing" constant="4" id="uLx-O7-VIV"/>
+                                                <constraint firstItem="0sL-iN-idv" firstAttribute="top" secondItem="BbF-Pd-Ipd" secondAttribute="topMargin" id="0Ih-qF-lyg"/>
+                                                <constraint firstItem="Rsa-DT-sPe" firstAttribute="top" secondItem="TBr-9A-rLT" secondAttribute="bottom" constant="8" id="0aT-v3-Qod"/>
+                                                <constraint firstItem="TBr-9A-rLT" firstAttribute="leading" secondItem="BbF-Pd-Ipd" secondAttribute="leadingMargin" id="4pF-mn-DGH"/>
+                                                <constraint firstItem="Rsa-DT-sPe" firstAttribute="leading" secondItem="BbF-Pd-Ipd" secondAttribute="leadingMargin" constant="4" id="58d-K2-fns"/>
+                                                <constraint firstItem="TBr-9A-rLT" firstAttribute="top" secondItem="BbF-Pd-Ipd" secondAttribute="topMargin" id="Itq-hc-SFa"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0sL-iN-idv" secondAttribute="trailing" constant="15" id="LD6-vP-hGn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Rsa-DT-sPe" secondAttribute="trailing" constant="4" id="nWa-cS-VMS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="comment" destination="Rsa-DT-sPe" id="BDY-VG-Ni5"/>
+                                            <outlet property="rating" destination="0sL-iN-idv" id="xvi-30-rQO"/>
                                             <outlet property="username" destination="TBr-9A-rLT" id="RW4-J6-RZl"/>
                                         </connections>
                                     </tableViewCell>
@@ -881,24 +885,19 @@
                                     <outlet property="delegate" destination="MIn-9F-pad" id="3b2-hK-GJi"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnH-3C-4jh">
-                                <rect key="frame" x="16" y="358" width="80" height="21"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-Va-J3Y">
-                                <rect key="frame" x="36" y="262" width="131" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-Va-J3Y">
+                                <rect key="frame" x="16" y="272" width="131" height="19"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="131" id="vI5-Gc-CVu"/>
+                                    <constraint firstAttribute="height" constant="19" id="U5O-hV-xWn"/>
+                                    <constraint firstAttribute="width" constant="131" id="utf-ok-hav"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GQ-Rw-xUM">
-                                <rect key="frame" x="461" y="256" width="123" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GQ-Rw-xUM">
+                                <rect key="frame" x="461" y="266" width="123" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="Add new comment">
@@ -909,54 +908,52 @@
                                     <action selector="addNewComment:" destination="MIn-9F-pad" eventType="touchUpInside" id="AeI-NK-Vik"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnH-3C-4jh">
+                                <rect key="frame" x="16" y="358" width="80" height="21"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xAD-Va-J3Y" firstAttribute="leading" secondItem="TCn-5I-fDK" secondAttribute="leading" id="0c3-rV-rUY"/>
-                            <constraint firstItem="kw1-zS-ox8" firstAttribute="trailing" secondItem="3yY-ND-Ke6" secondAttribute="trailingMargin" id="0zs-z6-7wh"/>
-                            <constraint firstItem="7Gs-6D-8b7" firstAttribute="top" secondItem="3yY-ND-Ke6" secondAttribute="top" id="3sm-Ae-T6y"/>
-                            <constraint firstItem="6zA-Kf-brf" firstAttribute="centerX" secondItem="7Gs-6D-8b7" secondAttribute="centerX" id="4YG-Xb-6hV"/>
-                            <constraint firstItem="TCn-5I-fDK" firstAttribute="top" secondItem="tnD-fe-lgp" secondAttribute="bottom" constant="8" symbolic="YES" id="812-8K-kVP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3GQ-Rw-xUM" secondAttribute="trailing" constant="219" id="95v-Z5-Gms"/>
-                            <constraint firstItem="tnD-fe-lgp" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="20" id="Buj-01-Cnk"/>
-                            <constraint firstItem="3GQ-Rw-xUM" firstAttribute="top" secondItem="UKq-6O-4WN" secondAttribute="bottom" constant="268" id="C8P-qW-Y0Y"/>
-                            <constraint firstItem="xAD-Va-J3Y" firstAttribute="baseline" secondItem="3GQ-Rw-xUM" secondAttribute="baseline" id="GAK-Nj-bfu"/>
-                            <constraint firstItem="gef-Q3-SjI" firstAttribute="leading" secondItem="SnH-3C-4jh" secondAttribute="leading" id="I6S-bB-hfQ"/>
-                            <constraint firstItem="TCn-5I-fDK" firstAttribute="leading" secondItem="tnD-fe-lgp" secondAttribute="leading" id="Irl-Rf-z31"/>
-                            <constraint firstItem="gef-Q3-SjI" firstAttribute="top" secondItem="UKq-6O-4WN" secondAttribute="bottom" constant="51" id="Isq-Ft-nan"/>
-                            <constraint firstItem="EnH-Aw-91n" firstAttribute="top" secondItem="6zA-Kf-brf" secondAttribute="top" id="JDt-51-pn5"/>
-                            <constraint firstItem="kw1-zS-ox8" firstAttribute="trailing" secondItem="rgO-u7-bEg" secondAttribute="trailing" id="LIq-fc-Z7W"/>
-                            <constraint firstItem="YBt-7O-VXc" firstAttribute="top" secondItem="3GQ-Rw-xUM" secondAttribute="bottom" constant="24" id="LrX-sY-lYE"/>
-                            <constraint firstItem="7Gs-6D-8b7" firstAttribute="bottom" secondItem="ueE-0j-URL" secondAttribute="top" id="MkT-Sc-l1f"/>
-                            <constraint firstItem="6zA-Kf-brf" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="23" id="Qaw-mV-ruI"/>
-                            <constraint firstItem="gef-Q3-SjI" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" id="Sf7-Zb-A4T"/>
-                            <constraint firstItem="3GQ-Rw-xUM" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="219" id="WCO-OR-jjp"/>
-                            <constraint firstItem="kw1-zS-ox8" firstAttribute="trailing" secondItem="EnH-Aw-91n" secondAttribute="trailing" id="WYH-W9-XO9"/>
-                            <constraint firstItem="TCn-5I-fDK" firstAttribute="top" secondItem="rgO-u7-bEg" secondAttribute="top" id="XS3-bn-Epx"/>
-                            <constraint firstItem="3GQ-Rw-xUM" firstAttribute="top" secondItem="rgO-u7-bEg" secondAttribute="bottom" constant="18" id="a6q-92-Ylo"/>
-                            <constraint firstItem="kw1-zS-ox8" firstAttribute="top" secondItem="EnH-Aw-91n" secondAttribute="bottom" constant="32" id="f6z-gM-Xkd"/>
-                            <constraint firstAttribute="trailing" secondItem="7Gs-6D-8b7" secondAttribute="trailing" id="fBP-Kh-15k"/>
-                            <constraint firstItem="rgO-u7-bEg" firstAttribute="trailing" secondItem="3GQ-Rw-xUM" secondAttribute="trailing" id="geZ-di-Eru"/>
-                            <constraint firstItem="7Gs-6D-8b7" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leading" id="gf0-VB-2q3"/>
-                            <constraint firstItem="kw1-zS-ox8" firstAttribute="top" secondItem="EnH-Aw-91n" secondAttribute="bottom" constant="32" id="jfO-M5-9x0"/>
-                            <constraint firstItem="rgO-u7-bEg" firstAttribute="top" secondItem="kw1-zS-ox8" secondAttribute="bottom" constant="38" id="leU-hB-3kd"/>
-                            <constraint firstItem="tnD-fe-lgp" firstAttribute="top" secondItem="6zA-Kf-brf" secondAttribute="bottom" constant="37" id="ntd-ZR-w89"/>
-                            <constraint firstItem="rgO-u7-bEg" firstAttribute="centerY" secondItem="TCn-5I-fDK" secondAttribute="centerY" id="nxx-Hf-ncw"/>
-                            <constraint firstItem="tnD-fe-lgp" firstAttribute="top" secondItem="gef-Q3-SjI" secondAttribute="bottom" constant="31" id="oQh-iV-P4T"/>
-                            <constraint firstItem="7Gs-6D-8b7" firstAttribute="leading" secondItem="YBt-7O-VXc" secondAttribute="leading" id="qFZ-mc-s07"/>
-                            <constraint firstItem="SnH-3C-4jh" firstAttribute="top" secondItem="xAD-Va-J3Y" secondAttribute="bottom" constant="77" id="qP9-EW-52v"/>
-                            <constraint firstItem="tnD-fe-lgp" firstAttribute="top" secondItem="gef-Q3-SjI" secondAttribute="bottom" constant="31" id="vdi-vQ-kcL"/>
-                            <constraint firstItem="YBt-7O-VXc" firstAttribute="trailing" secondItem="7Gs-6D-8b7" secondAttribute="trailing" id="wNq-It-cG9"/>
-                            <constraint firstItem="YBt-7O-VXc" firstAttribute="top" secondItem="SnH-3C-4jh" secondAttribute="bottom" constant="8" symbolic="YES" id="xZB-Wi-hbY"/>
+                            <constraint firstItem="TCn-5I-fDK" firstAttribute="top" secondItem="tnD-fe-lgp" secondAttribute="bottom" constant="15" id="2Qv-OB-L42"/>
+                            <constraint firstItem="xAD-Va-J3Y" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" id="3gv-H9-llK"/>
+                            <constraint firstItem="gef-Q3-SjI" firstAttribute="top" secondItem="6zA-Kf-brf" secondAttribute="bottom" constant="8" id="74w-Fz-Mbj"/>
+                            <constraint firstItem="YBt-7O-VXc" firstAttribute="top" secondItem="SnH-3C-4jh" secondAttribute="bottom" constant="8" id="9Vr-dg-z65"/>
+                            <constraint firstItem="EnH-Aw-91n" firstAttribute="trailing" secondItem="3yY-ND-Ke6" secondAttribute="trailingMargin" id="Ed2-4U-lKU"/>
+                            <constraint firstItem="6zA-Kf-brf" firstAttribute="top" secondItem="UKq-6O-4WN" secondAttribute="bottom" id="FrU-2v-tY5"/>
+                            <constraint firstItem="3GQ-Rw-xUM" firstAttribute="top" secondItem="rgO-u7-bEg" secondAttribute="bottom" constant="27" id="G6K-4g-f8B"/>
+                            <constraint firstItem="gef-Q3-SjI" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" id="Hjb-dz-TdJ"/>
+                            <constraint firstItem="tnD-fe-lgp" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" id="Hv0-oz-nzC"/>
+                            <constraint firstItem="3GQ-Rw-xUM" firstAttribute="trailing" secondItem="3yY-ND-Ke6" secondAttribute="trailingMargin" id="LJX-jq-lpf"/>
+                            <constraint firstItem="6zA-Kf-brf" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="23" id="Mmv-aI-uRN"/>
+                            <constraint firstItem="EnH-Aw-91n" firstAttribute="top" secondItem="6zA-Kf-brf" secondAttribute="bottom" constant="8" id="NiZ-9v-tST"/>
+                            <constraint firstItem="gef-Q3-SjI" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="6" id="OUX-kg-llz"/>
+                            <constraint firstItem="rgO-u7-bEg" firstAttribute="trailing" secondItem="3yY-ND-Ke6" secondAttribute="trailingMargin" id="SDr-qd-G4z"/>
+                            <constraint firstItem="rgO-u7-bEg" firstAttribute="top" secondItem="kw1-zS-ox8" secondAttribute="bottom" constant="47" id="Tdx-Pg-n7U"/>
+                            <constraint firstItem="gef-Q3-SjI" firstAttribute="top" secondItem="6zA-Kf-brf" secondAttribute="bottom" constant="8" id="TvJ-vY-Bfi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YBt-7O-VXc" secondAttribute="trailing" constant="-16" id="XfQ-uK-PkN"/>
+                            <constraint firstItem="YBt-7O-VXc" firstAttribute="top" secondItem="SnH-3C-4jh" secondAttribute="bottom" constant="8" id="elz-Mk-lCv"/>
+                            <constraint firstItem="kw1-zS-ox8" firstAttribute="top" secondItem="EnH-Aw-91n" secondAttribute="bottom" constant="44" id="eoP-cK-sMJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6zA-Kf-brf" secondAttribute="trailing" constant="22" id="gIk-vx-QWM"/>
+                            <constraint firstItem="ueE-0j-URL" firstAttribute="top" secondItem="7Gs-6D-8b7" secondAttribute="bottom" id="heJ-Po-XRL"/>
+                            <constraint firstItem="tnD-fe-lgp" firstAttribute="top" secondItem="gef-Q3-SjI" secondAttribute="bottom" constant="44" id="i49-ek-HS4"/>
+                            <constraint firstItem="7Gs-6D-8b7" firstAttribute="top" secondItem="3yY-ND-Ke6" secondAttribute="topMargin" id="jlZ-o3-8iN"/>
+                            <constraint firstItem="xAD-Va-J3Y" firstAttribute="top" secondItem="TCn-5I-fDK" secondAttribute="bottom" constant="33" id="r0F-Oa-8z4"/>
+                            <constraint firstItem="SnH-3C-4jh" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" id="tbQ-af-tLk"/>
+                            <constraint firstItem="7Gs-6D-8b7" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="-16" id="tjM-Jd-oRI"/>
+                            <constraint firstItem="YBt-7O-VXc" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="-16" id="ucF-Ra-S2W"/>
+                            <constraint firstItem="kw1-zS-ox8" firstAttribute="trailing" secondItem="3yY-ND-Ke6" secondAttribute="trailingMargin" id="vh0-Wr-yJb"/>
+                            <constraint firstItem="SnH-3C-4jh" firstAttribute="top" secondItem="xAD-Va-J3Y" secondAttribute="bottom" constant="67" id="wVP-B8-u2Q"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="YBt-7O-VXc" secondAttribute="bottom" constant="-140" id="xn4-BS-xNW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Gs-6D-8b7" secondAttribute="trailing" constant="-16" id="yip-hk-y4J"/>
+                            <constraint firstItem="TCn-5I-fDK" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" id="zLt-cC-sPh"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="oQh-iV-P4T"/>
-                                <exclude reference="LrX-sY-lYE"/>
-                                <exclude reference="f6z-gM-Xkd"/>
-                                <exclude reference="95v-Z5-Gms"/>
-                                <exclude reference="C8P-qW-Y0Y"/>
-                                <exclude reference="WCO-OR-jjp"/>
+                                <exclude reference="OUX-kg-llz"/>
+                                <exclude reference="TvJ-vY-Bfi"/>
                             </mask>
                         </variation>
                     </view>

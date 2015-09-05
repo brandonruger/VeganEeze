@@ -217,9 +217,10 @@
         //Get index of row and use index to get username/comments from array
         NSString *currentUsername = currentReview.username;
         NSString *currentComment = currentReview.comment;
+        NSString *currentRating = currentReview.rating;
         
         //Call cell's custom method to update cell
-        [commentsCell updateCellWithComments:currentUsername userComment:currentComment];
+        [commentsCell updateCellWithComments:currentUsername userComment:currentComment usersRating:currentRating];
         
         //commentsCell.textLabel.text = [comments objectAtIndex:indexPath.row];
         //commentsCell.detailTextLabel.text = [restaurantCityStates objectAtIndex:indexPath.row];
@@ -329,12 +330,16 @@
             NSString *commentStr = [dictionaryForComment valueForKey:@"text/vnd.vegguide.org-wikitext"];
             NSLog(@"commentStr = %@", commentStr);
             
+            //Rating
+            NSString *currentRating = [currentDictionary valueForKey:@"rating"];
+            NSLog(@"currentRating = %@", currentRating);
+            
             //Dictionary for username
             NSDictionary *dictionaryForUsername = [currentDictionary objectForKey:@"user"];
             NSString *currentUsername = [dictionaryForUsername valueForKey:@"name"];
             
             //Call custom method to create object with information
-            [self createReviewObjects:commentStr authorOfReview:currentUsername];
+            [self createReviewObjects:commentStr authorOfReview:currentUsername ratingForReview:currentRating];
             
             //NSString *comment = [currentDictionary valueForKey:@"body"];
             //NSLog(@"comment = %@", comment);
@@ -362,10 +367,10 @@
 }
 
 //Method to create RestaurantReview objects and initialize each object
--(RestaurantReview*)createReviewObjects:(NSString*)review authorOfReview:(NSString*)authorOfReview {
+-(RestaurantReview*)createReviewObjects:(NSString*)review authorOfReview:(NSString*)authorOfReview ratingForReview:(NSString*)ratingForReview {
     
     //Use object's custom init method to initialize object
-    RestaurantReview *newReview = [[RestaurantReview alloc]initWithReview:review whoWroteReview:authorOfReview];
+    RestaurantReview *newReview = [[RestaurantReview alloc]initWithReview:review whoWroteReview:authorOfReview ratingForRestaurant:ratingForReview];
     
     //Add review object to array
     [restaurantReviewsArray addObject:newReview];

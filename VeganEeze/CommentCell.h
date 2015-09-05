@@ -13,8 +13,9 @@
 {
     IBOutlet UILabel *username;
     IBOutlet UITextView *comment;
+    IBOutlet UILabel *rating;
 }
 
-- (void)updateCellWithComments:(NSString*)usersScreenName userComment:(NSString*)usersComment;
+- (void)updateCellWithComments:(NSString*)usersScreenName userComment:(NSString*)usersComment usersRating:(NSString*)usersRating;
 
 @end

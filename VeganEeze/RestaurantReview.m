@@ -10,13 +10,14 @@
 
 @implementation RestaurantReview
 
-@synthesize username, comment;
+@synthesize username, comment, rating;
 
--(id)initWithReview:(NSString*)reviewComment whoWroteReview:(NSString*)whoWroteReview {
+-(id)initWithReview:(NSString*)reviewComment whoWroteReview:(NSString*)whoWroteReview ratingForRestaurant:(NSString*)ratingForRestaurant {
     //Initialize object
     if (self = [super init]) {
         username = [whoWroteReview copy];
         comment = [reviewComment copy];
+        rating = [ratingForRestaurant copy];
     }
     
     return self;

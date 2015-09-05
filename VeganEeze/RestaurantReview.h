@@ -12,7 +12,8 @@
 
 @property (nonatomic, strong) NSString *comment;
 @property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *rating;
 
--(id)initWithReview:(NSString*)reviewComment whoWroteReview:(NSString*)whoWroteReview;
+-(id)initWithReview:(NSString*)reviewComment whoWroteReview:(NSString*)whoWroteReview ratingForRestaurant:(NSString*)ratingForRestaurant;
 
 @end

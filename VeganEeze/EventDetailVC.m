@@ -199,7 +199,7 @@
         NSString *cellComment = eventForCell.comment;
         
         //Call cell's custom method to update cell
-        [commentsCell updateCellWithComments:cellUsername userComment:cellComment];
+        [commentsCell updateCellWithComments:cellUsername userComment:cellComment usersRating:nil];
         
         //commentsCell.textLabel.text = [comments objectAtIndex:indexPath.row];
         //commentsCell.detailTextLabel.text = [restaurantCityStates objectAtIndex:indexPath.row];

@@ -21,11 +21,22 @@
 }
 
 //Method to update custom cell with comments
-- (void)updateCellWithComments:(NSString*)usersScreenName userComment:(NSString*)usersComment {
+- (void)updateCellWithComments:(NSString*)usersScreenName userComment:(NSString*)usersComment usersRating:(NSString *)usersRating {
     
     //Set items in cell to items passed into method
     username.text = usersScreenName;
     comment.text = usersComment;
+    
+    if ((usersRating != nil)) {
+        
+        //Add rating to cell
+        NSString *ratingStr = [NSString stringWithFormat:@"Rating: %@ Stars", usersRating];
+        
+        rating.text = ratingStr;
+        
+    }
+    
+
 }
 
 @end
