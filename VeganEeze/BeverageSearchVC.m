@@ -130,7 +130,13 @@
     //NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];
     //NSLog(@"firstItem = %@", [firstItemRetrieved description]);
     
-    if (arrayOfJSONData != nil) {
+    if (arrayOfJSONData == nil || [arrayOfJSONData count] == 0) {
+        
+        //Alert user that no results were found
+        UIAlertView *noResultsFound = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No results were found, please modify your search and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noResultsFound show];
+        
+    } else {
         //Loop through all results retrieved from API call
         for (int i=0; i<[arrayOfJSONData count]; i++) {
             //Use custom method to grab each object from dictionary and add each object to the NSMutableArray
