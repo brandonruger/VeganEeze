@@ -19,7 +19,7 @@
         eventAddress = [addressForEvent copy];
         eventCity = [cityOfEvent copy];
         eventState = [stateOfEvent copy];
-        eventZip = [stateOfEvent copy];
+        eventZip = [zipOfEvent copy];
         //eventPhone = [stateOfEvent copy];
         eventURL = [websiteForEvent copy];
         eventID = [idForEvent copy];
