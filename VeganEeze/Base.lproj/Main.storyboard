@@ -305,15 +305,6 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onP-WC-6fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <point key="canvasLocation" x="4103" y="366"/>
-=======
-            <point key="canvasLocation" x="3291" y="366"/>
->>>>>>> origin/master
-=======
-            <point key="canvasLocation" x="3291" y="366"/>
->>>>>>> origin/master
         </scene>
         <!--Find a Restaurant-->
         <scene sceneID="DAW-Kk-ff2">
@@ -410,15 +401,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrD-qN-yZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <point key="canvasLocation" x="5564" y="369"/>
-=======
-            <point key="canvasLocation" x="3940" y="369"/>
->>>>>>> origin/master
-=======
-            <point key="canvasLocation" x="3940" y="369"/>
->>>>>>> origin/master
         </scene>
         <!--Beverage Results-->
         <scene sceneID="Yly-gP-nnT">
@@ -460,15 +442,6 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1l-AM-TzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <point key="canvasLocation" x="7008" y="402"/>
-=======
-            <point key="canvasLocation" x="4572" y="402"/>
->>>>>>> origin/master
-=======
-            <point key="canvasLocation" x="4572" y="402"/>
->>>>>>> origin/master
         </scene>
         <!--Event Detail-->
         <scene sceneID="hTF-Kj-f5b">
@@ -660,15 +633,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOC-gF-QCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <point key="canvasLocation" x="6867" y="377"/>
-=======
-            <point key="canvasLocation" x="5243" y="377"/>
->>>>>>> origin/master
-=======
-            <point key="canvasLocation" x="5243" y="377"/>
->>>>>>> origin/master
         </scene>
         <!--Restaurant Detail-->
         <scene sceneID="rkn-p8-1dP">
@@ -899,15 +863,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQv-8c-nwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <point key="canvasLocation" x="8282" y="1016"/>
-=======
-            <point key="canvasLocation" x="5034" y="1016"/>
->>>>>>> origin/master
-=======
-            <point key="canvasLocation" x="5034" y="1016"/>
->>>>>>> origin/master
         </scene>
         <!--Beverage Search-->
         <scene sceneID="NaQ-RW-YI6">
@@ -921,7 +876,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-eA-2Tc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-eA-2Tc">
                                 <rect key="frame" x="0.0" y="-5" width="600" height="605"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Ii-XFh">
@@ -1046,12 +1001,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="sau-dW-zlY">
                                 <rect key="frame" x="0.0" y="-3" width="600" height="605"/>
                             </imageView>
-                            <searchBar hidden="YES" contentMode="redraw" misplaced="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5lx-Uk-xA9">
+                            <searchBar hidden="YES" contentMode="redraw" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5lx-Uk-xA9">
                                 <rect key="frame" x="72" y="337" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yew-dG-tl9">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yew-dG-tl9">
                                 <rect key="frame" x="10" y="69" width="46" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -1063,7 +1018,7 @@
                                     <action selector="cancelKeyboard:" destination="kMl-5x-2O2" eventType="touchUpInside" id="aIx-cq-Q4F"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
                                 <rect key="frame" x="72" y="409" width="44" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -1075,17 +1030,17 @@
                                     <action selector="searchVeganEvents:" destination="kMl-5x-2O2" eventType="touchUpInside" id="GJ6-4X-HwL"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUO-1T-Rmi">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUO-1T-Rmi">
                                 <rect key="frame" x="0.0" y="61" width="600" height="162"/>
                             </pickerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-NA-kPy">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-NA-kPy">
                                 <rect key="frame" x="89" y="286" width="423" height="29"/>
                                 <segments>
                                     <segment title="Location"/>
                                     <segment title="Search city"/>
                                 </segments>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="4HZ-Oa-oLn">
+                            <searchBar contentMode="redraw" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="4HZ-Oa-oLn">
                                 <rect key="frame" x="72" y="223" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1313,10 +1268,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="b8S-YN-iZs">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="b8S-YN-iZs">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City, State Zip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngf-48-1aw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="City, State Zip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngf-48-1aw">
                                 <rect key="frame" x="20" y="126" width="280" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="ip9-A4-eXL"/>
@@ -1325,7 +1280,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTa-K2-591">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTa-K2-591">
                                 <rect key="frame" x="20" y="153" width="289" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1337,7 +1292,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0l-fO-OQG">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0l-fO-OQG">
                                 <rect key="frame" x="546" y="154" width="38" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -1349,7 +1304,7 @@
                                     <action selector="shareToTwitter:" destination="tLO-bQ-eIr" eventType="touchUpInside" id="E0P-gB-ipq"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Phone #" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="xx6-I4-7da">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Phone #" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="xx6-I4-7da">
                                 <rect key="frame" x="432" y="83" width="152" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1360,7 +1315,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Address" translatesAutoresizingMaskIntoConstraints="NO" id="nKS-hy-Qhn">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Address" translatesAutoresizingMaskIntoConstraints="NO" id="nKS-hy-Qhn">
                                 <rect key="frame" x="16" y="81" width="240" height="37"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1371,7 +1326,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" address="YES"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved Item Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2K-5C-MA1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Saved Item Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2K-5C-MA1">
                                 <rect key="frame" x="39" y="20" width="523" height="30"/>
                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1572,8 +1527,6 @@
             </objects>
             <point key="canvasLocation" x="2421" y="1175"/>
         </scene>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <!--Vegan Resources Nav-->
         <scene sceneID="vnm-nC-8As">
             <objects>
@@ -1593,10 +1546,6 @@
             </objects>
             <point key="canvasLocation" x="6268" y="2187"/>
         </scene>
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
     </scenes>
     <resources>
         <image name="Background1" width="320" height="480"/>
