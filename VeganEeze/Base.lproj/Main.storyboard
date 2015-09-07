@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jWk-X6-oMO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -173,9 +173,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="I6H-Si-tuv" kind="show" identifier="segueNewAcctToMainMenu" id="eHx-vY-M9N"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -224,7 +221,7 @@
             </objects>
             <point key="canvasLocation" x="972" y="365"/>
         </scene>
-        <!--Main Menu-->
+        <!--Search Menu-->
         <scene sceneID="sCo-ds-e72">
             <objects>
                 <tableViewController storyboardIdentifier="MainMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gCr-q2-wjC" customClass="MainMenuTVC" sceneMemberID="viewController">
@@ -255,7 +252,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="swq-sF-hd9" kind="show" id="vSI-92-rsv"/>
+                                            <segue destination="OQx-X3-WSB" kind="show" id="iJy-VD-7Kc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="n2D-h5-UPP" style="IBUITableViewCellStyleDefault" id="2X4-ld-riB">
@@ -273,7 +270,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="kMl-5x-2O2" kind="show" id="U08-yz-d1c"/>
+                                            <segue destination="MQf-wZ-ZFj" kind="show" id="3Kw-Ah-R4n"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="0et-dk-Ck4" style="IBUITableViewCellStyleDefault" id="F9c-tB-8jW">
@@ -291,61 +288,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="HC7-S3-PmI" kind="show" id="EIh-63-TIM"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="K7H-ht-fEA" style="IBUITableViewCellStyleDefault" id="PD7-TZ-ffV">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PD7-TZ-ffV" id="YI5-Gh-fsI">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Favorite Places" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K7H-ht-fEA">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="EHO-4N-4HV" kind="show" id="olh-ek-Noj"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="scI-64-aDF" style="IBUITableViewCellStyleDefault" id="K0H-ua-jXG">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K0H-ua-jXG" id="as4-u2-HTR">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Places to Visit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="scI-64-aDF">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="Vh8-ho-dOw" kind="show" id="1HX-bd-7pt"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Ut0-ni-IHD" style="IBUITableViewCellStyleDefault" id="1bV-iH-e5E">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1bV-iH-e5E" id="D6I-sc-mMx">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Vegan Resources" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ut0-ni-IHD">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="dGU-8t-J0E" kind="show" id="Wlm-4a-h2c"/>
+                                            <segue destination="6x7-bf-bWQ" kind="show" id="dCL-Zv-YlS"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -356,17 +299,21 @@
                             <outlet property="delegate" destination="gCr-q2-wjC" id="dew-H4-dTn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Main Menu" id="mph-A1-FaD">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="g47-Ld-ATo">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" identifier="logoutSegueToMainMenu" id="X63-85-SJm"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Search Menu" id="mph-A1-FaD">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="g47-Ld-ATo"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onP-WC-6fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2479" y="366"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <point key="canvasLocation" x="4103" y="366"/>
+=======
+            <point key="canvasLocation" x="3291" y="366"/>
+>>>>>>> origin/master
+=======
+            <point key="canvasLocation" x="3291" y="366"/>
+>>>>>>> origin/master
         </scene>
         <!--Find a Restaurant-->
         <scene sceneID="DAW-Kk-ff2">
@@ -383,19 +330,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="foY-vG-jeb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="605"/>
                             </imageView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XDe-8q-Vr0">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XDe-8q-Vr0">
                                 <rect key="frame" x="89" y="275" width="423" height="29"/>
                                 <segments>
                                     <segment title="Location"/>
                                     <segment title="Search city"/>
                                 </segments>
                             </segmentedControl>
-                            <searchBar hidden="YES" contentMode="redraw" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-N8-H1d">
+                            <searchBar hidden="YES" contentMode="redraw" misplaced="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-N8-H1d">
                                 <rect key="frame" x="72" y="324" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-cE-YXG">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-cE-YXG">
                                 <rect key="frame" x="10" y="72" width="46" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -407,10 +354,10 @@
                                     <action selector="cancelKeyboard:" destination="swq-sF-hd9" eventType="touchUpInside" id="m9l-ze-M5t"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drP-JQ-4f3">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drP-JQ-4f3">
                                 <rect key="frame" x="0.0" y="59" width="600" height="162"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA7-JX-gZG">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA7-JX-gZG">
                                 <rect key="frame" x="72" y="385" width="44" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -422,7 +369,7 @@
                                     <action selector="searchForVeganRestaurants:" destination="swq-sF-hd9" eventType="touchUpInside" id="oJy-dD-324"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-kR-0ys">
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-kR-0ys">
                                 <rect key="frame" x="72" y="221" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -452,6 +399,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="drP-JQ-4f3" secondAttribute="trailing" constant="-16" id="xzJ-wJ-G2k"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Find a Restaurant" id="IoK-ra-5AX"/>
                     <connections>
                         <outlet property="cancelButton" destination="B8n-cE-YXG" id="WyX-b2-fIb"/>
                         <outlet property="keyword" destination="g8z-kR-0ys" id="di7-1C-XDx"/>
@@ -462,7 +410,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrD-qN-yZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3128" y="369"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <point key="canvasLocation" x="5564" y="369"/>
+=======
+            <point key="canvasLocation" x="3940" y="369"/>
+>>>>>>> origin/master
+=======
+            <point key="canvasLocation" x="3940" y="369"/>
+>>>>>>> origin/master
         </scene>
         <!--Beverage Results-->
         <scene sceneID="Yly-gP-nnT">
@@ -504,7 +460,15 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1l-AM-TzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3760" y="402"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <point key="canvasLocation" x="7008" y="402"/>
+=======
+            <point key="canvasLocation" x="4572" y="402"/>
+>>>>>>> origin/master
+=======
+            <point key="canvasLocation" x="4572" y="402"/>
+>>>>>>> origin/master
         </scene>
         <!--Event Detail-->
         <scene sceneID="hTF-Kj-f5b">
@@ -696,7 +660,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOC-gF-QCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4431" y="377"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <point key="canvasLocation" x="6867" y="377"/>
+=======
+            <point key="canvasLocation" x="5243" y="377"/>
+>>>>>>> origin/master
+=======
+            <point key="canvasLocation" x="5243" y="377"/>
+>>>>>>> origin/master
         </scene>
         <!--Restaurant Detail-->
         <scene sceneID="rkn-p8-1dP">
@@ -927,7 +899,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQv-8c-nwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4222" y="1016"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <point key="canvasLocation" x="8282" y="1016"/>
+=======
+            <point key="canvasLocation" x="5034" y="1016"/>
+>>>>>>> origin/master
+=======
+            <point key="canvasLocation" x="5034" y="1016"/>
+>>>>>>> origin/master
         </scene>
         <!--Beverage Search-->
         <scene sceneID="NaQ-RW-YI6">
@@ -944,7 +924,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-eA-2Tc">
                                 <rect key="frame" x="0.0" y="-5" width="600" height="605"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Ii-XFh">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Ii-XFh">
                                 <rect key="frame" x="64" y="239" width="44" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -956,7 +936,7 @@
                                     <action selector="searchAlcoholBeveragesAPI:" destination="HC7-S3-PmI" eventType="touchUpInside" id="Oun-OM-fja"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hZ-5f-ACX">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hZ-5f-ACX">
                                 <rect key="frame" x="16" y="72" width="48" height="30"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Cancel">
@@ -967,7 +947,7 @@
                                     <action selector="cancelKeyboard:" destination="HC7-S3-PmI" eventType="touchUpInside" id="MzF-Yr-mxc"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" placeholder="Enter name of product" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-N8-me0">
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter name of product" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-N8-me0">
                                 <rect key="frame" x="64" y="171" width="473" height="44"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -993,6 +973,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="XUf-N8-me0" secondAttribute="trailing" constant="47" id="wPl-CL-KYd"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Beverage Search" id="yq0-N7-1ZG"/>
                     <connections>
                         <outlet property="beverageName" destination="XUf-N8-me0" id="9RC-D3-FIh"/>
                         <outlet property="cancelButton" destination="5hZ-5f-ACX" id="wso-UX-NNU"/>
@@ -1000,7 +981,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L69-bs-vyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="1175"/>
+            <point key="canvasLocation" x="3233" y="1175"/>
         </scene>
         <!--Restaurant Results-->
         <scene sceneID="8PF-0H-L2X">
@@ -1065,12 +1046,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="sau-dW-zlY">
                                 <rect key="frame" x="0.0" y="-3" width="600" height="605"/>
                             </imageView>
-                            <searchBar hidden="YES" contentMode="redraw" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5lx-Uk-xA9">
+                            <searchBar hidden="YES" contentMode="redraw" misplaced="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5lx-Uk-xA9">
                                 <rect key="frame" x="72" y="337" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yew-dG-tl9">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yew-dG-tl9">
                                 <rect key="frame" x="10" y="69" width="46" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -1082,7 +1063,7 @@
                                     <action selector="cancelKeyboard:" destination="kMl-5x-2O2" eventType="touchUpInside" id="aIx-cq-Q4F"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
                                 <rect key="frame" x="72" y="409" width="44" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -1094,17 +1075,17 @@
                                     <action selector="searchVeganEvents:" destination="kMl-5x-2O2" eventType="touchUpInside" id="GJ6-4X-HwL"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUO-1T-Rmi">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUO-1T-Rmi">
                                 <rect key="frame" x="0.0" y="61" width="600" height="162"/>
                             </pickerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-NA-kPy">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-NA-kPy">
                                 <rect key="frame" x="89" y="286" width="423" height="29"/>
                                 <segments>
                                     <segment title="Location"/>
                                     <segment title="Search city"/>
                                 </segments>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="4HZ-Oa-oLn">
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="4HZ-Oa-oLn">
                                 <rect key="frame" x="72" y="223" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1134,6 +1115,7 @@
                             <constraint firstItem="Jmf-NA-kPy" firstAttribute="top" secondItem="4HZ-Oa-oLn" secondAttribute="bottom" constant="19" id="yXX-ZM-BkZ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Search Events" id="zPn-te-bF9"/>
                     <connections>
                         <outlet property="cancelButton" destination="yew-dG-tl9" id="Cmk-jJ-VfV"/>
                         <outlet property="keyword" destination="4HZ-Oa-oLn" id="sbW-ei-3Tu"/>
@@ -1144,7 +1126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTA-kb-uAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3128" y="1047"/>
+            <point key="canvasLocation" x="4752" y="1047"/>
         </scene>
         <!--Event Results-->
         <scene sceneID="rmE-LL-src">
@@ -1234,13 +1216,14 @@
                             <outlet property="delegate" destination="EHO-4N-4HV" id="ERD-6C-o3x"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Favorite Places" id="jZi-dP-wTt"/>
                     <connections>
                         <outlet property="placesTableView" destination="IEl-Ka-9Km" id="I2Y-dN-nRD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooz-cK-tRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3583" y="2090"/>
+            <point key="canvasLocation" x="4395" y="2090"/>
         </scene>
         <!--Places to Visit-->
         <scene sceneID="nuW-ND-8f9">
@@ -1282,13 +1265,14 @@
                             <outlet property="delegate" destination="Vh8-ho-dOw" id="1Jp-RY-faM"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Places to Visit" id="SCa-FE-cfb"/>
                     <connections>
                         <outlet property="placesToVisitTV" destination="Pah-Ta-CHk" id="doL-rh-3fX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCF-HZ-DfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4069" y="2183"/>
+            <point key="canvasLocation" x="5693" y="2183"/>
         </scene>
         <!--Web Browser-->
         <scene sceneID="elL-Ym-UUb">
@@ -1425,7 +1409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdd-XS-FZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4677" y="1561"/>
+            <point key="canvasLocation" x="8737" y="1561"/>
         </scene>
         <!--Vegan Resources-->
         <scene sceneID="Oqb-MH-MqS">
@@ -1453,37 +1437,178 @@
                             <outlet property="delegate" destination="dGU-8t-J0E" id="asI-w5-ThT"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Vegan Resources" id="tAH-MO-uty"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9R-gP-rSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4644" y="2187"/>
+            <point key="canvasLocation" x="7080" y="2187"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="brh-mb-edX">
+        <!--Tab Bar Controller-->
+        <scene sceneID="lFE-29-qVU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I6H-Si-tuv" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jWk-X6-oMO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UKG-so-fWO">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="V8E-AB-pyF">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="aJm-pL-VaD" kind="relationship" relationship="viewControllers" id="xdu-Ok-u3t"/>
+                        <segue destination="6sE-5Y-Bo3" kind="relationship" relationship="viewControllers" id="lo8-QE-TTz"/>
+                        <segue destination="QlO-2B-67S" kind="relationship" relationship="viewControllers" id="ivy-C5-lnZ"/>
+                        <segue destination="fZb-xI-tWK" kind="relationship" relationship="viewControllers" id="u3f-bq-R9L"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9wn-Cc-VSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2479" y="366"/>
+        </scene>
+        <!--Find Restaurant Nav-->
+        <scene sceneID="e18-xe-wLp">
+            <objects>
+                <navigationController title="Find Restaurant Nav" automaticallyAdjustsScrollViewInsets="NO" id="OQx-X3-WSB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lTn-ue-Ck8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="gCr-q2-wjC" kind="relationship" relationship="rootViewController" id="QtF-6E-bHu"/>
+                        <segue destination="swq-sF-hd9" kind="relationship" relationship="rootViewController" id="hE6-JJ-YWj"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nst-as-l6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3UY-ou-fOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="366"/>
+            <point key="canvasLocation" x="4752" y="369"/>
         </scene>
+        <!--Search Events Nav-->
+        <scene sceneID="ffA-Rg-cJB">
+            <objects>
+                <navigationController title="Search Events Nav" automaticallyAdjustsScrollViewInsets="NO" id="MQf-wZ-ZFj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VT8-mR-NiU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V1u-x1-aAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3940" y="1047"/>
+        </scene>
+        <!--Favorite Places Nav-->
+        <scene sceneID="aAK-9y-0At">
+            <objects>
+                <navigationController title="Favorite Places Nav" automaticallyAdjustsScrollViewInsets="NO" id="6sE-5Y-Bo3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="HeartIcon" id="Mqr-ji-wRO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YHq-oT-1s3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EHO-4N-4HV" kind="relationship" relationship="rootViewController" id="f1d-KP-g47"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AGh-AM-kkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3583" y="2090"/>
+        </scene>
+        <!--Places Nav-->
+        <scene sceneID="gu1-HR-Oz1">
+            <objects>
+                <navigationController title="Places Nav" automaticallyAdjustsScrollViewInsets="NO" id="QlO-2B-67S" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Places to Visit" image="MapIcon" id="krR-oI-5ib"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DNf-Eu-UNx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vh8-ho-dOw" kind="relationship" relationship="rootViewController" id="4Gg-wA-D96"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c2A-3v-4ZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4881" y="2183"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="Gdu-6f-mfM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aJm-pL-VaD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="SearchIcon" id="ipg-kh-Jqa"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f8u-pd-dUM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gCr-q2-wjC" kind="relationship" relationship="rootViewController" id="TWl-MI-xiX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WvP-jI-sar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3291" y="366"/>
+        </scene>
+        <!--Beverage Search Nav-->
+        <scene sceneID="RxG-Zn-nSm">
+            <objects>
+                <navigationController title="Beverage Search Nav" automaticallyAdjustsScrollViewInsets="NO" id="6x7-bf-bWQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K22-jP-U6c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HC7-S3-PmI" kind="relationship" relationship="rootViewController" id="voi-zM-bXO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ztr-RM-aUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2421" y="1175"/>
+        </scene>
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <!--Vegan Resources Nav-->
+        <scene sceneID="vnm-nC-8As">
+            <objects>
+                <navigationController title="Vegan Resources Nav" automaticallyAdjustsScrollViewInsets="NO" id="fZb-xI-tWK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Resources" image="VeganIcon" id="lvP-3X-GSp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t5r-wt-fRZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dGU-8t-J0E" kind="relationship" relationship="rootViewController" id="4FL-oW-lQL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZI-Wx-iQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6268" y="2187"/>
+        </scene>
+=======
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
     </scenes>
     <resources>
         <image name="Background1" width="320" height="480"/>
         <image name="Background2" width="320" height="480"/>
+        <image name="HeartIcon" width="25" height="25"/>
         <image name="LoginScreen2" width="320" height="480"/>
+        <image name="MapIcon" width="25" height="25"/>
+        <image name="SearchIcon" width="25" height="25"/>
+        <image name="VeganIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xMA-oN-JMc"/>
-        <segue reference="h8U-nB-2Vf"/>
+        <segue reference="sCp-Sf-fL5"/>
     </inferredMetricsTieBreakers>
 </document>
