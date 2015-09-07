@@ -20,19 +20,19 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     //Hide back button on navigation bar
-    self.navigationItem.hidesBackButton = YES;
+    //self.navigationItem.hidesBackButton = YES;
     
     //Set textfields' delegate
     username.delegate = self;
     password.delegate = self;
     
-    //Check if user is already logged in
-    loggedInUser = [PFUser currentUser];
-    if (loggedInUser) {
-        //User is logged in, go to main menu
-        [self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
-        
-    }
+//    //Check if user is already logged in
+//    loggedInUser = [PFUser currentUser];
+//    if (loggedInUser) {
+//        //User is logged in, go to main menu
+//        [self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
+//        
+//    }
     
 }
 
@@ -138,9 +138,10 @@
                                                 //Successfully logged in, go to main menu
                                                 //[self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
                                                 
-                                                MainMenuTVC *mainMenuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+                                                //MainMenuTVC *mainMenuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
                                                 //Instantiate new view controller
-                                                [self.navigationController pushViewController:mainMenuVC animated:YES];
+                                                //[self.navigationController pushViewController:mainMenuVC animated:YES];
+                                                [self.navigationController popViewControllerAnimated:TRUE];
                                                 
                                             } else {
                                                 //Log in failed. Have user try again.

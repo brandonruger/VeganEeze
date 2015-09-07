@@ -8,7 +8,7 @@
 
 #import "MainMenuTVC.h"
 #import <Parse/Parse.h>
-//#import "ViewController.h"
+#import "ViewController.h"
 
 @interface MainMenuTVC ()
 
@@ -28,11 +28,24 @@
       [UIFont fontWithName:@"mplus-1c-regular" size:21],
       NSFontAttributeName, nil]];
     
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    //Check if user is currently logged in
+    PFUser *loggedInUser = [PFUser currentUser];
+    if (loggedInUser) {
+        //User is logged in, change login button to logout
+        self.navigationItem.rightBarButtonItem.title = @"Logout";
+    } else {
+        self.navigationItem.rightBarButtonItem.title = @"Login";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,19 +68,65 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    //Check if logout button was pressed
-    if ([segue.identifier isEqualToString:@"logoutSegueToMainMenu"]) {
-        //ViewController *loginScreen = [segue destinationViewController];
-        
+//    //Check if logout button was pressed
+//    if ([segue.identifier isEqualToString:@"logoutSegueToMainMenu"]) {
+//        //ViewController *loginScreen = [segue destinationViewController];
+//        
+//        //Log out of account
+//        [PFUser logOut];
+//        
+//        //Alert user they have been logged out
+//        UIAlertView *logoutAlert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have been logged out." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        //Show alert
+//        [logoutAlert show];
+//    }
+    
+
+        //User is logged in, log user out
         //Log out of account
-        [PFUser logOut];
+//        [PFUser logOut];
+//        
+//        //Alert user they have been logged out
+//        UIAlertView *logoutAlert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have been logged out." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        //Show alert
+//        [logoutAlert show];
+//        
+//        //Change text on button back to "Login"
+//        self.navigationItem.rightBarButtonItem.title = @"Login";
+   // }
+    
+    
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+    //Check button text
+    if ([self.navigationItem.rightBarButtonItem.title isEqualToString:@"Login"]) {
+        return YES;
         
-        //Alert user they have been logged out
-        UIAlertView *logoutAlert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have been logged out." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        //Show alert
-        [logoutAlert show];
+    } else {
+        
+        //Call method to log user out
+        [self logoutFromApp];
+        
+        return NO;
     }
     
+    
+}
+
+-(void)logoutFromApp {
+    
+    //Log out of account
+    [PFUser logOut];
+    
+    //Alert user they have been logged out
+    UIAlertView *logoutAlert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have been logged out." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    //Show alert
+    [logoutAlert show];
+    
+    //Change text on button back to "Login"
+    self.navigationItem.rightBarButtonItem.title = @"Login";
     
 }
 

@@ -8,6 +8,7 @@
 
 #import "PlacesToVisitTVC.h"
 #import "SavedPlacesDetailVC.h"
+#import <Parse/Parse.h>
 
 @interface PlacesToVisitTVC ()
 
@@ -32,6 +33,30 @@
     
     //Call method to retrieve objects from Parse server
     [self retrievePlacesToVisit];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    //Check if user is logged in
+    PFUser *loggedInUser = [PFUser currentUser];
+    if (loggedInUser) {
+        //User is logged in
+        //Initialize mutable array
+        parsePlacesToVisit = [[NSMutableArray alloc]init];
+        placeName = [[NSMutableArray alloc]init];
+        placeCityState = [[NSMutableArray alloc]init];
+        objectIDs = [[NSMutableArray alloc]init];
+        
+        //Call method to retrieve objects from Parse server
+        [self retrievePlacesToVisit];
+
+    } else {
+        [objectIDs removeAllObjects];
+        [placesToVisitTV reloadData];
+        
+        //User is not logged in, alert user
+        UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must login in order to view your saved places." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [logInAlert show];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,7 @@
 
 #import "FavoritePlacesTVC.h"
 #import "SavedPlacesDetailVC.h"
+#import <Parse/Parse.h>
 
 @interface FavoritePlacesTVC ()
 
@@ -24,15 +25,32 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //Initialize mutable array
-    parseFavorites = [[NSMutableArray alloc]init];
-    placeName = [[NSMutableArray alloc]init];
-    placeCityState = [[NSMutableArray alloc]init];
-    objectIDs = [[NSMutableArray alloc]init];
     
-    //Call method to retrieve objects from Parse server
-    [self retrieveFavoritePlaces];
     
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    //Check if user is logged in
+    PFUser *loggedInUser = [PFUser currentUser];
+    if (loggedInUser) {
+        //User is logged in
+        //Initialize mutable array
+        parseFavorites = [[NSMutableArray alloc]init];
+        placeName = [[NSMutableArray alloc]init];
+        placeCityState = [[NSMutableArray alloc]init];
+        objectIDs = [[NSMutableArray alloc]init];
+        
+        //Call method to retrieve objects from Parse server
+        [self retrieveFavoritePlaces];
+    } else {
+        
+        [objectIDs removeAllObjects];
+        [placesTableView reloadData];
+        
+        //User is not logged in, alert user
+        UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must login in order to view your favorites" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [logInAlert show];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

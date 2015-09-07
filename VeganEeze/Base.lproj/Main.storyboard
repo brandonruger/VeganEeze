@@ -21,18 +21,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="Tf3-Ks-yFL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-YY-nG6">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-YY-nG6">
                                 <rect key="frame" x="34" y="132" width="533" height="30"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-9G-Jyx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-9G-Jyx">
                                 <rect key="frame" x="34" y="194" width="533" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL7-kf-KHX">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL7-kf-KHX">
                                 <rect key="frame" x="34" y="232" width="38" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -44,7 +44,7 @@
                                     <action selector="loginToAccount:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MHX-qx-y4y"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eY-Jw-1wj">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eY-Jw-1wj">
                                 <rect key="frame" x="34" y="28" width="46" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -56,7 +56,7 @@
                                     <action selector="cancelKeyboard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zKn-8z-ffh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzc-mW-US6">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzc-mW-US6">
                                 <rect key="frame" x="462" y="232" width="105" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -68,7 +68,7 @@
                                     <action selector="forgotPassword:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lBO-E6-O2P"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cda-mu-e3C">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cda-mu-e3C">
                                 <rect key="frame" x="431" y="286" width="136" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -103,6 +103,7 @@
                             <constraint firstItem="2eY-Jw-1wj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="18" id="teV-6d-FG9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Login to VeganEeze" id="IAS-DE-uXA"/>
                     <connections>
                         <outlet property="cancelButton" destination="2eY-Jw-1wj" id="zSS-II-Al2"/>
                         <outlet property="password" destination="h8F-9G-Jyx" id="Grq-sY-dag"/>
@@ -111,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="249" y="365"/>
+            <point key="canvasLocation" x="518" y="414"/>
         </scene>
         <!--Create New AcctVC-->
         <scene sceneID="QLi-4q-w6P">
@@ -219,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSy-VC-kQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="365"/>
+            <point key="canvasLocation" x="1784" y="365"/>
         </scene>
         <!--Search Menu-->
         <scene sceneID="sCo-ds-e72">
@@ -300,11 +301,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search Menu" id="mph-A1-FaD">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="g47-Ld-ATo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Login" id="g47-Ld-ATo">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="show" identifier="segueToLogin" id="lRY-DY-0FG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onP-WC-6fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1136" y="366"/>
         </scene>
         <!--Find a Restaurant-->
         <scene sceneID="DAW-Kk-ff2">
@@ -1417,7 +1423,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wn-Cc-VSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2479" y="366"/>
+            <point key="canvasLocation" x="3291" y="366"/>
         </scene>
         <!--Find Restaurant Nav-->
         <scene sceneID="e18-xe-wLp">
@@ -1435,7 +1441,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UY-ou-fOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4752" y="369"/>
+            <point key="canvasLocation" x="5564" y="369"/>
         </scene>
         <!--Search Events Nav-->
         <scene sceneID="ffA-Rg-cJB">
@@ -1507,7 +1513,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WvP-jI-sar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3291" y="366"/>
+            <point key="canvasLocation" x="4103" y="366"/>
         </scene>
         <!--Beverage Search Nav-->
         <scene sceneID="RxG-Zn-nSm">
@@ -1546,6 +1552,24 @@
             </objects>
             <point key="canvasLocation" x="6268" y="2187"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="idd-jn-7Ac">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pjl-nT-KrX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="srB-wy-Glg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="c5X-hu-AQ1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xu3-jw-JKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="365"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Background1" width="320" height="480"/>
@@ -1559,5 +1583,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="xMA-oN-JMc"/>
         <segue reference="sCp-Sf-fL5"/>
+        <segue reference="lRY-DY-0FG"/>
     </inferredMetricsTieBreakers>
 </document>
