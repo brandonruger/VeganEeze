@@ -48,32 +48,32 @@
 //    }
 //}
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    if ([identifier isEqualToString:@"segueNewAcctToMainMenu"]) {
-        if (loggedInUser) {
-            //User is logged in, okay to perform segue
-            return TRUE;
-        } else {
-            //User is not logged in, don't perform segue
-            //Call method to login to account
-            //[self loginToAccount];
-            
-//            //Log in failed. Have user try again.
-//            UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//            [loginFailed show];
+//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+//{
+//    if ([identifier isEqualToString:@"segueNewAcctToMainMenu"]) {
+//        if (loggedInUser) {
+//            //User is logged in, okay to perform segue
+//            return TRUE;
+//        } else {
+//            //User is not logged in, don't perform segue
+//            //Call method to login to account
+//            //[self loginToAccount];
 //            
-//            //Go back to login screen
-//            [self dismissViewControllerAnimated:true completion:nil];
-            
-            //Call method to create new account
-            [self createNewAccount];
-            
-            return FALSE;
-        }
-    }
-    return FALSE;
-}
+////            //Log in failed. Have user try again.
+////            UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+////            [loginFailed show];
+////            
+////            //Go back to login screen
+////            [self dismissViewControllerAnimated:true completion:nil];
+//            
+//            //Call method to create new account
+//            [self createNewAccount];
+//            
+//            return FALSE;
+//        }
+//    }
+//    return FALSE;
+//}
 
 #pragma mark - Keyboard
 
@@ -108,7 +108,9 @@
 
 #pragma mark - Parse
 
-- (void)createNewAccount {
+
+
+-(IBAction)createNewAccount:(id)sender {
     //Create new user object
     PFUser *newUser = [PFUser user];
     //Set username, password and email to what user entered in text fields
@@ -144,14 +146,16 @@
                                                 block:^(PFUser *user, NSError *error) {
                                                     if (user) {
                                                         //Successfully logged in, go to main menu
-                                                        [self performSegueWithIdentifier:@"segueNewAcctToMainMenu" sender:self];
+                                                        //[self performSegueWithIdentifier:@"segueNewAcctToMainMenu" sender:self];
+                                                        [self.navigationController popToRootViewControllerAnimated:TRUE];
                                                     } else {
                                                         //Log in failed. Have user try again.
                                                         UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                                                         [loginFailed show];
                                                         
                                                         //Go back to login screen
-                                                        [self dismissViewControllerAnimated:true completion:nil];
+                                                        //[self dismissViewControllerAnimated:true completion:nil];
+                                                        [self.navigationController popViewControllerAnimated:TRUE];
                                         
                                                     }
                                                 }];

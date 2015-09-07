@@ -142,6 +142,8 @@
                                                 //Instantiate new view controller
                                                 //[self.navigationController pushViewController:mainMenuVC animated:YES];
                                                 [self.navigationController popViewControllerAnimated:TRUE];
+                                                //self.tabBarController.selectedIndex = 0;
+                                                //[self presentViewController:mainMenuVC animated:YES completion:nil];
                                                 
                                             } else {
                                                 //Log in failed. Have user try again.
