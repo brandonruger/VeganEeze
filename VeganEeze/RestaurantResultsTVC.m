@@ -71,7 +71,18 @@
         VeganRestaurant *currentRest = [arrayOfRestaurantObjs objectAtIndex:indexPath.row];
         
         //Call cell's custom method to update information in cell
-        [resultsCell updateCellWithRestaurant:currentRest.restaurantName description:currentRest.description range:currentRest.priceRange imageURI:currentRest.imageURI veganImage:currentRest.vegLevel];
+        [resultsCell updateCellWithRestaurant:currentRest.restaurantName description:currentRest.description range:currentRest.priceRange imageURI:currentRest.imageURI veganImage:currentRest.vegLevel city:currentRest.restaurantCity];
+    }
+    
+    if (indexPath.row %2 == 0) {
+        
+         UIColor *alternateColor=[[UIColor alloc]initWithRed:239.0/255.0 green:252.0/255.0 blue:214.0/255.0 alpha:1];
+        //resultsCell.backgroundColor = [UIColor clearColor];
+        resultsCell.backgroundColor = alternateColor;
+    } else {
+        UIColor *otherColor=[[UIColor alloc]initWithRed:162.0/255.0 green:201.0/255.0 blue:142.0/255.0 alpha:1];
+        //resultsCell.backgroundColor = [UIColor clearColor];
+        resultsCell.backgroundColor = otherColor;
     }
     
     return resultsCell;

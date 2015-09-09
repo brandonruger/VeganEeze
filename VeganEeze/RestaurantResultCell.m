@@ -20,13 +20,14 @@
     // Configure the view for the selected state
 }
 
-- (void)updateCellWithRestaurant:(NSString*)name description:(NSString*)description range:(NSString*)range imageURI:(NSString*)imageURI veganImage:(NSString*)veganImage {
+- (void)updateCellWithRestaurant:(NSString*)name description:(NSString*)description range:(NSString*)range imageURI:(NSString*)imageURI veganImage:(NSString*)veganImage city:(NSString *)city {
     
     //Set items in cell to items passed into method
     restaurantName.text = name;
     shortDescription.text = description;
     priceRange.text = range;
     //restaurantImage.image = image;
+    location.text = city;
     
     NSString *veganLevel = veganImage;
     
@@ -75,7 +76,8 @@
         restaurantImage.image = imageForRest;
     } else {
         //No images found, set default image
-        restaurantImage.image = [UIImage imageNamed:@"NoImage"];
+        //restaurantImage.image = [UIImage imageNamed:@"NoImage"];
+        restaurantImage.image = [UIImage imageNamed:@"VeganEeze-Logo"];
     }
     
     

@@ -16,9 +16,10 @@
     IBOutlet UILabel *priceRange;
     IBOutlet UIImageView *restaurantImage;
     IBOutlet UIImageView *veganLevelImage;
+    IBOutlet UILabel *location;
 }
 
-- (void)updateCellWithRestaurant:(NSString*)name description:(NSString*)description range:(NSString*)range imageURI:(NSString*)imageURI veganImage:(NSString*)veganImage;
+- (void)updateCellWithRestaurant:(NSString*)name description:(NSString*)description range:(NSString*)range imageURI:(NSString*)imageURI veganImage:(NSString*)veganImage city:(NSString*)city;
 
 
 @end

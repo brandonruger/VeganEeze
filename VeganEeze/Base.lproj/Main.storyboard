@@ -962,7 +962,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dl3-Er-XLG" id="OFb-0T-CZG">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMB-mh-Lrb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMB-mh-Lrb">
                                             <rect key="frame" x="70" y="8" width="185" height="30"/>
                                             <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="26"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -982,8 +982,8 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Short Description" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Sw-LC-woF">
-                                            <rect key="frame" x="70" y="46" width="113" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <rect key="frame" x="70" y="46" width="101" height="17"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -993,6 +993,12 @@
                                                 <constraint firstAttribute="width" constant="25" id="Kon-ip-cbC"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeY-7U-Ft6">
+                                            <rect key="frame" x="567" y="77" width="25" height="17"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="1Sw-LC-woF" firstAttribute="top" secondItem="qMB-mh-Lrb" secondAttribute="bottom" constant="8" id="2ho-DW-PLu"/>
@@ -1002,14 +1008,17 @@
                                         <constraint firstItem="Hwe-o2-dSg" firstAttribute="top" secondItem="OFb-0T-CZG" secondAttribute="topMargin" constant="32" id="D1K-yD-TK4"/>
                                         <constraint firstItem="1Sw-LC-woF" firstAttribute="leading" secondItem="di3-ab-nzQ" secondAttribute="trailing" constant="12" id="W5m-IF-mwE"/>
                                         <constraint firstItem="di3-ab-nzQ" firstAttribute="top" secondItem="OFb-0T-CZG" secondAttribute="topMargin" id="cHe-6E-gJK"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="VeY-7U-Ft6" secondAttribute="bottom" constant="4" id="iBh-PF-aeo"/>
                                         <constraint firstItem="di3-ab-nzQ" firstAttribute="leading" secondItem="OFb-0T-CZG" secondAttribute="leadingMargin" id="kMU-aS-Oqp"/>
                                         <constraint firstItem="h6g-9Z-uss" firstAttribute="leading" secondItem="OFb-0T-CZG" secondAttribute="leadingMargin" constant="62" id="lBE-Ub-xpV"/>
+                                        <constraint firstItem="VeY-7U-Ft6" firstAttribute="trailing" secondItem="OFb-0T-CZG" secondAttribute="trailingMargin" id="lek-ti-xjG"/>
                                         <constraint firstItem="qMB-mh-Lrb" firstAttribute="leading" secondItem="di3-ab-nzQ" secondAttribute="trailing" constant="12" id="nP3-zy-OFr"/>
                                         <constraint firstItem="Hwe-o2-dSg" firstAttribute="trailing" secondItem="OFb-0T-CZG" secondAttribute="trailingMargin" id="qjs-F3-Qmz"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="location" destination="VeY-7U-Ft6" id="F91-HN-UFS"/>
                                     <outlet property="priceRange" destination="h6g-9Z-uss" id="mq8-du-5Sn"/>
                                     <outlet property="restaurantImage" destination="di3-ab-nzQ" id="jj6-md-iZG"/>
                                     <outlet property="restaurantName" destination="qMB-mh-Lrb" id="uO6-1x-bKz"/>
