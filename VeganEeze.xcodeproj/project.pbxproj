@@ -40,6 +40,7 @@
 		0E7053AD1B939F33008518A1 /* VeganEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053AC1B939F33008518A1 /* VeganEvent.m */; };
 		0E7053B01B97BA53008518A1 /* EventReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053AF1B97BA53008518A1 /* EventReview.m */; };
 		0E7053B31B97BF8F008518A1 /* RestaurantReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053B21B97BF8F008518A1 /* RestaurantReview.m */; };
+		0E749FF71B9FB74400F63771 /* RestaurantResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E749FF61B9FB74400F63771 /* RestaurantResultCell.m */; };
 		0ED7BA021B856F5C0038EF3A /* RestaurantDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */; };
 		0ED7BA051B856F6E0038EF3A /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA041B856F6E0038EF3A /* EventDetailVC.m */; };
 		0ED7BA0E1B85736B0038EF3A /* MainMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA0D1B85736B0038EF3A /* MainMenuTVC.m */; };
@@ -113,6 +114,8 @@
 		0E7053AF1B97BA53008518A1 /* EventReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventReview.m; sourceTree = "<group>"; };
 		0E7053B11B97BF8F008518A1 /* RestaurantReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantReview.h; sourceTree = "<group>"; };
 		0E7053B21B97BF8F008518A1 /* RestaurantReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantReview.m; sourceTree = "<group>"; };
+		0E749FF51B9FB74400F63771 /* RestaurantResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantResultCell.h; sourceTree = "<group>"; };
+		0E749FF61B9FB74400F63771 /* RestaurantResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantResultCell.m; sourceTree = "<group>"; };
 		0ED7BA001B856F5C0038EF3A /* RestaurantDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailVC.h; sourceTree = "<group>"; };
 		0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailVC.m; sourceTree = "<group>"; };
 		0ED7BA031B856F6E0038EF3A /* EventDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailVC.h; sourceTree = "<group>"; };
@@ -250,6 +253,8 @@
 				0E7053AF1B97BA53008518A1 /* EventReview.m */,
 				0E7053B11B97BF8F008518A1 /* RestaurantReview.h */,
 				0E7053B21B97BF8F008518A1 /* RestaurantReview.m */,
+				0E749FF51B9FB74400F63771 /* RestaurantResultCell.h */,
+				0E749FF61B9FB74400F63771 /* RestaurantResultCell.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				0ED7BA1D1B869F390038EF3A /* PlacesToVisitTVC.m in Sources */,
 				0E6232AD1B8416D300562474 /* CreateNewAcctVC.m in Sources */,
 				0ED7BA141B8573A90038EF3A /* EventResultsTVC.m in Sources */,
+				0E749FF71B9FB74400F63771 /* RestaurantResultCell.m in Sources */,
 				0E17C83D1B8911CC0088C466 /* SavedPlacesDetailVC.m in Sources */,
 				0ED7BA201B869FE60038EF3A /* VeganResourcesTVC.m in Sources */,
 				0E6232B91B8426BB00562474 /* BeverageSearchVC.m in Sources */,

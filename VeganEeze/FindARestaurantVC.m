@@ -416,8 +416,23 @@
     NSString *restaurantReviewURI = [restaurantsDictionary valueForKey:@"reviews_uri"];
     NSString *restaurantRating = [restaurantsDictionary valueForKey:@"weighted_rating"];
     
+    NSString *restaurantPriceRange = [restaurantsDictionary valueForKey:@"price_range"];
+    NSString *restaurantVegLevel = [restaurantsDictionary valueForKey:@"veg_level"];
+    NSString *restaurantDesc = [restaurantsDictionary valueForKey:@"short_description"];
+    
+    NSArray *arrayOfImages = [restaurantsDictionary valueForKey:@"images"];
+    NSArray *imageFiles = [arrayOfImages valueForKey:@"files"];
+    NSArray *arrayOfImgURIs = [imageFiles valueForKey:@"uri"];
+    //Grab 1st image
+    NSArray *arrayOfImgSizes = [arrayOfImgURIs objectAtIndex:0];
+    //Grab small size
+    NSString *uriForImg = [arrayOfImgSizes objectAtIndex:1];
+    NSLog(@"uriForImg = %@", uriForImg);
+    //Grab first image
+    //UIImage *restaurantImage = [arrayOfImages objectAtIndex:0];
+    
     //Use object's custom init method to initalize object
-    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress cityOfRestaurant:restaurantsCity stateOfRestaurant:restaurantsState zipOfRestaurant:restaurantsZip phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite reviewsOfRestaurant:restaurantReviewURI rating:restaurantRating];
+    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress cityOfRestaurant:restaurantsCity stateOfRestaurant:restaurantsState zipOfRestaurant:restaurantsZip phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite reviewsOfRestaurant:restaurantReviewURI rating:restaurantRating restPriceRange:restaurantPriceRange restVegLevel:restaurantVegLevel restDesc:restaurantDesc restImgURI:uriForImg];
     
     return newRestaurant;
 }

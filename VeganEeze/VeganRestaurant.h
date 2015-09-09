@@ -21,8 +21,13 @@
 @property (nonatomic, strong) NSString *reviewsURI;
 @property (nonatomic, strong) NSString *restaurantRating;
 
+@property (nonatomic, strong) NSString *priceRange;
+@property (nonatomic, strong) NSString *vegLevel;
+@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *imageURI;
 
 
--(id)initWithRestaurant:(NSString*)nameOfRestaurant addressOfRestaurant:(NSString*)addressOfRestaurant cityOfRestaurant:(NSString*)cityOfRestaurant stateOfRestaurant:(NSString*)stateOfRestaurant zipOfRestaurant:(NSString*)zipOfRestaurant phoneNo:(NSString*)phoneNo urlOfRestaurant:(NSString*)urlOfRestaurant reviewsOfRestaurant:(NSString*)reviewsOfRestaurant rating:(NSString*)rating;
+
+-(id)initWithRestaurant:(NSString*)nameOfRestaurant addressOfRestaurant:(NSString*)addressOfRestaurant cityOfRestaurant:(NSString*)cityOfRestaurant stateOfRestaurant:(NSString*)stateOfRestaurant zipOfRestaurant:(NSString*)zipOfRestaurant phoneNo:(NSString*)phoneNo urlOfRestaurant:(NSString*)urlOfRestaurant reviewsOfRestaurant:(NSString*)reviewsOfRestaurant rating:(NSString*)rating restPriceRange:(NSString*)restPriceRange restVegLevel:(NSString*)restVegLevel restDesc:(NSString*)restDesc restImgURI:(NSString*)restImgURI;
 
 @end

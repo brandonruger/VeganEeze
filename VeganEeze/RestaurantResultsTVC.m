@@ -9,6 +9,7 @@
 #import "RestaurantResultsTVC.h"
 #import "RestaurantDetailVC.h"
 #import "VeganRestaurant.h"
+#import "RestaurantResultCell.h"
 
 @interface RestaurantResultsTVC ()
 
@@ -56,13 +57,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell"];
+//    UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell"];
+//    if (resultsCell != nil) {
+//        
+//        VeganRestaurant *veganRestaurantInfo = [arrayOfRestaurantObjs objectAtIndex:indexPath.row];
+//        
+//        resultsCell.textLabel.text = veganRestaurantInfo.restaurantName;
+//        resultsCell.detailTextLabel.text = veganRestaurantInfo.restaurantCity;
+//    }
+    
+    RestaurantResultCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell"];
     if (resultsCell != nil) {
+        VeganRestaurant *currentRest = [arrayOfRestaurantObjs objectAtIndex:indexPath.row];
         
-        VeganRestaurant *veganRestaurantInfo = [arrayOfRestaurantObjs objectAtIndex:indexPath.row];
-        
-        resultsCell.textLabel.text = veganRestaurantInfo.restaurantName;
-        resultsCell.detailTextLabel.text = veganRestaurantInfo.restaurantCity;
+        //Call cell's custom method to update information in cell
+        [resultsCell updateCellWithRestaurant:currentRest.restaurantName description:currentRest.description range:currentRest.priceRange imageURI:currentRest.imageURI veganImage:currentRest.vegLevel];
     }
     
     return resultsCell;
