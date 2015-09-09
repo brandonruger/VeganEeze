@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="Tf3-Ks-yFL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LoginScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="Tf3-Ks-yFL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-YY-nG6">
@@ -42,18 +42,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginToAccount:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MHX-qx-y4y"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eY-Jw-1wj">
-                                <rect key="frame" x="34" y="28" width="46" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelKeyboard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zKn-8z-ffh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzc-mW-US6">
@@ -86,7 +74,6 @@
                             <constraint firstItem="4uW-YY-nG6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="18" id="0Jb-JU-XdE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tf3-Ks-yFL" secondAttribute="trailing" constant="-16" id="2E5-gQ-KFu"/>
                             <constraint firstItem="Cda-mu-e3C" firstAttribute="top" secondItem="tzc-mW-US6" secondAttribute="bottom" constant="23" id="6aO-nI-N7Z"/>
-                            <constraint firstItem="2eY-Jw-1wj" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="81X-8n-dzk"/>
                             <constraint firstItem="Tf3-Ks-yFL" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="9R9-aT-wfL"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Tf3-Ks-yFL" secondAttribute="bottom" id="BAm-D3-Ki3"/>
                             <constraint firstItem="h8F-9G-Jyx" firstAttribute="top" secondItem="4uW-YY-nG6" secondAttribute="bottom" constant="32" id="Btb-00-g1X"/>
@@ -100,12 +87,10 @@
                             <constraint firstItem="UL7-kf-KHX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="18" id="iIJ-CZ-k4y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tzc-mW-US6" secondAttribute="trailing" constant="17" id="iR0-2p-x9N"/>
                             <constraint firstItem="UL7-kf-KHX" firstAttribute="top" secondItem="h8F-9G-Jyx" secondAttribute="bottom" constant="8" id="j6X-bu-ipf"/>
-                            <constraint firstItem="2eY-Jw-1wj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="18" id="teV-6d-FG9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login to VeganEeze" id="IAS-DE-uXA"/>
                     <connections>
-                        <outlet property="cancelButton" destination="2eY-Jw-1wj" id="zSS-II-Al2"/>
                         <outlet property="password" destination="h8F-9G-Jyx" id="Grq-sY-dag"/>
                         <outlet property="username" destination="4uW-YY-nG6" id="sHy-4H-h32"/>
                     </connections>
@@ -126,47 +111,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="gbK-cv-hX0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="gbK-cv-hX0">
                                 <rect key="frame" x="-2" y="0.0" width="611" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGn-6I-WD0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create New Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGn-6I-WD0">
                                 <rect key="frame" x="224" y="42" width="152" height="21"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select a username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tLk-XB-Ydq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select a username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tLk-XB-Ydq">
                                 <rect key="frame" x="35" y="101" width="530" height="30"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select a password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3W-cD-HWe">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select a password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3W-cD-HWe">
                                 <rect key="frame" x="35" y="161" width="530" height="30"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3h0-iQ-YTi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3h0-iQ-YTi">
                                 <rect key="frame" x="35" y="225" width="530" height="30"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8k-Ea-EvT">
-                                <rect key="frame" x="35" y="38" width="48" height="30"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelKeyboard:" destination="y67-0e-9iv" eventType="touchUpInside" id="hn7-2U-gZ1"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFd-H3-Kyy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFd-H3-Kyy">
                                 <rect key="frame" x="35" y="285" width="530" height="30"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2w-eK-fQ5">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2w-eK-fQ5">
                                 <rect key="frame" x="35" y="323" width="30" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -188,8 +162,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="3h0-iQ-YTi" secondAttribute="trailing" constant="19" id="CsY-lM-1Ok"/>
                             <constraint firstAttribute="trailingMargin" secondItem="X3W-cD-HWe" secondAttribute="trailing" constant="19" id="N5O-hQ-RN8"/>
                             <constraint firstItem="JFd-H3-Kyy" firstAttribute="top" secondItem="3h0-iQ-YTi" secondAttribute="bottom" constant="30" id="SI0-nv-YH6"/>
-                            <constraint firstItem="U8k-Ea-EvT" firstAttribute="leading" secondItem="tf6-dP-Onz" secondAttribute="leadingMargin" constant="19" id="VFk-Wh-mOc"/>
-                            <constraint firstItem="U8k-Ea-EvT" firstAttribute="top" secondItem="4GK-kN-7fb" secondAttribute="bottom" constant="18" id="WOw-l3-ys2"/>
                             <constraint firstItem="3h0-iQ-YTi" firstAttribute="top" secondItem="X3W-cD-HWe" secondAttribute="bottom" constant="34" id="Zvr-wS-rMc"/>
                             <constraint firstItem="tLk-XB-Ydq" firstAttribute="top" secondItem="VGn-6I-WD0" secondAttribute="bottom" constant="38" id="aV5-aZ-TbG"/>
                             <constraint firstItem="gbK-cv-hX0" firstAttribute="top" secondItem="tf6-dP-Onz" secondAttribute="topMargin" id="e7T-5T-JET"/>
@@ -214,7 +186,6 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="U8k-Ea-EvT" id="9OI-3V-5n1"/>
                         <outlet property="confirmPassword" destination="3h0-iQ-YTi" id="CBd-YC-0Hu"/>
                         <outlet property="enterEmail" destination="JFd-H3-Kyy" id="uhA-vp-yWT"/>
                         <outlet property="selectPassword" destination="X3W-cD-HWe" id="cSM-MI-fhV"/>
@@ -342,18 +313,6 @@
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-cE-YXG">
-                                <rect key="frame" x="10" y="72" width="46" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelKeyboard:" destination="swq-sF-hd9" eventType="touchUpInside" id="m9l-ze-M5t"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drP-JQ-4f3">
                                 <rect key="frame" x="0.0" y="59" width="600" height="162"/>
                             </pickerView>
@@ -379,9 +338,7 @@
                         <constraints>
                             <constraint firstItem="hA7-JX-gZG" firstAttribute="top" secondItem="5cX-N8-H1d" secondAttribute="bottom" constant="17" id="1I8-1l-xwv"/>
                             <constraint firstItem="drP-JQ-4f3" firstAttribute="top" secondItem="a9h-w5-zk1" secondAttribute="bottom" constant="39" id="1kn-Mc-Rw6"/>
-                            <constraint firstItem="B8n-cE-YXG" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="-6" id="3i2-Ob-G3O"/>
                             <constraint firstAttribute="bottomMargin" secondItem="foY-vG-jeb" secondAttribute="bottom" constant="-5" id="4cZ-je-9Qu"/>
-                            <constraint firstItem="B8n-cE-YXG" firstAttribute="top" secondItem="a9h-w5-zk1" secondAttribute="bottom" constant="52" id="5fW-OV-QGC"/>
                             <constraint firstItem="g8z-kR-0ys" firstAttribute="top" secondItem="drP-JQ-4f3" secondAttribute="bottom" id="GVq-Rl-n1o"/>
                             <constraint firstItem="g8z-kR-0ys" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="56" id="Jmr-yJ-4jb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="foY-vG-jeb" secondAttribute="trailing" constant="-16" id="NAO-JQ-UaE"/>
@@ -401,7 +358,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Find a Restaurant" id="IoK-ra-5AX"/>
                     <connections>
-                        <outlet property="cancelButton" destination="B8n-cE-YXG" id="WyX-b2-fIb"/>
                         <outlet property="keyword" destination="g8z-kR-0ys" id="di7-1C-XDx"/>
                         <outlet property="location" destination="5cX-N8-H1d" id="p4W-WS-fL3"/>
                         <outlet property="searchSegmentedControl" destination="XDe-8q-Vr0" id="OgN-2O-HCY"/>
@@ -900,17 +856,6 @@
                                     <action selector="searchAlcoholBeveragesAPI:" destination="HC7-S3-PmI" eventType="touchUpInside" id="Oun-OM-fja"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hZ-5f-ACX">
-                                <rect key="frame" x="16" y="72" width="48" height="30"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelKeyboard:" destination="HC7-S3-PmI" eventType="touchUpInside" id="MzF-Yr-mxc"/>
-                                </connections>
-                            </button>
                             <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter name of product" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-N8-me0">
                                 <rect key="frame" x="64" y="171" width="473" height="44"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -925,14 +870,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JNE-Ii-XFh" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="48" id="1gV-Dd-L4g"/>
-                            <constraint firstItem="5hZ-5f-ACX" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" id="1pO-tb-1XT"/>
                             <constraint firstItem="BC4-eA-2Tc" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="-16" id="6xn-Py-yoq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BC4-eA-2Tc" secondAttribute="trailing" constant="-16" id="Ots-kI-Hq3"/>
                             <constraint firstItem="O6v-DU-f3x" firstAttribute="top" secondItem="BC4-eA-2Tc" secondAttribute="bottom" id="Vfb-oA-lGc"/>
                             <constraint firstItem="XUf-N8-me0" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="48" id="Vsy-Hu-feL"/>
                             <constraint firstItem="JNE-Ii-XFh" firstAttribute="top" secondItem="XUf-N8-me0" secondAttribute="bottom" constant="24" id="fee-gi-Vqx"/>
                             <constraint firstItem="BC4-eA-2Tc" firstAttribute="top" secondItem="smP-Yt-79C" secondAttribute="topMargin" constant="-5" id="fks-AN-Oco"/>
-                            <constraint firstItem="5hZ-5f-ACX" firstAttribute="top" secondItem="JTZ-wh-pBQ" secondAttribute="bottom" constant="52" id="lf4-rs-UDh"/>
                             <constraint firstItem="XUf-N8-me0" firstAttribute="top" secondItem="JTZ-wh-pBQ" secondAttribute="bottom" constant="151" id="qnq-P4-2iR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XUf-N8-me0" secondAttribute="trailing" constant="47" id="wPl-CL-KYd"/>
                         </constraints>
@@ -940,7 +883,6 @@
                     <navigationItem key="navigationItem" title="Beverage Search" id="yq0-N7-1ZG"/>
                     <connections>
                         <outlet property="beverageName" destination="XUf-N8-me0" id="9RC-D3-FIh"/>
-                        <outlet property="cancelButton" destination="5hZ-5f-ACX" id="wso-UX-NNU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L69-bs-vyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1056,24 +998,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="sau-dW-zlY">
                                 <rect key="frame" x="0.0" y="-3" width="600" height="605"/>
                             </imageView>
-                            <searchBar hidden="YES" contentMode="redraw" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5lx-Uk-xA9">
+                            <searchBar hidden="YES" contentMode="redraw" misplaced="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5lx-Uk-xA9">
                                 <rect key="frame" x="72" y="337" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yew-dG-tl9">
-                                <rect key="frame" x="10" y="69" width="46" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelKeyboard:" destination="kMl-5x-2O2" eventType="touchUpInside" id="aIx-cq-Q4F"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
                                 <rect key="frame" x="72" y="409" width="44" height="31"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -1085,17 +1015,17 @@
                                     <action selector="searchVeganEvents:" destination="kMl-5x-2O2" eventType="touchUpInside" id="GJ6-4X-HwL"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUO-1T-Rmi">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUO-1T-Rmi">
                                 <rect key="frame" x="0.0" y="61" width="600" height="162"/>
                             </pickerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-NA-kPy">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-NA-kPy">
                                 <rect key="frame" x="89" y="286" width="423" height="29"/>
                                 <segments>
                                     <segment title="Location"/>
                                     <segment title="Search city"/>
                                 </segments>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="4HZ-Oa-oLn">
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="4HZ-Oa-oLn">
                                 <rect key="frame" x="72" y="223" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1103,7 +1033,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yew-dG-tl9" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="-6" id="0Wg-vC-Cpo"/>
                             <constraint firstItem="sau-dW-zlY" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="-16" id="0zk-U6-fCP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oUO-1T-Rmi" secondAttribute="trailing" constant="-16" id="1oF-7g-9Dq"/>
                             <constraint firstItem="oUO-1T-Rmi" firstAttribute="top" secondItem="XuW-PK-VUY" secondAttribute="bottom" constant="41" id="1wT-6a-ka9"/>
@@ -1121,13 +1050,11 @@
                             <constraint firstAttribute="bottomMargin" secondItem="sau-dW-zlY" secondAttribute="bottom" constant="-2" id="tWK-Hf-BBJ"/>
                             <constraint firstItem="Jmf-NA-kPy" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="73" id="vjC-bC-FVj"/>
                             <constraint firstItem="sau-dW-zlY" firstAttribute="top" secondItem="0SV-k8-GBf" secondAttribute="topMargin" constant="-3" id="vnx-Ar-kfE"/>
-                            <constraint firstItem="yew-dG-tl9" firstAttribute="top" secondItem="XuW-PK-VUY" secondAttribute="bottom" constant="49" id="vvR-ui-Fau"/>
                             <constraint firstItem="Jmf-NA-kPy" firstAttribute="top" secondItem="4HZ-Oa-oLn" secondAttribute="bottom" constant="19" id="yXX-ZM-BkZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search Events" id="zPn-te-bF9"/>
                     <connections>
-                        <outlet property="cancelButton" destination="yew-dG-tl9" id="Cmk-jJ-VfV"/>
                         <outlet property="keyword" destination="4HZ-Oa-oLn" id="sbW-ei-3Tu"/>
                         <outlet property="location" destination="5lx-Uk-xA9" id="p4u-Jq-wds"/>
                         <outlet property="searchSegmentedControl" destination="Jmf-NA-kPy" id="mp9-8j-jcV"/>

@@ -96,15 +96,15 @@
     return YES;
 }
 
-//Close keyboard when cancel button is pressed
-- (IBAction)cancelKeyboard:(id)sender
-{
-    //Dismiss keyboard
-    [self.view endEditing:YES];
-    
-    //Hide cancel button
-    //cancelButton.hidden = true;
-}
+////Close keyboard when cancel button is pressed
+//- (IBAction)cancelKeyboard:(id)sender
+//{
+//    //Dismiss keyboard
+//    [self.view endEditing:YES];
+//    
+//    //Hide cancel button
+//    //cancelButton.hidden = true;
+//}
 
 #pragma mark - Parse
 

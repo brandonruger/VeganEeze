@@ -14,7 +14,7 @@
 {
     IBOutlet UISearchBar *keyword;
     IBOutlet UISearchBar *location;
-    IBOutlet UIButton *cancelButton;
+    //IBOutlet UIButton *cancelButton;
     IBOutlet UISegmentedControl *searchSegmentedControl;
     
     CLLocationManager *locationMgr;

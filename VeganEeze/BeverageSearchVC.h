@@ -12,7 +12,7 @@
 
 {
     IBOutlet UISearchBar *beverageName;
-    IBOutlet UIButton *cancelButton;
+    //IBOutlet UIButton *cancelButton;
     
     NSURLRequest *requestForData;
     NSURL *urlForAPICall;

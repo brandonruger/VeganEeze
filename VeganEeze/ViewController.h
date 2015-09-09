@@ -14,7 +14,7 @@
 {
     IBOutlet UITextField *username;
     IBOutlet UITextField *password;
-    IBOutlet UIButton *cancelButton;
+    //IBOutlet UIButton *cancelButton;
     
     NSString *usernameStr;
     NSString *passwordStr;

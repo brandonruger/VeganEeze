@@ -49,22 +49,22 @@
 
 #pragma mark - Keyboard
 
-//Method to check if search bars are editing so cancel button can be displayed
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    
-    //Show cancel button
-    cancelButton.hidden = false;
-}
+////Method to check if search bars are editing so cancel button can be displayed
+//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+//    
+//    //Show cancel button
+//    cancelButton.hidden = false;
+//}
 
-//Close keyboard when cancel button is pressed
-- (IBAction)cancelKeyboard:(id)sender
-{
-    //Dismiss keyboard
-    [self.view endEditing:YES];
-    
-    //Hide cancel button
-    cancelButton.hidden = true;
-}
+////Close keyboard when cancel button is pressed
+//- (IBAction)cancelKeyboard:(id)sender
+//{
+//    //Dismiss keyboard
+//    [self.view endEditing:YES];
+//    
+//    //Hide cancel button
+//    cancelButton.hidden = true;
+//}
 
 //Called when search button is clicked on keyboard
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
