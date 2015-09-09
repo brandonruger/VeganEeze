@@ -95,22 +95,32 @@
     
     //Get text user entered in search field
     NSString *searchKeywordEntered = beverageName.text;
-    //Encode text
-    searchKeyword = [searchKeywordEntered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    //Add search term to url for API call
-    NSString *completeURL = [partialURL stringByAppendingString:searchKeyword];
     
-    //Set up URL for API call
-    urlForAPICall = [[NSURL alloc] initWithString:completeURL];
-    
-    //Set up request to send to server
-    requestForData = [[NSURLRequest alloc]initWithURL:urlForAPICall];
-    if (requestForData != nil) {
-        //Set up connection to get data from the server
-        apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
-        //Create mutableData object to hold data
-        dataRetrieved = [NSMutableData data];
+    if ([searchKeywordEntered isEqualToString:@""]) {
+        //Alert user that they must enter in a search term
+        UIAlertView *blankAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must enter in a keyword in order to search." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [blankAlert show];
+                                   
+    } else {
+        
+        //Encode text
+        searchKeyword = [searchKeywordEntered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        //Add search term to url for API call
+        NSString *completeURL = [partialURL stringByAppendingString:searchKeyword];
+        
+        //Set up URL for API call
+        urlForAPICall = [[NSURL alloc] initWithString:completeURL];
+        
+        //Set up request to send to server
+        requestForData = [[NSURLRequest alloc]initWithURL:urlForAPICall];
+        if (requestForData != nil) {
+            //Set up connection to get data from the server
+            apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
+            //Create mutableData object to hold data
+            dataRetrieved = [NSMutableData data];
+        }
     }
+    
     
 }
 
