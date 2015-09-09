@@ -81,7 +81,7 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     //Show cancel button
-    cancelButton.hidden = false;
+    //cancelButton.hidden = false;
 }
 
 //When user presses return button
@@ -91,7 +91,7 @@
     [self.view endEditing:YES];
     
     //Hide cancel button
-    cancelButton.hidden = true;
+    //cancelButton.hidden = true;
     
     return YES;
 }
@@ -103,7 +103,7 @@
     [self.view endEditing:YES];
     
     //Hide cancel button
-    cancelButton.hidden = true;
+    //cancelButton.hidden = true;
 }
 
 #pragma mark - Parse
@@ -111,79 +111,139 @@
 
 
 -(IBAction)createNewAccount:(id)sender {
-    //Create new user object
-    PFUser *newUser = [PFUser user];
+    
+    
+    //Get username entered
+    username = selectUsername.text;
+    //Check to make sure username wasn't blank
+    if ([username isEqualToString:@""]) {
+        //Alert user they must enter a username
+        UIAlertView *usernameAlert = [[UIAlertView alloc]initWithTitle:@"Username error" message:@"You must enter a username in order to create a new account." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [usernameAlert show];
+    } else {
+        //Username is okay, check to make sure user entered a password in the first field
+        //Get password entered in first field
+        password = selectPassword.text;
+        if ([password isEqualToString:@""]) {
+            //Password field blank, alert user
+            UIAlertView *passwordAlert = [[UIAlertView alloc]initWithTitle:@"Password error" message:@"You must enter a password in the select a password field in order to create a new account."  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [passwordAlert show];
+        } else {
+            //User entered a password in the first field, check second field
+            secondPassword = confirmPassword.text;
+            if ([secondPassword isEqualToString:@""]) {
+                //Confirm password field is blank, alert user
+                UIAlertView *confirmPasswordAlert = [[UIAlertView alloc]initWithTitle:@"Password error" message:@"You must enter your password again in the confirm password field in order to create a new account." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [confirmPasswordAlert show];
+            } else {
+                //User entered passwords in both fields, check to make sure they match
+                if ([password isEqualToString:secondPassword]) {
+                    //Passwords match, check email address
+                    emailAddress = enterEmail.text;
+                    if ([emailAddress isEqualToString:@""]) {
+                        //Email address field is blank, alert user
+                        UIAlertView *emailAlert =[[UIAlertView alloc]initWithTitle:@"Email error" message:@"You must enter an email address in order to create an account." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                        [emailAlert show];
+                    } else {
+                        
+                        //Email address was entered/ All fields validate. Create parse user object to set up user account
+                        
+                        //Create new user object
+                        PFUser *newUser = [PFUser user];
+                        //Set username and password to what was entered
+                        newUser.username = username;
+                        newUser.password = password;
+                        newUser.email = emailAddress;
+                        
+                        //Create account
+                        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (!error) {
+                                
+                                //Alert user account has been created
+                                UIAlertView *accountCreated = [[UIAlertView alloc]initWithTitle:@"Congratulations" message:@"Your new account has successfully been created!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                [accountCreated show];
+                                
+                                //Log user into app
+                                [PFUser logInWithUsernameInBackground:username password:password
+                                                                block:^(PFUser *user, NSError *error) {
+                                                                    if (user) {
+                                                                        //Successfully logged in, go to main menu
+                                                                        [self.navigationController popToRootViewControllerAnimated:TRUE];
+                                                                    } else {
+                                                                        //Log in failed. Have user try again.
+                                                                        UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                                                        [loginFailed show];
+                                                                        
+                                                                        //Go back to login screen
+                                                                        //[self dismissViewControllerAnimated:true completion:nil];
+                                                                        [self.navigationController popViewControllerAnimated:TRUE];
+                                                                        
+                                                                    }
+                                                                }];
+                                
+                                
+                            } else {
+                                //There was an error
+                                NSString *errorString = [error userInfo][@"error"];
+                                //Log error
+                                NSLog(@"create account error = %@", errorString);
+                                
+                                //Alert user to try again
+                                UIAlertView *createAccountError = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There is already an account with the same username or email address. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                [createAccountError show];
+                                
+                            }
+                        }];
+
+                        
+                        
+                    }
+                    
+                    
+                    
+                    
+                } else {
+                    //Passwords do not match, alert user
+                    //Alert user that passwords do not match
+                    UIAlertView *passwordError = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Passwords must match in order to create an account. Please reenter passwords and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    //Show alert
+                    [passwordError show];
+                    //Clear password fields
+                    selectPassword.text = @"";
+                    confirmPassword.text = @"";
+                }
+            }
+        }
+        
+    }
+}
+
+    
     //Set username, password and email to what user entered in text fields
     
     //Gather info entered in text fields
-    username = selectUsername.text;
-    password = selectPassword.text;
-    secondPassword = confirmPassword.text;
-    emailAddress = enterEmail.text;
+//    username = selectUsername.text;
+//    password = selectPassword.text;
+//    secondPassword = confirmPassword.text;
+//    emailAddress = enterEmail.text;
     
     
     //Make sure passwords in both fields match
-    if ([password isEqualToString:secondPassword]) {
-        //Both passwords match
-        //Set username and password to what was entered
-        newUser.username = username;
-        newUser.password = password;
-        
-        //Verify email address format
-        
-        newUser.email = emailAddress;
-        
-        //Create account
-        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!error) {
-                
-                //Alert user account has been created
-                UIAlertView *accountCreated = [[UIAlertView alloc]initWithTitle:@"Congratulations" message:@"Your new account has been created!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [accountCreated show];
-                
-                //Log user into app
-                [PFUser logInWithUsernameInBackground:username password:password
-                                                block:^(PFUser *user, NSError *error) {
-                                                    if (user) {
-                                                        //Successfully logged in, go to main menu
-                                                        //[self performSegueWithIdentifier:@"segueNewAcctToMainMenu" sender:self];
-                                                        [self.navigationController popToRootViewControllerAnimated:TRUE];
-                                                    } else {
-                                                        //Log in failed. Have user try again.
-                                                        UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                                                        [loginFailed show];
-                                                        
-                                                        //Go back to login screen
-                                                        //[self dismissViewControllerAnimated:true completion:nil];
-                                                        [self.navigationController popViewControllerAnimated:TRUE];
-                                        
-                                                    }
-                                                }];
-
-                
-            } else {
-                //There was an error
-                NSString *errorString = [error userInfo][@"error"];
-                //Log error
-                NSLog(@"create account error = %@", errorString);
-                
-                //Alert user to try again
-                UIAlertView *createAccountError = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error setting up your account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [createAccountError show];
-                
-            }
-        }];
-        
-    } else {
-        //Alert user that passwords do not match
-        UIAlertView *passwordError = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Passwords must match in order to create an account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        //Show alert
-        [passwordError show];
-        //Clear password fields
-        selectPassword.text = @"";
-        confirmPassword.text = @"";
-    }
-}
+//    if ([password isEqualToString:secondPassword]) {
+//        //Both passwords match
+//        
+//        
+//        
+//    } else {
+////        //Alert user that passwords do not match
+////        UIAlertView *passwordError = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Passwords must match in order to create an account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+////        //Show alert
+////        [passwordError show];
+////        //Clear password fields
+////        selectPassword.text = @"";
+////        confirmPassword.text = @"";
+//    }
+//}
 
 
 //- (IBAction)createNewAccount:(id)sender

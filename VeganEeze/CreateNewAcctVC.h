@@ -18,7 +18,7 @@
     IBOutlet UITextField *selectPassword;
     IBOutlet UITextField *confirmPassword;
     IBOutlet UITextField *enterEmail;
-    IBOutlet UIButton *cancelButton;
+    //IBOutlet UIButton *cancelButton;
     
     NSString *username;
     NSString *password;
