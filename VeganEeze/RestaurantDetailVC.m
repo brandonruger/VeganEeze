@@ -378,5 +378,13 @@
     return newReview;
 }
 
+-(IBAction)launchPhoneDialer:(id)sender {
+    
+    //Get string for phone number and append it to tel prefix
+    NSString *phoneNum = [@"tel://" stringByAppendingString:restaurantPhoneNo];
+    //Launch phone dialer
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNum]];
+}
+
 
 @end

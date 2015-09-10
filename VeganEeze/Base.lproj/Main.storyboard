@@ -627,34 +627,56 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="7Gs-6D-8b7">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Restaurant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zA-Kf-brf">
-                                <rect key="frame" x="39" y="20" width="523" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name of Restaurant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zA-Kf-brf">
+                                <rect key="frame" x="39" y="37" width="523" height="24"/>
                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Address" translatesAutoresizingMaskIntoConstraints="NO" id="tnD-fe-lgp">
-                                <rect key="frame" x="16" y="166" width="240" height="66"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCn-5I-fDK">
+                                <rect key="frame" x="226" y="358" width="70" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="pJM-lk-7fE"/>
-                                    <constraint firstAttribute="height" constant="66" id="pYK-3o-6KF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" address="YES"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Phone #" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="kw1-zS-ox8">
-                                <rect key="frame" x="412" y="166" width="172" height="34"/>
+                                <state key="normal" image="WebsiteButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sf1-14-qRg" kind="show" identifier="segueToWebBrowser" id="bwe-xQ-Z5M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnH-Aw-91n">
+                                <rect key="frame" x="148" y="358" width="70" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="MkV-3U-atO"/>
-                                    <constraint firstAttribute="width" constant="172" id="ZAy-fk-2ix"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
-                            </textView>
+                                <state key="normal" image="PlacesButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePlaceToVisit:" destination="MIn-9F-pad" eventType="touchUpInside" id="gpe-Cv-rEp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gef-Q3-SjI">
+                                <rect key="frame" x="70" y="358" width="70" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="FavoriteButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveFavoritePlace:" destination="MIn-9F-pad" eventType="touchUpInside" id="Eis-X8-wLI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgO-u7-bEg">
+                                <rect key="frame" x="304" y="358" width="70" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="TwitterButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareToTwitter:" destination="MIn-9F-pad" eventType="touchUpInside" id="Odc-Ub-0hI"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="191" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YBt-7O-VXc">
                                 <rect key="frame" x="0.0" y="465" width="600" height="275"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
@@ -711,7 +733,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-Va-J3Y">
-                                <rect key="frame" x="11" y="260" width="131" height="19"/>
+                                <rect key="frame" x="11" y="260" width="129" height="19"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="U5O-hV-xWn"/>
@@ -721,58 +743,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnH-3C-4jh">
-                                <rect key="frame" x="16" y="436" width="80" height="21"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCn-5I-fDK">
-                                <rect key="frame" x="265" y="342" width="70" height="70"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="WebsiteButton">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="sf1-14-qRg" kind="show" identifier="segueToWebBrowser" id="bwe-xQ-Z5M"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnH-Aw-91n">
-                                <rect key="frame" x="187" y="342" width="70" height="70"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="PlacesButton">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="savePlaceToVisit:" destination="MIn-9F-pad" eventType="touchUpInside" id="gpe-Cv-rEp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gef-Q3-SjI">
-                                <rect key="frame" x="109" y="342" width="70" height="70"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="FavoriteButton">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveFavoritePlace:" destination="MIn-9F-pad" eventType="touchUpInside" id="Eis-X8-wLI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgO-u7-bEg">
-                                <rect key="frame" x="343" y="342" width="70" height="70"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="TwitterButton">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareToTwitter:" destination="MIn-9F-pad" eventType="touchUpInside" id="Odc-Ub-0hI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GQ-Rw-xUM">
-                                <rect key="frame" x="421" y="342" width="70" height="70"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GQ-Rw-xUM">
+                                <rect key="frame" x="382" y="358" width="70" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="AddCommentButton">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -782,6 +754,32 @@
                                     <action selector="addNewComment:" destination="MIn-9F-pad" eventType="touchUpInside" id="AeI-NK-Vik"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnH-3C-4jh">
+                                <rect key="frame" x="16" y="436" width="80" height="21"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Red-Ot-mF7">
+                                <rect key="frame" x="460" y="358" width="70" height="70"/>
+                                <state key="normal" image="CallButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchPhoneDialer:" destination="MIn-9F-pad" eventType="touchUpInside" id="Mxx-yg-W1i"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Address" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tnD-fe-lgp">
+                                <rect key="frame" x="180" y="69" width="240" height="66"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="pJM-lk-7fE"/>
+                                    <constraint firstAttribute="height" constant="66" id="pYK-3o-6KF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" address="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -799,11 +797,9 @@
                             <constraint firstItem="EnH-Aw-91n" firstAttribute="top" secondItem="6zA-Kf-brf" secondAttribute="bottom" constant="8" id="NiZ-9v-tST"/>
                             <constraint firstItem="gef-Q3-SjI" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="6" id="OUX-kg-llz"/>
                             <constraint firstItem="rgO-u7-bEg" firstAttribute="trailing" secondItem="3yY-ND-Ke6" secondAttribute="trailingMargin" id="SDr-qd-G4z"/>
-                            <constraint firstItem="rgO-u7-bEg" firstAttribute="top" secondItem="kw1-zS-ox8" secondAttribute="bottom" constant="47" id="Tdx-Pg-n7U"/>
                             <constraint firstItem="gef-Q3-SjI" firstAttribute="top" secondItem="6zA-Kf-brf" secondAttribute="bottom" constant="8" id="TvJ-vY-Bfi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YBt-7O-VXc" secondAttribute="trailing" constant="-16" id="XfQ-uK-PkN"/>
                             <constraint firstItem="YBt-7O-VXc" firstAttribute="top" secondItem="SnH-3C-4jh" secondAttribute="bottom" constant="8" id="elz-Mk-lCv"/>
-                            <constraint firstItem="kw1-zS-ox8" firstAttribute="top" secondItem="EnH-Aw-91n" secondAttribute="bottom" constant="44" id="eoP-cK-sMJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6zA-Kf-brf" secondAttribute="trailing" constant="22" id="gIk-vx-QWM"/>
                             <constraint firstItem="ueE-0j-URL" firstAttribute="top" secondItem="7Gs-6D-8b7" secondAttribute="bottom" id="heJ-Po-XRL"/>
                             <constraint firstItem="tnD-fe-lgp" firstAttribute="top" secondItem="gef-Q3-SjI" secondAttribute="bottom" constant="44" id="i49-ek-HS4"/>
@@ -812,7 +808,6 @@
                             <constraint firstItem="SnH-3C-4jh" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" id="tbQ-af-tLk"/>
                             <constraint firstItem="7Gs-6D-8b7" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="-16" id="tjM-Jd-oRI"/>
                             <constraint firstItem="YBt-7O-VXc" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="-16" id="ucF-Ra-S2W"/>
-                            <constraint firstItem="kw1-zS-ox8" firstAttribute="trailing" secondItem="3yY-ND-Ke6" secondAttribute="trailingMargin" id="vh0-Wr-yJb"/>
                             <constraint firstItem="SnH-3C-4jh" firstAttribute="top" secondItem="xAD-Va-J3Y" secondAttribute="bottom" constant="67" id="wVP-B8-u2Q"/>
                             <constraint firstAttribute="bottomMargin" secondItem="YBt-7O-VXc" secondAttribute="bottom" constant="-140" id="xn4-BS-xNW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Gs-6D-8b7" secondAttribute="trailing" constant="-16" id="yip-hk-y4J"/>
@@ -829,7 +824,6 @@
                         <outlet property="addressTV" destination="tnD-fe-lgp" id="9T8-Ur-RFo"/>
                         <outlet property="commentsTV" destination="YBt-7O-VXc" id="O3h-Ks-ZxD"/>
                         <outlet property="nameLabel" destination="6zA-Kf-brf" id="aHY-gM-P4t"/>
-                        <outlet property="phoneNoTV" destination="kw1-zS-ox8" id="n7J-ZT-Qsb"/>
                         <outlet property="ratingLabel" destination="xAD-Va-J3Y" id="Hl8-j7-sNh"/>
                         <outlet property="urlLabel" destination="TCn-5I-fDK" id="e8D-Va-AUS"/>
                     </connections>
@@ -1568,6 +1562,7 @@
         <image name="AddCommentButton" width="70" height="70"/>
         <image name="Background1" width="320" height="480"/>
         <image name="Background2" width="320" height="480"/>
+        <image name="CallButton" width="70" height="70"/>
         <image name="CreateNewAcctButton" width="138" height="28"/>
         <image name="FavoriteButton" width="70" height="70"/>
         <image name="ForgotPasswordButton" width="112" height="28"/>
