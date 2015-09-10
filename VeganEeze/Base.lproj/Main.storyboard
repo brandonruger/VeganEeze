@@ -32,11 +32,10 @@
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL7-kf-KHX">
-                                <rect key="frame" x="34" y="232" width="38" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="Login">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL7-kf-KHX">
+                                <rect key="frame" x="34" y="232" width="172" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="LoginButton">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -44,11 +43,10 @@
                                     <action selector="loginToAccount:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MHX-qx-y4y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzc-mW-US6">
-                                <rect key="frame" x="462" y="232" width="105" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="Forgot Password">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzc-mW-US6">
+                                <rect key="frame" x="455" y="232" width="112" height="28"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ForgotPasswordButton">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -56,11 +54,10 @@
                                     <action selector="forgotPassword:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lBO-E6-O2P"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cda-mu-e3C">
-                                <rect key="frame" x="431" y="286" width="136" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="Create New Account">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cda-mu-e3C">
+                                <rect key="frame" x="429" y="286" width="138" height="28"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="CreateNewAcctButton">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -140,11 +137,10 @@
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2w-eK-fQ5">
-                                <rect key="frame" x="35" y="323" width="30" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="OK">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2w-eK-fQ5">
+                                <rect key="frame" x="35" y="323" width="175" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="OkButton">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -316,26 +312,42 @@
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drP-JQ-4f3">
                                 <rect key="frame" x="0.0" y="59" width="600" height="162"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA7-JX-gZG">
-                                <rect key="frame" x="72" y="385" width="44" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchForVeganRestaurants:" destination="swq-sF-hd9" eventType="touchUpInside" id="oJy-dD-324"/>
-                                </connections>
-                            </button>
                             <searchBar contentMode="redraw" misplaced="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-kR-0ys">
                                 <rect key="frame" x="72" y="221" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA7-JX-gZG">
+                                <rect key="frame" x="72" y="385" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="3zW-kk-EB7"/>
+                                    <constraint firstAttribute="width" constant="50" id="NDw-dE-O29"/>
+                                    <constraint firstAttribute="width" constant="44" id="X2m-zQ-5AM"/>
+                                    <constraint firstAttribute="height" constant="50" id="kHv-Qq-aTj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="lg7-p4-n7T"/>
+                                    <constraint firstAttribute="height" constant="31" id="lwy-cR-j0j"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="SearchButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3zW-kk-EB7"/>
+                                        <exclude reference="X2m-zQ-5AM"/>
+                                        <exclude reference="lg7-p4-n7T"/>
+                                        <exclude reference="lwy-cR-j0j"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="searchForVeganRestaurants:" destination="swq-sF-hd9" eventType="touchUpInside" id="oJy-dD-324"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hA7-JX-gZG" firstAttribute="top" secondItem="5cX-N8-H1d" secondAttribute="bottom" constant="17" id="0bO-uZ-HU0"/>
                             <constraint firstItem="hA7-JX-gZG" firstAttribute="top" secondItem="5cX-N8-H1d" secondAttribute="bottom" constant="17" id="1I8-1l-xwv"/>
                             <constraint firstItem="drP-JQ-4f3" firstAttribute="top" secondItem="a9h-w5-zk1" secondAttribute="bottom" constant="39" id="1kn-Mc-Rw6"/>
                             <constraint firstAttribute="bottomMargin" secondItem="foY-vG-jeb" secondAttribute="bottom" constant="-5" id="4cZ-je-9Qu"/>
@@ -352,6 +364,7 @@
                             <constraint firstItem="foY-vG-jeb" firstAttribute="top" secondItem="QKe-F0-P1P" secondAttribute="topMargin" id="hwl-rB-mA8"/>
                             <constraint firstItem="5cX-N8-H1d" firstAttribute="top" secondItem="XDe-8q-Vr0" secondAttribute="bottom" constant="21" id="uQa-aY-chJ"/>
                             <constraint firstItem="foY-vG-jeb" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="-16" id="v0V-f8-LFN"/>
+                            <constraint firstItem="hA7-JX-gZG" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="56" id="xFe-cb-dRv"/>
                             <constraint firstItem="hA7-JX-gZG" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="56" id="xrH-6x-QIo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="drP-JQ-4f3" secondAttribute="trailing" constant="-16" id="xzJ-wJ-G2k"/>
                         </constraints>
@@ -844,11 +857,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-eA-2Tc">
                                 <rect key="frame" x="0.0" y="-5" width="600" height="605"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Ii-XFh">
-                                <rect key="frame" x="64" y="239" width="44" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="Search">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Ii-XFh">
+                                <rect key="frame" x="64" y="239" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Od1-yN-odQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="iMG-Gs-w5T"/>
+                                </constraints>
+                                <state key="normal" image="SearchButton">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1003,11 +1019,14 @@
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
-                                <rect key="frame" x="72" y="409" width="44" height="31"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <state key="normal" title="Search">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
+                                <rect key="frame" x="72" y="409" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7ii-Qu-ZbI"/>
+                                    <constraint firstAttribute="width" constant="50" id="awc-lI-d2t"/>
+                                </constraints>
+                                <state key="normal" image="SearchButton">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1553,9 +1572,14 @@
     <resources>
         <image name="Background1" width="320" height="480"/>
         <image name="Background2" width="320" height="480"/>
+        <image name="CreateNewAcctButton" width="138" height="28"/>
+        <image name="ForgotPasswordButton" width="112" height="28"/>
         <image name="HeartIcon" width="25" height="25"/>
+        <image name="LoginButton" width="172" height="30"/>
         <image name="LoginScreen2" width="320" height="480"/>
         <image name="MapIcon" width="25" height="25"/>
+        <image name="OkButton" width="172" height="30"/>
+        <image name="SearchButton" width="101" height="101"/>
         <image name="SearchIcon" width="25" height="25"/>
         <image name="VeganIcon" width="25" height="25"/>
     </resources>
