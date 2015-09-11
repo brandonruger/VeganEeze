@@ -406,8 +406,18 @@
     NSString *eventWebsite = [eventDictionary valueForKey:@"url"];
     NSString *eventID = [eventDictionary valueForKey:@"id"];
     
+    NSString *description = [eventDictionary valueForKey:@"description"];
+    NSString *startTime = [eventDictionary valueForKey:@"start_time"];
+    NSString *venue = [eventDictionary valueForKey:@"venue_name"];
+    NSString *price = [eventDictionary valueForKey:@"price"];
+    
+    NSDictionary *imagesDictionary = [eventDictionary valueForKey:@"image"];
+    NSDictionary *smallImg = [imagesDictionary valueForKey:@"small"];
+    NSString *singleImg = [smallImg valueForKey:@"url"];
+    NSLog(@"singleImg = %@", singleImg);
+    
     //Use object's custom init method to initialize object
-    VeganEvent *newEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite idForEvent:eventID];
+    VeganEvent *newEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite idForEvent:eventID descOfEvent:description startTime:startTime venue:venue price:price imageURL:singleImg];
     
     return newEvent;
 }

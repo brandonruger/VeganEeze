@@ -20,6 +20,13 @@
 //@property (nonatomic, strong) NSString *eventComments;
 @property (nonatomic, strong) NSString *eventID;
 
--(id)initWithEvent:(NSString*)nameOfEvent addressForEvent:(NSString*)addressForEvent cityOfEvent:(NSString*)cityOfEvent stateOfEvent:(NSString*)stateOfEvent zipOfEvent:(NSString*)zipOfEvent websiteForEvent:(NSString*)websiteForEvent idForEvent:(NSString*)idForEvent;
+@property (nonatomic, strong) NSString *eventDesc;
+@property (nonatomic, strong) NSString *eventStartTime;
+@property (nonatomic, strong) NSString *eventVenue;
+@property (nonatomic, strong) NSString *eventPrice;
+@property (nonatomic, strong) NSString *eventImageURL;
+
+
+-(id)initWithEvent:(NSString*)nameOfEvent addressForEvent:(NSString*)addressForEvent cityOfEvent:(NSString*)cityOfEvent stateOfEvent:(NSString*)stateOfEvent zipOfEvent:(NSString*)zipOfEvent websiteForEvent:(NSString*)websiteForEvent idForEvent:(NSString*)idForEvent descOfEvent:(NSString*)descOfEvent startTime:(NSString*)startTime venue:(NSString*)venue price:(NSString*)price imageURL:(NSString*)imageURL;
 
 @end

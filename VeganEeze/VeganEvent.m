@@ -9,9 +9,9 @@
 #import "VeganEvent.h"
 
 @implementation VeganEvent
-@synthesize eventName, eventAddress, eventCity, eventState, eventZip, eventURL, eventID;
+@synthesize eventName, eventAddress, eventCity, eventState, eventZip, eventURL, eventID, eventDesc, eventImageURL, eventPrice, eventStartTime, eventVenue;
 
--(id)initWithEvent:(NSString*)nameOfEvent addressForEvent:(NSString*)addressForEvent cityOfEvent:(NSString*)cityOfEvent stateOfEvent:(NSString*)stateOfEvent zipOfEvent:(NSString*)zipOfEvent websiteForEvent:(NSString*)websiteForEvent idForEvent:(NSString*)idForEvent {
+-(id)initWithEvent:(NSString*)nameOfEvent addressForEvent:(NSString*)addressForEvent cityOfEvent:(NSString*)cityOfEvent stateOfEvent:(NSString*)stateOfEvent zipOfEvent:(NSString*)zipOfEvent websiteForEvent:(NSString*)websiteForEvent idForEvent:(NSString*)idForEvent descOfEvent:(NSString *)descOfEvent startTime:(NSString *)startTime venue:(NSString *)venue price:(NSString *)price imageURL:(NSString *)imageURL {
     
     //Initalize object
     if (self = [super init]) {
@@ -23,6 +23,11 @@
         //eventPhone = [stateOfEvent copy];
         eventURL = [websiteForEvent copy];
         eventID = [idForEvent copy];
+        eventDesc = [descOfEvent copy];
+        eventImageURL = [imageURL copy];
+        eventPrice = [price copy];
+        eventStartTime = [startTime copy];
+        eventVenue = [venue copy];
     }
     
     return self;
