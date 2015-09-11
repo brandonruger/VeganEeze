@@ -32,7 +32,8 @@
     
     IBOutlet UILabel *priceRangeLabel;
     //IBOutlet UILabel *vegLevelLabel;
-    IBOutlet UILabel *restDescLabel;
+    //IBOutlet UILabel *restDescLabel;
+    IBOutlet UITextView *restDescTV;
     IBOutlet UIImageView *restImage;
     IBOutlet UIImageView *vegLevelImg;
     

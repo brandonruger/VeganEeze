@@ -113,7 +113,7 @@
     ratingLabel.text = restaurantRating;
     
     priceRangeLabel.text = restPriceRange;
-    restDescLabel.text = restDesc;
+    restDescTV.text = restDesc;
     
     
     //Convert vegLevel to integer
