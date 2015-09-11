@@ -9,9 +9,9 @@
 #import "VeganRestaurant.h"
 
 @implementation VeganRestaurant
-@synthesize restaurantName, restaurantAddress, restaurantCity, restaurantState, restaurantZip, restaurantPhone, restaurantURL, reviewsURI, restaurantRating, priceRange, vegLevel, description, imageURI;
+@synthesize restaurantName, restaurantAddress, restaurantCity, restaurantState, restaurantZip, restaurantPhone, restaurantURL, reviewsURI, restaurantRating, priceRange, vegLevel, description, imageURI, longDescription;
 
--(id)initWithRestaurant:(NSString*)nameOfRestaurant addressOfRestaurant:(NSString*)addressOfRestaurant cityOfRestaurant:(NSString*)cityOfRestaurant stateOfRestaurant:(NSString*)stateOfRestaurant zipOfRestaurant:(NSString*)zipOfRestaurant phoneNo:(NSString*)phoneNo urlOfRestaurant:(NSString*)urlOfRestaurant reviewsOfRestaurant:(NSString *)reviewsOfRestaurant rating:(NSString*)rating restPriceRange:(NSString *)restPriceRange restVegLevel:(NSString *)restVegLevel restDesc:(NSString *)restDesc restImgURI:(NSString *)restImgURI {
+-(id)initWithRestaurant:(NSString*)nameOfRestaurant addressOfRestaurant:(NSString*)addressOfRestaurant cityOfRestaurant:(NSString*)cityOfRestaurant stateOfRestaurant:(NSString*)stateOfRestaurant zipOfRestaurant:(NSString*)zipOfRestaurant phoneNo:(NSString*)phoneNo urlOfRestaurant:(NSString*)urlOfRestaurant reviewsOfRestaurant:(NSString *)reviewsOfRestaurant rating:(NSString*)rating restPriceRange:(NSString *)restPriceRange restVegLevel:(NSString *)restVegLevel restDesc:(NSString *)restDesc restImgURI:(NSString *)restImgURI fullDesc:(NSString *)fullDesc {
     
     //Initialize object
     if (self = [super init]) {
@@ -29,6 +29,7 @@
         vegLevel = [restVegLevel copy];
         description = [restDesc copy];
         imageURI = [restImgURI copy];
+        longDescription = [fullDesc copy];
     }
     
     return self;

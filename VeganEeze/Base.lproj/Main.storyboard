@@ -733,7 +733,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-Va-J3Y">
-                                <rect key="frame" x="11" y="260" width="129" height="19"/>
+                                <rect key="frame" x="455" y="443" width="129" height="19"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="U5O-hV-xWn"/>
@@ -780,6 +780,24 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" address="YES"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqY-TC-LNt">
+                                <rect key="frame" x="180" y="143" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurant's Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHt-vx-MyL">
+                                <rect key="frame" x="70" y="294" width="460" height="56"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ENW-VP-spj">
+                                <rect key="frame" x="16" y="69" width="80" height="80"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price Range:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQE-V9-pwU">
+                                <rect key="frame" x="439" y="69" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -824,8 +842,12 @@
                         <outlet property="addressTV" destination="tnD-fe-lgp" id="9T8-Ur-RFo"/>
                         <outlet property="commentsTV" destination="YBt-7O-VXc" id="O3h-Ks-ZxD"/>
                         <outlet property="nameLabel" destination="6zA-Kf-brf" id="aHY-gM-P4t"/>
+                        <outlet property="priceRangeLabel" destination="gQE-V9-pwU" id="blz-W7-uZ5"/>
                         <outlet property="ratingLabel" destination="xAD-Va-J3Y" id="Hl8-j7-sNh"/>
+                        <outlet property="restDescLabel" destination="eHt-vx-MyL" id="iiX-kf-gCS"/>
+                        <outlet property="restImage" destination="gqY-TC-LNt" id="U12-MH-bNY"/>
                         <outlet property="urlLabel" destination="TCn-5I-fDK" id="e8D-Va-AUS"/>
+                        <outlet property="vegLevelImg" destination="ENW-VP-spj" id="jK4-Rs-Shx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQv-8c-nwb" userLabel="First Responder" sceneMemberID="firstResponder"/>

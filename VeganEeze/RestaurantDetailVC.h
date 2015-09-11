@@ -17,9 +17,9 @@
   
     IBOutlet UILabel *nameLabel;
     //IBOutlet UILabel *addressLabel;
-    IBOutlet UILabel *cityLabel;
-    IBOutlet UILabel *stateLabel;
-    IBOutlet UILabel *zipLabel;
+    //IBOutlet UILabel *cityLabel;
+    //IBOutlet UILabel *stateLabel;
+    //IBOutlet UILabel *zipLabel;
     IBOutlet UIButton *urlLabel;
     IBOutlet UILabel *phoneLabel;
     
@@ -29,6 +29,13 @@
     IBOutlet UILabel *ratingLabel;
     
     IBOutlet UITableView *commentsTV;
+    
+    IBOutlet UILabel *priceRangeLabel;
+    //IBOutlet UILabel *vegLevelLabel;
+    IBOutlet UILabel *restDescLabel;
+    IBOutlet UIImageView *restImage;
+    IBOutlet UIImageView *vegLevelImg;
+    
 //    NSMutableArray *usernames;
 //    NSMutableArray *comments;
     NSMutableArray *restaurantReviewsArray;
@@ -46,6 +53,11 @@
     NSString *restaurantPhoneNo;
     NSString *restaurantReviewURI;
     NSString *restaurantRating;
+    
+    NSString *restPriceRange;
+    NSString *restVegLevel;
+    NSString *restDesc;
+    NSString *restImageURI;
     
     NSURL *urlForReviews;
     NSMutableURLRequest *reviewsRequest;

@@ -82,6 +82,11 @@
     restaurantState = currentRestaurant.restaurantState;
     currentRestaurantZip = currentRestaurant.restaurantZip;
     
+    restPriceRange = currentRestaurant.priceRange;
+    restVegLevel = currentRestaurant.vegLevel;
+    restDesc = currentRestaurant.longDescription;
+    restImageURI = currentRestaurant.imageURI;
+    
     NSLog(@"restaurantZip = %@", currentRestaurantZip);
     
     NSString *completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", restaurantAddress, restaurantCity, restaurantState, currentRestaurantZip];
@@ -98,20 +103,78 @@
     //Call method to get restaurant reviews from API
     [self getRestaurantReviews];
     
-    //Set restaurant labels to display information passed over from segue
+    //Set restaurant labels to display information for object passed over from segue
     nameLabel.text = restaurantName;
     addressTV.text = completeAddress;
     //cityLabel.text = restaurantCity;
     //stateLabel.text = restaurantState;
     //zipLabel.text = restaurantZip;
-    phoneLabel.text = restaurantPhoneNo;
+    //phoneLabel.text = restaurantPhoneNo;
     ratingLabel.text = restaurantRating;
+    
+    priceRangeLabel.text = restPriceRange;
+    restDescLabel.text = restDesc;
+    
+    
+    //Convert vegLevel to integer
+    NSInteger veganLevelInt = [restVegLevel integerValue];
+    
+    //Veg Level
+    //Change imageview for veganLevelImage depending on the veg level
+    switch (veganLevelInt) {
+        case 0:
+            //Not veg
+            vegLevelImg.image = [UIImage imageNamed:@"NotVeg"];
+            break;
+        case 1:
+            //Vegetarian-friendly
+            vegLevelImg.image = [UIImage imageNamed:@"Vegetarian"];
+            break;
+        case 2:
+            //Vegan-Friendly
+            vegLevelImg.image = [UIImage imageNamed:@"Vegan"];
+            break;
+        case 3:
+            //Vegetarian, but not vegan-friendly
+            vegLevelImg.image = [UIImage imageNamed:@"Vegetarian"];
+            break;
+        case 4:
+            //Vegetarian
+            vegLevelImg.image = [UIImage imageNamed:@"Vegetarian"];
+            break;
+        case 5:
+            //Vegan
+            vegLevelImg.image = [UIImage imageNamed:@"Vegan"];
+            break;
+            
+        default:
+            //Unknown
+            vegLevelImg.image = [UIImage imageNamed:@"Question"];
+            break;
+    }
+
+    
+    //Image for restaurant
+    if (restImageURI != nil) {
+        //Create URL to download restaurant image
+        NSURL *restImageURL = [NSURL URLWithString:restImageURI];
+        NSData *restImgData = [NSData dataWithContentsOfURL:restImageURL];
+        //Create image from data
+        UIImage *imageForRest = [UIImage imageWithData:restImgData];
+        //Set image view to restaurant image
+        restImage.image = imageForRest;
+    } else {
+        //No images found, set default image
+        //restaurantImage.image = [UIImage imageNamed:@"NoImage"];
+        restImage.image = [UIImage imageNamed:@"VeganEeze-Logo"];
+    }
+
     
     //Set URL button text
     //[urlLabel setTitle:restaurantURL forState:UIControlStateNormal];
     
     //Set phone # to appear in text view
-    phoneNoTV.text = restaurantPhoneNo;
+    //phoneNoTV.text = restaurantPhoneNo;
     
 }
 

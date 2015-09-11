@@ -431,8 +431,11 @@
     //Grab first image
     //UIImage *restaurantImage = [arrayOfImages objectAtIndex:0];
     
+    NSDictionary *fullDescription = [restaurantsDictionary valueForKey:@"long_description"];
+    NSString *restDescStr = [fullDescription valueForKey:@"text/vnd.vegguide.org-wikitext"];
+    
     //Use object's custom init method to initalize object
-    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress cityOfRestaurant:restaurantsCity stateOfRestaurant:restaurantsState zipOfRestaurant:restaurantsZip phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite reviewsOfRestaurant:restaurantReviewURI rating:restaurantRating restPriceRange:restaurantPriceRange restVegLevel:restaurantVegLevel restDesc:restaurantDesc restImgURI:uriForImg];
+    VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress cityOfRestaurant:restaurantsCity stateOfRestaurant:restaurantsState zipOfRestaurant:restaurantsZip phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite reviewsOfRestaurant:restaurantReviewURI rating:restaurantRating restPriceRange:restaurantPriceRange restVegLevel:restaurantVegLevel restDesc:restaurantDesc restImgURI:uriForImg fullDesc:restDescStr];
     
     return newRestaurant;
 }
