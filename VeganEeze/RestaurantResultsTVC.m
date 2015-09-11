@@ -74,6 +74,7 @@
         [resultsCell updateCellWithRestaurant:currentRest.restaurantName description:currentRest.description range:currentRest.priceRange imageURI:currentRest.imageURI veganImage:currentRest.vegLevel city:currentRest.restaurantCity];
     }
     
+    //Alternate color for every other row
     if (indexPath.row %2 == 0) {
         
          UIColor *alternateColor=[[UIColor alloc]initWithRed:239.0/255.0 green:252.0/255.0 blue:214.0/255.0 alpha:1];

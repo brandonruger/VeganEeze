@@ -9,6 +9,7 @@
 #import "EventResultsTVC.h"
 #import "EventDetailVC.h"
 #import "VeganEvent.h"
+#import "EventResultCell.h"
 
 @interface EventResultsTVC ()
 
@@ -48,16 +49,36 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"EventsCell"];
-    if (resultsCell != nil) {
+//    UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"EventsCell"];
+//    if (resultsCell != nil) {
+//        
+//        VeganEvent *veganEventInfo = [arrayOfEvents objectAtIndex:indexPath.row];
+//        
+//        resultsCell.textLabel.text = veganEventInfo.eventName;
+//        resultsCell.detailTextLabel.text = veganEventInfo.eventCity;
+//    }
+    
+    EventResultCell *eventCell = [tableView dequeueReusableCellWithIdentifier:@"EventsCell"];
+    if (eventCell != nil) {
+        VeganEvent *currentEvent = [arrayOfEvents objectAtIndex:indexPath.row];
         
-        VeganEvent *veganEventInfo = [arrayOfEvents objectAtIndex:indexPath.row];
-        
-        resultsCell.textLabel.text = veganEventInfo.eventName;
-        resultsCell.detailTextLabel.text = veganEventInfo.eventCity;
+        //Call cell's custom method to update information in cell
+        [eventCell updateCellWithEvent:currentEvent.eventName location:currentEvent.eventCity imageURL:currentEvent.eventImageURL date:currentEvent.eventStartTime];
     }
     
-    return resultsCell;
+    //Alternate color for every other row
+    if (indexPath.row %2 == 0) {
+        
+        UIColor *alternateColor=[[UIColor alloc]initWithRed:239.0/255.0 green:252.0/255.0 blue:214.0/255.0 alpha:1];
+        //resultsCell.backgroundColor = [UIColor clearColor];
+        eventCell.backgroundColor = alternateColor;
+    } else {
+        UIColor *otherColor=[[UIColor alloc]initWithRed:162.0/255.0 green:201.0/255.0 blue:142.0/255.0 alpha:1];
+        //resultsCell.backgroundColor = [UIColor clearColor];
+        eventCell.backgroundColor = otherColor;
+    }
+    
+    return eventCell;
 }
 
 /*

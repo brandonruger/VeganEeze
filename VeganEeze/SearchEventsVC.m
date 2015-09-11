@@ -413,8 +413,15 @@
     
     NSDictionary *imagesDictionary = [eventDictionary valueForKey:@"image"];
     NSDictionary *smallImg = [imagesDictionary valueForKey:@"small"];
-    NSString *singleImg = [smallImg valueForKey:@"url"];
+    singleImg = [smallImg valueForKey:@"url"];
     NSLog(@"singleImg = %@", singleImg);
+    
+    if ([singleImg isEqual:[NSNull null]]) {
+     
+        //Set image to an empty string
+        singleImg = @"";
+        
+    }
     
     //Use object's custom init method to initialize object
     VeganEvent *newEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite idForEvent:eventID descOfEvent:description startTime:startTime venue:venue price:price imageURL:singleImg];

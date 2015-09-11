@@ -1606,33 +1606,108 @@
         <scene sceneID="rmE-LL-src">
             <objects>
                 <tableViewController storyboardIdentifier="EventResultsViewController" title="Event Results" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GvM-21-Yli" customClass="EventResultsTVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VsK-yT-hlp">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="22" sectionFooterHeight="22" id="VsK-yT-hlp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.37647058820000001" green="0.56862745100000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventsCell" textLabel="dCL-Ni-au9" detailTextLabel="hZr-uf-YRH" style="IBUITableViewCellStyleValue1" id="KIX-Oe-C8w">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventsCell" rowHeight="110" id="KIX-Oe-C8w" customClass="EventResultCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KIX-Oe-C8w" id="XEN-yW-S4h">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dCL-Ni-au9">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1QK-EZ-Hay">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="fyX-Tm-boG"/>
+                                                <constraint firstAttribute="height" constant="50" id="mxg-wa-99e"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="fyX-Tm-boG"/>
+                                                    <exclude reference="mxg-wa-99e"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="fyX-Tm-boG"/>
+                                                    <include reference="mxg-wa-99e"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QL2-Wr-Y0R">
+                                            <rect key="frame" x="70" y="8" width="143" height="23"/>
                                             <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hZr-uf-YRH">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Location" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blu-Ma-DKH">
+                                            <rect key="frame" x="70" y="8" width="143" height="23"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kz8-mb-AgH">
+                                            <rect key="frame" x="70" y="8" width="143" height="23"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="QL2-Wr-Y0R" firstAttribute="leading" secondItem="1QK-EZ-Hay" secondAttribute="trailing" constant="8" id="NwL-I1-1e4"/>
+                                        <constraint firstItem="1QK-EZ-Hay" firstAttribute="leading" secondItem="XEN-yW-S4h" secondAttribute="leadingMargin" id="QfY-Kb-Psu"/>
+                                        <constraint firstItem="kz8-mb-AgH" firstAttribute="leading" secondItem="XEN-yW-S4h" secondAttribute="leadingMargin" constant="58" id="SOC-mP-WvI"/>
+                                        <constraint firstItem="blu-Ma-DKH" firstAttribute="top" secondItem="QL2-Wr-Y0R" secondAttribute="bottom" constant="10" id="ZPf-u9-qpr"/>
+                                        <constraint firstItem="kz8-mb-AgH" firstAttribute="top" secondItem="blu-Ma-DKH" secondAttribute="bottom" constant="30" id="ff2-sX-KU1"/>
+                                        <constraint firstItem="QL2-Wr-Y0R" firstAttribute="top" secondItem="XEN-yW-S4h" secondAttribute="topMargin" id="gpr-HF-09a"/>
+                                        <constraint firstItem="blu-Ma-DKH" firstAttribute="leading" secondItem="1QK-EZ-Hay" secondAttribute="trailing" constant="8" id="nKm-Ma-Aq1"/>
+                                        <constraint firstItem="1QK-EZ-Hay" firstAttribute="top" secondItem="XEN-yW-S4h" secondAttribute="topMargin" id="r2M-RE-Qn5"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="1QK-EZ-Hay"/>
+                                            <exclude reference="QL2-Wr-Y0R"/>
+                                            <exclude reference="blu-Ma-DKH"/>
+                                            <exclude reference="kz8-mb-AgH"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="QfY-Kb-Psu"/>
+                                            <exclude reference="r2M-RE-Qn5"/>
+                                            <exclude reference="NwL-I1-1e4"/>
+                                            <exclude reference="gpr-HF-09a"/>
+                                            <exclude reference="ZPf-u9-qpr"/>
+                                            <exclude reference="nKm-Ma-Aq1"/>
+                                            <exclude reference="SOC-mP-WvI"/>
+                                            <exclude reference="ff2-sX-KU1"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="1QK-EZ-Hay"/>
+                                            <include reference="QL2-Wr-Y0R"/>
+                                            <include reference="blu-Ma-DKH"/>
+                                            <include reference="kz8-mb-AgH"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="QfY-Kb-Psu"/>
+                                            <include reference="r2M-RE-Qn5"/>
+                                            <include reference="NwL-I1-1e4"/>
+                                            <include reference="gpr-HF-09a"/>
+                                            <include reference="ZPf-u9-qpr"/>
+                                            <include reference="nKm-Ma-Aq1"/>
+                                            <include reference="SOC-mP-WvI"/>
+                                            <include reference="ff2-sX-KU1"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="eventDateLabel" destination="kz8-mb-AgH" id="EKP-5y-fk5"/>
+                                    <outlet property="eventImage" destination="1QK-EZ-Hay" id="UZV-cW-Q0H"/>
+                                    <outlet property="eventLocation" destination="blu-Ma-DKH" id="NRW-wf-Tp5"/>
+                                    <outlet property="eventName" destination="QL2-Wr-Y0R" id="hke-pT-fZl"/>
                                     <segue destination="BRz-si-Myg" kind="show" id="ZHA-b2-W2S"/>
                                 </connections>
                             </tableViewCell>
@@ -1648,7 +1723,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIE-SZ-KmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3090" y="1841"/>
+            <point key="canvasLocation" x="2776.5" y="1861"/>
         </scene>
         <!--Favorite Places-->
         <scene sceneID="EPr-yK-X6L">
