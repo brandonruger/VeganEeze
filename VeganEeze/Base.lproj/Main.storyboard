@@ -1763,6 +1763,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-eA-2Tc">
                                 <rect key="frame" x="0.0" y="-5" width="600" height="605"/>
                             </imageView>
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter name of product" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-N8-me0">
+                                <rect key="frame" x="64" y="171" width="473" height="44"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Ii-XFh">
                                 <rect key="frame" x="64" y="239" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1778,27 +1788,23 @@
                                     <action selector="searchAlcoholBeveragesAPI:" destination="HC7-S3-PmI" eventType="touchUpInside" id="Oun-OM-fja"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter name of product" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-N8-me0">
-                                <rect key="frame" x="64" y="171" width="473" height="44"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JNE-Ii-XFh" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="48" id="1gV-Dd-L4g"/>
                             <constraint firstItem="BC4-eA-2Tc" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="-16" id="6xn-Py-yoq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BC4-eA-2Tc" secondAttribute="trailing" constant="-16" id="Ots-kI-Hq3"/>
-                            <constraint firstItem="O6v-DU-f3x" firstAttribute="top" secondItem="BC4-eA-2Tc" secondAttribute="bottom" id="Vfb-oA-lGc"/>
+                            <constraint firstItem="O6v-DU-f3x" firstAttribute="top" secondItem="BC4-eA-2Tc" secondAttribute="bottom" id="Vfb-oA-lGc">
+                                <variation key="widthClass=compact" constant="49"/>
+                            </constraint>
                             <constraint firstItem="XUf-N8-me0" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="48" id="Vsy-Hu-feL"/>
-                            <constraint firstItem="JNE-Ii-XFh" firstAttribute="top" secondItem="XUf-N8-me0" secondAttribute="bottom" constant="24" id="fee-gi-Vqx"/>
+                            <constraint firstItem="JNE-Ii-XFh" firstAttribute="top" secondItem="XUf-N8-me0" secondAttribute="bottom" constant="24" id="fee-gi-Vqx">
+                                <variation key="widthClass=compact" constant="22"/>
+                            </constraint>
                             <constraint firstItem="BC4-eA-2Tc" firstAttribute="top" secondItem="smP-Yt-79C" secondAttribute="topMargin" constant="-5" id="fks-AN-Oco"/>
-                            <constraint firstItem="XUf-N8-me0" firstAttribute="top" secondItem="JTZ-wh-pBQ" secondAttribute="bottom" constant="151" id="qnq-P4-2iR"/>
+                            <constraint firstItem="XUf-N8-me0" firstAttribute="top" secondItem="JTZ-wh-pBQ" secondAttribute="bottom" constant="151" id="qnq-P4-2iR">
+                                <variation key="widthClass=compact" constant="94"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="XUf-N8-me0" secondAttribute="trailing" constant="47" id="wPl-CL-KYd"/>
                         </constraints>
                     </view>
