@@ -2096,21 +2096,6 @@
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
-                                <rect key="frame" x="72" y="409" width="50" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="7ii-Qu-ZbI"/>
-                                    <constraint firstAttribute="width" constant="50" id="awc-lI-d2t"/>
-                                </constraints>
-                                <state key="normal" image="SearchButton">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchVeganEvents:" destination="kMl-5x-2O2" eventType="touchUpInside" id="GJ6-4X-HwL"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUO-1T-Rmi">
                                 <rect key="frame" x="0.0" y="61" width="600" height="162"/>
                             </pickerView>
@@ -2126,18 +2111,41 @@
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
+                                <rect key="frame" x="72" y="409" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7ii-Qu-ZbI"/>
+                                    <constraint firstAttribute="width" constant="50" id="awc-lI-d2t"/>
+                                </constraints>
+                                <state key="normal" image="SearchButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchVeganEvents:" destination="kMl-5x-2O2" eventType="touchUpInside" id="GJ6-4X-HwL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sau-dW-zlY" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="-16" id="0zk-U6-fCP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oUO-1T-Rmi" secondAttribute="trailing" constant="-16" id="1oF-7g-9Dq"/>
-                            <constraint firstItem="oUO-1T-Rmi" firstAttribute="top" secondItem="XuW-PK-VUY" secondAttribute="bottom" constant="41" id="1wT-6a-ka9"/>
-                            <constraint firstItem="YoH-DB-ocY" firstAttribute="top" secondItem="5lx-Uk-xA9" secondAttribute="bottom" constant="28" id="9HK-Kb-WaH"/>
+                            <constraint firstItem="oUO-1T-Rmi" firstAttribute="top" secondItem="XuW-PK-VUY" secondAttribute="bottom" constant="41" id="1wT-6a-ka9">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="YoH-DB-ocY" firstAttribute="top" secondItem="5lx-Uk-xA9" secondAttribute="bottom" constant="28" id="9HK-Kb-WaH">
+                                <variation key="widthClass=compact" constant="7"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="4HZ-Oa-oLn" secondAttribute="trailing" constant="55" id="IRk-PW-yKT"/>
-                            <constraint firstItem="5lx-Uk-xA9" firstAttribute="top" secondItem="Jmf-NA-kPy" secondAttribute="bottom" constant="23" id="IYs-FZ-yCB"/>
+                            <constraint firstItem="5lx-Uk-xA9" firstAttribute="top" secondItem="Jmf-NA-kPy" secondAttribute="bottom" constant="23" id="IYs-FZ-yCB">
+                                <variation key="widthClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstItem="4HZ-Oa-oLn" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="Jlm-zx-Uus"/>
                             <constraint firstItem="YoH-DB-ocY" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="TLc-KE-fPh"/>
-                            <constraint firstItem="4HZ-Oa-oLn" firstAttribute="top" secondItem="oUO-1T-Rmi" secondAttribute="bottom" id="UH8-st-wz8"/>
+                            <constraint firstItem="4HZ-Oa-oLn" firstAttribute="top" secondItem="oUO-1T-Rmi" secondAttribute="bottom" id="UH8-st-wz8">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="sau-dW-zlY" secondAttribute="trailing" constant="-16" id="ZRQ-T3-poC"/>
                             <constraint firstItem="5lx-Uk-xA9" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="be6-M2-ncH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5lx-Uk-xA9" secondAttribute="trailing" constant="55" id="ghQ-qJ-XAV"/>
@@ -2146,7 +2154,9 @@
                             <constraint firstAttribute="bottomMargin" secondItem="sau-dW-zlY" secondAttribute="bottom" constant="-2" id="tWK-Hf-BBJ"/>
                             <constraint firstItem="Jmf-NA-kPy" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="73" id="vjC-bC-FVj"/>
                             <constraint firstItem="sau-dW-zlY" firstAttribute="top" secondItem="0SV-k8-GBf" secondAttribute="topMargin" constant="-3" id="vnx-Ar-kfE"/>
-                            <constraint firstItem="Jmf-NA-kPy" firstAttribute="top" secondItem="4HZ-Oa-oLn" secondAttribute="bottom" constant="19" id="yXX-ZM-BkZ"/>
+                            <constraint firstItem="Jmf-NA-kPy" firstAttribute="top" secondItem="4HZ-Oa-oLn" secondAttribute="bottom" constant="19" id="yXX-ZM-BkZ">
+                                <variation key="widthClass=compact" constant="10"/>
+                            </constraint>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search Events" id="zPn-te-bF9"/>
@@ -2766,11 +2776,11 @@
         <image name="WebsiteButton" width="70" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iJy-VD-7Kc"/>
-        <segue reference="lRY-DY-0FG"/>
-        <segue reference="dCL-Zv-YlS"/>
-        <segue reference="ZdV-dh-43O"/>
-        <segue reference="bwe-xQ-Z5M"/>
+        <segue reference="hwU-nc-hM3"/>
         <segue reference="xMA-oN-JMc"/>
+        <segue reference="nRz-mN-BOO"/>
+        <segue reference="Qcv-nR-1TP"/>
+        <segue reference="fQ4-AE-5a6"/>
+        <segue reference="bwe-xQ-Z5M"/>
     </inferredMetricsTieBreakers>
 </document>
