@@ -1760,7 +1760,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-eA-2Tc">
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-eA-2Tc">
                                 <rect key="frame" x="0.0" y="-5" width="600" height="605"/>
                             </imageView>
                             <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter name of product" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-N8-me0">
@@ -1791,6 +1791,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="O6v-DU-f3x" firstAttribute="top" secondItem="BC4-eA-2Tc" secondAttribute="bottom" id="0xk-gM-xJz"/>
                             <constraint firstItem="JNE-Ii-XFh" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="48" id="1gV-Dd-L4g"/>
                             <constraint firstItem="BC4-eA-2Tc" firstAttribute="leading" secondItem="smP-Yt-79C" secondAttribute="leadingMargin" constant="-16" id="6xn-Py-yoq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BC4-eA-2Tc" secondAttribute="trailing" constant="-16" id="Ots-kI-Hq3"/>
@@ -1807,6 +1808,17 @@
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="XUf-N8-me0" secondAttribute="trailing" constant="47" id="wPl-CL-KYd"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0xk-gM-xJz"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="0xk-gM-xJz"/>
+                                <exclude reference="Vfb-oA-lGc"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Beverage Search" id="yq0-N7-1ZG"/>
                     <connections>
