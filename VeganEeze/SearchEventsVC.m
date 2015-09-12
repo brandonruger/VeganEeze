@@ -410,6 +410,7 @@
     NSString *startTime = [eventDictionary valueForKey:@"start_time"];
     NSString *venue = [eventDictionary valueForKey:@"venue_name"];
     NSString *price = [eventDictionary valueForKey:@"price"];
+    NSLog(@"price = %@", price);
     
     NSDictionary *imagesDictionary = [eventDictionary valueForKey:@"image"];
     NSDictionary *smallImg = [imagesDictionary valueForKey:@"small"];

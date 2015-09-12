@@ -127,7 +127,7 @@
         NSLog(@"dateString = %@", dateString);
         
         //Set date label to date above
-        dateLabel.text = dateString;
+        dateLabel.text = [NSString stringWithFormat:@"Date of Event: %@", dateString];
     } else {
         dateLabel.text = @"Date unknown";
     }
