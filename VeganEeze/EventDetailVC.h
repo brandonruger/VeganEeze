@@ -12,7 +12,7 @@
 #import "EventReview.h"
 #import <MapKit/MapKit.h>
 
-@interface EventDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, NSURLConnectionDataDelegate>
+@interface EventDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, NSURLConnectionDataDelegate, MKMapViewDelegate>
 
 {
     IBOutlet UILabel *eventNameLabel;

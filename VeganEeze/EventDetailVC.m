@@ -132,23 +132,23 @@
         dateLabel.text = @"Date unknown";
     }
     
-    //Image
-    NSString *imageURL = currentEvent.eventImageURL;
-    if ([imageURL isEqualToString:@""]) {
-        //No images, set default image
-        eventImage.image = [UIImage imageNamed:@"VeganEeze-Logo"];
-    } else {
-        //Create URL to download event image
-        NSURL *eventImageURL = [NSURL URLWithString:imageURL];
-        NSData *eventImgData = [NSData dataWithContentsOfURL:eventImageURL];
-        //Create image from data
-        UIImage *imageForEvent = [UIImage imageWithData:eventImgData];
-        //Set image view to image
-        eventImage.image = imageForEvent;
-    }
-    
-    //Format address
-    NSString *completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", eventAddress, eventCity, eventState, eventZip];
+//    //Image
+//    NSString *imageURL = currentEvent.eventImageURL;
+//    if ([imageURL isEqualToString:@""]) {
+//        //No images, set default image
+//        eventImage.image = [UIImage imageNamed:@"VeganEeze-Logo"];
+//    } else {
+//        //Create URL to download event image
+//        NSURL *eventImageURL = [NSURL URLWithString:imageURL];
+//        NSData *eventImgData = [NSData dataWithContentsOfURL:eventImageURL];
+//        //Create image from data
+//        UIImage *imageForEvent = [UIImage imageWithData:eventImgData];
+//        //Set image view to image
+//        eventImage.image = imageForEvent;
+//    }
+//    
+//    //Format address
+//    NSString *completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", eventAddress, eventCity, eventState, eventZip];
     
     //NSString *ratingLabelStr = @"Rating: ";
     
@@ -161,7 +161,7 @@
     
     //Set labels to display information
     eventNameLabel.text = eventName;
-    addressTV.text = completeAddress;
+    //addressTV.text = completeAddress;
     priceLabel.text = eventPrice;
     venueLabel.text = eventVenue;
     eventDescTV.text = eventDesc;
@@ -211,6 +211,47 @@
     venuePin.title = eventVenue;
     //Add pin to map
     [eventMapView addAnnotation:venuePin];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    //Add callout button to pin
+    MKAnnotationView *annotationPin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"loc"];
+    annotationPin.canShowCallout = YES;
+    annotationPin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+    return annotationPin;
+}
+
+//Method called when callout disclosure button is tapped
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+//    //Open Apple maps app with above address so user can get directions
+//    NSString *mapAppStrPrefix = @"http://maps.apple.com/?ll=";
+//    
+//    NSString *latLongStr = [NSString stringWithFormat:@"%f,%f", currentEventLat, currentEventLong];
+//    
+//    //Append above strings - This is the string to use to launch the maps app
+//    NSString *mapAppURL = [mapAppStrPrefix stringByAppendingString:latLongStr];
+//
+    
+    //Check to make sure device has ios6 or higher
+    Class mapItemClass = [MKMapItem class];
+    if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
+    {
+        // Create an MKMapItem to pass to the Maps app
+        CLLocationCoordinate2D eventCoordinates =
+        CLLocationCoordinate2DMake(currentEventLat, currentEventLong);
+        MKPlacemark *mapPlacemark = [[MKPlacemark alloc] initWithCoordinate:eventCoordinates
+                                                       addressDictionary:nil];
+        MKMapItem *mapAppItem = [[MKMapItem alloc] initWithPlacemark:mapPlacemark];
+        [mapAppItem setName:eventVenue];
+        // Pass the map item to the Maps app
+        [mapAppItem openInMapsWithLaunchOptions:nil];
+    }
+    
 }
 
 #pragma mark - Navigation
