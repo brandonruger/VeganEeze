@@ -254,7 +254,7 @@
         //Add on picker choice selected to URL
         partialURL = [partialURL stringByAppendingString:pickerChoiceSelected];
         
-        NSString *locationCoordinates = [NSString stringWithFormat:@"&l=%@,%@", latitudeCoord, longitudeCoord];
+        NSString *locationCoordinates = [NSString stringWithFormat:@"&l=%@,%@&within=40&units=miles", latitudeCoord, longitudeCoord];
         
         //Add location
         NSString *locationURL = [partialURL stringByAppendingString:locationCoordinates];

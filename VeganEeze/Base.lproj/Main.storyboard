@@ -2146,14 +2146,16 @@
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="YoH-DB-ocY" firstAttribute="top" secondItem="5lx-Uk-xA9" secondAttribute="bottom" constant="28" id="9HK-Kb-WaH">
-                                <variation key="widthClass=compact" constant="7"/>
+                                <variation key="widthClass=compact" constant="-281"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="4HZ-Oa-oLn" secondAttribute="trailing" constant="55" id="IRk-PW-yKT"/>
                             <constraint firstItem="5lx-Uk-xA9" firstAttribute="top" secondItem="Jmf-NA-kPy" secondAttribute="bottom" constant="23" id="IYs-FZ-yCB">
                                 <variation key="widthClass=compact" constant="10"/>
                             </constraint>
                             <constraint firstItem="4HZ-Oa-oLn" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="Jlm-zx-Uus"/>
-                            <constraint firstItem="YoH-DB-ocY" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="TLc-KE-fPh"/>
+                            <constraint firstItem="YoH-DB-ocY" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="TLc-KE-fPh">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="4HZ-Oa-oLn" firstAttribute="top" secondItem="oUO-1T-Rmi" secondAttribute="bottom" id="UH8-st-wz8">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
