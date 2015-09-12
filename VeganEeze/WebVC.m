@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"restaurant URL = %@", websiteStr);
+    NSLog(@"URL = %@", websiteStr);
     
     //NSString *urlPrefix = @"http://";
     //Concatenate string with http:// prefix

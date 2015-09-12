@@ -8,6 +8,7 @@
 
 #import "VeganResourcesTVC.h"
 #import "WebVC.h"
+#import "VeganResource.h"
 
 @interface VeganResourcesTVC ()
 
@@ -23,6 +24,21 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //Array of vegan resources
+    
+    //Set up vegan resource objects
+    VeganResource *resource1 = [[VeganResource alloc]initWithResource:@"Peta" resourceURL:@"http://www.peta.org"];
+    VeganResource *resource2 = [[VeganResource alloc]initWithResource:@"Vegan.com" resourceURL:@"http://www.vegan.com"];
+    VeganResource *resource3 = [[VeganResource alloc]initWithResource:@"Vegan Society" resourceURL:@"http://www.vegansociety.com"];
+    VeganResource *resource4 = [[VeganResource alloc]initWithResource:@"The Vegan RD" resourceURL:@"http://www.theveganrd.com"];
+    
+    //Create array to hold above resource objects
+    resources = [[NSMutableArray alloc]initWithObjects:resource1, resource2, resource3, resource4, nil];
+    
+    
+    //Array of URL's for resources
+    //resources = [[NSArray alloc]initWithObjects:@"www.peta.org", @"www.vegan.com", @"www.vegansociety.com", @"www.theveganrd.com", nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return [resources count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -42,9 +58,10 @@
     UITableViewCell *resourcesCell = [tableView dequeueReusableCellWithIdentifier:@"ResourceCell"];
     if (resourcesCell != nil) {
         
-        resources = [[NSArray alloc]initWithObjects:@"www.peta.org", @"www.vegan.com", @"www.vegansociety.com", @"www.theveganrd.com", nil];
+        //Get current resource object from array of objects
+        VeganResource *currentResource = [resources objectAtIndex:indexPath.row];
         
-        resourcesCell.textLabel.text = [resources objectAtIndex:indexPath.row];
+        resourcesCell.textLabel.text = currentResource.name;
     }
     
     //Alternate color for every other row
@@ -64,19 +81,25 @@
 
 //Segue method to pass information to detail view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+
     
     //Get cell that was clicked on
     UITableViewCell *cellClicked = (UITableViewCell*)sender;
     //Get index of cell that was clicked
     NSIndexPath *indexOfCell = [resourcesTV indexPathForCell:cellClicked];
     
-    websiteAddress = [resources objectAtIndex:indexOfCell.row];
+    //Get instance of VeganResource object
+    VeganResource *currentResource = [resources objectAtIndex:indexOfCell.row];
+    NSLog(@"index of cell = %ld", (long)indexOfCell.row);
+    NSString *resourceURL = currentResource.url;
+    NSLog(@"resourceURL = %@", resourceURL);
+    
+    //websiteAddress = [resources objectAtIndex:indexOfCell.row];
     
     //Access the web view
     WebVC *webVC = segue.destinationViewController;
     //Pass website's URL to web view
-    webVC.websiteStr = websiteAddress;
+    webVC.websiteStr = resourceURL;
     
 }
 

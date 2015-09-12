@@ -15,7 +15,7 @@
     
     IBOutlet UITableView *resourcesTV;
     
-    NSArray *resources;
+    NSMutableArray *resources;
 }
 
 @end
