@@ -424,6 +424,10 @@
         
     }
     
+    if ([eventZip isEqual:[NSNull null]]) {
+        eventZip = @"";
+    }
+    
     //Get latitude/longitude of venue
     Float32 eventLatitude = [[eventDictionary objectForKey:@"latitude"] floatValue];
     Float32 eventLongitude = [[eventDictionary objectForKey:@"longitude"] floatValue];
