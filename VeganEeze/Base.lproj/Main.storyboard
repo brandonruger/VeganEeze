@@ -2423,6 +2423,28 @@
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="6lE-8h-NyT" secondAttribute="trailing" constant="-16" id="NOb-1Y-igc"/>
+                            <constraint firstItem="6lE-8h-NyT" firstAttribute="top" secondItem="l6w-Sd-TfB" secondAttribute="topMargin" id="oKz-d8-FGr"/>
+                            <constraint firstItem="6lE-8h-NyT" firstAttribute="bottom" secondItem="l6w-Sd-TfB" secondAttribute="bottomMargin" id="sBL-as-2dD"/>
+                            <constraint firstItem="6lE-8h-NyT" firstAttribute="leading" secondItem="l6w-Sd-TfB" secondAttribute="leadingMargin" constant="-16" id="vGi-s5-47x"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NOb-1Y-igc"/>
+                                <exclude reference="oKz-d8-FGr"/>
+                                <exclude reference="sBL-as-2dD"/>
+                                <exclude reference="vGi-s5-47x"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="NOb-1Y-igc"/>
+                                <include reference="oKz-d8-FGr"/>
+                                <include reference="sBL-as-2dD"/>
+                                <include reference="vGi-s5-47x"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="webView" destination="6lE-8h-NyT" id="e9A-zl-pUc"/>
@@ -2430,7 +2452,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VW2-Pd-JDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4009" y="2933"/>
+            <point key="canvasLocation" x="4008" y="2933"/>
         </scene>
         <!--Saved Details-->
         <scene sceneID="hla-gq-g7X">

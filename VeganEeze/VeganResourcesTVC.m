@@ -32,9 +32,16 @@
     VeganResource *resource2 = [[VeganResource alloc]initWithResource:@"Vegan.com" resourceURL:@"http://www.vegan.com"];
     VeganResource *resource3 = [[VeganResource alloc]initWithResource:@"Vegan Society" resourceURL:@"http://www.vegansociety.com"];
     VeganResource *resource4 = [[VeganResource alloc]initWithResource:@"The Vegan RD" resourceURL:@"http://www.theveganrd.com"];
+    VeganResource *resource5 = [[VeganResource alloc]initWithResource:@"VeganEeze's Facebook" resourceURL:@"https://m.facebook.com/veganeeze"];
+    VeganResource *resource6 = [[VeganResource alloc]initWithResource:@"Vegan Outreach" resourceURL:@"http://www.veganoutreach.org"];
+    VeganResource *resource7 = [[VeganResource alloc]initWithResource:@"I Love Vegan" resourceURL:@"http://www.ilovevegan.com"];
+    VeganResource *resource8 = [[VeganResource alloc]initWithResource:@"Vegan Bits" resourceURL:@"http://veganbits.com"];
+    VeganResource *resource9 = [[VeganResource alloc]initWithResource:@"VegSource" resourceURL:@"http://www.vegsource.com"];
+    VeganResource *resource10 = [[VeganResource alloc]initWithResource:@"Vegan Action" resourceURL:@"http://vegan.org"];
+    VeganResource *resource11 = [[VeganResource alloc]initWithResource:@"Vegan Stoner" resourceURL:@"http://theveganstoner.blogspot.com"];
     
     //Create array to hold above resource objects
-    resources = [[NSMutableArray alloc]initWithObjects:resource1, resource2, resource3, resource4, nil];
+    resources = [[NSMutableArray alloc]initWithObjects:resource1, resource2, resource3, resource4, resource5, resource6, resource7, resource8, resource9, resource10, resource11, nil];
     
     
     //Array of URL's for resources
