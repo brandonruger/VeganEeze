@@ -347,14 +347,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hA7-JX-gZG" firstAttribute="top" secondItem="5cX-N8-H1d" secondAttribute="bottom" constant="17" id="0bO-uZ-HU0"/>
-                            <constraint firstItem="hA7-JX-gZG" firstAttribute="top" secondItem="5cX-N8-H1d" secondAttribute="bottom" constant="17" id="1I8-1l-xwv"/>
-                            <constraint firstItem="drP-JQ-4f3" firstAttribute="top" secondItem="a9h-w5-zk1" secondAttribute="bottom" constant="39" id="1kn-Mc-Rw6"/>
+                            <constraint firstItem="hA7-JX-gZG" firstAttribute="top" secondItem="5cX-N8-H1d" secondAttribute="bottom" constant="17" id="0bO-uZ-HU0">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="hA7-JX-gZG" firstAttribute="top" secondItem="5cX-N8-H1d" secondAttribute="bottom" constant="17" id="1I8-1l-xwv">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="drP-JQ-4f3" firstAttribute="top" secondItem="a9h-w5-zk1" secondAttribute="bottom" constant="39" id="1kn-Mc-Rw6">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="bottomMargin" secondItem="foY-vG-jeb" secondAttribute="bottom" constant="-5" id="4cZ-je-9Qu"/>
-                            <constraint firstItem="g8z-kR-0ys" firstAttribute="top" secondItem="drP-JQ-4f3" secondAttribute="bottom" id="GVq-Rl-n1o"/>
+                            <constraint firstItem="g8z-kR-0ys" firstAttribute="top" secondItem="drP-JQ-4f3" secondAttribute="bottom" id="GVq-Rl-n1o">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="g8z-kR-0ys" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="56" id="Jmr-yJ-4jb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="foY-vG-jeb" secondAttribute="trailing" constant="-16" id="NAO-JQ-UaE"/>
-                            <constraint firstItem="XDe-8q-Vr0" firstAttribute="top" secondItem="g8z-kR-0ys" secondAttribute="bottom" constant="10" id="T93-Ap-Jcw"/>
+                            <constraint firstItem="XDe-8q-Vr0" firstAttribute="top" secondItem="g8z-kR-0ys" secondAttribute="bottom" constant="10" id="T93-Ap-Jcw">
+                                <variation key="widthClass=compact" constant="16"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="g8z-kR-0ys" secondAttribute="trailing" constant="55" id="YLo-bK-yf7"/>
                             <constraint firstItem="XDe-8q-Vr0" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="73" id="aEP-1P-za7"/>
                             <constraint firstItem="drP-JQ-4f3" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="-16" id="aGF-yt-ak7"/>
@@ -362,7 +372,9 @@
                             <constraint firstItem="5cX-N8-H1d" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="56" id="gUD-Xr-1QZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XDe-8q-Vr0" secondAttribute="trailing" constant="72" id="h0D-nj-4MM"/>
                             <constraint firstItem="foY-vG-jeb" firstAttribute="top" secondItem="QKe-F0-P1P" secondAttribute="topMargin" id="hwl-rB-mA8"/>
-                            <constraint firstItem="5cX-N8-H1d" firstAttribute="top" secondItem="XDe-8q-Vr0" secondAttribute="bottom" constant="21" id="uQa-aY-chJ"/>
+                            <constraint firstItem="5cX-N8-H1d" firstAttribute="top" secondItem="XDe-8q-Vr0" secondAttribute="bottom" constant="21" id="uQa-aY-chJ">
+                                <variation key="widthClass=compact" constant="15"/>
+                            </constraint>
                             <constraint firstItem="foY-vG-jeb" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="-16" id="v0V-f8-LFN"/>
                             <constraint firstItem="hA7-JX-gZG" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="56" id="xFe-cb-dRv"/>
                             <constraint firstItem="hA7-JX-gZG" firstAttribute="leading" secondItem="QKe-F0-P1P" secondAttribute="leadingMargin" constant="56" id="xrH-6x-QIo"/>
@@ -2748,10 +2760,10 @@
         <image name="WebsiteButton" width="70" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hwU-nc-hM3"/>
-        <segue reference="nRz-mN-BOO"/>
-        <segue reference="Qcv-nR-1TP"/>
-        <segue reference="fQ4-AE-5a6"/>
+        <segue reference="iJy-VD-7Kc"/>
+        <segue reference="lRY-DY-0FG"/>
+        <segue reference="dCL-Zv-YlS"/>
+        <segue reference="ZdV-dh-43O"/>
         <segue reference="bwe-xQ-Z5M"/>
         <segue reference="xMA-oN-JMc"/>
     </inferredMetricsTieBreakers>
