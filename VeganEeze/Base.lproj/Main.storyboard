@@ -1799,6 +1799,171 @@
             </objects>
             <point key="canvasLocation" x="3233" y="1175"/>
         </scene>
+        <!--SEARCHMENUVC-->
+        <scene sceneID="4xh-LG-DLh">
+            <objects>
+                <viewController title="SEARCHMENUVC" id="fAo-9k-gNV" customClass="SearchMenuVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pQ2-7s-WU0"/>
+                        <viewControllerLayoutGuide type="bottom" id="bsx-E6-CI0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zCU-hg-HWt">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3" translatesAutoresizingMaskIntoConstraints="NO" id="kNz-vb-dz0">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBW-eO-o7a">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="304" id="73G-Qb-NG1"/>
+                                    <constraint firstAttribute="height" constant="77" id="Y0j-qO-rZV"/>
+                                </constraints>
+                                <state key="normal" image="SearchEventsButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="73G-Qb-NG1"/>
+                                        <exclude reference="Y0j-qO-rZV"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="73G-Qb-NG1"/>
+                                        <include reference="Y0j-qO-rZV"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="d41-bJ-Mli" kind="show" id="Qcv-nR-1TP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esa-7e-4tx">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="Wvk-L7-7Yw"/>
+                                    <constraint firstAttribute="width" constant="304" id="ifC-Xm-Peb"/>
+                                </constraints>
+                                <state key="normal" image="BeverageSearchButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Wvk-L7-7Yw"/>
+                                        <exclude reference="ifC-Xm-Peb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Wvk-L7-7Yw"/>
+                                        <include reference="ifC-Xm-Peb"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="6x7-bf-bWQ" kind="show" id="fQ4-AE-5a6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hji-RT-drH">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="304" id="55Y-i1-WZo"/>
+                                    <constraint firstAttribute="height" constant="77" id="fQp-yO-E5r"/>
+                                </constraints>
+                                <state key="normal" image="FindRestaurantButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="55Y-i1-WZo"/>
+                                        <exclude reference="fQp-yO-E5r"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="55Y-i1-WZo"/>
+                                        <include reference="fQp-yO-E5r"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="OQx-X3-WSB" kind="show" id="hwU-nc-hM3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="hji-RT-drH" secondAttribute="trailing" constant="32" id="5W6-oY-KBI"/>
+                            <constraint firstItem="yBW-eO-o7a" firstAttribute="leading" secondItem="zCU-hg-HWt" secondAttribute="leadingMargin" constant="32" id="5us-t8-Fzf"/>
+                            <constraint firstItem="hji-RT-drH" firstAttribute="leading" secondItem="zCU-hg-HWt" secondAttribute="leadingMargin" constant="32" id="CLx-uu-NXu"/>
+                            <constraint firstItem="esa-7e-4tx" firstAttribute="leading" secondItem="zCU-hg-HWt" secondAttribute="leadingMargin" constant="32" id="F5n-xm-EVz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="esa-7e-4tx" secondAttribute="trailing" constant="32" id="GCY-x7-jXi"/>
+                            <constraint firstItem="kNz-vb-dz0" firstAttribute="bottom" secondItem="zCU-hg-HWt" secondAttribute="bottomMargin" id="R30-iE-aXE"/>
+                            <constraint firstItem="kNz-vb-dz0" firstAttribute="top" secondItem="zCU-hg-HWt" secondAttribute="topMargin" id="ZYl-zd-peB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kNz-vb-dz0" secondAttribute="trailing" constant="-16" id="a9q-Fy-tBb"/>
+                            <constraint firstItem="hji-RT-drH" firstAttribute="top" secondItem="pQ2-7s-WU0" secondAttribute="bottom" constant="70" id="bzg-Vk-t45"/>
+                            <constraint firstItem="yBW-eO-o7a" firstAttribute="top" secondItem="hji-RT-drH" secondAttribute="bottom" constant="34" id="jgN-l2-OiF"/>
+                            <constraint firstItem="esa-7e-4tx" firstAttribute="top" secondItem="yBW-eO-o7a" secondAttribute="bottom" constant="33" id="lC0-zZ-f3U"/>
+                            <constraint firstItem="kNz-vb-dz0" firstAttribute="leading" secondItem="zCU-hg-HWt" secondAttribute="leadingMargin" constant="-16" id="s33-iG-lVK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yBW-eO-o7a" secondAttribute="trailing" constant="32" id="xKf-BV-Gx0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="kNz-vb-dz0"/>
+                                <exclude reference="yBW-eO-o7a"/>
+                                <exclude reference="esa-7e-4tx"/>
+                                <exclude reference="hji-RT-drH"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="R30-iE-aXE"/>
+                                <exclude reference="ZYl-zd-peB"/>
+                                <exclude reference="a9q-Fy-tBb"/>
+                                <exclude reference="s33-iG-lVK"/>
+                                <exclude reference="5W6-oY-KBI"/>
+                                <exclude reference="CLx-uu-NXu"/>
+                                <exclude reference="bzg-Vk-t45"/>
+                                <exclude reference="5us-t8-Fzf"/>
+                                <exclude reference="jgN-l2-OiF"/>
+                                <exclude reference="xKf-BV-Gx0"/>
+                                <exclude reference="F5n-xm-EVz"/>
+                                <exclude reference="GCY-x7-jXi"/>
+                                <exclude reference="lC0-zZ-f3U"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="kNz-vb-dz0"/>
+                                <include reference="yBW-eO-o7a"/>
+                                <include reference="esa-7e-4tx"/>
+                                <include reference="hji-RT-drH"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="R30-iE-aXE"/>
+                                <include reference="ZYl-zd-peB"/>
+                                <include reference="a9q-Fy-tBb"/>
+                                <include reference="s33-iG-lVK"/>
+                                <include reference="5W6-oY-KBI"/>
+                                <include reference="CLx-uu-NXu"/>
+                                <include reference="bzg-Vk-t45"/>
+                                <include reference="5us-t8-Fzf"/>
+                                <include reference="jgN-l2-OiF"/>
+                                <include reference="xKf-BV-Gx0"/>
+                                <include reference="F5n-xm-EVz"/>
+                                <include reference="GCY-x7-jXi"/>
+                                <include reference="lC0-zZ-f3U"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search Menu" id="oxK-mQ-ls0">
+                        <barButtonItem key="rightBarButtonItem" title="Login" id="hDb-Lf-Kg6">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="show" id="nRz-mN-BOO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjU-0s-EpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948.5" y="2189"/>
+        </scene>
         <!--Restaurant Results-->
         <scene sceneID="8PF-0H-L2X">
             <objects>
@@ -1891,7 +2056,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8HV-Qn-njx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2074" y="1861"/>
+            <point key="canvasLocation" x="2991" y="1861"/>
         </scene>
         <!--Search Events-->
         <scene sceneID="6qX-9a-jyf">
@@ -2099,7 +2264,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIE-SZ-KmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2776.5" y="1861"/>
+            <point key="canvasLocation" x="3694.5" y="1861"/>
         </scene>
         <!--Favorite Places-->
         <scene sceneID="EPr-yK-X6L">
@@ -2148,7 +2313,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooz-cK-tRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4395" y="2090"/>
+            <point key="canvasLocation" x="5313" y="2090"/>
         </scene>
         <!--Places to Visit-->
         <scene sceneID="nuW-ND-8f9">
@@ -2197,7 +2362,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCF-HZ-DfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5693" y="2183"/>
+            <point key="canvasLocation" x="6610.5" y="2183"/>
         </scene>
         <!--Web Browser-->
         <scene sceneID="elL-Ym-UUb">
@@ -2334,7 +2499,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdd-XS-FZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9549" y="1561"/>
+            <point key="canvasLocation" x="10467" y="1561"/>
         </scene>
         <!--Vegan Resources-->
         <scene sceneID="Oqb-MH-MqS">
@@ -2366,7 +2531,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9R-gP-rSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7080" y="2187"/>
+            <point key="canvasLocation" x="7998" y="2187"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lFE-29-qVU">
@@ -2379,10 +2544,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="aJm-pL-VaD" kind="relationship" relationship="viewControllers" id="xdu-Ok-u3t"/>
-                        <segue destination="6sE-5Y-Bo3" kind="relationship" relationship="viewControllers" id="lo8-QE-TTz"/>
-                        <segue destination="QlO-2B-67S" kind="relationship" relationship="viewControllers" id="ivy-C5-lnZ"/>
-                        <segue destination="fZb-xI-tWK" kind="relationship" relationship="viewControllers" id="u3f-bq-R9L"/>
+                        <segue destination="U9r-ya-k2O" kind="relationship" relationship="viewControllers" id="jQz-tO-34Y"/>
+                        <segue destination="6sE-5Y-Bo3" kind="relationship" relationship="viewControllers" id="0Tu-33-O8K"/>
+                        <segue destination="QlO-2B-67S" kind="relationship" relationship="viewControllers" id="ya7-mR-pg6"/>
+                        <segue destination="fZb-xI-tWK" kind="relationship" relationship="viewControllers" id="uRf-ng-RXJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wn-Cc-VSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2424,7 +2589,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGh-AM-kkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3583" y="2090"/>
+            <point key="canvasLocation" x="4500" y="2090"/>
         </scene>
         <!--Places Nav-->
         <scene sceneID="gu1-HR-Oz1">
@@ -2443,7 +2608,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2A-3v-4ZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4881" y="2183"/>
+            <point key="canvasLocation" x="5799" y="2183"/>
         </scene>
         <!--Search-->
         <scene sceneID="Gdu-6f-mfM">
@@ -2499,7 +2664,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZI-Wx-iQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6268" y="2187"/>
+            <point key="canvasLocation" x="7185" y="2187"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="idd-jn-7Ac">
@@ -2523,6 +2688,7 @@
         <scene sceneID="1Yv-U8-gtl">
             <objects>
                 <navigationController title="Search Events Nav" automaticallyAdjustsScrollViewInsets="NO" id="d41-bJ-Mli" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="SearchButton" id="TTj-Sw-5xO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xr1-EG-1T6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2537,14 +2703,36 @@
             </objects>
             <point key="canvasLocation" x="4693" y="775"/>
         </scene>
+        <!--Search-->
+        <scene sceneID="5cc-Nx-sah">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U9r-ya-k2O" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="SearchIcon" id="yqV-F6-8Am" userLabel="Search"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ED-gN-d3h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fAo-9k-gNV" kind="relationship" relationship="rootViewController" id="FAP-bi-bnA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhh-vS-pLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1030.5" y="2189"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AddCommentButton" width="70" height="70"/>
         <image name="Background1" width="320" height="480"/>
         <image name="Background2" width="320" height="480"/>
+        <image name="Background3" width="320" height="480"/>
+        <image name="BeverageSearchButton" width="304" height="77"/>
         <image name="CallButton" width="70" height="70"/>
         <image name="CreateNewAcctButton" width="138" height="28"/>
         <image name="FavoriteButton" width="70" height="70"/>
+        <image name="FindRestaurantButton" width="304" height="77"/>
         <image name="ForgotPasswordButton" width="112" height="28"/>
         <image name="HeartIcon" width="25" height="25"/>
         <image name="LoginButton" width="172" height="30"/>
@@ -2553,14 +2741,18 @@
         <image name="OkButton" width="172" height="30"/>
         <image name="PlacesButton" width="70" height="70"/>
         <image name="SearchButton" width="101" height="101"/>
+        <image name="SearchEventsButton" width="304" height="77"/>
         <image name="SearchIcon" width="25" height="25"/>
         <image name="TwitterButton" width="70" height="70"/>
         <image name="VeganIcon" width="25" height="25"/>
         <image name="WebsiteButton" width="70" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xMA-oN-JMc"/>
-        <segue reference="lRY-DY-0FG"/>
+        <segue reference="hwU-nc-hM3"/>
+        <segue reference="nRz-mN-BOO"/>
+        <segue reference="Qcv-nR-1TP"/>
+        <segue reference="fQ4-AE-5a6"/>
         <segue reference="bwe-xQ-Z5M"/>
+        <segue reference="xMA-oN-JMc"/>
     </inferredMetricsTieBreakers>
 </document>

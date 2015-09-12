@@ -43,6 +43,7 @@
 		0E749FF71B9FB74400F63771 /* RestaurantResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E749FF61B9FB74400F63771 /* RestaurantResultCell.m */; };
 		0E749FFA1BA2766F00F63771 /* EventResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E749FF91BA2766F00F63771 /* EventResultCell.m */; };
 		0E749FFC1BA3C46E00F63771 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E749FFB1BA3C46E00F63771 /* MapKit.framework */; };
+		0E749FFF1BA471F600F63771 /* SearchMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E749FFE1BA471F600F63771 /* SearchMenuVC.m */; };
 		0ED7BA021B856F5C0038EF3A /* RestaurantDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */; };
 		0ED7BA051B856F6E0038EF3A /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA041B856F6E0038EF3A /* EventDetailVC.m */; };
 		0ED7BA0E1B85736B0038EF3A /* MainMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA0D1B85736B0038EF3A /* MainMenuTVC.m */; };
@@ -121,6 +122,8 @@
 		0E749FF81BA2766F00F63771 /* EventResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventResultCell.h; sourceTree = "<group>"; };
 		0E749FF91BA2766F00F63771 /* EventResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResultCell.m; sourceTree = "<group>"; };
 		0E749FFB1BA3C46E00F63771 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0E749FFD1BA471F600F63771 /* SearchMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchMenuVC.h; sourceTree = "<group>"; };
+		0E749FFE1BA471F600F63771 /* SearchMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchMenuVC.m; sourceTree = "<group>"; };
 		0ED7BA001B856F5C0038EF3A /* RestaurantDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailVC.h; sourceTree = "<group>"; };
 		0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailVC.m; sourceTree = "<group>"; };
 		0ED7BA031B856F6E0038EF3A /* EventDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailVC.h; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 				0E749FF61B9FB74400F63771 /* RestaurantResultCell.m */,
 				0E749FF81BA2766F00F63771 /* EventResultCell.h */,
 				0E749FF91BA2766F00F63771 /* EventResultCell.m */,
+				0E749FFD1BA471F600F63771 /* SearchMenuVC.h */,
+				0E749FFE1BA471F600F63771 /* SearchMenuVC.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				0E03CDAC1B8BF57000CEE251 /* CommentCell.m in Sources */,
 				0E6232B31B8423AC00562474 /* FindARestaurantVC.m in Sources */,
 				0ED7BA1D1B869F390038EF3A /* PlacesToVisitTVC.m in Sources */,
+				0E749FFF1BA471F600F63771 /* SearchMenuVC.m in Sources */,
 				0E6232AD1B8416D300562474 /* CreateNewAcctVC.m in Sources */,
 				0ED7BA141B8573A90038EF3A /* EventResultsTVC.m in Sources */,
 				0E749FF71B9FB74400F63771 /* RestaurantResultCell.m in Sources */,
