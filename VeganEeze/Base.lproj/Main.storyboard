@@ -1270,7 +1270,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="sf1-14-qRg" kind="show" identifier="segueToWebBrowser" id="bwe-xQ-Z5M"/>
+                                    <segue destination="sf1-14-qRg" kind="show" identifier="restaurantWebsiteSegue" id="bwe-xQ-Z5M"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnH-Aw-91n">
@@ -1402,7 +1402,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="addNewComment:" destination="MIn-9F-pad" eventType="touchUpInside" id="AeI-NK-Vik"/>
+                                    <segue destination="sf1-14-qRg" kind="show" identifier="addCommentSegue" id="BYV-JV-fcT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Red-Ot-mF7">
@@ -2952,9 +2952,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="hwU-nc-hM3"/>
         <segue reference="xMA-oN-JMc"/>
-        <segue reference="sCp-Sf-fL5"/>
         <segue reference="nRz-mN-BOO"/>
         <segue reference="Qcv-nR-1TP"/>
         <segue reference="fQ4-AE-5a6"/>
+        <segue reference="BYV-JV-fcT"/>
     </inferredMetricsTieBreakers>
 </document>

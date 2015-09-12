@@ -200,10 +200,28 @@
 //Segue method to pass information to detail view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    //Access the web view
-    WebVC *webVC = segue.destinationViewController;
-    //Pass restaurant's URL to web view
-    webVC.websiteStr = restaurantURL;
+    if ([segue.identifier isEqualToString:@"restaurantWebsiteSegue"]) {
+        //Access the web view
+        WebVC *webVC = segue.destinationViewController;
+        //Pass restaurant's URL to web view
+        webVC.websiteStr = restaurantURL;
+    }
+    
+    if ([segue.identifier isEqualToString:@"addCommentSegue"]) {
+        //Get string for Reviews URI
+        NSString *addressForReviews = currentRestaurant.reviewsURI;
+        
+        //Remove last character "s" from url string
+        NSString *partialURL = [addressForReviews substringToIndex:[addressForReviews length]-1];
+        
+        //Add on "_form"
+        NSString *writeReviewURL = [partialURL stringByAppendingString:@"_form"];
+        
+        //Launch web view with above URL
+        WebVC *webVC = segue.destinationViewController;
+        //Pass url to web view
+        webVC.websiteStr = writeReviewURL;
+    }
     
 }
 
@@ -366,16 +384,16 @@
     return commentsCell;
 }
 
-//Method to add new comment
--(IBAction)addNewComment:(id)sender {
-    
-    //Show alert with text input for user to enter their comment
-    UIAlertView *newComment = [[UIAlertView alloc]initWithTitle:@"Add new comment" message:@"Enter comment below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
-    //Set style to allow text input
-    newComment.alertViewStyle = UIAlertViewStylePlainTextInput;
-    //Show alert
-    [newComment show];
-}
+////Method to add new comment
+//-(IBAction)addNewComment:(id)sender {
+//    
+//    //Show alert with text input for user to enter their comment
+//    UIAlertView *newComment = [[UIAlertView alloc]initWithTitle:@"Add new comment" message:@"Enter comment below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+//    //Set style to allow text input
+//    newComment.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    //Show alert
+//    [newComment show];
+//}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     //User clicked submit button
