@@ -2521,7 +2521,7 @@
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Saved Item Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2K-5C-MA1">
                                 <rect key="frame" x="39" y="20" width="523" height="30"/>
-                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2581,7 +2581,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nKS-hy-Qhn" firstAttribute="top" secondItem="v2K-5C-MA1" secondAttribute="bottom" constant="35" id="2iO-RK-1c3"/>
+                            <constraint firstItem="nKS-hy-Qhn" firstAttribute="top" secondItem="v2K-5C-MA1" secondAttribute="bottom" constant="35" id="2iO-RK-1c3">
+                                <variation key="widthClass=compact" constant="41"/>
+                            </constraint>
                             <constraint firstItem="ZIR-yz-fpY" firstAttribute="top" secondItem="nKS-hy-Qhn" secondAttribute="bottom" constant="21" id="7kp-HN-cgB"/>
                             <constraint firstItem="v2K-5C-MA1" firstAttribute="leading" secondItem="kVb-iT-eZP" secondAttribute="leadingMargin" constant="23" id="9fF-tW-fIu"/>
                             <constraint firstItem="pTa-K2-591" firstAttribute="leading" secondItem="kVb-iT-eZP" secondAttribute="leadingMargin" id="BNf-qn-UcP"/>
@@ -2596,7 +2598,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="v2K-5C-MA1" secondAttribute="trailing" constant="22" id="oCh-FI-fOe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZIR-yz-fpY" secondAttribute="trailing" constant="22" id="swd-YV-4Nw"/>
                             <constraint firstItem="i0l-fO-OQG" firstAttribute="top" secondItem="Nmb-YR-fkH" secondAttribute="bottom" constant="23" id="xil-qp-CsS"/>
-                            <constraint firstItem="pTa-K2-591" firstAttribute="top" secondItem="v2K-5C-MA1" secondAttribute="bottom" constant="35" id="yEZ-bh-XMW"/>
+                            <constraint firstItem="pTa-K2-591" firstAttribute="top" secondItem="v2K-5C-MA1" secondAttribute="bottom" constant="35" id="yEZ-bh-XMW">
+                                <variation key="widthClass=compact" constant="41"/>
+                            </constraint>
                             <constraint firstItem="Nmb-YR-fkH" firstAttribute="leading" secondItem="kVb-iT-eZP" secondAttribute="leadingMargin" id="yZQ-ua-wbh"/>
                         </constraints>
                         <variation key="default">
