@@ -48,21 +48,37 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
-    if ([identifier isEqualToString:@"segueToLogin"]) {
-        //Check button text
+    if ([sender tag] == 1) {
+        //Login/logout button was pressed
+        
         if ([self.navigationItem.rightBarButtonItem.title isEqualToString:@"Login"]) {
             return YES;
-            
         } else {
-            
             //Call method to log user out
             [self logoutFromApp];
             
             return NO;
         }
+        
     } else {
         return YES;
     }
+    
+//    if ([identifier isEqualToString:@"segueToLogin"]) {
+//        //Check button text
+//        if ([self.navigationItem.rightBarButtonItem.title isEqualToString:@"Login"]) {
+//            return YES;
+//            
+//        } else {
+//            
+//            //Call method to log user out
+//            [self logoutFromApp];
+//            
+//            return NO;
+//        }
+//    } else {
+//        return YES;
+//    }
     
 }
 

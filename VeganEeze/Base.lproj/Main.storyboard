@@ -1953,7 +1953,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Search Menu" id="oxK-mQ-ls0">
-                        <barButtonItem key="rightBarButtonItem" title="Login" id="hDb-Lf-Kg6">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Login" id="hDb-Lf-Kg6">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="show" id="nRz-mN-BOO"/>
                             </connections>
