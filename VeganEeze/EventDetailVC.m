@@ -26,6 +26,9 @@
     
     appKey = @"&app_key=VrdtgSDWhZCHjRcK";
     
+    //oAuth Consumer Key: 89e18842c631e5dd0299
+    //oAuth Consumer Secret: f201721a9b14deb66546
+    
     //Setup array for usernames
     //usernames = [[NSMutableArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
     
@@ -434,31 +437,59 @@
 //Method to add new comment
 -(IBAction)addNewComment:(id)sender {
     
-    //Show alert with text input for user to enter their comment
-    UIAlertView *newComment = [[UIAlertView alloc]initWithTitle:@"Add new comment" message:@"Enter comment below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
-    //Set style to allow text input
-    newComment.alertViewStyle = UIAlertViewStylePlainTextInput;
-    //Show alert
-    [newComment show];
+//    //Show alert with text input for user to enter their comment
+//    UIAlertView *newComment = [[UIAlertView alloc]initWithTitle:@"Add new comment" message:@"Enter comment below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+//    //Set style to allow text input
+//    newComment.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    //Show alert
+//    [newComment show];
+    
+    
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    //User clicked submit button
-    if (buttonIndex == 1) {
-        //Gather the comment user entered
-       // NSString *commentEntered = [[alertView textFieldAtIndex:0] text];
-        
-        //Get logged in user's username from Parse
-       // NSString *currentUsername = [PFUser currentUser].username;
-        
-//        //Add comment/username to mutable arrays
-//        [usernames addObject:currentUsername];
-//        [comments addObject:commentEntered];
-        
-        //Refresh tableview
-        [commentsTV reloadData];
-    }
-}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    //User clicked submit button
+//    if (buttonIndex == 1) {
+//        //Gather the comment user entered
+//        NSString *commentEntered = [[alertView textFieldAtIndex:0] text];
+//        //Add necessary parameters to comment for URL
+//        NSString *addCommentToURL = [NSString stringWithFormat:@"&comment=%@", commentEntered]; //Need to encoede this for URL
+//        //Encode string for URL
+//        NSString *encodedCommentForURL = [addCommentToURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]; //This is the string to add to the URL
+//        
+//        //Create URL for adding comments to an event
+//        NSString *urlPrefix = @"http://api.eventful.com/rest/events/comments/new?id=";
+//        //Append event ID# to url
+//        NSString *urlWithID = [urlPrefix stringByAppendingString:eventID];
+//        
+//        //Append comment string to url with ID
+//        NSString *urlWithIDandComment = [urlWithID stringByAppendingString:encodedCommentForURL];
+//        
+//        //Add appkey for authorization
+//        NSString *finalURLforComment = [urlWithIDandComment stringByAppendingString:appKey];
+//        NSLog(@"finalURLForComment = %@", finalURLforComment);
+//        
+//        //Create URL for API call
+//        NSURL *urlToAddReview = [[NSURL alloc]initWithString:finalURLforComment];
+//        //Set up request to send to server
+//        NSMutableURLRequest *addCommentRequest = [[NSMutableURLRequest alloc]initWithURL:urlToAddReview];
+//        if (addCommentRequest != nil) {
+//            //Set up connection to send data to server
+//            NSURLConnection *addCommentConnection = [[NSURLConnection alloc]initWithRequest:addCommentRequest delegate:self];
+//        }
+//        
+//        
+//        //Get logged in user's username from Parse
+//       // NSString *currentUsername = [PFUser currentUser].username;
+//        
+////        //Add comment/username to mutable arrays
+////        [usernames addObject:currentUsername];
+////        [comments addObject:commentEntered];
+//        
+//        //Refresh tableview
+//        [commentsTV reloadData];
+//    }
+//}
 
 #pragma mark - Reviews API calls
 
@@ -487,12 +518,20 @@
 
 //Method called when data is received
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    //Check to make sure data is valid
-    if (data != nil) {
-        //Add this data to mutableData object
-        [reviewData appendData:data];
-        
+    
+    //Check if this connection request came from the reviews request so data can be appended
+    if ([connection.originalRequest isEqual:reviewsRequest]) {
+        //Check to make sure data is valid
+        NSLog(@"connection request check worked");
+        if (data != nil) {
+            //Add this data to mutableData object
+            [reviewData appendData:data];
+            
+        }
+    } else {
+        NSLog(@"nope didn't work");
     }
+    
 }
 
 //Method called when all data from request has been retrieved
@@ -528,8 +567,8 @@
 //Method to create custom EventReview objects and initalize each object
 -(EventReview*)createEventObjects:(NSDictionary*)eventReviewDictionary {
     
-    NSString *reviewAuthor = [eventReviewDictionary valueForKey:@"user"];
-    NSString *review = [eventReviewDictionary valueForKey:@"body"];
+    NSString *reviewAuthor = [eventReviewDictionary valueForKey:@"username"];
+    NSString *review = [eventReviewDictionary valueForKey:@"text"];
     
     //Use object's custom init method to initialize object
     EventReview *newEvent = [[EventReview alloc]initWithReview:review whoWroteReview:reviewAuthor];

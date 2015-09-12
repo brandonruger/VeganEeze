@@ -747,6 +747,7 @@
                                 <connections>
                                     <action selector="addNewComment:" destination="MIn-9F-pad" eventType="touchUpInside" id="Cwq-K3-MNa"/>
                                     <action selector="addNewComment:" destination="BRz-si-Myg" eventType="touchUpInside" id="hVM-qh-c1P"/>
+                                    <segue destination="sf1-14-qRg" kind="show" id="QDr-NV-4JU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJ5-Gb-N5A">
@@ -2955,6 +2956,6 @@
         <segue reference="nRz-mN-BOO"/>
         <segue reference="Qcv-nR-1TP"/>
         <segue reference="fQ4-AE-5a6"/>
-        <segue reference="BYV-JV-fcT"/>
+        <segue reference="QDr-NV-4JU"/>
     </inferredMetricsTieBreakers>
 </document>
