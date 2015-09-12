@@ -65,18 +65,18 @@
         eventDateLabel.text = @"No date information available";
     }
     
-    if ([imageURL isEqualToString:@""]) {
-        //No images, set default image
-        eventImage.image = [UIImage imageNamed:@"VeganEeze-Logo"];
-    } else {
-        //Create URL to download event image
-        NSURL *eventImageURL = [NSURL URLWithString:imageURL];
-        NSData *eventImgData = [NSData dataWithContentsOfURL:eventImageURL];
-        //Create image from data
-        UIImage *imageForEvent = [UIImage imageWithData:eventImgData];
-        //Set image view to image
-        eventImage.image = imageForEvent;
-    }
+//    if ([imageURL isEqualToString:@""]) {
+//        //No images, set default image
+//        eventImage.image = [UIImage imageNamed:@"VeganEeze-Logo"];
+//    } else {
+//        //Create URL to download event image
+//        NSURL *eventImageURL = [NSURL URLWithString:imageURL];
+//        NSData *eventImgData = [NSData dataWithContentsOfURL:eventImageURL];
+//        //Create image from data
+//        UIImage *imageForEvent = [UIImage imageWithData:eventImgData];
+//        //Set image view to image
+//        eventImage.image = imageForEvent;
+//    }
 }
 
 @end

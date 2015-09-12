@@ -23,7 +23,7 @@
     IBOutlet UIButton *urlLabel;
     IBOutlet UILabel *phoneLabel;
     
-    IBOutlet UITextView *phoneNoTV;
+    //IBOutlet UITextView *phoneNoTV;
     IBOutlet UITextView *addressTV;
     
     IBOutlet UILabel *ratingLabel;

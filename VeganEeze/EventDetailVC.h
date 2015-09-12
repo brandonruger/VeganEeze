@@ -10,20 +10,22 @@
 #import <Parse/Parse.h>
 #import "VeganEvent.h"
 #import "EventReview.h"
+#import <MapKit/MapKit.h>
 
 @interface EventDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, NSURLConnectionDataDelegate>
 
 {
     IBOutlet UILabel *eventNameLabel;
     //IBOutlet UILabel *eventAddressLabel;
-    IBOutlet UILabel *eventCityLabel;
-    IBOutlet UILabel *eventStateLabel;
-    IBOutlet UILabel *eventZipLabel;
+//    IBOutlet UILabel *eventCityLabel;
+//    IBOutlet UILabel *eventStateLabel;
+//    IBOutlet UILabel *eventZipLabel;
     IBOutlet UIButton *eventUrlLabel;
     //IBOutlet UILabel *eventPhoneLabel;
     
     //IBOutlet UITextView *phoneNoTV;
     IBOutlet UITextView *addressTV;
+    IBOutlet MKMapView *eventMapView;
 
     
     IBOutlet UITableView *commentsTV;
@@ -31,6 +33,12 @@
 //    NSMutableArray *comments;
     
     NSMutableArray *eventReviewsArray;
+    
+    IBOutlet UILabel *priceLabel;
+    IBOutlet UITextView *eventDescTV;
+    IBOutlet UIImageView *eventImage;
+    IBOutlet UILabel *dateLabel;
+    IBOutlet UILabel *venueLabel;
     
     //IBOutlet UIButton *addNewComment;
     PFUser *currentUser;
@@ -42,6 +50,14 @@
     NSString *eventZip;
     NSString *eventURL;
     NSString *eventID;
+    NSString *eventDesc;
+    NSString *eventDate;
+    NSString *eventPrice;
+    NSString *eventVenue;
+    UIImage *eventImg;
+    
+    Float32 currentEventLat;
+    Float32 currentEventLong;
     
     NSURL *urlForReviews;
     NSMutableURLRequest *reviewsRequest;

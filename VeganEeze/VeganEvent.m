@@ -9,9 +9,9 @@
 #import "VeganEvent.h"
 
 @implementation VeganEvent
-@synthesize eventName, eventAddress, eventCity, eventState, eventZip, eventURL, eventID, eventDesc, eventImageURL, eventPrice, eventStartTime, eventVenue;
+@synthesize eventName, eventAddress, eventCity, eventState, eventZip, eventURL, eventID, eventDesc, eventImageURL, eventPrice, eventStartTime, eventVenue, latitude, longitude;
 
--(id)initWithEvent:(NSString*)nameOfEvent addressForEvent:(NSString*)addressForEvent cityOfEvent:(NSString*)cityOfEvent stateOfEvent:(NSString*)stateOfEvent zipOfEvent:(NSString*)zipOfEvent websiteForEvent:(NSString*)websiteForEvent idForEvent:(NSString*)idForEvent descOfEvent:(NSString *)descOfEvent startTime:(NSString *)startTime venue:(NSString *)venue price:(NSString *)price imageURL:(NSString *)imageURL {
+-(id)initWithEvent:(NSString*)nameOfEvent addressForEvent:(NSString*)addressForEvent cityOfEvent:(NSString*)cityOfEvent stateOfEvent:(NSString*)stateOfEvent zipOfEvent:(NSString*)zipOfEvent websiteForEvent:(NSString*)websiteForEvent idForEvent:(NSString*)idForEvent descOfEvent:(NSString *)descOfEvent startTime:(NSString *)startTime venue:(NSString *)venue price:(NSString *)price imageURL:(NSString *)imageURL eventLatitude:(Float32)eventLatitude eventLongitude:(Float32)eventLongitude{
     
     //Initalize object
     if (self = [super init]) {
@@ -28,6 +28,8 @@
         eventPrice = [price copy];
         eventStartTime = [startTime copy];
         eventVenue = [venue copy];
+        latitude = eventLatitude;
+        longitude = eventLongitude;
     }
     
     return self;

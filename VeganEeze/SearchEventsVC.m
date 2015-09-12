@@ -423,8 +423,15 @@
         
     }
     
+    //Get latitude/longitude of venue
+    Float32 eventLatitude = [[eventDictionary objectForKey:@"latitude"] floatValue];
+    Float32 eventLongitude = [[eventDictionary objectForKey:@"longitude"] floatValue];
+    NSLog(@"Latitude = %f, longitude = %f", eventLatitude, eventLongitude);
+    
+    
+    
     //Use object's custom init method to initialize object
-    VeganEvent *newEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite idForEvent:eventID descOfEvent:description startTime:startTime venue:venue price:price imageURL:singleImg];
+    VeganEvent *newEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite idForEvent:eventID descOfEvent:description startTime:startTime venue:venue price:price imageURL:singleImg eventLatitude:eventLatitude eventLongitude:eventLongitude];
     
     return newEvent;
 }

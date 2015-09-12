@@ -42,6 +42,7 @@
 		0E7053B31B97BF8F008518A1 /* RestaurantReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053B21B97BF8F008518A1 /* RestaurantReview.m */; };
 		0E749FF71B9FB74400F63771 /* RestaurantResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E749FF61B9FB74400F63771 /* RestaurantResultCell.m */; };
 		0E749FFA1BA2766F00F63771 /* EventResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E749FF91BA2766F00F63771 /* EventResultCell.m */; };
+		0E749FFC1BA3C46E00F63771 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E749FFB1BA3C46E00F63771 /* MapKit.framework */; };
 		0ED7BA021B856F5C0038EF3A /* RestaurantDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */; };
 		0ED7BA051B856F6E0038EF3A /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA041B856F6E0038EF3A /* EventDetailVC.m */; };
 		0ED7BA0E1B85736B0038EF3A /* MainMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA0D1B85736B0038EF3A /* MainMenuTVC.m */; };
@@ -119,6 +120,7 @@
 		0E749FF61B9FB74400F63771 /* RestaurantResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantResultCell.m; sourceTree = "<group>"; };
 		0E749FF81BA2766F00F63771 /* EventResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventResultCell.h; sourceTree = "<group>"; };
 		0E749FF91BA2766F00F63771 /* EventResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResultCell.m; sourceTree = "<group>"; };
+		0E749FFB1BA3C46E00F63771 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0ED7BA001B856F5C0038EF3A /* RestaurantDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailVC.h; sourceTree = "<group>"; };
 		0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailVC.m; sourceTree = "<group>"; };
 		0ED7BA031B856F6E0038EF3A /* EventDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailVC.h; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E749FFC1BA3C46E00F63771 /* MapKit.framework in Frameworks */,
 				0E17C83A1B88CED00088C466 /* libsqlite3.dylib in Frameworks */,
 				0E17C8381B88CEC20088C466 /* libz.dylib in Frameworks */,
 				0E17C8361B88CEBA0088C466 /* SystemConfiguration.framework in Frameworks */,
@@ -174,6 +177,7 @@
 		0E6232791B84095E00562474 = {
 			isa = PBXGroup;
 			children = (
+				0E749FFB1BA3C46E00F63771 /* MapKit.framework */,
 				0E17C8391B88CED00088C466 /* libsqlite3.dylib */,
 				0E17C8371B88CEC20088C466 /* libz.dylib */,
 				0E17C8351B88CEBA0088C466 /* SystemConfiguration.framework */,

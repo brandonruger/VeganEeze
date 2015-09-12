@@ -25,8 +25,10 @@
 @property (nonatomic, strong) NSString *eventVenue;
 @property (nonatomic, strong) NSString *eventPrice;
 @property (nonatomic, strong) NSString *eventImageURL;
+@property (nonatomic) Float32 latitude;
+@property (nonatomic) Float32 longitude;
 
 
--(id)initWithEvent:(NSString*)nameOfEvent addressForEvent:(NSString*)addressForEvent cityOfEvent:(NSString*)cityOfEvent stateOfEvent:(NSString*)stateOfEvent zipOfEvent:(NSString*)zipOfEvent websiteForEvent:(NSString*)websiteForEvent idForEvent:(NSString*)idForEvent descOfEvent:(NSString*)descOfEvent startTime:(NSString*)startTime venue:(NSString*)venue price:(NSString*)price imageURL:(NSString*)imageURL;
+-(id)initWithEvent:(NSString*)nameOfEvent addressForEvent:(NSString*)addressForEvent cityOfEvent:(NSString*)cityOfEvent stateOfEvent:(NSString*)stateOfEvent zipOfEvent:(NSString*)zipOfEvent websiteForEvent:(NSString*)websiteForEvent idForEvent:(NSString*)idForEvent descOfEvent:(NSString*)descOfEvent startTime:(NSString*)startTime venue:(NSString*)venue price:(NSString*)price imageURL:(NSString*)imageURL eventLatitude:(Float32)eventLatitude eventLongitude:(Float32)eventLongitude;
 
 @end

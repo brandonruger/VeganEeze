@@ -97,6 +97,57 @@
     eventState = currentEvent.eventState;
     eventZip = currentEvent.eventZip;
     
+    eventDesc = currentEvent.eventDesc;
+    eventVenue = currentEvent.eventVenue;
+    eventPrice = currentEvent.eventPrice;
+    
+    
+    
+    
+    
+    //Date
+    eventDate = currentEvent.eventStartTime;
+    
+    if (eventDate != nil) {
+        
+        NSLog(@"date = %@", eventDate);
+        
+        //Trim off time from string
+        eventDate = [eventDate substringToIndex:10];
+        NSLog(@"date = %@", eventDate);
+        
+        NSDateFormatter *formatForDate = [[NSDateFormatter alloc]init];
+        [formatForDate setDateFormat: @"yyyy-MM-dd"];
+        NSDate *currentEventDate = [formatForDate dateFromString:eventDate];
+        NSLog(@"currentEventDate = %@", currentEventDate);
+        
+        [formatForDate setDateFormat:@"MM-dd-yyyy"];
+        
+        NSString *dateString = [formatForDate stringFromDate:currentEventDate];
+        NSLog(@"dateString = %@", dateString);
+        
+        //Set date label to date above
+        dateLabel.text = dateString;
+    } else {
+        dateLabel.text = @"Date unknown";
+    }
+    
+    //Image
+    NSString *imageURL = currentEvent.eventImageURL;
+    if ([imageURL isEqualToString:@""]) {
+        //No images, set default image
+        eventImage.image = [UIImage imageNamed:@"VeganEeze-Logo"];
+    } else {
+        //Create URL to download event image
+        NSURL *eventImageURL = [NSURL URLWithString:imageURL];
+        NSData *eventImgData = [NSData dataWithContentsOfURL:eventImageURL];
+        //Create image from data
+        UIImage *imageForEvent = [UIImage imageWithData:eventImgData];
+        //Set image view to image
+        eventImage.image = imageForEvent;
+    }
+    
+    //Format address
     NSString *completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", eventAddress, eventCity, eventState, eventZip];
     
     //NSString *ratingLabelStr = @"Rating: ";
@@ -111,6 +162,19 @@
     //Set labels to display information
     eventNameLabel.text = eventName;
     addressTV.text = completeAddress;
+    priceLabel.text = eventPrice;
+    venueLabel.text = eventVenue;
+    eventDescTV.text = eventDesc;
+    
+    //Latitude/Longitude
+    currentEventLat = currentEvent.latitude;
+    currentEventLong = currentEvent.longitude;
+    
+    NSLog(@"lat= %f, long= %f", currentEventLat, currentEventLong);
+    
+    //Call method to focus map view
+    [self focusMapView];
+    
 //    eventCityLabel.text = eventCity;
 //    eventStateLabel.text = eventState;
 //    eventZipLabel.text = eventZip;
@@ -124,6 +188,29 @@
     //Set phone # to appear in text view
     //phoneNoTV.text = eventPhoneNo;
     
+}
+
+#pragma mark - Map View
+-(void)focusMapView {
+    
+    //Set coordinates where map should focus
+    CLLocationCoordinate2D eventVenueFocus = CLLocationCoordinate2DMake(currentEventLat, currentEventLong);
+    
+    //Set zoom span for each direction
+    MKCoordinateSpan zoomSpanForMap;
+    zoomSpanForMap.latitudeDelta = 1.0f;
+    zoomSpanForMap.longitudeDelta = 1.0f;
+    //Set these spans on map view
+    eventMapView.region = MKCoordinateRegionMake(eventVenueFocus, zoomSpanForMap);
+    
+    //Add pin to map for venue
+    MKPointAnnotation *venuePin = [[MKPointAnnotation alloc]init];
+    //Set coordinate
+    venuePin.coordinate = CLLocationCoordinate2DMake(currentEventLat, currentEventLong);
+    //Title for pin
+    venuePin.title = eventVenue;
+    //Add pin to map
+    [eventMapView addAnnotation:venuePin];
 }
 
 #pragma mark - Navigation
