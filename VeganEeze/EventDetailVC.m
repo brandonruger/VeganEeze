@@ -270,42 +270,137 @@
 
 //Method to save favorite places to Parse
 -(IBAction)saveFavoritePlace:(id)sender {
-    //Gather data for current restaurant and save as a favoritePlace Parse object
-    PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
-    favoritePlace[@"name"] = eventName;
-    favoritePlace[@"address"] = eventAddress;
-    favoritePlace[@"city"] = eventCity;
-    favoritePlace[@"state"] = eventState;
-    favoritePlace[@"zip"] = eventZip;
-    //favoritePlace[@"phoneNo"] = eventPhoneNo;
-    favoritePlace[@"url"] = eventURL;
-    //Restrict data to this user only
-    favoritePlace.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-
+//    //Gather data for current restaurant and save as a favoritePlace Parse object
+//    PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
+//    favoritePlace[@"name"] = eventName;
+//    favoritePlace[@"address"] = eventAddress;
+//    favoritePlace[@"city"] = eventCity;
+//    favoritePlace[@"state"] = eventState;
+//    favoritePlace[@"zip"] = eventZip;
+//    //favoritePlace[@"phoneNo"] = eventPhoneNo;
+//    favoritePlace[@"url"] = eventURL;
+//    favoritePlace[@"description"] = eventDesc;
+//    //Restrict data to this user only
+//    favoritePlace.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//
+//    
+//    //Save in background on Parse server
+//    [favoritePlace saveInBackground];
     
-    //Save in background on Parse server
-    [favoritePlace saveInBackground];
+    //Check if user is logged in
+    PFUser *loggedInUser = [PFUser currentUser];
+    if (loggedInUser) {
+        //User is logged in
+        //Gather data for current restaurant and save as a favoritePlace Parse object
+        PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
+        
+        if (eventName != nil) {
+            favoritePlace[@"name"] = eventName;
+            
+        }
+        if (eventAddress != nil) {
+            favoritePlace[@"address"] = eventAddress;
+            
+        }
+        if (eventCity != nil) {
+            favoritePlace[@"city"] = eventCity;
+            
+        }
+        //    favoritePlace[@"state"] = restaurantState;
+        //    favoritePlace[@"zip"] = currentRestaurantZip;
+        if (eventURL != nil) {
+            favoritePlace[@"url"] = eventURL;
+            
+        }
+        
+        if (eventDesc != nil) {
+            favoritePlace[@"description"] = eventDesc;
+            
+        }
+        //Restrict data to this user only
+        favoritePlace.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+        
+        //Save in background on Parse server
+        [favoritePlace saveInBackground];
+        //Alert user
+        UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Favorite saved" message:@"This restaurant has been saved to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [savedAlert show];
+        
+    } else {
+        //Not logged in, alert user
+        //User is not logged in, alert user
+        UIAlertView *notLoggedIn = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [notLoggedIn show];
+    }
+
 }
 
 
 //Method to save places to visit to Parse
 -(IBAction)savePlaceToVisit:(id)sender {
-    //Gather data for current restaurant and save as a placeToVisit Parse object
-    PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
-    placeToVisit[@"name"] = eventName;
-    placeToVisit[@"address"] = eventAddress;
-    placeToVisit[@"city"] = eventCity;
-    placeToVisit[@"state"] = eventState;
-    placeToVisit[@"zip"] = eventZip;
-    //placeToVisit[@"cityState"] = eventCityState;
-    //placeToVisit[@"phoneNo"] = eventPhoneNo;
-    placeToVisit[@"url"] = eventURL;
-    //Restrict data to this user only
-    placeToVisit.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-
+//    //Gather data for current restaurant and save as a placeToVisit Parse object
+//    PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
+//    placeToVisit[@"name"] = eventName;
+//    placeToVisit[@"address"] = eventAddress;
+//    placeToVisit[@"city"] = eventCity;
+//    placeToVisit[@"state"] = eventState;
+//    placeToVisit[@"zip"] = eventZip;
+//    //placeToVisit[@"cityState"] = eventCityState;
+//    //placeToVisit[@"phoneNo"] = eventPhoneNo;
+//    placeToVisit[@"url"] = eventURL;
+//    placeToVisit[@"description"] = eventDesc;
+//    //Restrict data to this user only
+//    placeToVisit.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//
+//    
+//    //Save in background on Parse server
+//    [placeToVisit saveInBackground];
     
-    //Save in background on Parse server
-    [placeToVisit saveInBackground];
+    //Make sure user is logged in
+    PFUser *loggedInUser = [PFUser currentUser];
+    if (loggedInUser) {
+        //User is logged in
+        //Gather data for current restaurant and save as a placeToVisit Parse object
+        PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
+        
+        if (eventName != nil) {
+            placeToVisit[@"name"] = eventName;
+        }
+        if (eventAddress != nil) {
+            placeToVisit[@"address"] = eventAddress;
+            
+        }
+        if (eventCity != nil) {
+            placeToVisit[@"city"] = eventCity;
+            
+        }
+        //    placeToVisit[@"state"] = restaurantState;
+        //    placeToVisit[@"zip"] = currentRestaurantZip;
+
+        if (eventURL != nil) {
+            placeToVisit[@"url"] = eventURL;
+            
+        }
+        if (eventDesc != nil) {
+            placeToVisit[@"description"] = eventDesc;
+            
+        }
+        //Restrict data to this user only
+        placeToVisit.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+        
+        
+        //Save in background on Parse server
+        [placeToVisit saveInBackground];
+        //Alert user
+        UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Place saved" message:@"This restaurant has been saved to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [savedAlert show];
+        
+    } else {
+        //User is not logged in, alert user
+        UIAlertView *notLoggedIn = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [notLoggedIn show];
+    }
+
 }
 
 #pragma mark - Comments/Ratings

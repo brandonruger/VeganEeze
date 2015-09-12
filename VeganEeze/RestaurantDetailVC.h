@@ -48,6 +48,7 @@
     NSString *restaurantAddress;
     NSString *restaurantCity;
     NSString *restaurantState;
+    NSString *completeAddress;
     //NSString *restaurantZip;
     NSString *currentRestaurantZip;
     NSString *restaurantURL;

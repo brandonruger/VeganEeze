@@ -14,7 +14,7 @@
 {
     NSMutableArray *parseFavorites;
     NSMutableArray *placeName;
-    NSMutableArray *placeCityState;
+    NSMutableArray *placeCity;
     NSMutableArray *objectIDs;
     
     IBOutlet UITableView *placesTableView;

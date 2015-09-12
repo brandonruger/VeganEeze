@@ -37,7 +37,7 @@
         //Initialize mutable array
         parseFavorites = [[NSMutableArray alloc]init];
         placeName = [[NSMutableArray alloc]init];
-        placeCityState = [[NSMutableArray alloc]init];
+        placeCity = [[NSMutableArray alloc]init];
         objectIDs = [[NSMutableArray alloc]init];
         
         //Call method to retrieve objects from Parse server
@@ -75,7 +75,7 @@
         
         //Set cell labels to items stored in mutable arrays
         resultsCell.textLabel.text = [placeName objectAtIndex:indexPath.row];
-        resultsCell.detailTextLabel.text = [placeCityState objectAtIndex:indexPath.row];
+        resultsCell.detailTextLabel.text = [placeCity objectAtIndex:indexPath.row];
     }
     
     //Alternate color for every other row
@@ -112,8 +112,8 @@
                 
                 //Get name of place from object
                 NSString *favoritePlaceName = object[@"name"];
-                //Get city/state of place from object
-                NSString *favoritePlaceCityState = object[@"cityState"];
+                //Get city of place from object
+                NSString *favoritePlaceCity = object[@"city"];
                 //Get object ID
                 NSString *objectID = object.objectId;
                 
@@ -122,8 +122,8 @@
                 
                 //Add place names to array
                 [placeName addObject:favoritePlaceName];
-                //Add city/state to array
-                [placeCityState addObject:favoritePlaceCityState];
+                //Add city to array
+                [placeCity addObject:favoritePlaceCity];
                 //Add object ID to array
                 [objectIDs addObject:objectID];
             }

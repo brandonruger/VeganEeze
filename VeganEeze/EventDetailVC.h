@@ -56,6 +56,8 @@
     NSString *eventVenue;
     UIImage *eventImg;
     
+    //NSString *completeAddress;
+    
     Float32 currentEventLat;
     Float32 currentEventLong;
     

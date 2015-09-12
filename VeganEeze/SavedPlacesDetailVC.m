@@ -36,21 +36,29 @@
             //Get strings out of object
             nameOfPlace = savedPlace[@"name"];
             addressOfPlace = savedPlace[@"address"];
-            cityStateOfPlace = savedPlace[@"cityState"];
+            //cityStateOfPlace = savedPlace[@"cityState"];
             urlOfPlace = savedPlace[@"url"];
             phoneNoOfPlace = savedPlace[@"phoneNo"];
+            description = savedPlace[@"description"];
             
             //Set text labels to above object
             nameLabel.text = nameOfPlace;
+            //addressTV.text = addressOfPlace;
+            descriptionTV.text = description;
+            //cityStateLabel.text = cityStateOfPlace;
+            //phoneLabel.text = phoneNoOfPlace;
             addressTV.text = addressOfPlace;
-            cityStateLabel.text = cityStateOfPlace;
-            phoneLabel.text = phoneNoOfPlace;
+            
+//            //Format address for textview
+//            completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
+//            //Set textview to display address
+//            addressTV.text = completeAddress;
             
             //Set button text
             [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
             
             //Set phone # to appear in text view
-            phoneNoTV.text = phoneNoOfPlace;
+            //phoneNoTV.text = phoneNoOfPlace;
             
         } else {
             //Run second query to check for Object ID
@@ -64,12 +72,19 @@
                     cityStateOfPlace = savedPlace[@"cityState"];
                     urlOfPlace = savedPlace[@"url"];
                     phoneNoOfPlace = savedPlace[@"phoneNo"];
+                    description = savedPlace[@"description"];
                     
                     //Set text labels to above object
                     nameLabel.text = nameOfPlace;
-                    addressTV.text = addressOfPlace;
-                    cityStateLabel.text = cityStateOfPlace;
-                    phoneLabel.text = phoneNoOfPlace;
+                    //addressTV.text = addressOfPlace;
+                    descriptionTV.text = description;
+                    //cityStateLabel.text = cityStateOfPlace;
+                    //phoneLabel.text = phoneNoOfPlace;
+                    
+                    //Format address for textview
+                    completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
+                    //Set textview to display address
+                    addressTV.text = completeAddress;
                     
                     //Set button text
                     [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
@@ -147,6 +162,16 @@
     
     //Present view to user for posting
     [self presentViewController:slComposeVC animated:TRUE completion:nil];
+}
+
+#pragma mark - Phone Dialer
+
+-(IBAction)launchPhoneDialer:(id)sender {
+    
+    //Get string for phone number and append it to tel prefix
+    NSString *phoneNum = [@"tel://" stringByAppendingString:phoneNoOfPlace];
+    //Launch phone dialer
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNum]];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
