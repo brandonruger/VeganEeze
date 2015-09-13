@@ -424,7 +424,7 @@
         
     }
     
-    if ([eventZip isEqual:[NSNull null]]) {
+    if ([eventZip isEqual:[NSNull null]] || eventZip == nil) {
         eventZip = @"";
     }
     
