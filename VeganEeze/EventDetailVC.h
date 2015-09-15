@@ -11,6 +11,7 @@
 #import "VeganEvent.h"
 #import "EventReview.h"
 #import <MapKit/MapKit.h>
+#import "RatingsVC.h"
 
 @interface EventDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, NSURLConnectionDataDelegate, MKMapViewDelegate>
 
@@ -68,6 +69,11 @@
     NSDictionary *reviewDictionary;
     NSArray *reviewsArray;
     NSString *appKey;
+    
+    NSString *rating;
+    NSString *review;
+    
+
     
 }
 

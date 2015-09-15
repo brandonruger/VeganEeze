@@ -375,6 +375,7 @@
         
         //Loop through array of events
         for (int i=0; i<[eventsRetrievedArray count]; i++) {
+            
             //Use custom method to grab each object from dictionary and add each object to mutable array
             VeganEvent *event = [self createEventObjects:[eventsRetrievedArray objectAtIndex:i]];
             if (event != nil) {

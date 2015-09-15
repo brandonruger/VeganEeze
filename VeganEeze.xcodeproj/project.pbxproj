@@ -20,6 +20,7 @@
 		0E17C8381B88CEC20088C466 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E17C8371B88CEC20088C466 /* libz.dylib */; };
 		0E17C83A1B88CED00088C466 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E17C8391B88CED00088C466 /* libsqlite3.dylib */; };
 		0E17C83D1B8911CC0088C466 /* SavedPlacesDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E17C83C1B8911CC0088C466 /* SavedPlacesDetailVC.m */; };
+		0E342ADB1BA79A8D006AEAB5 /* RatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E342ADA1BA79A8D006AEAB5 /* RatingsVC.m */; };
 		0E42C1C91B87FC7400708326 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E42C1C81B87FC7400708326 /* WebVC.m */; };
 		0E42C1CB1B88080400708326 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E42C1CA1B88080400708326 /* Accounts.framework */; };
 		0E42C1CD1B880A3F00708326 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E42C1CC1B880A3F00708326 /* Social.framework */; };
@@ -82,6 +83,8 @@
 		0E17C8391B88CED00088C466 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		0E17C83B1B8911CC0088C466 /* SavedPlacesDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedPlacesDetailVC.h; sourceTree = "<group>"; };
 		0E17C83C1B8911CC0088C466 /* SavedPlacesDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedPlacesDetailVC.m; sourceTree = "<group>"; };
+		0E342AD91BA79A8D006AEAB5 /* RatingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingsVC.h; sourceTree = "<group>"; };
+		0E342ADA1BA79A8D006AEAB5 /* RatingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingsVC.m; sourceTree = "<group>"; };
 		0E42C1C71B87FC7400708326 /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
 		0E42C1C81B87FC7400708326 /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
 		0E42C1CA1B88080400708326 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -274,6 +277,8 @@
 				0E749FFE1BA471F600F63771 /* SearchMenuVC.m */,
 				0E74A0001BA4C8BB00F63771 /* VeganResource.h */,
 				0E74A0011BA4C8BB00F63771 /* VeganResource.m */,
+				0E342AD91BA79A8D006AEAB5 /* RatingsVC.h */,
+				0E342ADA1BA79A8D006AEAB5 /* RatingsVC.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 				0ED7BA0E1B85736B0038EF3A /* MainMenuTVC.m in Sources */,
 				0E74A0021BA4C8BB00F63771 /* VeganResource.m in Sources */,
 				0E7053B01B97BA53008518A1 /* EventReview.m in Sources */,
+				0E342ADB1BA79A8D006AEAB5 /* RatingsVC.m in Sources */,
 				0E62328E1B84096000562474 /* ViewController.m in Sources */,
 				0E62328B1B84096000562474 /* AppDelegate.m in Sources */,
 				0E03CDAC1B8BF57000CEE251 /* CommentCell.m in Sources */,

@@ -13,6 +13,7 @@
 #import <Parse/Parse.h>
 #import "CommentCell.h"
 
+
 @interface EventDetailVC ()
 
 @end
@@ -25,9 +26,6 @@
     // Do any additional setup after loading the view.
     
     appKey = @"&app_key=VrdtgSDWhZCHjRcK";
-    
-    //oAuth Consumer Key: 89e18842c631e5dd0299
-    //oAuth Consumer Secret: f201721a9b14deb66546
     
     //Setup array for usernames
     //usernames = [[NSMutableArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
@@ -103,7 +101,7 @@
     eventDesc = currentEvent.eventDesc;
     eventVenue = currentEvent.eventVenue;
     eventPrice = currentEvent.eventPrice;
-    
+    eventID = currentEvent.eventID;
     
     
     
@@ -262,10 +260,20 @@
 //Segue method to pass information to detail view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    //Access the web view
-    WebVC *webVC = segue.destinationViewController;
-    //Pass restaurant's URL to web view
-    webVC.websiteStr = eventURL;
+    if ([segue.identifier isEqualToString:@"WebSegue"]) {
+        //Access the web view
+        WebVC *webVC = segue.destinationViewController;
+        //Pass restaurant's URL to web view
+        webVC.websiteStr = eventURL;
+    }
+    
+    if ([segue.identifier isEqualToString:@"RatingsSegue"]) {
+        RatingsVC *ratingsVC = segue.destinationViewController;
+        //Pass the event's ID to ratings view
+        NSLog(@"eventID = %@", eventID);
+        
+        ratingsVC.currentEventsID = eventID;
+    }
     
 }
 
@@ -437,13 +445,59 @@
 //Method to add new comment
 -(IBAction)addNewComment:(id)sender {
     
-//    //Show alert with text input for user to enter their comment
-//    UIAlertView *newComment = [[UIAlertView alloc]initWithTitle:@"Add new comment" message:@"Enter comment below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
-//    //Set style to allow text input
-//    newComment.alertViewStyle = UIAlertViewStylePlainTextInput;
-//    //Show alert
-//    [newComment show];
+    //Check if user is logged in
+    PFUser *loggedInUser = [PFUser currentUser];
+    if (loggedInUser) {
+        //User is logged in
+        //Show alert with text input for user to enter their comment
+//        UIAlertView *newComment = [[UIAlertView alloc]initWithTitle:@"Add new comment" message:@"Enter comment below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+//        //Set style to allow text input
+//        newComment.alertViewStyle = UIAlertViewStylePlainTextInput;
+//        //Show alert
+//        [newComment show];
+        
+        UIAlertController *newComment = [UIAlertController alertControllerWithTitle:@"Add new comment" message:@"Please enter comment and rating below." preferredStyle:UIAlertControllerStyleAlert];
+       
+        [newComment addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = NSLocalizedString(@"RatingPlaceholder", @"Add rating");
+        }];
+        [newComment addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = NSLocalizedString(@"CommentPlaceholder", @"Add comment");
+        }];
+        
+        UIAlertAction *submitRating = [UIAlertAction actionWithTitle:@"Save Comment" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            //Retrieve values from text fields
+            UITextField *ratingTextField = newComment.textFields.firstObject;
+            UITextField *commentTextField = newComment.textFields.lastObject;
+            
+            //Set string values to the text retrieved from the text fields
+            rating = ratingTextField.text;
+            review = commentTextField.text;
+            
+            //Call method to add rating to Parse
+            [self addUsersRating];
+        }];
+        
+        //Add action to alert controller
+        [newComment addAction:submitRating];
+        
+        
+        
+        //Show alert
+        [self presentViewController:newComment animated:YES completion:nil];
+        
+    } else {
+        //User is not logged in
+        
+    }
     
+    
+    
+    
+}
+
+//Method to store rating on Parse
+-(void)addUsersRating {
     
 }
 
@@ -575,5 +629,7 @@
     
     return newEvent;
 }
+
+
 
 @end
