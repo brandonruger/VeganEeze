@@ -20,8 +20,8 @@
     // Do any additional setup after loading the view.
     
     //Hide back button on navigation bar
-    self.navigationItem.hidesBackButton = YES;
-    self.navigationItem.leftBarButtonItem = nil;
+    //self.navigationItem.hidesBackButton = YES;
+    //self.navigationItem.leftBarButtonItem = nil;
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
