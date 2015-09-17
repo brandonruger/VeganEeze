@@ -110,52 +110,69 @@
                 }
                 
             } else {
-                //User entered new password, check to make sure both fields match
-                if ([password isEqualToString:secondPassword]) {
-                    //Both passwords match
-                    //Update user password
-                    loggedInUser.password = password;
-                    
-                    //Save updated info
-                    [loggedInUser saveInBackground];
-                    
-                    //Alert user
-                    UIAlertView *success = [[UIAlertView alloc]initWithTitle:@"Account updated" message:@"Your account has successfully been updated." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [success show];
-                    
-                    //Make sure user is logged in with current info
-                   // PFUser *logUserIn = [PFUser logInWithUsername:username password:password];
-                    
-                    //Clear text fields
-                    selectUsername.text = @"";
-                    selectPassword.text = @"";
-                    confirmPassword.text = @"";
-                    enterEmail.text = @"";
-                    
-                    //Return to main menu
-                    [self.navigationController popToRootViewControllerAnimated:TRUE];
-                    
-                } else {
-                    //Passwords do not match
-                    UIAlertView *passwordAlert = [[UIAlertView alloc]initWithTitle:@"Password Error" message:@"Both passwords must match. Please re-enter passwords and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+
+                //Make sure password is at least 6 characters
+                if (password.length < 6) {
+                    //Password is < 6 characters, alert user
+                    UIAlertView *passwordLength = [[UIAlertView alloc]initWithTitle:@"Password Length" message:@"Password must be at least 6 characters long. Please enter a new password and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [passwordLength show];
                     
                     //Clear password fields
                     selectPassword.text = @"";
                     confirmPassword.text = @"";
                     
-                    [passwordAlert show];
+                } else {
+                    
+                    //Check to make sure both fields match
+                    if ([password isEqualToString:secondPassword]) {
+                        //Both passwords match
+                        //Update user password
+                        loggedInUser.password = password;
+                        
+                        //Save updated info
+                        [loggedInUser saveInBackground];
+                        
+                        //Alert user
+                        UIAlertView *success = [[UIAlertView alloc]initWithTitle:@"Account updated" message:@"Your account has successfully been updated." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                        [success show];
+                        
+                        //Make sure user is logged in with current info
+                        // PFUser *logUserIn = [PFUser logInWithUsername:username password:password];
+                        
+                        //Clear text fields
+                        selectUsername.text = @"";
+                        selectPassword.text = @"";
+                        confirmPassword.text = @"";
+                        enterEmail.text = @"";
+                        
+                        //Return to main menu
+                        [self.navigationController popToRootViewControllerAnimated:TRUE];
+                        
+                    } else {
+                        //Passwords do not match
+                        UIAlertView *passwordAlert = [[UIAlertView alloc]initWithTitle:@"Password Error" message:@"Both passwords must match. Please re-enter passwords and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                        
+                        //Clear password fields
+                        selectPassword.text = @"";
+                        confirmPassword.text = @"";
+                        
+                        [passwordAlert show];
+                    }
+                    
+                    
                 }
-                
                 
             }
             
+            
+            
+            
         }
-        
-        
-        
-        
-    }
-    
+
+                    
+                    
+                }
+                
 //    else {
 //        //Passwords do not match, alert user
 //        //Alert user that passwords do not match
