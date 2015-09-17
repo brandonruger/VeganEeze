@@ -175,7 +175,61 @@
         NSString *emailAddressEntered = [[alertView textFieldAtIndex:0] text];
         
         //Request password reset via Parse
-        [PFUser requestPasswordResetForEmailInBackground:emailAddressEntered];
+        [PFUser requestPasswordResetForEmailInBackground:emailAddressEntered block:^(BOOL succeeded, NSError *error) {
+            
+            
+            if (succeeded) {
+                //Successful, alert user
+                UIAlertView *requestSuccess = [[UIAlertView alloc]initWithTitle:@"Success" message:@"You will receieve an email shortly with a link to reset your password." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [requestSuccess show];
+                
+            } else {
+                
+                NSInteger errorCode = [error code];
+                
+                //There was an error
+                //Invalid email
+                if (errorCode == 125) {
+                    //Alert user to try again
+                    UIAlertView *invalidEmail = [[UIAlertView alloc]initWithTitle:@"Email Error" message:@"The email address you entered is not valid, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [invalidEmail show];
+                    
+//                    //Show alert with text input for user to enter their email address
+//                    UIAlertView *forgotPassword = [[UIAlertView alloc]initWithTitle:@"Forgot Password?" message:@"Please enter your email address below to reset your password." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+//                    //Set style to allow text input
+//                    forgotPassword.alertViewStyle = UIAlertViewStylePlainTextInput;
+//                    //Show alert
+//                    [forgotPassword show];
+
+                }
+                
+                if (errorCode == 205) {
+                    //No user found
+                    UIAlertView *invalidEmail = [[UIAlertView alloc]initWithTitle:@"Email Error" message:@"No user was found with the email address you entered. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [invalidEmail show];
+                    
+//                    //Show alert with text input for user to enter their email address
+//                    UIAlertView *forgotPassword = [[UIAlertView alloc]initWithTitle:@"Forgot Password?" message:@"Please enter your email address below to reset your password." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+//                    //Set style to allow text input
+//                    forgotPassword.alertViewStyle = UIAlertViewStylePlainTextInput;
+//                    //Show alert
+//                    [forgotPassword show];
+                    
+                }
+
+                
+            }
+        }
+         
+         
+         
+         ];
+        
+        
+        
+        
+        
+        
     
     }
 }

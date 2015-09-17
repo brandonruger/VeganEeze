@@ -211,7 +211,7 @@
                                     //Invalid email
                                     if (errorCode == 125) {
                                         //Alert user to try again
-                                        UIAlertView *invalidEmail = [[UIAlertView alloc]initWithTitle:@"Email Error" message:@"The email address you entered is not valid, please try again.." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                        UIAlertView *invalidEmail = [[UIAlertView alloc]initWithTitle:@"Email Error" message:@"The email address you entered is not valid, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                                         [invalidEmail show];
                                         
                                         //Clear email field
