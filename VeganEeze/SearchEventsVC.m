@@ -360,6 +360,8 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
     dictOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
+    
+    
     //NSArray *eventsRetrieved = [dictOfJSONData objectForKey:@"events"];
     NSDictionary *eventsRetrieved = [dictOfJSONData objectForKey:@"events"];
     NSArray *eventsRetrievedArray = [eventsRetrieved valueForKey:@"event"];
@@ -370,21 +372,67 @@
         //Alert user no results were found
         UIAlertView *noResults = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No events found. Please revise your search and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [noResults show];
+        
+        
+        
     } else {
         //Results found
         
-        //Loop through array of events
-        for (int i=0; i<[eventsRetrievedArray count]; i++) {
+        if ([eventsRetrievedArray isKindOfClass:[NSArray class]]) {
             
-            //Use custom method to grab each object from dictionary and add each object to mutable array
-            VeganEvent *event = [self createEventObjects:[eventsRetrievedArray objectAtIndex:i]];
-            if (event != nil) {
-                //Add object to array
-                [eventObjects addObject:event];
+            for (int i=0; i<[eventsRetrievedArray count]; i++) {
+                
+                //Use custom method to grab each object from dictionary and add each object to mutable array
+                VeganEvent *event = [self createEventObjects:[eventsRetrievedArray objectAtIndex:i]];
+                if (event != nil) {
+                    //Add object to array
+                    [eventObjects addObject:event];
+                }
             }
+            
+       
+        } else if([eventsRetrievedArray isKindOfClass:[NSDictionary class]]){
+
+            
+            
+            
+      //  } else {
+            VeganEvent *singleEvent = [self createSingleEvent:eventsRetrievedArray];
+            if (singleEvent != nil) {
+                //Add object to array
+                [eventObjects addObject:singleEvent];
         }
         
-        EventResultsTVC *eventResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EventResultsViewController"];
+//        if ([eventsRetrievedArray valueForKey:@"venue_name"] != nil) {
+//            //Only 1 result found, create event object
+//            
+//            VeganEvent *singleEvent = [self createSingleEvent:eventsRetrievedArray];
+//            if (singleEvent != nil) {
+//                //Add object to array
+//                [eventObjects addObject:singleEvent];
+//            }
+//            
+//            
+//        } else {
+            
+            //Multiple results found
+            
+            //Loop through array of events
+//            for (int i=0; i<[eventsRetrievedArray count]; i++) {
+//                
+//                //Use custom method to grab each object from dictionary and add each object to mutable array
+//                VeganEvent *event = [self createEventObjects:[eventsRetrievedArray objectAtIndex:i]];
+//                if (event != nil) {
+//                    //Add object to array
+//                    [eventObjects addObject:event];
+//                }
+//            }
+//            
+//
+//        }
+        }
+        
+                EventResultsTVC *eventResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EventResultsViewController"];
         //Pass the array of VeganEvent objects to the Results view controller
         eventResultsTVC.arrayOfEvents = eventObjects;
         //Instantiate new view controller
@@ -442,5 +490,51 @@
     return newEvent;
 }
 
+-(VeganEvent*)createSingleEvent:(NSArray*)singleEventArray {
+    NSString *eventName = [singleEventArray valueForKey:@"title"];
+    NSLog(@"eventName = %@", eventName);
+    NSString *eventAddress = [singleEventArray valueForKey:@"venue_address"];
+    NSString *eventCity = [singleEventArray valueForKey:@"city_name"];
+    NSString *eventState = [singleEventArray valueForKey:@"region_abbr"];
+    NSString *eventZip = [singleEventArray valueForKey:@"postal_code"];
+    //NSString *eventPhone = [eventDictionary valueForKey:@""];
+    NSString *eventWebsite = [singleEventArray valueForKey:@"url"];
+    NSString *eventID = [singleEventArray valueForKey:@"id"];
+    
+    NSString *description = [singleEventArray valueForKey:@"description"];
+    NSString *startTime = [singleEventArray valueForKey:@"start_time"];
+    NSString *venue = [singleEventArray valueForKey:@"venue_name"];
+    NSString *price = [singleEventArray valueForKey:@"price"];
+    NSLog(@"price = %@", price);
+    
+    NSDictionary *imagesDictionary = [singleEventArray valueForKey:@"image"];
+    NSDictionary *smallImg = [imagesDictionary valueForKey:@"small"];
+    singleImg = [smallImg valueForKey:@"url"];
+    NSLog(@"singleImg = %@", singleImg);
+    
+    if ([singleImg isEqual:[NSNull null]]) {
+        
+        //Set image to an empty string
+        singleImg = @"";
+        
+    }
+    
+    if ([eventZip isEqual:[NSNull null]] || eventZip == nil) {
+        eventZip = @"";
+    }
+    
+    //Get latitude/longitude of venue
+    Float32 eventLatitude = [[singleEventArray valueForKey:@"latitude"] floatValue];
+    Float32 eventLongitude = [[singleEventArray valueForKey:@"longitude"] floatValue];
+    NSLog(@"Latitude = %f, longitude = %f", eventLatitude, eventLongitude);
+    
+    
+    
+    //Use object's custom init method to initialize object
+    VeganEvent *singleEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite idForEvent:eventID descOfEvent:description startTime:startTime venue:venue price:price imageURL:singleImg eventLatitude:eventLatitude eventLongitude:eventLongitude];
+    
+    return singleEvent;
+
+}
 
 @end
