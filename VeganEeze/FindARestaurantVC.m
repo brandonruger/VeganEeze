@@ -9,6 +9,7 @@
 #import "FindARestaurantVC.h"
 #import "RestaurantResultsTVC.h"
 #import "VeganRestaurant.h"
+#import "Reachability.h"
 
 @interface FindARestaurantVC ()
 
@@ -36,8 +37,12 @@
     //Set default for picker choice
     pickerChoiceSelected = @"5";
     
-    //Get current location
-    [self getCurrentLocation];
+    //if ([self isNetworkConnected]) {
+        
+        //Get current location
+        [self getCurrentLocation];
+    //}
+    
     
     //Add target selectors to segmented control buttons
     [searchSegmentedControl addTarget:self action:@selector(howToSearch:) forControlEvents:UIControlEventValueChanged];
@@ -101,8 +106,16 @@
 //Called when search button is clicked on keyboard
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     
-    //Perform segue to Beverage Search Results
-    [self performSegueWithIdentifier:@"segueToRestaurantResults" sender:self];
+    if ([self isNetworkConnected]) {
+        //Perform segue to Beverage Search Results
+        [self performSegueWithIdentifier:@"segueToRestaurantResults" sender:self];
+    } else {
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+    }
+    
+    
     
 }
 
@@ -155,19 +168,24 @@
 #pragma mark - Current Location
 
 - (void)getCurrentLocation {
-    //Create location manager object
-    locationMgr = [[CLLocationManager alloc]init];
-    if (locationMgr != nil) {
+    
+    if ([self isNetworkConnected]) {
         
-        [locationMgr requestWhenInUseAuthorization];
-        
-        //Set location accuracy
-        locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
-        //Set delegate
-        locationMgr.delegate = self;
-        //Start gathering location info
-        [locationMgr startUpdatingLocation];
+        //Create location manager object
+        locationMgr = [[CLLocationManager alloc]init];
+        if (locationMgr != nil) {
+            
+            [locationMgr requestWhenInUseAuthorization];
+            
+            //Set location accuracy
+            locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
+            //Set delegate
+            locationMgr.delegate = self;
+            //Start gathering location info
+            [locationMgr startUpdatingLocation];
+        }
     }
+    
 }
 
 //Delegate method to get current locations
@@ -245,21 +263,22 @@
 //    //Set search keyword to keyword user entered
 //    searchKeyword = keyword.text;
     
-    
-    //Check how user wants to search
-    if (searchCurrentLocation) {
-        //User has chosen to search by current location
-        
-        //String used to access API
-        partialURL = @"https://www.vegguide.org/search/by-lat-long/";
-        //Create a string to hold latititude/longitude coordinates
-        NSString *coordinates = [NSString stringWithFormat:@"%@,%@", latitudeCoord, longitudeCoord];
-        
-        //Add coordinates term to url for API call
-        completeURL = [partialURL stringByAppendingString:coordinates];
-        
-        //Check if user entered a search keyword or not
-        //if ([searchKeyword isEqualToString:@""]) {
+    //Check for valid network connection
+    if ([self isNetworkConnected]) {
+        //Check how user wants to search
+        if (searchCurrentLocation) {
+            //User has chosen to search by current location
+            
+            //String used to access API
+            partialURL = @"https://www.vegguide.org/search/by-lat-long/";
+            //Create a string to hold latititude/longitude coordinates
+            NSString *coordinates = [NSString stringWithFormat:@"%@,%@", latitudeCoord, longitudeCoord];
+            
+            //Add coordinates term to url for API call
+            completeURL = [partialURL stringByAppendingString:coordinates];
+            
+            //Check if user entered a search keyword or not
+            //if ([searchKeyword isEqualToString:@""]) {
             //User did not enter a keywrod
             
             //Add filter to search
@@ -268,83 +287,95 @@
             //Add filter to completed URL
             filterURL = [completeURL stringByAppendingString:searchFilter];
             
-//        } else {
-//            //User entered a search keyword, need to add it to URL
-//            
-//            
-//            //Add filter to search
-//            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
-//            
-//            //Add filter to completed URL
-//            filterURL = [completeURL stringByAppendingString:searchFilter];
-//            
-//        }
+            //        } else {
+            //            //User entered a search keyword, need to add it to URL
+            //
+            //
+            //            //Add filter to search
+            //            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
+            //
+            //            //Add filter to completed URL
+            //            filterURL = [completeURL stringByAppendingString:searchFilter];
+            //
+            //        }
+            
+            //        //Add filter to search
+            //        NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
+            //
+            //        //Add filter to completed URL
+            //        filterURL = [completeURL stringByAppendingString:searchFilter];
+            
+            //NSLog(@"completeURL= %@", completeURL);
+            //NSLog(@"coordinates= %@", coordinates);
+            
+        } else {
+            //User wants to search by address
+            partialURL = @"https://www.vegguide.org/search/by-address/";
+            
+            //Get string user entered in search field
+            NSString *userEnteredLocation = location.text;
+            
+            //Encode text user entered
+            NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            
+            //Append string to form complete URL
+            completeURL = [partialURL stringByAppendingString:encodedLocation];
+            
+            //Check if user entered a search keyword or not
+            //if ([searchKeyword isEqualToString:@""]) {
+            //User did not enter a keywrod
+            
+            //Add filter to search
+            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
+            
+            //Add filter to completed URL
+            filterURL = [completeURL stringByAppendingString:searchFilter];
+            
+            //        } else {
+            //            //User entered a search keyword, need to add it to URL
+            //
+            //
+            //            //Add filter to search
+            //            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
+            //
+            //            //Add filter to completed URL
+            //            filterURL = [completeURL stringByAppendingString:searchFilter];
+            //
+            //        }
+            
+            //        //Add filter to search
+            //        NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
+            //
+            //        //Add filter to completed URL
+            //        filterURL = [completeURL stringByAppendingString:searchFilter];
+        }
         
-//        //Add filter to search
-//        NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
-//        
-//        //Add filter to completed URL
-//        filterURL = [completeURL stringByAppendingString:searchFilter];
+        //Set up URL for API call
+        urlForAPICall = [[NSURL alloc] initWithString:filterURL];
         
-        //NSLog(@"completeURL= %@", completeURL);
-        //NSLog(@"coordinates= %@", coordinates);
-        
+        //Set up request to send to server
+        requestForData = [[NSMutableURLRequest alloc]initWithURL:urlForAPICall];
+        if (requestForData != nil) {
+            
+            [requestForData setValue:userAgent forHTTPHeaderField:@"User-Agent"];
+            
+            //Set up connection to get data from the server
+            apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
+            //Create mutableData object to hold data
+            dataRetrieved = [NSMutableData data];
+        }
+
     } else {
-        //User wants to search by address
-        partialURL = @"https://www.vegguide.org/search/by-address/";
         
-        //Get string user entered in search field
-        NSString *userEnteredLocation = location.text;
+        //No network connection
+        NSLog(@"Network connection is inactive");
         
-        //Encode text user entered
-        NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        //Append string to form complete URL
-        completeURL = [partialURL stringByAppendingString:encodedLocation];
-        
-        //Check if user entered a search keyword or not
-        //if ([searchKeyword isEqualToString:@""]) {
-            //User did not enter a keywrod
-            
-            //Add filter to search
-            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
-            
-            //Add filter to completed URL
-            filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-//        } else {
-//            //User entered a search keyword, need to add it to URL
-//            
-//            
-//            //Add filter to search
-//            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
-//            
-//            //Add filter to completed URL
-//            filterURL = [completeURL stringByAppendingString:searchFilter];
-//            
-//        }
-        
-//        //Add filter to search
-//        NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
-//        
-//        //Add filter to completed URL
-//        filterURL = [completeURL stringByAppendingString:searchFilter];
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
     }
     
-    //Set up URL for API call
-    urlForAPICall = [[NSURL alloc] initWithString:filterURL];
     
-    //Set up request to send to server
-    requestForData = [[NSMutableURLRequest alloc]initWithURL:urlForAPICall];
-    if (requestForData != nil) {
-        
-        [requestForData setValue:userAgent forHTTPHeaderField:@"User-Agent"];
-        
-        //Set up connection to get data from the server
-        apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
-        //Create mutableData object to hold data
-        dataRetrieved = [NSMutableData data];
-    }
 }
 
 //Method called when data is received
@@ -445,6 +476,22 @@
     VeganRestaurant *newRestaurant = [[VeganRestaurant alloc] initWithRestaurant:restaurantsName addressOfRestaurant:restaurantsAddress cityOfRestaurant:restaurantsCity stateOfRestaurant:restaurantsState zipOfRestaurant:restaurantsZip phoneNo:restaurantsPhone urlOfRestaurant:restaurantsWebsite reviewsOfRestaurant:restaurantReviewURI rating:restaurantRating restPriceRange:restaurantPriceRange restVegLevel:restaurantVegLevel restDesc:restaurantDesc restImgURI:uriForImg fullDesc:restDescStr];
     
     return newRestaurant;
+}
+
+//Method to check if network is connected
+- (BOOL) isNetworkConnected
+{
+    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+    if ([currentConnection isReachable]) {
+        //Network connection active, return true
+        NSLog(@"Network connection is active");
+        return TRUE;
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        return FALSE;
+    }
 }
 
 @end

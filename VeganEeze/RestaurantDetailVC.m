@@ -14,6 +14,7 @@
 #import "CommentCell.h"
 #import "RatingsVC.h"
 #import "ViewController.h"
+#import "Reachability.h"
 
 @interface RestaurantDetailVC ()
 
@@ -190,26 +191,37 @@
 #pragma mark - Twitter Sharing
 -(IBAction)shareToTwitter:(id)sender {
     
-    //Create view that allows user to post to Twitter
-    SLComposeViewController *slComposeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    //Check for valid network connection
+    if ([self isNetworkConnected]) {
+        //Create view that allows user to post to Twitter
+        SLComposeViewController *slComposeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        NSString *twitterPrefixString = @"Checkout this restaurant: ";
+        NSString *twitterFullString = [twitterPrefixString stringByAppendingString:restaurantURL];
+        
+        //Add in default text to share
+        [slComposeVC setInitialText:twitterFullString];
+        
+        //Present view to user for posting
+        [self presentViewController:slComposeVC animated:TRUE completion:nil];
+    } else {
+        
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+    }
     
-    NSString *twitterPrefixString = @"Checkout this restaurant: ";
-    NSString *twitterFullString = [twitterPrefixString stringByAppendingString:restaurantURL];
-    
-    //Add in default text to share
-    [slComposeVC setInitialText:twitterFullString];
-    
-    //Present view to user for posting
-    [self presentViewController:slComposeVC animated:TRUE completion:nil];
+
 }
 
 
 #pragma mark - Navigation
 
-//Segue method to pass information to detail view
+//Segue method to pass information to web view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"restaurantWebsiteSegue"]) {
+        
         //Access the web view
         WebVC *webVC = segue.destinationViewController;
         //Pass restaurant's URL to web view
@@ -245,87 +257,94 @@
 //Method to save favorite places to Parse
 -(IBAction)saveFavoritePlace:(id)sender {
     
-    //Check if user is logged in
-    PFUser *loggedInUser = [PFUser currentUser];
-    if (loggedInUser) {
-        
-        //Run a query to see if item already exists in Parse
-        PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"FavoritePlace"];
-        [favoritesQuery whereKey:@"itemID" equalTo:restaurantReviewURI];
-        
-        [favoritesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error && objects.count >= 1) {
-                
-                
-                //Alert user that they've already saved this place
-                UIAlertView *duplicateFave = [[UIAlertView alloc]initWithTitle:@"Duplicate" message:@"You have already bookmarked this place to your list of favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [duplicateFave show];
-                
-                
-            } else {
-                
-                
-                
-                //User is logged in
-                //Gather data for current restaurant and save as a favoritePlace Parse object
-                PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
-                
-                if (restaurantName != nil) {
-                    favoritePlace[@"name"] = restaurantName;
-                    
-                }
-                if (completeAddress != nil) {
-                    favoritePlace[@"address"] = completeAddress;
-                    
-                }
-                if (restaurantPhoneNo != nil) {
-                    favoritePlace[@"phoneNo"] = restaurantPhoneNo;
-                    
-                }
-                if (restaurantCity != nil) {
-                    favoritePlace[@"city"] = restaurantCity;
-                    
-                }
-                //    favoritePlace[@"state"] = restaurantState;
-                //    favoritePlace[@"zip"] = currentRestaurantZip;
-                if (restaurantURL != nil) {
-                    favoritePlace[@"url"] = restaurantURL;
-                    
-                }
-                
-                if (restDesc != nil) {
-                    favoritePlace[@"description"] = restDesc;
-                    
-                }
-                
-                if (restaurantReviewURI != nil) {
-                    favoritePlace[@"itemID"] = restaurantReviewURI;
-                }
-                
-                //Restrict data to this user only
-                favoritePlace.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-                
-                //Save in background on Parse server
-                [favoritePlace saveInBackground];
-                //Alert user
-                UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Favorite saved" message:@"This restaurant has been saved to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [savedAlert show];
-                
-            }
+    //Check for valid network connection
+    if ([self isNetworkConnected]) {
+        //Check if user is logged in
+        PFUser *loggedInUser = [PFUser currentUser];
+        if (loggedInUser) {
             
-        }];
-        
-        
+            //Run a query to see if item already exists in Parse
+            PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"FavoritePlace"];
+            [favoritesQuery whereKey:@"itemID" equalTo:restaurantReviewURI];
+            
+            [favoritesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error && objects.count >= 1) {
+                    
+                    
+                    //Alert user that they've already saved this place
+                    UIAlertView *duplicateFave = [[UIAlertView alloc]initWithTitle:@"Duplicate" message:@"You have already bookmarked this place to your list of favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [duplicateFave show];
+                    
+                    
+                } else {
+                    
+                    
+                    
+                    //User is logged in
+                    //Gather data for current restaurant and save as a favoritePlace Parse object
+                    PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
+                    
+                    if (restaurantName != nil) {
+                        favoritePlace[@"name"] = restaurantName;
+                        
+                    }
+                    if (completeAddress != nil) {
+                        favoritePlace[@"address"] = completeAddress;
+                        
+                    }
+                    if (restaurantPhoneNo != nil) {
+                        favoritePlace[@"phoneNo"] = restaurantPhoneNo;
+                        
+                    }
+                    if (restaurantCity != nil) {
+                        favoritePlace[@"city"] = restaurantCity;
+                        
+                    }
+                    //    favoritePlace[@"state"] = restaurantState;
+                    //    favoritePlace[@"zip"] = currentRestaurantZip;
+                    if (restaurantURL != nil) {
+                        favoritePlace[@"url"] = restaurantURL;
+                        
+                    }
+                    
+                    if (restDesc != nil) {
+                        favoritePlace[@"description"] = restDesc;
+                        
+                    }
+                    
+                    if (restaurantReviewURI != nil) {
+                        favoritePlace[@"itemID"] = restaurantReviewURI;
+                    }
+                    
+                    //Restrict data to this user only
+                    favoritePlace.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+                    
+                    //Save in background on Parse server
+                    [favoritePlace saveInBackground];
+                    //Alert user
+                    UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Favorite saved" message:@"This restaurant has been saved to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [savedAlert show];
+                    
+                }
+                
+            }];
+            
+            
+        } else {
+            //Not logged in, alert user
+            //User is not logged in, alert user
+            UIAlertView *notLoggedIn = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [notLoggedIn show];
+            
+            //Take user to login screen
+            ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            //Instantiate view controller
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
     } else {
-        //Not logged in, alert user
-        //User is not logged in, alert user
-        UIAlertView *notLoggedIn = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [notLoggedIn show];
-        
-        //Take user to login screen
-        ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        //Instantiate view controller
-        [self.navigationController pushViewController:loginVC animated:YES];
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
     }
     
     
@@ -335,94 +354,101 @@
 //Method to save places to visit to Parse
 -(IBAction)savePlaceToVisit:(id)sender {
     
-    //Make sure user is logged in
-    PFUser *loggedInUser = [PFUser currentUser];
-    if (loggedInUser) {
-        //User is logged in
-    
-    //Run a query to see if item already exists in Parse
-    PFQuery *placesQuery = [PFQuery queryWithClassName:@"PlaceToVisit"];
-    [placesQuery whereKey:@"itemID" equalTo:restaurantReviewURI];
-    
-    [placesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error && objects.count >= 1) {
-            // The find succeeded.
+    //Check for valid internet connection
+    if ([self isNetworkConnected]) {
+        //Make sure user is logged in
+        PFUser *loggedInUser = [PFUser currentUser];
+        if (loggedInUser) {
+            //User is logged in
             
-            //Alert user that they've already saved this place
-            UIAlertView *duplicatePlace = [[UIAlertView alloc]initWithTitle:@"Duplicate" message:@"You have already bookmarked this place to your list of Places to Visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [duplicatePlace show];
-
+            //Run a query to see if item already exists in Parse
+            PFQuery *placesQuery = [PFQuery queryWithClassName:@"PlaceToVisit"];
+            [placesQuery whereKey:@"itemID" equalTo:restaurantReviewURI];
+            
+            [placesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error && objects.count >= 1) {
+                    // The find succeeded.
+                    
+                    //Alert user that they've already saved this place
+                    UIAlertView *duplicatePlace = [[UIAlertView alloc]initWithTitle:@"Duplicate" message:@"You have already bookmarked this place to your list of Places to Visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [duplicatePlace show];
+                    
+                    
+                } else {
+                    // No object found, proceed with saving the place
+                    //Gather data for current restaurant and save as a placeToVisit Parse object
+                    PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
+                    
+                    if (restaurantName != nil) {
+                        placeToVisit[@"name"] = restaurantName;
+                    }
+                    if (completeAddress != nil) {
+                        placeToVisit[@"address"] = completeAddress;
+                        
+                    }
+                    if (restaurantCity != nil) {
+                        placeToVisit[@"city"] = restaurantCity;
+                        
+                    }
+                    //    placeToVisit[@"state"] = restaurantState;
+                    //    placeToVisit[@"zip"] = currentRestaurantZip;
+                    
+                    if (restaurantPhoneNo != nil) {
+                        placeToVisit[@"phoneNo"] = restaurantPhoneNo;
+                        
+                    }
+                    if (restaurantURL != nil) {
+                        placeToVisit[@"url"] = restaurantURL;
+                        
+                    }
+                    if (restDesc != nil) {
+                        placeToVisit[@"description"] = restDesc;
+                        
+                    }
+                    if (restaurantReviewURI != nil) {
+                        placeToVisit[@"itemID"] = restaurantReviewURI;
+                    }
+                    
+                    //Restrict data to this user only
+                    placeToVisit.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+                    
+                    
+                    //Save in background on Parse server
+                    [placeToVisit saveInBackground];
+                    //Alert user
+                    UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Place saved" message:@"This restaurant has been saved to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [savedAlert show];
+                    
+                    
+                    
+                }
+            }];
+            
+            
             
         } else {
-            // No object found, proceed with saving the place
-            //Gather data for current restaurant and save as a placeToVisit Parse object
-            PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
+            //User is not logged in, alert user
+            UIAlertView *notLoggedIn = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [notLoggedIn show];
             
-            if (restaurantName != nil) {
-                placeToVisit[@"name"] = restaurantName;
-            }
-            if (completeAddress != nil) {
-                placeToVisit[@"address"] = completeAddress;
-                
-            }
-            if (restaurantCity != nil) {
-                placeToVisit[@"city"] = restaurantCity;
-                
-            }
-            //    placeToVisit[@"state"] = restaurantState;
-            //    placeToVisit[@"zip"] = currentRestaurantZip;
-            
-            if (restaurantPhoneNo != nil) {
-                placeToVisit[@"phoneNo"] = restaurantPhoneNo;
-                
-            }
-            if (restaurantURL != nil) {
-                placeToVisit[@"url"] = restaurantURL;
-                
-            }
-            if (restDesc != nil) {
-                placeToVisit[@"description"] = restDesc;
-                
-            }
-            if (restaurantReviewURI != nil) {
-                placeToVisit[@"itemID"] = restaurantReviewURI;
-            }
-            
-            //Restrict data to this user only
-            placeToVisit.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-            
-            
-            //Save in background on Parse server
-            [placeToVisit saveInBackground];
-            //Alert user
-            UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Place saved" message:@"This restaurant has been saved to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [savedAlert show];
-
-            
-            
+            //Take user to login screen
+            ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            //Instantiate view controller
+            [self.navigationController pushViewController:loginVC animated:YES];
         }
-    }];
-    
-    
-        
+
     } else {
-        //User is not logged in, alert user
-        UIAlertView *notLoggedIn = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [notLoggedIn show];
-        
-        //Take user to login screen
-        ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        //Instantiate view controller
-        [self.navigationController pushViewController:loginVC animated:YES];
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
     }
     
-    
 }
 
-#pragma mark - Launch Map app
--(IBAction)launchMapForDirections:(id)sender {
-    
-}
+//#pragma mark - Launch Map app
+//-(IBAction)launchMapForDirections:(id)sender {
+//    
+//}
 
 //#pragma mark - Launch Phone Dialer
 //
@@ -626,29 +652,48 @@
 //Method to retrieve current restaurant's reviews from Parse
 -(void)retrieveRestaurantReviews {
     
-    PFQuery *reviewQuery = [PFQuery queryWithClassName:@"UserRating"];
-    [reviewQuery whereKey:@"itemID" equalTo:restaurantReviewURI];
-    
-    [reviewQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
+   //Check for valid network connection
+    if ([self isNetworkConnected]) {
+        PFQuery *reviewQuery = [PFQuery queryWithClassName:@"UserRating"];
+        [reviewQuery whereKey:@"itemID" equalTo:restaurantReviewURI];
+        
+        [reviewQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                // The find succeeded.
                 
-                //Add objects to eventReviewsArray
-                [restaurantReviewsArray addObject:object];
+                // Do something with the found objects
+                for (PFObject *object in objects) {
+                    NSLog(@"%@", object.objectId);
+                    
+                    //Add objects to eventReviewsArray
+                    [restaurantReviewsArray addObject:object];
+                }
+                
+                [commentsTV reloadData];
+                
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
-            
-            [commentsTV reloadData];
-            
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-    
+        }];
+
+    }
+}
+
+//Method to check if network is connected
+- (BOOL) isNetworkConnected
+{
+    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+    if ([currentConnection isReachable]) {
+        //Network connection active, return true
+        NSLog(@"Network connection is active");
+        return TRUE;
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        return FALSE;
+    }
 }
 
 

@@ -237,41 +237,9 @@
             timestampString = "464376994.272155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "-searchForVeganRestaurants:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "464376994.272155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "351"
             endingLineNumber = "351"
             landmarkName = "-connection:didReceiveData:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "464376994.272155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
-            landmarkName = "-searchForVeganRestaurants:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -384,22 +352,6 @@
             startingLineNumber = "210"
             endingLineNumber = "210"
             landmarkName = "-pickerView:didSelectRow:inComponent:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/FindARestaurantVC.m"
-            timestampString = "464376994.272155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
-            landmarkName = "-searchForVeganRestaurants:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -637,54 +589,6 @@
             timestampString = "464376994.272155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "-searchVeganEvents:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/SearchEventsVC.m"
-            timestampString = "464376994.272155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
-            landmarkName = "-searchVeganEvents:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/SearchEventsVC.m"
-            timestampString = "464376994.272155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
-            landmarkName = "-searchVeganEvents:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/SearchEventsVC.m"
-            timestampString = "464376994.272155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "450"
             endingLineNumber = "450"
             landmarkName = "-createEventObjects:"
@@ -752,22 +656,6 @@
             startingLineNumber = "368"
             endingLineNumber = "368"
             landmarkName = "-connectionDidFinishLoading:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/SearchEventsVC.m"
-            timestampString = "464376994.272155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "-searchVeganEvents:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -864,22 +752,6 @@
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/SearchEventsVC.m"
-            timestampString = "464376994.272155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
-            landmarkName = "-searchVeganEvents:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1545,22 +1417,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VeganEeze/SearchEventsVC.m"
-            timestampString = "464376994.272155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "-searchVeganEvents:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "VeganEeze/VeganResourcesTVC.m"
             timestampString = "463786293.931674"
             startingColumnNumber = "9223372036854775807"
@@ -1705,22 +1561,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VeganEeze/CreateNewAcctVC.m"
-            timestampString = "464153216.000165"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "-createNewAccount:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "VeganEeze/SearchEventsVC.m"
             timestampString = "464376994.272155"
             startingColumnNumber = "9223372036854775807"
@@ -1817,22 +1657,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VeganEeze/RestaurantDetailVC.m"
-            timestampString = "464373134.209314"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "630"
-            endingLineNumber = "630"
-            landmarkName = "-retrieveRestaurantReviews"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "VeganEeze/RatingsVC.m"
             timestampString = "464317996.077254"
             startingColumnNumber = "9223372036854775807"
@@ -1840,38 +1664,6 @@
             startingLineNumber = "69"
             endingLineNumber = "69"
             landmarkName = "-pickerView:didSelectRow:inComponent:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/RestaurantDetailVC.m"
-            timestampString = "464373134.209314"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "-saveFavoritePlace:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeganEeze/RestaurantDetailVC.m"
-            timestampString = "464373134.209314"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
-            landmarkName = "-saveFavoritePlace:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

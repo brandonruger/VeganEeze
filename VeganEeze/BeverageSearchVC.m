@@ -9,6 +9,7 @@
 #import "BeverageSearchVC.h"
 #import "AlcoholBeverage.h"
 #import "BeverageResultsTVC.h"
+#import "Reachability.h"
 
 @interface BeverageSearchVC ()
 
@@ -89,38 +90,41 @@
 //Method to request data from Barnivore API
 -(IBAction)searchAlcoholBeveragesAPI:(id)sender {
     
-    
-    //String used to access API
-    NSString *partialURL = @"http://barnivore.com/search.json?keyword=";
-    
-    //Get text user entered in search field
-    NSString *searchKeywordEntered = beverageName.text;
-    
-    if ([searchKeywordEntered isEqualToString:@""]) {
-        //Alert user that they must enter in a search term
-        UIAlertView *blankAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must enter in a keyword in order to search." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [blankAlert show];
-                                   
-    } else {
+    //Check for valid network connection
+    if ([self isNetworkConnected]) {
         
-        //Encode text
-        searchKeyword = [searchKeywordEntered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        //Add search term to url for API call
-        NSString *completeURL = [partialURL stringByAppendingString:searchKeyword];
+        //String used to access API
+        NSString *partialURL = @"http://barnivore.com/search.json?keyword=";
         
-        //Set up URL for API call
-        urlForAPICall = [[NSURL alloc] initWithString:completeURL];
+        //Get text user entered in search field
+        NSString *searchKeywordEntered = beverageName.text;
         
-        //Set up request to send to server
-        requestForData = [[NSURLRequest alloc]initWithURL:urlForAPICall];
-        if (requestForData != nil) {
-            //Set up connection to get data from the server
-            apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
-            //Create mutableData object to hold data
-            dataRetrieved = [NSMutableData data];
+        if ([searchKeywordEntered isEqualToString:@""]) {
+            //Alert user that they must enter in a search term
+            UIAlertView *blankAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must enter in a keyword in order to search." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [blankAlert show];
+            
+        } else {
+            
+            //Encode text
+            searchKeyword = [searchKeywordEntered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            //Add search term to url for API call
+            NSString *completeURL = [partialURL stringByAppendingString:searchKeyword];
+            
+            //Set up URL for API call
+            urlForAPICall = [[NSURL alloc] initWithString:completeURL];
+            
+            //Set up request to send to server
+            requestForData = [[NSURLRequest alloc]initWithURL:urlForAPICall];
+            if (requestForData != nil) {
+                //Set up connection to get data from the server
+                apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
+                //Create mutableData object to hold data
+                dataRetrieved = [NSMutableData data];
+            }
         }
+
     }
-    
     
 }
 
@@ -187,6 +191,25 @@
     return newAlcoholBev;
 }
 
+//Method to check if network is connected
+- (BOOL) isNetworkConnected
+{
+    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+    if ([currentConnection isReachable]) {
+        //Network connection active, return true
+        NSLog(@"Network connection is active");
+        return TRUE;
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+        
+        return FALSE;
+    }
+}
 
 //#pragma mark - Navigation
 //

@@ -9,6 +9,7 @@
 #import "SearchEventsVC.h"
 #import "EventResultsTVC.h"
 #import "VeganEvent.h"
+#import "Reachability.h"
 
 @interface SearchEventsVC ()
 
@@ -89,8 +90,20 @@
 //Called when search button is clicked on keyboard
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     
-    //Perform segue to Beverage Search Results
-    [self performSegueWithIdentifier:@"segueToEventResults" sender:self];
+    if ([self isNetworkConnected]) {
+        //Perform segue to Beverage Search Results
+        [self performSegueWithIdentifier:@"segueToEventResults" sender:self];
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+
+    }
+    
+    
     
 }
 
@@ -155,19 +168,23 @@
 #pragma mark - Current Location
 
 - (void)getCurrentLocation {
-    //Create location manager object
-    locationMgr = [[CLLocationManager alloc]init];
-    if (locationMgr != nil) {
-        
-        [locationMgr requestWhenInUseAuthorization];
-        
-        //Set location accuracy
-        locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
-        //Set delegate
-        locationMgr.delegate = self;
-        //Start gathering location info
-        [locationMgr startUpdatingLocation];
+    
+    if ([self isNetworkConnected]) {
+        //Create location manager object
+        locationMgr = [[CLLocationManager alloc]init];
+        if (locationMgr != nil) {
+            
+            [locationMgr requestWhenInUseAuthorization];
+            
+            //Set location accuracy
+            locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
+            //Set delegate
+            locationMgr.delegate = self;
+            //Start gathering location info
+            [locationMgr startUpdatingLocation];
+        }
     }
+    
 }
 
 //Delegate method to get current locations
@@ -239,114 +256,124 @@
 
 -(IBAction)searchVeganEvents:(id)sender {
     
-    //Get text user entered in keyword field
-    //NSString *keywordText = keyword.text;
-    
-    //Encode text user entered
-    //searchKeyword = [keywordText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    
-    //Check how user wants to search
-    if (searchCurrentLocation) {
-        //User has chosen to search by current location
-        
-        //String used to access API
-        partialURL = @"http://api.eventful.com/json/events/search?q=";
-        
-        //Add on picker choice selected to URL
-        partialURL = [partialURL stringByAppendingString:pickerChoiceSelected];
-        
-        NSString *locationCoordinates = [NSString stringWithFormat:@"&l=%@,%@&within=40&units=miles", latitudeCoord, longitudeCoord];
-        
-        //Add location
-        NSString *locationURL = [partialURL stringByAppendingString:locationCoordinates];
-        
-        //Add App key
-        completeURL = [locationURL stringByAppendingString:appKey];
-        
-        NSLog(@"completeURL = %@", completeURL);
-        
-//        //Check if user entered a search keyword or not
-//        if ([searchKeyword isEqualToString:@""]) {
-//            //User did not enter a keywrod
-//            
-//            //Add filter to search
-//            NSString *searchFilter = [NSString stringWithFormat:@"%@", pickerChoiceSelected];
-//            
-//            //Add filter to completed URL
-//            filterURL = [completeURL stringByAppendingString:searchFilter];
-//            
-//        } else {
-//            //User entered a search keyword, need to add it to URL
-//            
-//            
-//            //Add filter to search
-//            NSString *searchFilter = [NSString stringWithFormat:@"%@,%@", pickerChoiceSelected, searchKeyword];
-//            
-//            //Add filter to completed URL
-//            filterURL = [completeURL stringByAppendingString:searchFilter];
-//            
-//        }
-
-    } else {
-        //User wants to search by address
-        partialURL = @"http://api.eventful.com/json/events/search?q=";
-        
-        //Add on picker choice selected to URL
-        partialURL = [partialURL stringByAppendingString:pickerChoiceSelected];
-        
-        //Get string user entered in search field
-        NSString *userEnteredLocation = location.text;
+    //Check for valid network connection
+    if ([self isNetworkConnected]) {
+        //Get text user entered in keyword field
+        //NSString *keywordText = keyword.text;
         
         //Encode text user entered
-        NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        //searchKeyword = [keywordText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
-        NSString *locationToSearch = [NSString stringWithFormat:@"&l=%@", encodedLocation];
         
-        //Append string to form complete URL
-        NSString *locationURL = [partialURL stringByAppendingString:locationToSearch];
+        //Check how user wants to search
+        if (searchCurrentLocation) {
+            //User has chosen to search by current location
+            
+            //String used to access API
+            partialURL = @"http://api.eventful.com/json/events/search?q=";
+            
+            //Add on picker choice selected to URL
+            partialURL = [partialURL stringByAppendingString:pickerChoiceSelected];
+            
+            NSString *locationCoordinates = [NSString stringWithFormat:@"&l=%@,%@&within=40&units=miles", latitudeCoord, longitudeCoord];
+            
+            //Add location
+            NSString *locationURL = [partialURL stringByAppendingString:locationCoordinates];
+            
+            //Add App key
+            completeURL = [locationURL stringByAppendingString:appKey];
+            
+            NSLog(@"completeURL = %@", completeURL);
+            
+            //        //Check if user entered a search keyword or not
+            //        if ([searchKeyword isEqualToString:@""]) {
+            //            //User did not enter a keywrod
+            //
+            //            //Add filter to search
+            //            NSString *searchFilter = [NSString stringWithFormat:@"%@", pickerChoiceSelected];
+            //
+            //            //Add filter to completed URL
+            //            filterURL = [completeURL stringByAppendingString:searchFilter];
+            //
+            //        } else {
+            //            //User entered a search keyword, need to add it to URL
+            //
+            //
+            //            //Add filter to search
+            //            NSString *searchFilter = [NSString stringWithFormat:@"%@,%@", pickerChoiceSelected, searchKeyword];
+            //
+            //            //Add filter to completed URL
+            //            filterURL = [completeURL stringByAppendingString:searchFilter];
+            //
+            //        }
+            
+        } else {
+            //User wants to search by address
+            partialURL = @"http://api.eventful.com/json/events/search?q=";
+            
+            //Add on picker choice selected to URL
+            partialURL = [partialURL stringByAppendingString:pickerChoiceSelected];
+            
+            //Get string user entered in search field
+            NSString *userEnteredLocation = location.text;
+            
+            //Encode text user entered
+            NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            
+            NSString *locationToSearch = [NSString stringWithFormat:@"&l=%@", encodedLocation];
+            
+            //Append string to form complete URL
+            NSString *locationURL = [partialURL stringByAppendingString:locationToSearch];
+            
+            //Add App key
+            completeURL = [locationURL stringByAppendingString:appKey];
+            NSLog(@"completeURL = %@", completeURL);
+            
+            //        //Check if user entered a search keyword or not
+            //        if ([searchKeyword isEqualToString:@""]) {
+            //            //User did not enter a keywrod
+            //
+            //            //Add filter to search
+            //            NSString *searchFilter = [NSString stringWithFormat:@"%@", pickerChoiceSelected];
+            //
+            //            //Add filter to completed URL
+            //            filterURL = [completeURL stringByAppendingString:searchFilter];
+            //
+            //        } else {
+            //            //User entered a search keyword, need to add it to URL
+            //
+            //
+            //            //Add filter to search
+            //            NSString *searchFilter = [NSString stringWithFormat:@"%@,%@", pickerChoiceSelected, searchKeyword];
+            //
+            //            //Add filter to completed URL
+            //            filterURL = [completeURL stringByAppendingString:searchFilter];
+            //            
+            //        }
+            
+        }
         
-        //Add App key
-        completeURL = [locationURL stringByAppendingString:appKey];
-        NSLog(@"completeURL = %@", completeURL);
+        //Set up URL for API call
+        urlForAPICall = [[NSURL alloc] initWithString:completeURL];
         
-//        //Check if user entered a search keyword or not
-//        if ([searchKeyword isEqualToString:@""]) {
-//            //User did not enter a keywrod
-//            
-//            //Add filter to search
-//            NSString *searchFilter = [NSString stringWithFormat:@"%@", pickerChoiceSelected];
-//            
-//            //Add filter to completed URL
-//            filterURL = [completeURL stringByAppendingString:searchFilter];
-//            
-//        } else {
-//            //User entered a search keyword, need to add it to URL
-//            
-//            
-//            //Add filter to search
-//            NSString *searchFilter = [NSString stringWithFormat:@"%@,%@", pickerChoiceSelected, searchKeyword];
-//            
-//            //Add filter to completed URL
-//            filterURL = [completeURL stringByAppendingString:searchFilter];
-//            
-//        }
-        
-    }
-    
-    //Set up URL for API call
-    urlForAPICall = [[NSURL alloc] initWithString:completeURL];
-    
-    //Set up request to send to server
-    requestForData = [[NSMutableURLRequest alloc]initWithURL:urlForAPICall];
-    if (requestForData != nil) {
-        
-        //Set up connection to get data from the server
-        apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
-        //Create mutableData object to hold data
-        dataRetrieved = [NSMutableData data];
-    }
+        //Set up request to send to server
+        requestForData = [[NSMutableURLRequest alloc]initWithURL:urlForAPICall];
+        if (requestForData != nil) {
+            
+            //Set up connection to get data from the server
+            apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
+            //Create mutableData object to hold data
+            dataRetrieved = [NSMutableData data];
+        }
 
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+    }
 }
 
 //Method called when data is received
@@ -545,6 +572,22 @@
     
     return singleEvent;
 
+}
+
+//Method to check if network is connected
+- (BOOL) isNetworkConnected
+{
+    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+    if ([currentConnection isReachable]) {
+        //Network connection active, return true
+        NSLog(@"Network connection is active");
+        return TRUE;
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        return FALSE;
+    }
 }
 
 @end

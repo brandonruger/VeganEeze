@@ -160,10 +160,6 @@
                                             }];
         }
 
-    } else {
-        //No network connection, alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to login to your account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
     }
     
 }
@@ -181,10 +177,6 @@
         forgotPassword.alertViewStyle = UIAlertViewStylePlainTextInput;
         //Show alert
         [forgotPassword show];
-    } else {
-        //No network connection, alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to reset your password. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
     }
     
 }
@@ -266,6 +258,11 @@
     } else {
         //No network connection
         NSLog(@"Network connection is inactive");
+        
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+        
         return FALSE;
     }
 }
