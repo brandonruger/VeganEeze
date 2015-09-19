@@ -42,6 +42,7 @@
     NSString *filterURL;
     
     NSString *singleImg;
+    NSString *descriptionStrFinal;
     
     NSString *appKey;
     

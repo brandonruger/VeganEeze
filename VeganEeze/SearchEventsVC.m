@@ -456,6 +456,14 @@
     NSString *eventID = [eventDictionary valueForKey:@"id"];
     
     NSString *description = [eventDictionary valueForKey:@"description"];
+    if (description != nil) {
+        //Format description to make sure HTML tags are removed
+        NSAttributedString *eventDescFormatted =[[NSAttributedString alloc] initWithData:[description dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+        
+        descriptionStrFinal = [eventDescFormatted string];
+    }
+    
+    
     NSString *startTime = [eventDictionary valueForKey:@"start_time"];
     NSString *venue = [eventDictionary valueForKey:@"venue_name"];
     NSString *price = [eventDictionary valueForKey:@"price"];
@@ -485,7 +493,7 @@
     
     
     //Use object's custom init method to initialize object
-    VeganEvent *newEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite idForEvent:eventID descOfEvent:description startTime:startTime venue:venue price:price imageURL:singleImg eventLatitude:eventLatitude eventLongitude:eventLongitude];
+    VeganEvent *newEvent = [[VeganEvent alloc] initWithEvent:eventName addressForEvent:eventAddress cityOfEvent:eventCity stateOfEvent:eventState zipOfEvent:eventZip websiteForEvent:eventWebsite idForEvent:eventID descOfEvent:descriptionStrFinal startTime:startTime venue:venue price:price imageURL:singleImg eventLatitude:eventLatitude eventLongitude:eventLongitude];
     
     return newEvent;
 }

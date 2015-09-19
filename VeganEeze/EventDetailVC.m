@@ -167,7 +167,18 @@
     //addressTV.text = completeAddress;
     priceLabel.text = eventPrice;
     venueLabel.text = eventVenue;
-    eventDescTV.text = eventDesc;
+    
+    if (eventDesc != nil) {
+        
+        eventDescTV.text = eventDesc;
+//        //Format event description text to remove HTML tags
+//        NSAttributedString *eventDescFormatted =[[NSAttributedString alloc] initWithData:[eventDesc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+//        
+//        NSString *descriptionStrFinal = [eventDescFormatted string];
+//        
+//        eventDescTV.text = descriptionStrFinal;
+    }
+    
     
     //Latitude/Longitude
     currentEventLat = currentEvent.latitude;
