@@ -71,7 +71,7 @@
                     //Get strings out of object
                     nameOfPlace = savedPlace[@"name"];
                     addressOfPlace = savedPlace[@"address"];
-                    cityStateOfPlace = savedPlace[@"cityState"];
+                    //cityStateOfPlace = savedPlace[@"cityState"];
                     urlOfPlace = savedPlace[@"url"];
                     phoneNoOfPlace = savedPlace[@"phoneNo"];
                     description = savedPlace[@"description"];
@@ -82,11 +82,12 @@
                     descriptionTV.text = description;
                     //cityStateLabel.text = cityStateOfPlace;
                     //phoneLabel.text = phoneNoOfPlace;
+                    addressTV.text = addressOfPlace;
                     
                     //Format address for textview
-                    completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
+                    //completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
                     //Set textview to display address
-                    addressTV.text = completeAddress;
+                    //addressTV.text = completeAddress;
                     
                     //Set button text
                     [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
