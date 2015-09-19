@@ -37,6 +37,7 @@
 		0E6232B61B84262100562474 /* SearchEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232B51B84262100562474 /* SearchEventsVC.m */; };
 		0E6232B91B8426BB00562474 /* BeverageSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6232B81B8426BB00562474 /* BeverageSearchVC.m */; };
 		0E651EE11BAA5B03000C6291 /* EditAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E651EE01BAA5B03000C6291 /* EditAccountVC.m */; };
+		0E651EE41BADFB3F000C6291 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E651EE31BADFB3F000C6291 /* Reachability.m */; };
 		0E7053A71B91FDA6008518A1 /* AlcoholBeverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053A61B91FDA6008518A1 /* AlcoholBeverage.m */; };
 		0E7053AA1B923D92008518A1 /* VeganRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053A91B923D92008518A1 /* VeganRestaurant.m */; };
 		0E7053AD1B939F33008518A1 /* VeganEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7053AC1B939F33008518A1 /* VeganEvent.m */; };
@@ -114,6 +115,8 @@
 		0E6232B81B8426BB00562474 /* BeverageSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeverageSearchVC.m; sourceTree = "<group>"; };
 		0E651EDF1BAA5B03000C6291 /* EditAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAccountVC.h; sourceTree = "<group>"; };
 		0E651EE01BAA5B03000C6291 /* EditAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAccountVC.m; sourceTree = "<group>"; };
+		0E651EE21BADFB3F000C6291 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0E651EE31BADFB3F000C6291 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0E7053A51B91FDA6008518A1 /* AlcoholBeverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlcoholBeverage.h; sourceTree = "<group>"; };
 		0E7053A61B91FDA6008518A1 /* AlcoholBeverage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlcoholBeverage.m; sourceTree = "<group>"; };
 		0E7053A81B923D92008518A1 /* VeganRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeganRestaurant.h; sourceTree = "<group>"; };
@@ -284,6 +287,8 @@
 				0E342ADA1BA79A8D006AEAB5 /* RatingsVC.m */,
 				0E651EDF1BAA5B03000C6291 /* EditAccountVC.h */,
 				0E651EE01BAA5B03000C6291 /* EditAccountVC.m */,
+				0E651EE21BADFB3F000C6291 /* Reachability.h */,
+				0E651EE31BADFB3F000C6291 /* Reachability.m */,
 			);
 			path = VeganEeze;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 				0E62328B1B84096000562474 /* AppDelegate.m in Sources */,
 				0E03CDAC1B8BF57000CEE251 /* CommentCell.m in Sources */,
 				0E6232B31B8423AC00562474 /* FindARestaurantVC.m in Sources */,
+				0E651EE41BADFB3F000C6291 /* Reachability.m in Sources */,
 				0ED7BA1D1B869F390038EF3A /* PlacesToVisitTVC.m in Sources */,
 				0E749FFF1BA471F600F63771 /* SearchMenuVC.m in Sources */,
 				0E6232AD1B8416D300562474 /* CreateNewAcctVC.m in Sources */,

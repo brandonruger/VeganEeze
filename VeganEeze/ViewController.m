@@ -121,51 +121,72 @@
 #pragma mark - Parse
 //- (void)loginToAccount {
 -(IBAction)loginToAccount:(id)sender {
-    //Get username/password entered by user in text fields
-    usernameStr = username.text;
-    passwordStr = password.text;
-    
-    //Make sure fields were not blank
-    if ([usernameStr isEqualToString:@""] || [passwordStr isEqualToString:@""]) {
-        //Alert user they must enter both username and password
-        UIAlertView *blankField = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must enter username and password. Please try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [blankField show];
+
+    //Check if user has active connection
+    if ([self isNetworkConnected]) {
+        //Network connection is active
+        //Get username/password entered by user in text fields
+        usernameStr = username.text;
+        passwordStr = password.text;
+        
+        //Make sure fields were not blank
+        if ([usernameStr isEqualToString:@""] || [passwordStr isEqualToString:@""]) {
+            //Alert user they must enter both username and password
+            UIAlertView *blankField = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must enter username and password. Please try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [blankField show];
+        } else {
+            //Try to login to app
+            [PFUser logInWithUsernameInBackground:usernameStr password:passwordStr
+                                            block:^(PFUser *user, NSError *error) {
+                                                if (user) {
+                                                    //Successfully logged in, go to main menu
+                                                    //[self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
+                                                    
+                                                    //MainMenuTVC *mainMenuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+                                                    //Instantiate new view controller
+                                                    //[self.navigationController pushViewController:mainMenuVC animated:YES];
+                                                    [self.navigationController popViewControllerAnimated:TRUE];
+                                                    //self.tabBarController.selectedIndex = 0;
+                                                    //[self presentViewController:mainMenuVC animated:YES completion:nil];
+                                                    
+                                                } else {
+                                                    //Log in failed. Have user try again.
+                                                    UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                                    [loginFailed show];
+                                                    //Clear text fields
+                                                    username.text = @"";
+                                                    password.text = @"";
+                                                }
+                                            }];
+        }
+
     } else {
-        //Try to login to app
-        [PFUser logInWithUsernameInBackground:usernameStr password:passwordStr
-                                        block:^(PFUser *user, NSError *error) {
-                                            if (user) {
-                                                //Successfully logged in, go to main menu
-                                                //[self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
-                                                
-                                                //MainMenuTVC *mainMenuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
-                                                //Instantiate new view controller
-                                                //[self.navigationController pushViewController:mainMenuVC animated:YES];
-                                                [self.navigationController popViewControllerAnimated:TRUE];
-                                                //self.tabBarController.selectedIndex = 0;
-                                                //[self presentViewController:mainMenuVC animated:YES completion:nil];
-                                                
-                                            } else {
-                                                //Log in failed. Have user try again.
-                                                UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                                                [loginFailed show];
-                                                //Clear text fields
-                                                username.text = @"";
-                                                password.text = @"";
-                                            }
-                                        }];
+        //No network connection, alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to login to your account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
     }
+    
 }
 
 #pragma mark - Forgot Password
 
 -(IBAction)forgotPassword:(id)sender {
-    //Show alert with text input for user to enter their email address
-    UIAlertView *forgotPassword = [[UIAlertView alloc]initWithTitle:@"Forgot Password?" message:@"Please enter your email address below to reset your password." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
-    //Set style to allow text input
-    forgotPassword.alertViewStyle = UIAlertViewStylePlainTextInput;
-    //Show alert
-    [forgotPassword show];
+    
+    //Check for valid network connection
+    if ([self isNetworkConnected]) {
+        //Network connection found
+        //Show alert with text input for user to enter their email address
+        UIAlertView *forgotPassword = [[UIAlertView alloc]initWithTitle:@"Forgot Password?" message:@"Please enter your email address below to reset your password." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+        //Set style to allow text input
+        forgotPassword.alertViewStyle = UIAlertViewStylePlainTextInput;
+        //Show alert
+        [forgotPassword show];
+    } else {
+        //No network connection, alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to reset your password. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+    }
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -231,6 +252,21 @@
         
         
     
+    }
+}
+
+//Method to check if network is connected
+- (BOOL) isNetworkConnected
+{
+    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+    if ([currentConnection isReachable]) {
+        //Network connection active, return true
+        NSLog(@"Network connection is active");
+        return TRUE;
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        return FALSE;
     }
 }
 
