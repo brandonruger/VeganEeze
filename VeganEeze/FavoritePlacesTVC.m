@@ -125,6 +125,7 @@
         
         //Remote the row from the tableview
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [placesTableView reloadData];
     }
 }
 
