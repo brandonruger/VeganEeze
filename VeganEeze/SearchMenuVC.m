@@ -23,6 +23,9 @@
     //self.navigationItem.hidesBackButton = YES;
     //self.navigationItem.leftBarButtonItem = nil;
     
+    settingsButton = self.navigationItem.leftBarButtonItem;
+    
+    
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIFont fontWithName:@"mplus-1c-regular" size:21],
@@ -41,8 +44,11 @@
     if (loggedInUser) {
         //User is logged in, change login button to logout
         self.navigationItem.rightBarButtonItem.title = @"Logout";
+        self.navigationItem.leftBarButtonItem = settingsButton;
+        
     } else {
         self.navigationItem.rightBarButtonItem.title = @"Login";
+        self.navigationItem.leftBarButtonItem = nil;
     }
 }
 
@@ -94,6 +100,7 @@
     
     //Change text on button back to "Login"
     self.navigationItem.rightBarButtonItem.title = @"Login";
+    self.navigationItem.leftBarButtonItem = nil;
     
 }
 

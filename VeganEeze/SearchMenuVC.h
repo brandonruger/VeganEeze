@@ -10,4 +10,8 @@
 
 @interface SearchMenuVC : UIViewController
 
+{
+    UIBarButtonItem *settingsButton;
+}
+
 @end
