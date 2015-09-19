@@ -197,7 +197,7 @@
             //Get object ID for item clicked on
             //NSString *currentObjId = [objectIDs objectAtIndex:indexOfCell.row];
             PFObject *currentObj = [parsePlacesToVisit objectAtIndex:indexOfCell.row];
-            NSString *currentObjId = currentObj[@"objectId"];
+            NSString *currentObjId = currentObj.objectId;
             
             //Pass the object ID over to the detail view
             savedDetailsVC.objectId = currentObjId;

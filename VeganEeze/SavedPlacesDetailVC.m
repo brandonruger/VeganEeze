@@ -24,6 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSLog(@"objectID = %@", objectId);
+    
     //Setup queries to check both classes for object ID
     PFQuery *favoritePlaceQuery = [PFQuery queryWithClassName:@"FavoritePlace"];
     PFQuery *placeToVisitQuery = [PFQuery queryWithClassName:@"PlaceToVisit"];

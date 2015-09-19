@@ -208,7 +208,7 @@
             PFObject *currentObj = [parseFavorites objectAtIndex:indexOfCell.row];
             
             //Get object ID for item clicked on
-            NSString *currentObjId = currentObj[@"objectId"];
+            NSString *currentObjId = currentObj.objectId;
             
             //Pass the restaurant's information to the properties in the detail view
             //        restaurantDetailVC.restaurantName = restaurantNameStr;
