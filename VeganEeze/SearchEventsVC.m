@@ -169,7 +169,7 @@
 
 - (void)getCurrentLocation {
     
-    if ([self isNetworkConnected]) {
+    //if ([self isNetworkConnected]) {
         //Create location manager object
         locationMgr = [[CLLocationManager alloc]init];
         if (locationMgr != nil) {
@@ -183,7 +183,7 @@
             //Start gathering location info
             [locationMgr startUpdatingLocation];
         }
-    }
+    //}
     
 }
 

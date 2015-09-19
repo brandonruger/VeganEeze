@@ -45,7 +45,7 @@
             break;
         case 2:
             //Vegan-Friendly
-            veganLevelImage.image = [UIImage imageNamed:@"Vegan"];
+            veganLevelImage.image = [UIImage imageNamed:@"Vegetarian"];
             break;
         case 3:
             //Vegetarian, but not vegan-friendly
