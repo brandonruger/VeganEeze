@@ -9,6 +9,7 @@
 #import "PlacesToVisitTVC.h"
 #import "SavedPlacesDetailVC.h"
 #import <Parse/Parse.h>
+#import "ViewController.h"
 
 @interface PlacesToVisitTVC ()
 
@@ -56,6 +57,11 @@
         //User is not logged in, alert user
         UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must login in order to view your saved places." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [logInAlert show];
+        
+        //Take user to login screen
+        ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        //Instantiate view controller
+        [self.navigationController pushViewController:loginVC animated:YES];
     }
 }
 

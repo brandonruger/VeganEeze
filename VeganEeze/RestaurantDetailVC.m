@@ -13,6 +13,7 @@
 #import <Parse/Parse.h>
 #import "CommentCell.h"
 #import "RatingsVC.h"
+#import "ViewController.h"
 
 @interface RestaurantDetailVC ()
 
@@ -245,51 +246,84 @@
     //Check if user is logged in
     PFUser *loggedInUser = [PFUser currentUser];
     if (loggedInUser) {
-        //User is logged in
-        //Gather data for current restaurant and save as a favoritePlace Parse object
-        PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
         
-        if (restaurantName != nil) {
-            favoritePlace[@"name"] = restaurantName;
-            
-        }
-        if (completeAddress != nil) {
-            favoritePlace[@"address"] = completeAddress;
-            
-        }
-        if (restaurantPhoneNo != nil) {
-            favoritePlace[@"phoneNo"] = restaurantPhoneNo;
-            
-        }
-        if (restaurantCity != nil) {
-            favoritePlace[@"city"] = restaurantCity;
-
-        }
-        //    favoritePlace[@"state"] = restaurantState;
-        //    favoritePlace[@"zip"] = currentRestaurantZip;
-        if (restaurantURL != nil) {
-            favoritePlace[@"url"] = restaurantURL;
-            
-        }
+        //Run a query to see if item already exists in Parse
+        PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"FavoritePlace"];
+        [favoritesQuery whereKey:@"itemID" equalTo:restaurantReviewURI];
         
-        if (restDesc != nil) {
-            favoritePlace[@"description"] = restDesc;
+        [favoritesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error && objects.count >= 1) {
+                
+                
+                //Alert user that they've already saved this place
+                UIAlertView *duplicateFave = [[UIAlertView alloc]initWithTitle:@"Duplicate" message:@"You have already bookmarked this place to your list of favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [duplicateFave show];
+                
+                
+            } else {
+                
+                
+                
+                //User is logged in
+                //Gather data for current restaurant and save as a favoritePlace Parse object
+                PFObject *favoritePlace = [PFObject objectWithClassName:@"FavoritePlace"];
+                
+                if (restaurantName != nil) {
+                    favoritePlace[@"name"] = restaurantName;
+                    
+                }
+                if (completeAddress != nil) {
+                    favoritePlace[@"address"] = completeAddress;
+                    
+                }
+                if (restaurantPhoneNo != nil) {
+                    favoritePlace[@"phoneNo"] = restaurantPhoneNo;
+                    
+                }
+                if (restaurantCity != nil) {
+                    favoritePlace[@"city"] = restaurantCity;
+                    
+                }
+                //    favoritePlace[@"state"] = restaurantState;
+                //    favoritePlace[@"zip"] = currentRestaurantZip;
+                if (restaurantURL != nil) {
+                    favoritePlace[@"url"] = restaurantURL;
+                    
+                }
+                
+                if (restDesc != nil) {
+                    favoritePlace[@"description"] = restDesc;
+                    
+                }
+                
+                if (restaurantReviewURI != nil) {
+                    favoritePlace[@"itemID"] = restaurantReviewURI;
+                }
+                
+                //Restrict data to this user only
+                favoritePlace.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+                
+                //Save in background on Parse server
+                [favoritePlace saveInBackground];
+                //Alert user
+                UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Favorite saved" message:@"This restaurant has been saved to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [savedAlert show];
+                
+            }
             
-        }
-        //Restrict data to this user only
-        favoritePlace.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+        }];
         
-        //Save in background on Parse server
-        [favoritePlace saveInBackground];
-        //Alert user
-        UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Favorite saved" message:@"This restaurant has been saved to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [savedAlert show];
-    
+        
     } else {
         //Not logged in, alert user
         //User is not logged in, alert user
         UIAlertView *notLoggedIn = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [notLoggedIn show];
+        
+        //Take user to login screen
+        ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        //Instantiate view controller
+        [self.navigationController pushViewController:loginVC animated:YES];
     }
     
     
@@ -303,49 +337,81 @@
     PFUser *loggedInUser = [PFUser currentUser];
     if (loggedInUser) {
         //User is logged in
-        //Gather data for current restaurant and save as a placeToVisit Parse object
-        PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
-        
-        if (restaurantName != nil) {
-            placeToVisit[@"name"] = restaurantName;
-        }
-        if (completeAddress != nil) {
-            placeToVisit[@"address"] = completeAddress;
+    
+    //Run a query to see if item already exists in Parse
+    PFQuery *placesQuery = [PFQuery queryWithClassName:@"PlaceToVisit"];
+    [placesQuery whereKey:@"itemID" equalTo:restaurantReviewURI];
+    
+    [placesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error && objects.count >= 1) {
+            // The find succeeded.
             
-        }
-        if (restaurantCity != nil) {
-            placeToVisit[@"city"] = restaurantCity;
+            //Alert user that they've already saved this place
+            UIAlertView *duplicatePlace = [[UIAlertView alloc]initWithTitle:@"Duplicate" message:@"You have already bookmarked this place to your list of Places to Visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [duplicatePlace show];
 
-        }
-        //    placeToVisit[@"state"] = restaurantState;
-        //    placeToVisit[@"zip"] = currentRestaurantZip;
-        
-        if (restaurantPhoneNo != nil) {
-            placeToVisit[@"phoneNo"] = restaurantPhoneNo;
+            
+        } else {
+            // No object found, proceed with saving the place
+            //Gather data for current restaurant and save as a placeToVisit Parse object
+            PFObject *placeToVisit = [PFObject objectWithClassName:@"PlaceToVisit"];
+            
+            if (restaurantName != nil) {
+                placeToVisit[@"name"] = restaurantName;
+            }
+            if (completeAddress != nil) {
+                placeToVisit[@"address"] = completeAddress;
+                
+            }
+            if (restaurantCity != nil) {
+                placeToVisit[@"city"] = restaurantCity;
+                
+            }
+            //    placeToVisit[@"state"] = restaurantState;
+            //    placeToVisit[@"zip"] = currentRestaurantZip;
+            
+            if (restaurantPhoneNo != nil) {
+                placeToVisit[@"phoneNo"] = restaurantPhoneNo;
+                
+            }
+            if (restaurantURL != nil) {
+                placeToVisit[@"url"] = restaurantURL;
+                
+            }
+            if (restDesc != nil) {
+                placeToVisit[@"description"] = restDesc;
+                
+            }
+            if (restaurantReviewURI != nil) {
+                placeToVisit[@"itemID"] = restaurantReviewURI;
+            }
+            
+            //Restrict data to this user only
+            placeToVisit.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+            
+            
+            //Save in background on Parse server
+            [placeToVisit saveInBackground];
+            //Alert user
+            UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Place saved" message:@"This restaurant has been saved to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [savedAlert show];
+
+            
             
         }
-        if (restaurantURL != nil) {
-            placeToVisit[@"url"] = restaurantURL;
-            
-        }
-        if (restDesc != nil) {
-            placeToVisit[@"description"] = restDesc;
-            
-        }
-        //Restrict data to this user only
-        placeToVisit.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-        
-        
-        //Save in background on Parse server
-        [placeToVisit saveInBackground];
-        //Alert user
-        UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Place saved" message:@"This restaurant has been saved to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [savedAlert show];
+    }];
+    
+    
         
     } else {
         //User is not logged in, alert user
         UIAlertView *notLoggedIn = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [notLoggedIn show];
+        
+        //Take user to login screen
+        ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        //Instantiate view controller
+        [self.navigationController pushViewController:loginVC animated:YES];
     }
     
     

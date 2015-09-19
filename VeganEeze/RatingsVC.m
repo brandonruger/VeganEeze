@@ -141,13 +141,6 @@
         UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Login error" message:@"You must be logged in to post a review. Press the OK button to go to the login screen." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [logInAlert show];
         
-        
-//        EventResultsTVC *eventResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EventResultsViewController"];
-//        //Pass the array of VeganEvent objects to the Results view controller
-//        eventResultsTVC.arrayOfEvents = eventObjects;
-//        //Instantiate new view controller
-//        [self.navigationController pushViewController:eventResultsTVC animated:YES];
-        
         //Take user to login screen
         ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         //Instantiate view controller
