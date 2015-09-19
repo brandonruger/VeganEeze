@@ -420,7 +420,7 @@
                                     <segment title="Search by City"/>
                                 </segments>
                             </segmentedControl>
-                            <searchBar hidden="YES" contentMode="redraw" misplaced="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-N8-H1d">
+                            <searchBar hidden="YES" contentMode="redraw" misplaced="YES" text="" placeholder="Enter city or city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-N8-H1d">
                                 <rect key="frame" x="72" y="324" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -561,6 +561,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrD-qN-yZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3741" y="904"/>
         </scene>
         <!--Beverage Results-->
         <scene sceneID="Yly-gP-nnT">
@@ -2646,7 +2647,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="sau-dW-zlY">
                                 <rect key="frame" x="0.0" y="-3" width="600" height="605"/>
                             </imageView>
-                            <searchBar hidden="YES" contentMode="redraw" misplaced="YES" text="" placeholder="Enter city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5lx-Uk-xA9">
+                            <searchBar hidden="YES" contentMode="redraw" misplaced="YES" text="" placeholder="Enter city or city, state" translatesAutoresizingMaskIntoConstraints="NO" id="5lx-Uk-xA9">
                                 <rect key="frame" x="72" y="337" width="457" height="44"/>
                                 <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -2657,15 +2658,16 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-NA-kPy">
                                 <rect key="frame" x="89" y="286" width="423" height="29"/>
                                 <segments>
-                                    <segment title="Location"/>
-                                    <segment title="Search city"/>
+                                    <segment title="Current Location"/>
+                                    <segment title="Search by City"/>
                                 </segments>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="4HZ-Oa-oLn">
-                                <rect key="frame" x="72" y="223" width="457" height="44"/>
-                                <color key="barTintColor" red="0.83137254900000002" green="0.08235294118" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select search preference below:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdL-4A-gGN">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoH-DB-ocY">
                                 <rect key="frame" x="72" y="409" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2689,36 +2691,78 @@
                             <constraint firstItem="oUO-1T-Rmi" firstAttribute="top" secondItem="XuW-PK-VUY" secondAttribute="bottom" constant="41" id="1wT-6a-ka9">
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
+                            <constraint firstItem="Jmf-NA-kPy" firstAttribute="top" secondItem="OdL-4A-gGN" secondAttribute="bottom" constant="12" id="55s-OG-q0z"/>
+                            <constraint firstItem="OdL-4A-gGN" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="34" id="5L4-yh-SvO"/>
                             <constraint firstItem="YoH-DB-ocY" firstAttribute="top" secondItem="5lx-Uk-xA9" secondAttribute="bottom" constant="28" id="9HK-Kb-WaH">
                                 <variation key="widthClass=compact" constant="5"/>
                             </constraint>
-                            <constraint firstAttribute="trailingMargin" secondItem="4HZ-Oa-oLn" secondAttribute="trailing" constant="55" id="IRk-PW-yKT"/>
                             <constraint firstItem="5lx-Uk-xA9" firstAttribute="top" secondItem="Jmf-NA-kPy" secondAttribute="bottom" constant="23" id="IYs-FZ-yCB">
                                 <variation key="widthClass=compact" constant="10"/>
                             </constraint>
-                            <constraint firstItem="4HZ-Oa-oLn" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="Jlm-zx-Uus"/>
+                            <constraint firstItem="OdL-4A-gGN" firstAttribute="top" secondItem="oUO-1T-Rmi" secondAttribute="bottom" constant="8" id="QvR-2t-fre"/>
                             <constraint firstItem="YoH-DB-ocY" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="TLc-KE-fPh">
                                 <variation key="widthClass=compact" constant="56"/>
                             </constraint>
-                            <constraint firstItem="4HZ-Oa-oLn" firstAttribute="top" secondItem="oUO-1T-Rmi" secondAttribute="bottom" id="UH8-st-wz8">
-                                <variation key="widthClass=compact" constant="0.0"/>
-                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="sau-dW-zlY" secondAttribute="trailing" constant="-16" id="ZRQ-T3-poC"/>
+                            <constraint firstItem="Jmf-NA-kPy" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="34" id="aNt-u9-Clh"/>
+                            <constraint firstItem="5lx-Uk-xA9" firstAttribute="top" secondItem="Jmf-NA-kPy" secondAttribute="bottom" constant="18" id="aS7-UF-Nx0"/>
+                            <constraint firstItem="YoH-DB-ocY" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="aYB-rr-zia"/>
                             <constraint firstItem="5lx-Uk-xA9" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="be6-M2-ncH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jmf-NA-kPy" secondAttribute="trailing" constant="34" id="fgJ-8L-uG8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5lx-Uk-xA9" secondAttribute="trailing" constant="55" id="ghQ-qJ-XAV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jmf-NA-kPy" secondAttribute="trailing" constant="72" id="hYL-3c-WKo"/>
                             <constraint firstItem="oUO-1T-Rmi" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="-16" id="hmW-5z-80h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5lx-Uk-xA9" secondAttribute="trailing" constant="55" id="lcy-QY-sim"/>
+                            <constraint firstItem="5lx-Uk-xA9" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="56" id="lyC-sB-6Wi"/>
+                            <constraint firstItem="YoH-DB-ocY" firstAttribute="top" secondItem="5lx-Uk-xA9" secondAttribute="bottom" constant="10" id="pO4-AR-CJf"/>
                             <constraint firstAttribute="bottomMargin" secondItem="sau-dW-zlY" secondAttribute="bottom" constant="-2" id="tWK-Hf-BBJ"/>
                             <constraint firstItem="Jmf-NA-kPy" firstAttribute="leading" secondItem="0SV-k8-GBf" secondAttribute="leadingMargin" constant="73" id="vjC-bC-FVj"/>
                             <constraint firstItem="sau-dW-zlY" firstAttribute="top" secondItem="0SV-k8-GBf" secondAttribute="topMargin" constant="-3" id="vnx-Ar-kfE"/>
-                            <constraint firstItem="Jmf-NA-kPy" firstAttribute="top" secondItem="4HZ-Oa-oLn" secondAttribute="bottom" constant="19" id="yXX-ZM-BkZ">
-                                <variation key="widthClass=compact" constant="10"/>
-                            </constraint>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="OdL-4A-gGN"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="5L4-yh-SvO"/>
+                                <exclude reference="QvR-2t-fre"/>
+                                <exclude reference="55s-OG-q0z"/>
+                                <exclude reference="aNt-u9-Clh"/>
+                                <exclude reference="fgJ-8L-uG8"/>
+                                <exclude reference="aS7-UF-Nx0"/>
+                                <exclude reference="lcy-QY-sim"/>
+                                <exclude reference="lyC-sB-6Wi"/>
+                                <exclude reference="aYB-rr-zia"/>
+                                <exclude reference="pO4-AR-CJf"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="OdL-4A-gGN"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5L4-yh-SvO"/>
+                                <include reference="QvR-2t-fre"/>
+                                <include reference="55s-OG-q0z"/>
+                                <include reference="aNt-u9-Clh"/>
+                                <include reference="fgJ-8L-uG8"/>
+                                <exclude reference="hYL-3c-WKo"/>
+                                <exclude reference="vjC-bC-FVj"/>
+                                <exclude reference="IYs-FZ-yCB"/>
+                                <include reference="aS7-UF-Nx0"/>
+                                <exclude reference="be6-M2-ncH"/>
+                                <exclude reference="ghQ-qJ-XAV"/>
+                                <include reference="lcy-QY-sim"/>
+                                <include reference="lyC-sB-6Wi"/>
+                                <exclude reference="9HK-Kb-WaH"/>
+                                <exclude reference="TLc-KE-fPh"/>
+                                <include reference="aYB-rr-zia"/>
+                                <include reference="pO4-AR-CJf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Search Events" id="zPn-te-bF9"/>
                     <connections>
-                        <outlet property="keyword" destination="4HZ-Oa-oLn" id="sbW-ei-3Tu"/>
                         <outlet property="location" destination="5lx-Uk-xA9" id="p4u-Jq-wds"/>
                         <outlet property="searchSegmentedControl" destination="Jmf-NA-kPy" id="mp9-8j-jcV"/>
                         <outlet property="veganChoicePicker" destination="oUO-1T-Rmi" id="iXE-ag-801"/>
@@ -2726,7 +2770,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTA-kb-uAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5564" y="1047"/>
+            <point key="canvasLocation" x="4365" y="890"/>
         </scene>
         <!--Event Results-->
         <scene sceneID="rmE-LL-src">
