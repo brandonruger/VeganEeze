@@ -12,6 +12,7 @@
 #import <Social/Social.h>
 #import <Parse/Parse.h>
 #import "CommentCell.h"
+#import "RatingsVC.h"
 
 
 @interface EventDetailVC ()
@@ -474,8 +475,8 @@
             rating = ratingTextField.text;
             review = commentTextField.text;
             
-            //Call method to add rating to Parse
-            [self addUsersRating];
+//            //Call method to add rating to Parse
+//            [self addUsersRating];
         }];
         
         //Add action to alert controller
@@ -496,10 +497,10 @@
     
 }
 
-//Method to store rating on Parse
--(void)addUsersRating {
-    
-}
+////Method to store rating on Parse
+//-(void)addUsersRating {
+//    
+//}
 
 //- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 //    //User clicked submit button
@@ -629,6 +630,8 @@
     
     return newEvent;
 }
+
+//Method to 
 
 
 

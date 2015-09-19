@@ -8,6 +8,7 @@
 
 #import "RatingsVC.h"
 #import <Parse/Parse.h>
+#import "ViewController.h"
 
 @interface RatingsVC ()
 
@@ -97,35 +98,60 @@
     NSString *commentEntered = commentTextBox.text;
     
     PFUser *loggedInUser = [PFUser currentUser];
-    NSString *username = loggedInUser.username;
     
-    //Create a Parse object to store the data with the items ID
-    PFObject *userRating = [PFObject objectWithClassName:@"UserRating"];
-    userRating[@"id"] = currentEventsID;
-    userRating[@"username"] = username;
-    userRating[@"stars"] = pickerChoiceSelected;
-    userRating[@"review"] = commentEntered;
-    
-    //Save item to Parse
-    [userRating saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            // The object has been saved.
-            UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Saved" message:@"Your review has been added" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [savedAlert show];
-            
-            //Clear text field
-            commentTextBox.text = @"";
-            
-            //Go back to previous page
-            [self.navigationController popViewControllerAnimated:TRUE];
-            
-        } else {
-            //Unable to save
-            UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error trying to save your comment. Please make sure you have a valid network connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [errorAlert show];
-        }
-    }];
+    if (loggedInUser) {
+        //User is logged in
+        
+        NSString *username = loggedInUser.username;
+        
+        //Create a Parse object to store the data with the items ID
+        PFObject *userRating = [PFObject objectWithClassName:@"UserRating"];
+        userRating[@"id"] = currentEventsID;
+        userRating[@"username"] = username;
+        userRating[@"stars"] = pickerChoiceSelected;
+        userRating[@"review"] = commentEntered;
+        
+        //Save item to Parse
+        [userRating saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                // The object has been saved.
+                UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Saved" message:@"Your review has been added" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [savedAlert show];
+                
+                //Clear text field
+                commentTextBox.text = @"";
+                
+                //Go back to previous page
+                [self.navigationController popViewControllerAnimated:TRUE];
+                
+            } else {
+                //Unable to save
+                UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error trying to save your comment. Please make sure you have a valid network connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [errorAlert show];
+            }
+        }];
 
+        
+    } else {
+        //User is not logged in
+        
+        UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Login error" message:@"You must be logged in to post a review. Press the OK button to go to the login screen." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [logInAlert show];
+        
+        
+//        EventResultsTVC *eventResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EventResultsViewController"];
+//        //Pass the array of VeganEvent objects to the Results view controller
+//        eventResultsTVC.arrayOfEvents = eventObjects;
+//        //Instantiate new view controller
+//        [self.navigationController pushViewController:eventResultsTVC animated:YES];
+        
+        //Take user to login screen
+        ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        //Instantiate view controller
+        [self.navigationController pushViewController:loginVC animated:YES];
+        
+    }
+   
 }
 
 
