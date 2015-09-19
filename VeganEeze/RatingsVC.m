@@ -106,7 +106,8 @@
         
         //Create a Parse object to store the data with the items ID
         PFObject *userRating = [PFObject objectWithClassName:@"UserRating"];
-        userRating[@"id"] = currentEventsID;
+        NSLog(@"eventID = %@", currentEventsID);
+        userRating[@"itemID"] = currentEventsID;
         userRating[@"username"] = username;
         userRating[@"stars"] = pickerChoiceSelected;
         userRating[@"review"] = commentEntered;
