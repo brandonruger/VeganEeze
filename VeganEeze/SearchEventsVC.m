@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     
     //Set search bars' delegate
-    keyword.delegate = self;
+    //keyword.delegate = self;
     location.delegate = self;
     
     //Setup array with choices for picker
@@ -51,10 +51,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     //Clear text from search bars
-    keyword.text = @"";
+    //keyword.text = @"";
     location.text = @"";
     
-    searchKeyword = @"";
+    //searchKeyword = @"";
     
     //Remove all objects from array
     if (eventObjects != nil) {
@@ -223,6 +223,8 @@
         case 2:
             //User selected 3rd row
             pickerChoiceSelected = @"veg+friendly"; //Vegan-Friendly
+            break;
+            
         default:
             pickerChoiceSelected = @"vegan"; //Default choice is vegan
             break;
@@ -238,10 +240,10 @@
 -(IBAction)searchVeganEvents:(id)sender {
     
     //Get text user entered in keyword field
-    NSString *keywordText = keyword.text;
+    //NSString *keywordText = keyword.text;
     
     //Encode text user entered
-    searchKeyword = [keywordText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //searchKeyword = [keywordText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
     //Check how user wants to search

@@ -12,7 +12,7 @@
 @interface SearchEventsVC : UIViewController <UISearchBarDelegate, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, NSURLConnectionDataDelegate>
 
 {
-    IBOutlet UISearchBar *keyword;
+    //IBOutlet UISearchBar *keyword;
     IBOutlet UISearchBar *location;
     //IBOutlet UIButton *cancelButton;
     IBOutlet UISegmentedControl *searchSegmentedControl;
@@ -26,7 +26,7 @@
     NSURL *urlForAPICall;
     NSURLConnection *apiConnection;
     NSMutableData *dataRetrieved;
-    NSString *searchKeyword;
+    //NSString *searchKeyword;
     //NSArray *arrayOfJSONData;
     NSDictionary *dictOfJSONData;
     

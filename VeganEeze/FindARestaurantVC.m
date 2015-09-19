@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     
     //Set search bars' delegate
-    keyword.delegate = self;
+    //keyword.delegate = self;
     location.delegate = self;
     
     //Setup array with choices for picker
@@ -53,10 +53,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     //Clear text from search bars
-    keyword.text = @"";
+    //keyword.text = @"";
     location.text = @"";
     
-    searchKeyword = @"";
+    //searchKeyword = @"";
     
     //Remove all objects from array
     if (restaurantObjects != nil) {
@@ -222,7 +222,9 @@
         
         case 2:
             //User selected 3rd row
-            pickerChoiceSelected = @"2"; //Vegan-Friendly
+            pickerChoiceSelected = @"2"; //Veg-Friendly
+            break;
+            
         default:
             pickerChoiceSelected = @"5"; //Default choice is vegan
             break;
@@ -235,10 +237,10 @@
 -(IBAction)searchForVeganRestaurants:(id)sender {
     
     //Get text user entered in keyword field
-    NSString *keywordText = keyword.text;
+    //NSString *keywordText = keyword.text;
     
     //Encode text user entered
-    searchKeyword = [keywordText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //searchKeyword = [keywordText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
 //    //Set search keyword to keyword user entered
 //    searchKeyword = keyword.text;
@@ -257,7 +259,7 @@
         completeURL = [partialURL stringByAppendingString:coordinates];
         
         //Check if user entered a search keyword or not
-        if ([searchKeyword isEqualToString:@""]) {
+        //if ([searchKeyword isEqualToString:@""]) {
             //User did not enter a keywrod
             
             //Add filter to search
@@ -266,17 +268,17 @@
             //Add filter to completed URL
             filterURL = [completeURL stringByAppendingString:searchFilter];
             
-        } else {
-            //User entered a search keyword, need to add it to URL
-            
-            
-            //Add filter to search
-            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
-            
-            //Add filter to completed URL
-            filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-        }
+//        } else {
+//            //User entered a search keyword, need to add it to URL
+//            
+//            
+//            //Add filter to search
+//            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
+//            
+//            //Add filter to completed URL
+//            filterURL = [completeURL stringByAppendingString:searchFilter];
+//            
+//        }
         
 //        //Add filter to search
 //        NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
@@ -301,7 +303,7 @@
         completeURL = [partialURL stringByAppendingString:encodedLocation];
         
         //Check if user entered a search keyword or not
-        if ([searchKeyword isEqualToString:@""]) {
+        //if ([searchKeyword isEqualToString:@""]) {
             //User did not enter a keywrod
             
             //Add filter to search
@@ -310,17 +312,17 @@
             //Add filter to completed URL
             filterURL = [completeURL stringByAppendingString:searchFilter];
             
-        } else {
-            //User entered a search keyword, need to add it to URL
-            
-            
-            //Add filter to search
-            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
-            
-            //Add filter to completed URL
-            filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-        }
+//        } else {
+//            //User entered a search keyword, need to add it to URL
+//            
+//            
+//            //Add filter to search
+//            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
+//            
+//            //Add filter to completed URL
+//            filterURL = [completeURL stringByAppendingString:searchFilter];
+//            
+//        }
         
 //        //Add filter to search
 //        NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
