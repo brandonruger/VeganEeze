@@ -10,6 +10,7 @@
 #import "SavedPlacesDetailVC.h"
 #import <Parse/Parse.h>
 #import "ViewController.h"
+#import "Reachability.h"
 
 @interface FavoritePlacesTVC ()
 
@@ -30,37 +31,44 @@
     //Add delete button to tableview
     //placesTableView.editing = TRUE;
     
+    //Initialize mutable array
+    parseFavorites = [[NSMutableArray alloc]init];
+    
     
 }
 
 -(void) viewWillAppear:(BOOL)animated {
-    //Check if user is logged in
-    PFUser *loggedInUser = [PFUser currentUser];
-    if (loggedInUser) {
-        //User is logged in
-        //Initialize mutable array
-        parseFavorites = [[NSMutableArray alloc]init];
-//        placeName = [[NSMutableArray alloc]init];
-//        placeCity = [[NSMutableArray alloc]init];
-//        objectIDs = [[NSMutableArray alloc]init];
-        
-        //Call method to retrieve objects from Parse server
-        [self retrieveFavoritePlaces];
-    } else {
-        
-       // [objectIDs removeAllObjects];
-        
-        [parseFavorites removeAllObjects];
-        [placesTableView reloadData];
-        
-        //User is not logged in, alert user
-        UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must login in order to view your favorites" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [logInAlert show];
-        
-        //Take user to login screen
-        ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        //Instantiate view controller
-        [self.navigationController pushViewController:loginVC animated:YES];
+    
+    //Check for active network connection
+    if ([self isNetworkConnected]) {
+        //Check if user is logged in
+        PFUser *loggedInUser = [PFUser currentUser];
+        if (loggedInUser) {
+            //User is logged in
+            
+            //        placeName = [[NSMutableArray alloc]init];
+            //        placeCity = [[NSMutableArray alloc]init];
+            //        objectIDs = [[NSMutableArray alloc]init];
+            
+            //Call method to retrieve objects from Parse server
+            [self retrieveFavoritePlaces];
+        } else {
+            
+            // [objectIDs removeAllObjects];
+            
+            [parseFavorites removeAllObjects];
+            [placesTableView reloadData];
+            
+            //User is not logged in, alert user
+            UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must login in order to view your favorites" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [logInAlert show];
+            
+            //Take user to login screen
+            ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            //Instantiate view controller
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
+
     }
 }
 
@@ -86,9 +94,14 @@
         
         PFObject *currentPlace = [parseFavorites objectAtIndex:indexPath.row];
         
-        //Set cell labels to items stored in mutable arrays
-        resultsCell.textLabel.text = currentPlace[@"name"];
-        resultsCell.detailTextLabel.text = currentPlace[@"city"];
+        if (currentPlace != nil) {
+            
+            //Set cell labels to items stored in mutable arrays
+            resultsCell.textLabel.text = currentPlace[@"name"];
+            resultsCell.detailTextLabel.text = currentPlace[@"city"];
+        }
+        
+        
     }
     
     //Alternate color for every other row
@@ -139,46 +152,50 @@
 
 //Method to retrieve Favorite Places saved on Parse
 - (void)retrieveFavoritePlaces {
-    
-    //Create a PFQuery to search for the data on Parse
-    PFQuery *favoritePlaceQuery = [PFQuery queryWithClassName:@"FavoritePlace"];
-    
-    [favoritePlaceQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            //No errors, found objects successfully
-            
-            //Loop through parse objects
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
+
+    //Check for active network connection
+    if ([self isNetworkConnected]) {
+        //Create a PFQuery to search for the data on Parse
+        PFQuery *favoritePlaceQuery = [PFQuery queryWithClassName:@"FavoritePlace"];
+        
+        [favoritePlaceQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                //No errors, found objects successfully
                 
-//                //Get name of place from object
-//                NSString *favoritePlaceName = object[@"name"];
-//                //Get city of place from object
-//                NSString *favoritePlaceCity = object[@"city"];
-//                //Get object ID
-//                NSString *objectID = object.objectId;
-//                
-//                //Add objects to NSMutableArray
-//                //[parseFavorites addObject:object];
-//                
-//                //Add place names to array
-//                [placeName addObject:favoritePlaceName];
-//                //Add city to array
-//                [placeCity addObject:favoritePlaceCity];
-//                //Add object ID to array
-//                [objectIDs addObject:objectID];
+                //Loop through parse objects
+                for (PFObject *object in objects) {
+                    NSLog(@"%@", object.objectId);
+                    
+                    //                //Get name of place from object
+                    //                NSString *favoritePlaceName = object[@"name"];
+                    //                //Get city of place from object
+                    //                NSString *favoritePlaceCity = object[@"city"];
+                    //                //Get object ID
+                    //                NSString *objectID = object.objectId;
+                    //
+                    //                //Add objects to NSMutableArray
+                    //                //[parseFavorites addObject:object];
+                    //
+                    //                //Add place names to array
+                    //                [placeName addObject:favoritePlaceName];
+                    //                //Add city to array
+                    //                [placeCity addObject:favoritePlaceCity];
+                    //                //Add object ID to array
+                    //                [objectIDs addObject:objectID];
+                    
+                    [parseFavorites addObject:object];
+                }
                 
-                [parseFavorites addObject:object];
+                //Refresh tableview
+                [placesTableView reloadData];
+                
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
-            
-            //Refresh tableview
-            [placesTableView reloadData];
-            
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+        }];
+
+    }
 }
 
 #pragma mark - Navigation
@@ -226,6 +243,25 @@
     
 }
 
+//Method to check if network is connected
+- (BOOL) isNetworkConnected
+{
+    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+    if ([currentConnection isReachable]) {
+        //Network connection active, return true
+        NSLog(@"Network connection is active");
+        return TRUE;
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+        
+        return FALSE;
+    }
+}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

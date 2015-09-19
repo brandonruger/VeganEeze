@@ -9,6 +9,7 @@
 #import "RatingsVC.h"
 #import <Parse/Parse.h>
 #import "ViewController.h"
+#import "Reachability.h"
 
 @interface RatingsVC ()
 
@@ -93,61 +94,84 @@
 
 -(IBAction)saveRating:(id)sender {
     
-    //Get rating user entered
-    //int starRating = [pickerChoiceSelected intValue];
-    
-    //Get users comment
-    NSString *commentEntered = commentTextBox.text;
-    
-    PFUser *loggedInUser = [PFUser currentUser];
-    
-    if (loggedInUser) {
-        //User is logged in
+    //Check for active network connection
+    if ([self isNetworkConnected]) {
+        //Get rating user entered
+        //int starRating = [pickerChoiceSelected intValue];
         
-        NSString *username = loggedInUser.username;
+        //Get users comment
+        NSString *commentEntered = commentTextBox.text;
         
-        //Create a Parse object to store the data with the items ID
-        PFObject *userRating = [PFObject objectWithClassName:@"UserRating"];
-        NSLog(@"eventID = %@", currentEventsID);
-        userRating[@"itemID"] = currentEventsID;
-        userRating[@"username"] = username;
-        userRating[@"stars"] = pickerChoiceSelected;
-        userRating[@"review"] = commentEntered;
+        PFUser *loggedInUser = [PFUser currentUser];
         
-        //Save item to Parse
-        [userRating saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                // The object has been saved.
-                UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Saved" message:@"Your review has been added" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [savedAlert show];
-                
-                //Clear text field
-                commentTextBox.text = @"";
-                
-                //Go back to previous page
-                [self.navigationController popViewControllerAnimated:TRUE];
-                
-            } else {
-                //Unable to save
-                UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error trying to save your comment. Please make sure you have a valid network connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [errorAlert show];
-            }
-        }];
+        if (loggedInUser) {
+            //User is logged in
+            
+            NSString *username = loggedInUser.username;
+            
+            //Create a Parse object to store the data with the items ID
+            PFObject *userRating = [PFObject objectWithClassName:@"UserRating"];
+            NSLog(@"eventID = %@", currentEventsID);
+            userRating[@"itemID"] = currentEventsID;
+            userRating[@"username"] = username;
+            userRating[@"stars"] = pickerChoiceSelected;
+            userRating[@"review"] = commentEntered;
+            
+            //Save item to Parse
+            [userRating saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    // The object has been saved.
+                    UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Saved" message:@"Your review has been added" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [savedAlert show];
+                    
+                    //Clear text field
+                    commentTextBox.text = @"";
+                    
+                    //Go back to previous page
+                    [self.navigationController popViewControllerAnimated:TRUE];
+                    
+                } else {
+                    //Unable to save
+                    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error trying to save your comment. Please make sure you have a valid network connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [errorAlert show];
+                }
+            }];
+            
+            
+        } else {
+            //User is not logged in
+            
+            UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Login error" message:@"You must be logged in to post a review. Press the OK button to go to the login screen." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [logInAlert show];
+            
+            //Take user to login screen
+            ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            //Instantiate view controller
+            [self.navigationController pushViewController:loginVC animated:YES];
+            
+        }
 
-        
-    } else {
-        //User is not logged in
-        
-        UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Login error" message:@"You must be logged in to post a review. Press the OK button to go to the login screen." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [logInAlert show];
-        
-        //Take user to login screen
-        ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        //Instantiate view controller
-        [self.navigationController pushViewController:loginVC animated:YES];
-        
     }
-   
+}
+
+//Method to check if network is connected
+- (BOOL) isNetworkConnected
+{
+    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+    if ([currentConnection isReachable]) {
+        //Network connection active, return true
+        NSLog(@"Network connection is active");
+        return TRUE;
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+        
+        return FALSE;
+    }
 }
 
 

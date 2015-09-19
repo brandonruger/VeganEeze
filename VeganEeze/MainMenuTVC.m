@@ -9,6 +9,7 @@
 #import "MainMenuTVC.h"
 #import <Parse/Parse.h>
 #import "ViewController.h"
+#import "Reachability.h"
 
 @interface MainMenuTVC ()
 
@@ -38,13 +39,18 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    //Check if user is currently logged in
-    PFUser *loggedInUser = [PFUser currentUser];
-    if (loggedInUser) {
-        //User is logged in, change login button to logout
-        self.navigationItem.rightBarButtonItem.title = @"Logout";
-    } else {
-        self.navigationItem.rightBarButtonItem.title = @"Login";
+    
+    //Check for active network connection
+    if ([self isNetworkConnected]) {
+        
+        //Check if user is currently logged in
+        PFUser *loggedInUser = [PFUser currentUser];
+        if (loggedInUser) {
+            //User is logged in, change login button to logout
+            self.navigationItem.rightBarButtonItem.title = @"Logout";
+        } else {
+            self.navigationItem.rightBarButtonItem.title = @"Login";
+        }
     }
 }
 
@@ -120,17 +126,37 @@
 
 -(void)logoutFromApp {
     
-    //Log out of account
-    [PFUser logOut];
+    //Check for active network connection
+    if ([self isNetworkConnected]) {
+        
+        //Log out of account
+        [PFUser logOut];
+        
+        //Alert user they have been logged out
+        UIAlertView *logoutAlert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have been logged out." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //Show alert
+        [logoutAlert show];
+        
+        //Change text on button back to "Login"
+        self.navigationItem.rightBarButtonItem.title = @"Login";
+    }
     
-    //Alert user they have been logged out
-    UIAlertView *logoutAlert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have been logged out." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    //Show alert
-    [logoutAlert show];
-    
-    //Change text on button back to "Login"
-    self.navigationItem.rightBarButtonItem.title = @"Login";
-    
+}
+
+//Method to check if network is connected
+- (BOOL) isNetworkConnected
+{
+    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+    if ([currentConnection isReachable]) {
+        //Network connection active, return true
+        NSLog(@"Network connection is active");
+        return TRUE;
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        return FALSE;
+    }
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:

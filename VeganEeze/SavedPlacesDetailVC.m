@@ -11,6 +11,7 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 #import <Parse/Parse.h>
+#import "Reachability.h"
 
 @interface SavedPlacesDetailVC ()
 
@@ -26,76 +27,81 @@
     
     NSLog(@"objectID = %@", objectId);
     
-    //Setup queries to check both classes for object ID
-    PFQuery *favoritePlaceQuery = [PFQuery queryWithClassName:@"FavoritePlace"];
-    PFQuery *placeToVisitQuery = [PFQuery queryWithClassName:@"PlaceToVisit"];
-    
-    //Run first query to check for object ID
-    [favoritePlaceQuery getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
+    //Check for active network connection
+    if ([self isNetworkConnected]) {
+        //Setup queries to check both classes for object ID
+        PFQuery *favoritePlaceQuery = [PFQuery queryWithClassName:@"FavoritePlace"];
+        PFQuery *placeToVisitQuery = [PFQuery queryWithClassName:@"PlaceToVisit"];
         
-        if (!error) {
-            //Object ID was found
-            //Get strings out of object
-            nameOfPlace = savedPlace[@"name"];
-            addressOfPlace = savedPlace[@"address"];
-            //cityStateOfPlace = savedPlace[@"cityState"];
-            urlOfPlace = savedPlace[@"url"];
-            phoneNoOfPlace = savedPlace[@"phoneNo"];
-            description = savedPlace[@"description"];
+        //Run first query to check for object ID
+        [favoritePlaceQuery getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
             
-            //Set text labels to above object
-            nameLabel.text = nameOfPlace;
-            //addressTV.text = addressOfPlace;
-            descriptionTV.text = description;
-            //cityStateLabel.text = cityStateOfPlace;
-            //phoneLabel.text = phoneNoOfPlace;
-            addressTV.text = addressOfPlace;
-            
-//            //Format address for textview
-//            completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
-//            //Set textview to display address
-//            addressTV.text = completeAddress;
-            
-            //Set button text
-            [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
-            
-            //Set phone # to appear in text view
-            //phoneNoTV.text = phoneNoOfPlace;
-            
-        } else {
-            //Run second query to check for Object ID
-            [placeToVisitQuery getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
+            if (!error) {
+                //Object ID was found
+                //Get strings out of object
+                nameOfPlace = savedPlace[@"name"];
+                addressOfPlace = savedPlace[@"address"];
+                //cityStateOfPlace = savedPlace[@"cityState"];
+                urlOfPlace = savedPlace[@"url"];
+                phoneNoOfPlace = savedPlace[@"phoneNo"];
+                description = savedPlace[@"description"];
                 
-                if (!error) {
-                    //Object ID was found
-                    //Get strings out of object
-                    nameOfPlace = savedPlace[@"name"];
-                    addressOfPlace = savedPlace[@"address"];
-                    //cityStateOfPlace = savedPlace[@"cityState"];
-                    urlOfPlace = savedPlace[@"url"];
-                    phoneNoOfPlace = savedPlace[@"phoneNo"];
-                    description = savedPlace[@"description"];
+                //Set text labels to above object
+                nameLabel.text = nameOfPlace;
+                //addressTV.text = addressOfPlace;
+                descriptionTV.text = description;
+                //cityStateLabel.text = cityStateOfPlace;
+                //phoneLabel.text = phoneNoOfPlace;
+                addressTV.text = addressOfPlace;
+                
+                //            //Format address for textview
+                //            completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
+                //            //Set textview to display address
+                //            addressTV.text = completeAddress;
+                
+                //Set button text
+                [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
+                
+                //Set phone # to appear in text view
+                //phoneNoTV.text = phoneNoOfPlace;
+                
+            } else {
+                //Run second query to check for Object ID
+                [placeToVisitQuery getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
                     
-                    //Set text labels to above object
-                    nameLabel.text = nameOfPlace;
-                    //addressTV.text = addressOfPlace;
-                    descriptionTV.text = description;
-                    //cityStateLabel.text = cityStateOfPlace;
-                    //phoneLabel.text = phoneNoOfPlace;
-                    addressTV.text = addressOfPlace;
-                    
-                    //Format address for textview
-                    //completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
-                    //Set textview to display address
-                    //addressTV.text = completeAddress;
-                    
-                    //Set button text
-                    [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
-                }
-            }];
-        }
-        
-    }];
+                    if (!error) {
+                        //Object ID was found
+                        //Get strings out of object
+                        nameOfPlace = savedPlace[@"name"];
+                        addressOfPlace = savedPlace[@"address"];
+                        //cityStateOfPlace = savedPlace[@"cityState"];
+                        urlOfPlace = savedPlace[@"url"];
+                        phoneNoOfPlace = savedPlace[@"phoneNo"];
+                        description = savedPlace[@"description"];
+                        
+                        //Set text labels to above object
+                        nameLabel.text = nameOfPlace;
+                        //addressTV.text = addressOfPlace;
+                        descriptionTV.text = description;
+                        //cityStateLabel.text = cityStateOfPlace;
+                        //phoneLabel.text = phoneNoOfPlace;
+                        addressTV.text = addressOfPlace;
+                        
+                        //Format address for textview
+                        //completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
+                        //Set textview to display address
+                        //addressTV.text = completeAddress;
+                        
+                        //Set button text
+                        [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
+                    }
+                }];
+            }
+            
+        }];
+
+    }
+    
     
 //    //Run query on both classes searching for current object ID that was passed over through segue
 //    PFQuery *queryBoth = [PFQuery orQueryWithSubqueries:@[favoritePlaceQuery, placeToVisitQuery]];
@@ -154,17 +160,20 @@
 #pragma mark - Twitter Sharing
 -(IBAction)shareToTwitter:(id)sender {
     
-    //Create view that allows user to post to Twitter
-    SLComposeViewController *slComposeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-    
-    NSString *twitterPrefixString = @"Check this place out: ";
-    NSString *twitterFullString = [twitterPrefixString stringByAppendingString:urlOfPlace];
-    
-    //Add in default text to share
-    [slComposeVC setInitialText:twitterFullString];
-    
-    //Present view to user for posting
-    [self presentViewController:slComposeVC animated:TRUE completion:nil];
+    //Check for active network connection
+    if ([self isNetworkConnected]) {
+        //Create view that allows user to post to Twitter
+        SLComposeViewController *slComposeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        NSString *twitterPrefixString = @"Check this place out: ";
+        NSString *twitterFullString = [twitterPrefixString stringByAppendingString:urlOfPlace];
+        
+        //Add in default text to share
+        [slComposeVC setInitialText:twitterFullString];
+        
+        //Present view to user for posting
+        [self presentViewController:slComposeVC animated:TRUE completion:nil];
+    }
 }
 
 #pragma mark - Phone Dialer
@@ -205,6 +214,26 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//Method to check if network is connected
+- (BOOL) isNetworkConnected
+{
+    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+    if ([currentConnection isReachable]) {
+        //Network connection active, return true
+        NSLog(@"Network connection is active");
+        return TRUE;
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+        
+        return FALSE;
+    }
 }
 
 /*

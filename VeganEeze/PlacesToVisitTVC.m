@@ -10,6 +10,7 @@
 #import "SavedPlacesDetailVC.h"
 #import <Parse/Parse.h>
 #import "ViewController.h"
+#import "Reachability.h"
 
 @interface PlacesToVisitTVC ()
 
@@ -19,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Initialize mutable array
+    parsePlacesToVisit = [[NSMutableArray alloc]init];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -34,33 +38,38 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated {
-    //Check if user is logged in
-    PFUser *loggedInUser = [PFUser currentUser];
-    if (loggedInUser) {
-        //User is logged in
-        //Initialize mutable array
-        parsePlacesToVisit = [[NSMutableArray alloc]init];
-//        placeName = [[NSMutableArray alloc]init];
-//        placeCity = [[NSMutableArray alloc]init];
-//        objectIDs = [[NSMutableArray alloc]init];
-        
-        //Call method to retrieve objects from Parse server
-        [self retrievePlacesToVisit];
-
-    } else {
-        //[objectIDs removeAllObjects];
-        [parsePlacesToVisit removeAllObjects];
-        [placesToVisitTV reloadData];
-        
-        //User is not logged in, alert user
-        UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must login in order to view your saved places." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [logInAlert show];
-        
-        //Take user to login screen
-        ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        //Instantiate view controller
-        [self.navigationController pushViewController:loginVC animated:YES];
+    
+    //Check for active network connection
+    if ([self isNetworkConnected]) {
+        //Check if user is logged in
+        PFUser *loggedInUser = [PFUser currentUser];
+        if (loggedInUser) {
+            //User is logged in
+            
+            //        placeName = [[NSMutableArray alloc]init];
+            //        placeCity = [[NSMutableArray alloc]init];
+            //        objectIDs = [[NSMutableArray alloc]init];
+            
+            //Call method to retrieve objects from Parse server
+            [self retrievePlacesToVisit];
+            
+        } else {
+            //[objectIDs removeAllObjects];
+            [parsePlacesToVisit removeAllObjects];
+            [placesToVisitTV reloadData];
+            
+            //User is not logged in, alert user
+            UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must login in order to view your saved places." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [logInAlert show];
+            
+            //Take user to login screen
+            ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            //Instantiate view controller
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
     }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,8 +94,12 @@
         
         PFObject *currentPlace = [parsePlacesToVisit objectAtIndex:indexPath.row];
         
-        resultsCell.textLabel.text = currentPlace[@"name"];
-        resultsCell.detailTextLabel.text = currentPlace[@"city"];
+        if (currentPlace != nil) {
+            resultsCell.textLabel.text = currentPlace[@"name"];
+            resultsCell.detailTextLabel.text = currentPlace[@"city"];
+        }
+        
+
     }
     
     //Alternate color for every other row
@@ -137,45 +150,51 @@
 //Method to retrieve Places to Visit saved on Parse
 - (void)retrievePlacesToVisit {
     
-    //Create a PFQuery to search for the data on Parse
-    PFQuery *placeToVisitQuery = [PFQuery queryWithClassName:@"PlaceToVisit"];
-    
-    [placeToVisitQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            //No errors, found objects successfully
-            
-            //Loop through parse objects
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
+    //Check for active network connection
+    if ([self isNetworkConnected]) {
+        
+        //Create a PFQuery to search for the data on Parse
+        PFQuery *placeToVisitQuery = [PFQuery queryWithClassName:@"PlaceToVisit"];
+        
+        [placeToVisitQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                //No errors, found objects successfully
                 
-                [parsePlacesToVisit addObject:object];
+                //Loop through parse objects
+                for (PFObject *object in objects) {
+                    NSLog(@"%@", object.objectId);
+                    
+                    [parsePlacesToVisit addObject:object];
+                    
+                    //                //Get name of place from object
+                    //                NSString *placeToVisitName = object[@"name"];
+                    //                //Get city/state of place from object
+                    //                NSString *placeToVisitCityState = object[@"city"];
+                    //                //Get object ID
+                    //                NSString *objectID = object.objectId;
+                    //
+                    //                //Add objects to NSMutableArray
+                    //                //[parseFavorites addObject:object];
+                    //
+                    //                //Add place names to array
+                    //                [placeName addObject:placeToVisitName];
+                    //                //Add city/state to array
+                    //                [placeCity addObject:placeToVisitCityState];
+                    //                //Add object ID to array
+                    //                [objectIDs addObject:objectID];
+                }
                 
-//                //Get name of place from object
-//                NSString *placeToVisitName = object[@"name"];
-//                //Get city/state of place from object
-//                NSString *placeToVisitCityState = object[@"city"];
-//                //Get object ID
-//                NSString *objectID = object.objectId;
-//                
-//                //Add objects to NSMutableArray
-//                //[parseFavorites addObject:object];
-//                
-//                //Add place names to array
-//                [placeName addObject:placeToVisitName];
-//                //Add city/state to array
-//                [placeCity addObject:placeToVisitCityState];
-//                //Add object ID to array
-//                [objectIDs addObject:objectID];
+                //Refresh tableview
+                [placesToVisitTV reloadData];
+                
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
-            
-            //Refresh tableview
-            [placesToVisitTV reloadData];
-            
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+        }];
+
+    }
+    
 }
 
 #pragma mark - Navigation
@@ -206,6 +225,26 @@
     
     
     
+}
+
+//Method to check if network is connected
+- (BOOL) isNetworkConnected
+{
+    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+    if ([currentConnection isReachable]) {
+        //Network connection active, return true
+        NSLog(@"Network connection is active");
+        return TRUE;
+    } else {
+        //No network connection
+        NSLog(@"Network connection is inactive");
+        
+        //Alert user
+        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [noConnection show];
+        
+        return FALSE;
+    }
 }
 
 
