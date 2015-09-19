@@ -39,6 +39,8 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     
+    [parseFavorites removeAllObjects];
+    
     //Check for active network connection
     if ([self isNetworkConnected]) {
         //Check if user is logged in
@@ -92,14 +94,19 @@
         //NSArray *favoritePlaces = [[NSArray alloc]initWithObjects:@"Favorite Place 1", @"Favorite Place 2", @"Favorite Place 3", @"Favorite Place 4", nil];
         //NSArray *locations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
         
-        PFObject *currentPlace = [parseFavorites objectAtIndex:indexPath.row];
-        
-        if (currentPlace != nil) {
+        if (parseFavorites.count > 0) {
             
-            //Set cell labels to items stored in mutable arrays
-            resultsCell.textLabel.text = currentPlace[@"name"];
-            resultsCell.detailTextLabel.text = currentPlace[@"city"];
+            PFObject *currentPlace = [parseFavorites objectAtIndex:indexPath.row];
+            
+            if (currentPlace != nil) {
+                
+                //Set cell labels to items stored in mutable arrays
+                resultsCell.textLabel.text = currentPlace[@"name"];
+                resultsCell.detailTextLabel.text = currentPlace[@"city"];
+            }
         }
+        
+        
         
         
     }

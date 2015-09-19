@@ -3625,10 +3625,10 @@
             </objects>
             <point key="canvasLocation" x="4693" y="775"/>
         </scene>
-        <!--RatingsVC-->
+        <!--Add a Rating-->
         <scene sceneID="df5-iv-dsC">
             <objects>
-                <viewController id="rgR-SS-Scx" customClass="RatingsVC" sceneMemberID="viewController">
+                <viewController title="Add a Rating" id="rgR-SS-Scx" customClass="RatingsVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K4k-mJ-BdD"/>
                         <viewControllerLayoutGuide type="bottom" id="bn3-1A-eZV"/>
@@ -3639,9 +3639,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="aFt-ZV-ufJ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
-                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2s-hQ-NbM">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -3689,12 +3686,16 @@
                             <constraint firstItem="vv2-Xa-Ie0" firstAttribute="leading" secondItem="stj-wo-yIy" secondAttribute="leadingMargin" constant="-16" id="A9e-9l-PxA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vv2-Xa-Ie0" secondAttribute="trailing" constant="-16" id="J4A-iV-cVf"/>
                             <constraint firstItem="1I6-2x-6Pp" firstAttribute="top" secondItem="vv2-Xa-Ie0" secondAttribute="bottom" constant="15" id="M3h-s5-79F"/>
+                            <constraint firstItem="aFt-ZV-ufJ" firstAttribute="bottom" secondItem="stj-wo-yIy" secondAttribute="bottomMargin" id="MBq-fe-1FR"/>
                             <constraint firstItem="0go-XG-sfR" firstAttribute="leading" secondItem="stj-wo-yIy" secondAttribute="leadingMargin" id="NJB-Ds-WO6"/>
                             <constraint firstItem="g2s-hQ-NbM" firstAttribute="top" secondItem="0go-XG-sfR" secondAttribute="bottom" constant="8" id="Xb3-w7-12d"/>
                             <constraint firstItem="vv2-Xa-Ie0" firstAttribute="top" secondItem="K4k-mJ-BdD" secondAttribute="bottom" id="Zsg-u0-hhM"/>
+                            <constraint firstItem="aFt-ZV-ufJ" firstAttribute="top" secondItem="stj-wo-yIy" secondAttribute="topMargin" id="dNS-M0-hAb"/>
                             <constraint firstItem="0go-XG-sfR" firstAttribute="trailing" secondItem="stj-wo-yIy" secondAttribute="trailingMargin" id="f6f-3t-dsn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aFt-ZV-ufJ" secondAttribute="trailing" constant="-16" id="mDd-MT-emn"/>
                             <constraint firstItem="0go-XG-sfR" firstAttribute="top" secondItem="1I6-2x-6Pp" secondAttribute="bottom" constant="12" id="uk6-aC-qde"/>
                             <constraint firstItem="g2s-hQ-NbM" firstAttribute="leading" secondItem="stj-wo-yIy" secondAttribute="leadingMargin" id="vjg-eT-0YB"/>
+                            <constraint firstItem="aFt-ZV-ufJ" firstAttribute="leading" secondItem="stj-wo-yIy" secondAttribute="leadingMargin" constant="-16" id="vsJ-d8-XbY"/>
                             <constraint firstItem="1I6-2x-6Pp" firstAttribute="leading" secondItem="stj-wo-yIy" secondAttribute="leadingMargin" id="z5b-et-nly"/>
                         </constraints>
                         <variation key="default">
@@ -3706,6 +3707,10 @@
                                 <exclude reference="1I6-2x-6Pp"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="MBq-fe-1FR"/>
+                                <exclude reference="dNS-M0-hAb"/>
+                                <exclude reference="mDd-MT-emn"/>
+                                <exclude reference="vsJ-d8-XbY"/>
                                 <exclude reference="A9e-9l-PxA"/>
                                 <exclude reference="J4A-iV-cVf"/>
                                 <exclude reference="Zsg-u0-hhM"/>
@@ -3727,6 +3732,10 @@
                                 <include reference="1I6-2x-6Pp"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="MBq-fe-1FR"/>
+                                <include reference="dNS-M0-hAb"/>
+                                <include reference="mDd-MT-emn"/>
+                                <include reference="vsJ-d8-XbY"/>
                                 <include reference="A9e-9l-PxA"/>
                                 <include reference="J4A-iV-cVf"/>
                                 <include reference="Zsg-u0-hhM"/>
@@ -3798,7 +3807,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="gr0-4u-i93"/>
         <segue reference="bwe-xQ-Z5M"/>
-        <segue reference="lRY-DY-0FG"/>
+        <segue reference="c5X-hu-AQ1"/>
         <segue reference="iJy-VD-7Kc"/>
         <segue reference="ZdV-dh-43O"/>
         <segue reference="dCL-Zv-YlS"/>

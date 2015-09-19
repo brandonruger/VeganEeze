@@ -39,6 +39,8 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     
+    [parsePlacesToVisit removeAllObjects];
+    
     //Check for active network connection
     if ([self isNetworkConnected]) {
         //Check if user is logged in
@@ -92,12 +94,17 @@
         //NSArray *placesToVisit = [[NSArray alloc]initWithObjects:@"Place 1", @"Place 2", @"Place 3", @"Place 4", nil];
         //NSArray *locations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
         
-        PFObject *currentPlace = [parsePlacesToVisit objectAtIndex:indexPath.row];
-        
-        if (currentPlace != nil) {
-            resultsCell.textLabel.text = currentPlace[@"name"];
-            resultsCell.detailTextLabel.text = currentPlace[@"city"];
+        if (parsePlacesToVisit.count > 0) {
+            
+            PFObject *currentPlace = [parsePlacesToVisit objectAtIndex:indexPath.row];
+            
+            if (currentPlace != nil) {
+                resultsCell.textLabel.text = currentPlace[@"name"];
+                resultsCell.detailTextLabel.text = currentPlace[@"city"];
+            }
         }
+        
+        
         
 
     }

@@ -97,8 +97,15 @@
     
     NSString *ratingLabelStr = @"Rating: ";
     NSString *ratingForRestaurant = currentRestaurant.restaurantRating;
-    //restaurantRating = [ratingLabelStr stringByAppendingString:ratingForRestaurant];
-    restaurantRating = [NSString stringWithFormat:@"%@ %@ Stars", ratingLabelStr, ratingForRestaurant];
+    if (ratingForRestaurant != nil) {
+        //restaurantRating = [ratingLabelStr stringByAppendingString:ratingForRestaurant];
+        restaurantRating = [NSString stringWithFormat:@"%@ %@ Stars", ratingLabelStr, ratingForRestaurant];
+        ratingLabel.text = restaurantRating;
+        
+    } else {
+        [ratingLabel setHidden:YES];
+    }
+
     
     //Get URI for restaurants reviews
     restaurantReviewURI = currentRestaurant.reviewsURI;
@@ -118,7 +125,7 @@
     //stateLabel.text = restaurantState;
     //zipLabel.text = restaurantZip;
     //phoneLabel.text = restaurantPhoneNo;
-    ratingLabel.text = restaurantRating;
+    
     
     NSString *priceRangeFormatted = [NSString stringWithFormat:@"Price Range: %@", restPriceRange];
     
