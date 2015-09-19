@@ -80,9 +80,11 @@
         case 2:
             //User selected 3rd row
             pickerChoiceSelected = @"3";
+            break;
         case 3:
             //User selected 4th row
             pickerChoiceSelected = @"4";
+            break;
         default:
             pickerChoiceSelected = @"2";
             break;
