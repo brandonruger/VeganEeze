@@ -13,11 +13,13 @@
 
 {
     NSMutableArray *parseFavorites;
-    NSMutableArray *placeName;
-    NSMutableArray *placeCity;
-    NSMutableArray *objectIDs;
+//    NSMutableArray *placeName;
+//    NSMutableArray *placeCity;
+//    NSMutableArray *objectIDs;
     
     IBOutlet UITableView *placesTableView;
+    
+    //PFObject *currentObj;
     
 }
 

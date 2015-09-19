@@ -2708,7 +2708,13 @@
                             <outlet property="delegate" destination="EHO-4N-4HV" id="ERD-6C-o3x"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorite Places" id="jZi-dP-wTt"/>
+                    <navigationItem key="navigationItem" title="Favorite Places" id="jZi-dP-wTt">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="09L-pT-Y9s">
+                            <connections>
+                                <action selector="editTableView:" destination="EHO-4N-4HV" id="Kcu-Yh-vUC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="placesTableView" destination="IEl-Ka-9Km" id="I2Y-dN-nRD"/>
                     </connections>
@@ -2748,7 +2754,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.63529411759999999" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="tLO-bQ-eIr" kind="show" id="xMA-oN-JMc"/>
+                                    <segue destination="tLO-bQ-eIr" kind="show" identifier="placesToSavedSegue" id="xMA-oN-JMc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2757,7 +2763,13 @@
                             <outlet property="delegate" destination="Vh8-ho-dOw" id="1Jp-RY-faM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Places to Visit" id="SCa-FE-cfb"/>
+                    <navigationItem key="navigationItem" title="Places to Visit" id="SCa-FE-cfb">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="i9E-xa-TTV">
+                            <connections>
+                                <action selector="editTableView:" destination="Vh8-ho-dOw" id="OfS-nB-w1q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="placesToVisitTV" destination="Pah-Ta-CHk" id="doL-rh-3fX"/>
                     </connections>

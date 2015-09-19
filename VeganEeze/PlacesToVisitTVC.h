@@ -13,9 +13,9 @@
 
 {
     NSMutableArray *parsePlacesToVisit;
-    NSMutableArray *placeName;
-    NSMutableArray *placeCity;
-    NSMutableArray *objectIDs;
+//    NSMutableArray *placeName;
+//    NSMutableArray *placeCity;
+//    NSMutableArray *objectIDs;
     
     IBOutlet UITableView *placesToVisitTV;
 }

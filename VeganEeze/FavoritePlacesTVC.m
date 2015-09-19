@@ -27,6 +27,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
+    //Add delete button to tableview
+    //placesTableView.editing = TRUE;
+    
     
 }
 
@@ -37,15 +40,17 @@
         //User is logged in
         //Initialize mutable array
         parseFavorites = [[NSMutableArray alloc]init];
-        placeName = [[NSMutableArray alloc]init];
-        placeCity = [[NSMutableArray alloc]init];
-        objectIDs = [[NSMutableArray alloc]init];
+//        placeName = [[NSMutableArray alloc]init];
+//        placeCity = [[NSMutableArray alloc]init];
+//        objectIDs = [[NSMutableArray alloc]init];
         
         //Call method to retrieve objects from Parse server
         [self retrieveFavoritePlaces];
     } else {
         
-        [objectIDs removeAllObjects];
+       // [objectIDs removeAllObjects];
+        
+        [parseFavorites removeAllObjects];
         [placesTableView reloadData];
         
         //User is not logged in, alert user
@@ -68,7 +73,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [objectIDs count];
+    return [parseFavorites count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -79,9 +84,11 @@
         //NSArray *favoritePlaces = [[NSArray alloc]initWithObjects:@"Favorite Place 1", @"Favorite Place 2", @"Favorite Place 3", @"Favorite Place 4", nil];
         //NSArray *locations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
         
+        PFObject *currentPlace = [parseFavorites objectAtIndex:indexPath.row];
+        
         //Set cell labels to items stored in mutable arrays
-        resultsCell.textLabel.text = [placeName objectAtIndex:indexPath.row];
-        resultsCell.detailTextLabel.text = [placeCity objectAtIndex:indexPath.row];
+        resultsCell.textLabel.text = currentPlace[@"name"];
+        resultsCell.detailTextLabel.text = currentPlace[@"city"];
     }
     
     //Alternate color for every other row
@@ -100,6 +107,33 @@
     return resultsCell;
 }
 
+//Method called when delete button is pressed
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //Check to make sure tableview is in delete mode
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //TV is in delete mode
+        
+        //Remove the object from Parse database
+        //PFQuery *retrieveObj = [PFQuery queryWithClassName:@"FavoritePlace"];
+        //PFObject *objToDelete = [retrieveObj getObjectWithId:[objectIDs objectAtIndex:indexPath.row]];
+        PFObject *objToDelete = [parseFavorites objectAtIndex:indexPath.row];
+        [objToDelete deleteInBackground];
+        //Remove object from Array
+        [parseFavorites removeObjectAtIndex:indexPath.row];
+        
+        
+        //Remote the row from the tableview
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+//Dynamically put tableview in edit mode
+-(IBAction)editTableView:(id)sender {
+    placesTableView.editing = !placesTableView.isEditing;
+}
+
+
 #pragma mark - Parse
 
 //Method to retrieve Favorite Places saved on Parse
@@ -116,22 +150,24 @@
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 
-                //Get name of place from object
-                NSString *favoritePlaceName = object[@"name"];
-                //Get city of place from object
-                NSString *favoritePlaceCity = object[@"city"];
-                //Get object ID
-                NSString *objectID = object.objectId;
+//                //Get name of place from object
+//                NSString *favoritePlaceName = object[@"name"];
+//                //Get city of place from object
+//                NSString *favoritePlaceCity = object[@"city"];
+//                //Get object ID
+//                NSString *objectID = object.objectId;
+//                
+//                //Add objects to NSMutableArray
+//                //[parseFavorites addObject:object];
+//                
+//                //Add place names to array
+//                [placeName addObject:favoritePlaceName];
+//                //Add city to array
+//                [placeCity addObject:favoritePlaceCity];
+//                //Add object ID to array
+//                [objectIDs addObject:objectID];
                 
-                //Add objects to NSMutableArray
-                //[parseFavorites addObject:object];
-                
-                //Add place names to array
-                [placeName addObject:favoritePlaceName];
-                //Add city to array
-                [placeCity addObject:favoritePlaceCity];
-                //Add object ID to array
-                [objectIDs addObject:objectID];
+                [parseFavorites addObject:object];
             }
             
             //Refresh tableview
@@ -151,35 +187,41 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    //Access detail view controller
-    SavedPlacesDetailVC *savedDetailsVC = segue.destinationViewController;
-    if (savedDetailsVC != nil) {
-        
-        //Get cell that was clicked on
-        UITableViewCell *cellClicked = (UITableViewCell*)sender;
-        //Get index of cell that was clicked
-        NSIndexPath *indexOfCell = [placesTableView indexPathForCell:cellClicked];
-        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
-        //Get strings of restaurant's data from arrays
-//        NSString *restaurantNameStr = [restaurantNames objectAtIndex:indexOfCell.row];
-//        NSString *restaurantAddressStr = [restaurantAddresses objectAtIndex:indexOfCell.row];
-//        NSString *restaurantCityStateStr = [restaurantCityStates objectAtIndex:indexOfCell.row];
-//        NSString *restaurantURLStr = [restaurantURLs objectAtIndex:indexOfCell.row];
-//        NSString *restaurantPhoneStr = [restaurantPhones objectAtIndex:indexOfCell.row];
-        
-        //Get object ID for item clicked on
-        NSString *currentObjId = [objectIDs objectAtIndex:indexOfCell.row];
-        
-        //Pass the restaurant's information to the properties in the detail view
-//        restaurantDetailVC.restaurantName = restaurantNameStr;
-//        restaurantDetailVC.restaurantAddress = restaurantAddressStr;
-//        restaurantDetailVC.restaurantCityState = restaurantCityStateStr;
-//        restaurantDetailVC.restaurantURL = restaurantURLStr;
-//        restaurantDetailVC.restaurantPhoneNo = restaurantPhoneStr;
-        
-        //Pass the object ID over to the detail view
-        savedDetailsVC.objectId = currentObjId;
+    if ([segue.identifier isEqualToString:@"segueFavoritesToDetails"]) {
+        //Access detail view controller
+        SavedPlacesDetailVC *savedDetailsVC = segue.destinationViewController;
+        if (savedDetailsVC != nil) {
+            
+            //Get cell that was clicked on
+            UITableViewCell *cellClicked = (UITableViewCell*)sender;
+            //Get index of cell that was clicked
+            NSIndexPath *indexOfCell = [placesTableView indexPathForCell:cellClicked];
+            NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
+            //Get strings of restaurant's data from arrays
+            //        NSString *restaurantNameStr = [restaurantNames objectAtIndex:indexOfCell.row];
+            //        NSString *restaurantAddressStr = [restaurantAddresses objectAtIndex:indexOfCell.row];
+            //        NSString *restaurantCityStateStr = [restaurantCityStates objectAtIndex:indexOfCell.row];
+            //        NSString *restaurantURLStr = [restaurantURLs objectAtIndex:indexOfCell.row];
+            //        NSString *restaurantPhoneStr = [restaurantPhones objectAtIndex:indexOfCell.row];
+            
+            PFObject *currentObj = [parseFavorites objectAtIndex:indexOfCell.row];
+            
+            //Get object ID for item clicked on
+            NSString *currentObjId = currentObj[@"objectId"];
+            
+            //Pass the restaurant's information to the properties in the detail view
+            //        restaurantDetailVC.restaurantName = restaurantNameStr;
+            //        restaurantDetailVC.restaurantAddress = restaurantAddressStr;
+            //        restaurantDetailVC.restaurantCityState = restaurantCityStateStr;
+            //        restaurantDetailVC.restaurantURL = restaurantURLStr;
+            //        restaurantDetailVC.restaurantPhoneNo = restaurantPhoneStr;
+            
+            //Pass the object ID over to the detail view
+            savedDetailsVC.objectId = currentObjId;
+        }
     }
+    
+    
     
 }
 

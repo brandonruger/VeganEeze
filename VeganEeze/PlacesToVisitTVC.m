@@ -28,9 +28,9 @@
     
     //Initialize mutable array
     parsePlacesToVisit = [[NSMutableArray alloc]init];
-    placeName = [[NSMutableArray alloc]init];
-    placeCity = [[NSMutableArray alloc]init];
-    objectIDs = [[NSMutableArray alloc]init];
+//    placeName = [[NSMutableArray alloc]init];
+//    placeCity = [[NSMutableArray alloc]init];
+//    objectIDs = [[NSMutableArray alloc]init];
     
     //Call method to retrieve objects from Parse server
     [self retrievePlacesToVisit];
@@ -43,15 +43,16 @@
         //User is logged in
         //Initialize mutable array
         parsePlacesToVisit = [[NSMutableArray alloc]init];
-        placeName = [[NSMutableArray alloc]init];
-        placeCity = [[NSMutableArray alloc]init];
-        objectIDs = [[NSMutableArray alloc]init];
+//        placeName = [[NSMutableArray alloc]init];
+//        placeCity = [[NSMutableArray alloc]init];
+//        objectIDs = [[NSMutableArray alloc]init];
         
         //Call method to retrieve objects from Parse server
         [self retrievePlacesToVisit];
 
     } else {
-        [objectIDs removeAllObjects];
+        //[objectIDs removeAllObjects];
+        [parsePlacesToVisit removeAllObjects];
         [placesToVisitTV reloadData];
         
         //User is not logged in, alert user
@@ -74,7 +75,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [objectIDs count];
+    return [parsePlacesToVisit count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,8 +86,10 @@
         //NSArray *placesToVisit = [[NSArray alloc]initWithObjects:@"Place 1", @"Place 2", @"Place 3", @"Place 4", nil];
         //NSArray *locations = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
         
-        resultsCell.textLabel.text = [placeName objectAtIndex:indexPath.row];
-        resultsCell.detailTextLabel.text = [placeCity objectAtIndex:indexPath.row];
+        PFObject *currentPlace = [parsePlacesToVisit objectAtIndex:indexPath.row];
+        
+        resultsCell.textLabel.text = currentPlace[@"name"];
+        resultsCell.detailTextLabel.text = currentPlace[@"city"];
     }
     
     //Alternate color for every other row
@@ -105,6 +108,32 @@
     return resultsCell;
 }
 
+//Method called when delete button is pressed
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //Check to make sure tableview is in delete mode
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //TV is in delete mode
+        
+        //Remove the object from Parse database
+        //PFQuery *retrieveObj = [PFQuery queryWithClassName:@"FavoritePlace"];
+        //PFObject *objToDelete = [retrieveObj getObjectWithId:[objectIDs objectAtIndex:indexPath.row]];
+        PFObject *objToDelete = [parsePlacesToVisit objectAtIndex:indexPath.row];
+        [objToDelete deleteInBackground];
+        //Remove object from Array
+        [parsePlacesToVisit removeObjectAtIndex:indexPath.row];
+        
+        
+        //Remote the row from the tableview
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+//Dynamically put tableview in edit mode
+-(IBAction)editTableView:(id)sender {
+    placesToVisitTV.editing = !placesToVisitTV.isEditing;
+}
+
 #pragma mark - Parse
 
 //Method to retrieve Places to Visit saved on Parse
@@ -121,22 +150,24 @@
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 
-                //Get name of place from object
-                NSString *placeToVisitName = object[@"name"];
-                //Get city/state of place from object
-                NSString *placeToVisitCityState = object[@"city"];
-                //Get object ID
-                NSString *objectID = object.objectId;
+                [parsePlacesToVisit addObject:object];
                 
-                //Add objects to NSMutableArray
-                //[parseFavorites addObject:object];
-                
-                //Add place names to array
-                [placeName addObject:placeToVisitName];
-                //Add city/state to array
-                [placeCity addObject:placeToVisitCityState];
-                //Add object ID to array
-                [objectIDs addObject:objectID];
+//                //Get name of place from object
+//                NSString *placeToVisitName = object[@"name"];
+//                //Get city/state of place from object
+//                NSString *placeToVisitCityState = object[@"city"];
+//                //Get object ID
+//                NSString *objectID = object.objectId;
+//                
+//                //Add objects to NSMutableArray
+//                //[parseFavorites addObject:object];
+//                
+//                //Add place names to array
+//                [placeName addObject:placeToVisitName];
+//                //Add city/state to array
+//                [placeCity addObject:placeToVisitCityState];
+//                //Add object ID to array
+//                [objectIDs addObject:objectID];
             }
             
             //Refresh tableview
@@ -154,22 +185,28 @@
 //Segue to pass data to detail view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    //Access detail view controller
-    SavedPlacesDetailVC *savedDetailsVC = segue.destinationViewController;
-    if (savedDetailsVC != nil) {
-        
-        //Get cell that was clicked on
-        UITableViewCell *cellClicked = (UITableViewCell*)sender;
-        //Get index of cell that was clicked
-        NSIndexPath *indexOfCell = [placesToVisitTV indexPathForCell:cellClicked];
-        NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
-        
-        //Get object ID for item clicked on
-        NSString *currentObjId = [objectIDs objectAtIndex:indexOfCell.row];
-        
-        //Pass the object ID over to the detail view
-        savedDetailsVC.objectId = currentObjId;
+    if ([segue.identifier isEqualToString:@"placesToSavedSegue"]) {
+        //Access detail view controller
+        SavedPlacesDetailVC *savedDetailsVC = segue.destinationViewController;
+        if (savedDetailsVC != nil) {
+            
+            //Get cell that was clicked on
+            UITableViewCell *cellClicked = (UITableViewCell*)sender;
+            //Get index of cell that was clicked
+            NSIndexPath *indexOfCell = [placesToVisitTV indexPathForCell:cellClicked];
+            NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
+            
+            //Get object ID for item clicked on
+            //NSString *currentObjId = [objectIDs objectAtIndex:indexOfCell.row];
+            PFObject *currentObj = [parsePlacesToVisit objectAtIndex:indexOfCell.row];
+            NSString *currentObjId = currentObj[@"objectId"];
+            
+            //Pass the object ID over to the detail view
+            savedDetailsVC.objectId = currentObjId;
+        }
     }
+    
+    
     
 }
 
