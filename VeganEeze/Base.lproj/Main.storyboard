@@ -3643,41 +3643,79 @@
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2s-hQ-NbM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2s-hQ-NbM">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Submit Rating">
+                                <state key="normal" image="SaveReviewButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="151" y="434" width="98" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="saveRating:" destination="rgR-SS-Scx" eventType="touchUpInside" id="gTX-7b-RxK"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vv2-Xa-Ie0">
                                 <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="162"/>
-                                </variation>
                             </pickerView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0go-XG-sfR">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="103" id="ucu-pC-Olg"/>
+                                    <constraint firstAttribute="width" constant="368" id="wW3-ck-uNq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="234" width="368" height="193"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ucu-pC-Olg"/>
+                                        <exclude reference="wW3-ck-uNq"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ucu-pC-Olg"/>
+                                        <include reference="wW3-ck-uNq"/>
+                                    </mask>
                                 </variation>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please add your review below:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1I6-2x-6Pp">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vv2-Xa-Ie0" firstAttribute="leading" secondItem="stj-wo-yIy" secondAttribute="leadingMargin" constant="-16" id="A9e-9l-PxA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vv2-Xa-Ie0" secondAttribute="trailing" constant="-16" id="J4A-iV-cVf"/>
+                            <constraint firstItem="1I6-2x-6Pp" firstAttribute="top" secondItem="vv2-Xa-Ie0" secondAttribute="bottom" constant="15" id="M3h-s5-79F"/>
+                            <constraint firstItem="0go-XG-sfR" firstAttribute="leading" secondItem="stj-wo-yIy" secondAttribute="leadingMargin" id="NJB-Ds-WO6"/>
+                            <constraint firstItem="g2s-hQ-NbM" firstAttribute="top" secondItem="0go-XG-sfR" secondAttribute="bottom" constant="8" id="Xb3-w7-12d"/>
+                            <constraint firstItem="vv2-Xa-Ie0" firstAttribute="top" secondItem="K4k-mJ-BdD" secondAttribute="bottom" id="Zsg-u0-hhM"/>
+                            <constraint firstItem="0go-XG-sfR" firstAttribute="trailing" secondItem="stj-wo-yIy" secondAttribute="trailingMargin" id="f6f-3t-dsn"/>
+                            <constraint firstItem="0go-XG-sfR" firstAttribute="top" secondItem="1I6-2x-6Pp" secondAttribute="bottom" constant="12" id="uk6-aC-qde"/>
+                            <constraint firstItem="g2s-hQ-NbM" firstAttribute="leading" secondItem="stj-wo-yIy" secondAttribute="leadingMargin" id="vjg-eT-0YB"/>
+                            <constraint firstItem="1I6-2x-6Pp" firstAttribute="leading" secondItem="stj-wo-yIy" secondAttribute="leadingMargin" id="z5b-et-nly"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="aFt-ZV-ufJ"/>
                                 <exclude reference="g2s-hQ-NbM"/>
                                 <exclude reference="vv2-Xa-Ie0"/>
                                 <exclude reference="0go-XG-sfR"/>
+                                <exclude reference="1I6-2x-6Pp"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="A9e-9l-PxA"/>
+                                <exclude reference="J4A-iV-cVf"/>
+                                <exclude reference="Zsg-u0-hhM"/>
+                                <exclude reference="M3h-s5-79F"/>
+                                <exclude reference="z5b-et-nly"/>
+                                <exclude reference="NJB-Ds-WO6"/>
+                                <exclude reference="f6f-3t-dsn"/>
+                                <exclude reference="uk6-aC-qde"/>
+                                <exclude reference="Xb3-w7-12d"/>
+                                <exclude reference="vjg-eT-0YB"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -3686,6 +3724,19 @@
                                 <include reference="g2s-hQ-NbM"/>
                                 <include reference="vv2-Xa-Ie0"/>
                                 <include reference="0go-XG-sfR"/>
+                                <include reference="1I6-2x-6Pp"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="A9e-9l-PxA"/>
+                                <include reference="J4A-iV-cVf"/>
+                                <include reference="Zsg-u0-hhM"/>
+                                <include reference="M3h-s5-79F"/>
+                                <include reference="z5b-et-nly"/>
+                                <include reference="NJB-Ds-WO6"/>
+                                <include reference="f6f-3t-dsn"/>
+                                <include reference="uk6-aC-qde"/>
+                                <include reference="Xb3-w7-12d"/>
+                                <include reference="vjg-eT-0YB"/>
                             </mask>
                         </variation>
                     </view>
@@ -3736,6 +3787,7 @@
         <image name="MapIcon" width="25" height="25"/>
         <image name="OkButton" width="172" height="30"/>
         <image name="PlacesButton" width="70" height="70"/>
+        <image name="SaveReviewButton" width="138" height="28"/>
         <image name="SearchButton" width="101" height="101"/>
         <image name="SearchEventsButton" width="304" height="77"/>
         <image name="SearchIcon" width="25" height="25"/>
