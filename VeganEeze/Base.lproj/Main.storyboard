@@ -635,7 +635,7 @@
                                                             <variation key="widthClass=compact" constant="76"/>
                                                         </constraint>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -1219,7 +1219,7 @@
                                                         <constraint firstAttribute="width" constant="376" id="b0Z-08-fwF"/>
                                                         <constraint firstAttribute="height" constant="152" id="dvY-Y6-gXO"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
