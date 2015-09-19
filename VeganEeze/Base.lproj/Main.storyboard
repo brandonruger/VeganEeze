@@ -1565,7 +1565,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="sf1-14-qRg" kind="show" identifier="addCommentSegue" id="BYV-JV-fcT"/>
+                                    <segue destination="rgR-SS-Scx" kind="show" identifier="segueRestaurantRatings" id="gr0-4u-i93"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Red-Ot-mF7">
@@ -3385,11 +3385,12 @@
         <image name="WebsiteButton" width="70" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sCp-Sf-fL5"/>
+        <segue reference="gr0-4u-i93"/>
+        <segue reference="bwe-xQ-Z5M"/>
+        <segue reference="nRz-mN-BOO"/>
         <segue reference="xMA-oN-JMc"/>
         <segue reference="hwU-nc-hM3"/>
         <segue reference="fQ4-AE-5a6"/>
-        <segue reference="nRz-mN-BOO"/>
         <segue reference="Qcv-nR-1TP"/>
     </inferredMetricsTieBreakers>
 </document>
