@@ -119,7 +119,9 @@
     //phoneLabel.text = restaurantPhoneNo;
     ratingLabel.text = restaurantRating;
     
-    priceRangeLabel.text = restPriceRange;
+    NSString *priceRangeFormatted = [NSString stringWithFormat:@"Price Range: %@", restPriceRange];
+    
+    priceRangeLabel.text = priceRangeFormatted;
     restDescTV.text = restDesc;
     
     

@@ -1217,16 +1217,27 @@
                                                         </mask>
                                                     </variation>
                                                 </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Users Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mN7-0R-0IR">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="TBr-9A-rLT" firstAttribute="leading" secondItem="BbF-Pd-Ipd" secondAttribute="leadingMargin" id="1Cx-dt-VGQ"/>
                                                 <constraint firstItem="Rsa-DT-sPe" firstAttribute="leading" secondItem="BbF-Pd-Ipd" secondAttribute="leadingMargin" constant="4" id="5u8-d3-BYJ"/>
                                                 <constraint firstItem="Rsa-DT-sPe" firstAttribute="top" secondItem="TBr-9A-rLT" secondAttribute="bottom" constant="8" id="CyM-BX-upt"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Rsa-DT-sPe" secondAttribute="trailing" constant="4" id="TYF-V5-aIG"/>
+                                                <constraint firstItem="mN7-0R-0IR" firstAttribute="trailing" secondItem="BbF-Pd-Ipd" secondAttribute="trailingMargin" id="hZp-4T-x2l"/>
                                                 <constraint firstItem="TBr-9A-rLT" firstAttribute="top" secondItem="BbF-Pd-Ipd" secondAttribute="topMargin" id="jdV-OU-KMN"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Rsa-DT-sPe" secondAttribute="bottom" constant="-3" id="l2k-r4-ork"/>
+                                                <constraint firstItem="mN7-0R-0IR" firstAttribute="top" secondItem="BbF-Pd-Ipd" secondAttribute="topMargin" id="uWP-Mh-yya"/>
                                             </constraints>
                                             <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="mN7-0R-0IR"/>
+                                                </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="1Cx-dt-VGQ"/>
                                                     <exclude reference="jdV-OU-KMN"/>
@@ -1234,9 +1245,14 @@
                                                     <exclude reference="CyM-BX-upt"/>
                                                     <exclude reference="TYF-V5-aIG"/>
                                                     <exclude reference="l2k-r4-ork"/>
+                                                    <exclude reference="hZp-4T-x2l"/>
+                                                    <exclude reference="uWP-Mh-yya"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="mN7-0R-0IR"/>
+                                                </mask>
                                                 <mask key="constraints">
                                                     <include reference="1Cx-dt-VGQ"/>
                                                     <include reference="jdV-OU-KMN"/>
@@ -1244,12 +1260,15 @@
                                                     <include reference="CyM-BX-upt"/>
                                                     <include reference="TYF-V5-aIG"/>
                                                     <include reference="l2k-r4-ork"/>
+                                                    <include reference="hZp-4T-x2l"/>
+                                                    <include reference="uWP-Mh-yya"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="comment" destination="Rsa-DT-sPe" id="BDY-VG-Ni5"/>
+                                            <outlet property="rating" destination="mN7-0R-0IR" id="lbd-jh-Mh3"/>
                                             <outlet property="username" destination="TBr-9A-rLT" id="RW4-J6-RZl"/>
                                         </connections>
                                     </tableViewCell>
