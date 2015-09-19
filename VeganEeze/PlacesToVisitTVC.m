@@ -26,14 +26,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //Initialize mutable array
-    parsePlacesToVisit = [[NSMutableArray alloc]init];
 //    placeName = [[NSMutableArray alloc]init];
 //    placeCity = [[NSMutableArray alloc]init];
 //    objectIDs = [[NSMutableArray alloc]init];
     
-    //Call method to retrieve objects from Parse server
-    [self retrievePlacesToVisit];
+
 }
 
 -(void) viewWillAppear:(BOOL)animated {
