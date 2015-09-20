@@ -40,19 +40,42 @@
                 //Object ID was found
                 //Get strings out of object
                 nameOfPlace = savedPlace[@"name"];
+                if (nameOfPlace != nil) {
+                    nameLabel.text = nameOfPlace;
+                }
+                
+                
                 addressOfPlace = savedPlace[@"address"];
                 //cityStateOfPlace = savedPlace[@"cityState"];
-                urlOfPlace = savedPlace[@"url"];
-                phoneNoOfPlace = savedPlace[@"phoneNo"];
-                description = savedPlace[@"description"];
+                if (addressOfPlace != nil) {
+                    addressTV.text = addressOfPlace;
+                } else {
+                    addressTV.text = @"Address unknown";
+                }
                 
+                urlOfPlace = savedPlace[@"url"];
+                if (urlOfPlace == nil) {
+                    //Disable website button
+                    [urlLabel setEnabled:NO];
+                }
+                
+                phoneNoOfPlace = savedPlace[@"phoneNo"];
+                if (phoneNoOfPlace == nil) {
+                    //Disable button
+                    [phoneButton setEnabled:NO];
+                }
+                
+                description = savedPlace[@"description"];
+                if (description != nil) {
+                    descriptionTV.text = description;
+                }
                 //Set text labels to above object
-                nameLabel.text = nameOfPlace;
+                
                 //addressTV.text = addressOfPlace;
-                descriptionTV.text = description;
+                
                 //cityStateLabel.text = cityStateOfPlace;
                 //phoneLabel.text = phoneNoOfPlace;
-                addressTV.text = addressOfPlace;
+                
                 
                 //            //Format address for textview
                 //            completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
@@ -60,7 +83,7 @@
                 //            addressTV.text = completeAddress;
                 
                 //Set button text
-                [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
+                //[urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
                 
                 //Set phone # to appear in text view
                 //phoneNoTV.text = phoneNoOfPlace;
@@ -73,19 +96,45 @@
                         //Object ID was found
                         //Get strings out of object
                         nameOfPlace = savedPlace[@"name"];
+                        if (nameOfPlace != nil) {
+                            nameLabel.text = nameOfPlace;
+                        }
+                        
                         addressOfPlace = savedPlace[@"address"];
+                        if (addressOfPlace != nil) {
+                            addressTV.text = addressOfPlace;
+                        } else {
+                            addressTV.text = @"Address unknown";
+                        }
+                        
+                        
+                        
                         //cityStateOfPlace = savedPlace[@"cityState"];
                         urlOfPlace = savedPlace[@"url"];
+                        if (urlOfPlace == nil) {
+                            [urlLabel setEnabled:NO];
+                        }
+                        
                         phoneNoOfPlace = savedPlace[@"phoneNo"];
+                        if (phoneNoOfPlace == nil) {
+                            //Disable button
+                            [phoneButton setEnabled:NO];
+                        }
+                        
+                        
                         description = savedPlace[@"description"];
+                        if (description != nil) {
+                            descriptionTV.text = description;
+                        }
+                        
                         
                         //Set text labels to above object
-                        nameLabel.text = nameOfPlace;
+                        
                         //addressTV.text = addressOfPlace;
-                        descriptionTV.text = description;
+                        
                         //cityStateLabel.text = cityStateOfPlace;
                         //phoneLabel.text = phoneNoOfPlace;
-                        addressTV.text = addressOfPlace;
+                        
                         
                         //Format address for textview
                         //completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
@@ -93,7 +142,7 @@
                         //addressTV.text = completeAddress;
                         
                         //Set button text
-                        [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
+                        //[urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
                     }
                 }];
             }
