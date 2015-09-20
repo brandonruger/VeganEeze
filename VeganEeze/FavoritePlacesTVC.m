@@ -39,7 +39,10 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     
+    
+    
     [parseFavorites removeAllObjects];
+    //[placesTableView reloadData];
     
     //Check for active network connection
     if ([self isNetworkConnected]) {

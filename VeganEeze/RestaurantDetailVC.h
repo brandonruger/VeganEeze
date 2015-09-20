@@ -36,6 +36,7 @@
     IBOutlet UITextView *restDescTV;
     IBOutlet UIImageView *restImage;
     IBOutlet UIImageView *vegLevelImg;
+    IBOutlet UIButton *callButton;
     
 //    NSMutableArray *usernames;
 //    NSMutableArray *comments;

@@ -2365,6 +2365,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addressTV" destination="tnD-fe-lgp" id="9T8-Ur-RFo"/>
+                        <outlet property="callButton" destination="Red-Ot-mF7" id="KA0-tt-f4N"/>
                         <outlet property="commentsTV" destination="YBt-7O-VXc" id="O3h-Ks-ZxD"/>
                         <outlet property="nameLabel" destination="6zA-Kf-brf" id="aHY-gM-P4t"/>
                         <outlet property="priceRangeLabel" destination="zgE-XD-Cg0" id="a4o-VW-3GD"/>
