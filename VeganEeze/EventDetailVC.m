@@ -100,19 +100,62 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
+    
+    //Set labels to display information
+    
+    //addressTV.text = completeAddress;
+    
+    
+    
     //Set strings to values from current event object
     eventName = currentEvent.eventName;
-    eventURL = currentEvent.eventURL;
+    if (eventName != nil) {
+        eventNameLabel.text = eventName;
+    }
     
-    eventAddress = currentEvent.eventAddress;
-    eventCity = currentEvent.eventCity;
-    eventState = currentEvent.eventState;
-    eventZip = currentEvent.eventZip;
+    
+    eventURL = currentEvent.eventURL;
+    if (eventURL == nil) {
+        //Disable website button
+        [eventUrlLabel setEnabled:NO];
+    }
+    
+    
+    
+//    eventAddress = currentEvent.eventAddress;
+//    eventCity = currentEvent.eventCity;
+//    eventState = currentEvent.eventState;
+//    eventZip = currentEvent.eventZip;
+    
+    
+    
     
     eventDesc = currentEvent.eventDesc;
+    if (eventDesc != nil) {
+        
+        eventDescTV.text = eventDesc;
+        //        //Format event description text to remove HTML tags
+        //        NSAttributedString *eventDescFormatted =[[NSAttributedString alloc] initWithData:[eventDesc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+        //
+        //        NSString *descriptionStrFinal = [eventDescFormatted string];
+        //
+        //        eventDescTV.text = descriptionStrFinal;
+    }
+    
+    
     eventVenue = currentEvent.eventVenue;
+    if (eventVenue != nil) {
+        venueLabel.text = eventVenue;
+    }
+    
+    
     eventPrice = currentEvent.eventPrice;
-    eventID = currentEvent.eventID;
+    if (eventPrice != nil) {
+        priceLabel.text = eventPrice;
+    }
+    
+    
+    //eventID = currentEvent.eventID;
     
     
     
@@ -168,35 +211,33 @@
     
     //Get object ID for retrieving reviews
     eventID = currentEvent.eventID;
-    //Call method to get event reviews from Parse
-    [self retrieveReviews];
-    
-    //Set labels to display information
-    eventNameLabel.text = eventName;
-    //addressTV.text = completeAddress;
-    priceLabel.text = eventPrice;
-    venueLabel.text = eventVenue;
-    
-    if (eventDesc != nil) {
-        
-        eventDescTV.text = eventDesc;
-//        //Format event description text to remove HTML tags
-//        NSAttributedString *eventDescFormatted =[[NSAttributedString alloc] initWithData:[eventDesc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
-//        
-//        NSString *descriptionStrFinal = [eventDescFormatted string];
-//        
-//        eventDescTV.text = descriptionStrFinal;
+    if (eventID != nil) {
+        //Call method to get event reviews from Parse
+        [self retrieveReviews];
     }
+    
+    
+
+    
+
     
     
     //Latitude/Longitude
     currentEventLat = currentEvent.latitude;
     currentEventLong = currentEvent.longitude;
     
-    NSLog(@"lat= %f, long= %f", currentEventLat, currentEventLong);
+    if (isnan(currentEventLat) && isnan(currentEventLong)) {
+        
+        //Do nothing
+    } else {
+        
+        NSLog(@"lat= %f, long= %f", currentEventLat, currentEventLong);
+        
+        //Call method to focus map view
+        [self focusMapView];
+    }
     
-    //Call method to focus map view
-    [self focusMapView];
+    
     
 //    eventCityLabel.text = eventCity;
 //    eventStateLabel.text = eventState;
