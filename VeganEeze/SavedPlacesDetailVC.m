@@ -68,6 +68,8 @@
                 description = savedPlace[@"description"];
                 if (description != nil) {
                     descriptionTV.text = description;
+                } else {
+                    descriptionTV.text = @"No description available";
                 }
                 //Set text labels to above object
                 
@@ -125,6 +127,8 @@
                         description = savedPlace[@"description"];
                         if (description != nil) {
                             descriptionTV.text = description;
+                        } else {
+                            descriptionTV.text = @"No description available";
                         }
                         
                         
