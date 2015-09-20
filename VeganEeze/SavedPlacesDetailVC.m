@@ -12,6 +12,7 @@
 #import <Social/Social.h>
 #import <Parse/Parse.h>
 #import "Reachability.h"
+#import "CommentCell.h"
 
 @interface SavedPlacesDetailVC ()
 
@@ -26,6 +27,8 @@
     // Do any additional setup after loading the view.
     
     NSLog(@"objectID = %@", objectId);
+    
+
     
     //Check for active network connection
     if ([self isNetworkConnected]) {
@@ -71,6 +74,14 @@
                 } else {
                     descriptionTV.text = @"No description available";
                 }
+                
+                itemID = savedPlace[@"itemID"];
+                
+                //Initialize array for reviews
+                reviewsArray = [[NSMutableArray alloc]init];
+                
+                [self retrieveReviews: itemID];
+                
                 //Set text labels to above object
                 
                 //addressTV.text = addressOfPlace;
@@ -131,6 +142,13 @@
                             descriptionTV.text = @"No description available";
                         }
                         
+                        itemID = savedPlace[@"itemID"];
+                        
+                        //Initialize array for reviews
+                        reviewsArray = [[NSMutableArray alloc]init];
+                        
+                        [self retrieveReviews: itemID];
+                        
                         
                         //Set text labels to above object
                         
@@ -154,6 +172,7 @@
         }];
 
     }
+    
     
     
 //    //Run query on both classes searching for current object ID that was passed over through segue
@@ -241,6 +260,8 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
+    
+    
     //Set event labels to display information passed over from segue
 //    nameLabel.text = name;
 //    addressLabel.text = address;
@@ -286,6 +307,74 @@
         [noConnection show];
         
         return FALSE;
+    }
+}
+
+#pragma mark - Comments/Ratings
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return [reviewsArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CommentCell *commentsCell = [tableView dequeueReusableCellWithIdentifier:@"savedCommentCell"];
+    if (commentsCell != nil) {
+        
+        //Get current object out of array
+        //RestaurantReview *currentReview = [restaurantReviewsArray objectAtIndex:indexPath.row];
+        
+        PFObject *currentReview = [reviewsArray objectAtIndex:indexPath.row];
+        
+        //Get index of row and use index to get username/comments from array
+        NSString *currentUsername = currentReview[@"username"];
+        NSString *currentComment = currentReview[@"review"];
+        NSString *currentRating = currentReview[@"stars"];
+        
+        //Call cell's custom method to update cell
+        [commentsCell updateCellWithComments:currentUsername userComment:currentComment usersRating:currentRating];
+        
+        //commentsCell.textLabel.text = [comments objectAtIndex:indexPath.row];
+        //commentsCell.detailTextLabel.text = [restaurantCityStates objectAtIndex:indexPath.row];
+    }
+    
+    return commentsCell;
+}
+
+//Method to retrieve current item's reviews from Parse
+
+-(void)retrieveReviews: (NSString*)placesID {
+    
+    //Check for valid network connection
+    if ([self isNetworkConnected]) {
+        
+        if (itemID != nil) {
+            PFQuery *reviewQuery = [PFQuery queryWithClassName:@"UserRating"];
+            [reviewQuery whereKey:@"itemID" equalTo:placesID];
+            
+            [reviewQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    // The find succeeded.
+                    
+                    // Do something with the found objects
+                    for (PFObject *object in objects) {
+                        NSLog(@"%@", object.objectId);
+                        
+                        //Add objects to eventReviewsArray
+                        [reviewsArray addObject:object];
+                    }
+                    
+                    [commentsTV reloadData];
+                    
+                } else {
+                    // Log details of the failure
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        }
+        
+        
     }
 }
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SavedPlacesDetailVC : UIViewController
+@interface SavedPlacesDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 {
     IBOutlet UILabel *nameLabel;
@@ -31,6 +31,10 @@
     NSString *phoneNoOfPlace;
     NSString *description;
     NSString *completeAddress;
+    
+    IBOutlet UITableView *commentsTV;
+    NSMutableArray *reviewsArray;
+    NSString *itemID;
 }
 
 //@property (nonatomic, strong) NSString *name;

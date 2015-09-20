@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "ViewController.h"
 #import "Reachability.h"
+#import "RestaurantDetailVC.h"
 
 @interface FavoritePlacesTVC ()
 
@@ -246,9 +247,10 @@
             
             //Pass the object ID over to the detail view
             savedDetailsVC.objectId = currentObjId;
+            
         }
-    }
     
+    }    
     
     
 }
