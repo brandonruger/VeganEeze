@@ -174,10 +174,23 @@
     
     NSLog(@"restaurantZip = %@", currentRestaurantZip);
     
-    completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", restaurantAddress, restaurantCity, restaurantState, currentRestaurantZip];
-    if (completeAddress != nil) {
-        addressTV.text = completeAddress;
+    if (restaurantAddress != nil && restaurantCity != nil && restaurantState != nil && currentRestaurantZip != nil) {
+        completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", restaurantAddress, restaurantCity, restaurantState, currentRestaurantZip];
+        if (completeAddress != nil) {
+            addressTV.text = completeAddress;
+        }
+        
+    } else if (restaurantCity != nil && restaurantState != nil) {
+        completeAddress = [NSString stringWithFormat:@"%@, %@", restaurantCity, restaurantState];
+        if (completeAddress != nil) {
+            addressTV.text = completeAddress;
+        }
+    } else {
+        addressTV.text = @"Address unknown";
     }
+    
+    
+    
     
     
     NSString *ratingLabelStr = @"Rating: ";
