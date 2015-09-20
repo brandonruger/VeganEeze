@@ -150,12 +150,23 @@
                                                     //[self presentViewController:mainMenuVC animated:YES completion:nil];
                                                     
                                                 } else {
-                                                    //Log in failed. Have user try again.
-                                                    UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                                                    [loginFailed show];
-                                                    //Clear text fields
-                                                    username.text = @"";
-                                                    password.text = @"";
+                                                    
+                                                    
+                                                    NSInteger errorCode = [error code];
+                                                    if (errorCode == 101) {
+                                                        //Invalid login parameters, alert user
+                                                        UIAlertView *invalidLogin = [[UIAlertView alloc]initWithTitle:@"Invalid login" message:@"The username or password you entered is incorrect. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                                        [invalidLogin show];
+                                                    } else {
+                                                        
+                                                        
+                                                        //Log in failed. Have user try again.
+                                                        UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                                        [loginFailed show];
+                                                        //Clear text fields
+                                                        username.text = @"";
+                                                        password.text = @"";
+                                                    }
                                                 }
                                             }];
         }
