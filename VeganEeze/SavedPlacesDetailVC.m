@@ -13,6 +13,7 @@
 #import <Parse/Parse.h>
 #import "Reachability.h"
 #import "CommentCell.h"
+#import "RatingsVC.h"
 
 @interface SavedPlacesDetailVC ()
 
@@ -30,6 +31,93 @@
     
 
     
+    
+    
+    
+//    //Run query on both classes searching for current object ID that was passed over through segue
+//    PFQuery *queryBoth = [PFQuery orQueryWithSubqueries:@[favoritePlaceQuery, placeToVisitQuery]];
+//    [queryBoth getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
+//        if (!error) {
+//            //Object was found for this object ID
+//            //Get strings out of object
+//            nameOfPlace = savedPlace[@"name"];
+//            addressOfPlace = savedPlace[@"address"];
+//            cityStateOfPlace = savedPlace[@"cityState"];
+//            urlOfPlace = savedPlace[@"url"];
+//            phoneNoOfPlace = savedPlace[@"phoneNo"];
+//            
+//            //Set text labels to above object
+//            nameLabel.text = nameOfPlace;
+//            addressLabel.text = addressOfPlace;
+//            cityStateLabel.text = cityStateOfPlace;
+//            phoneLabel.text = phoneNoOfPlace;
+//            
+//            //Set button text
+//            [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
+//        }
+//    }];
+    
+    //Access user's Twitter account on device
+    ACAccountStore *accountStore = [[ACAccountStore alloc]init];
+    if (accountStore != nil) {
+        //Tell what type of account need to access
+        ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        if (accountType != nil) {
+            //Ask account store for direct access to Twitter account
+            [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
+                if (granted) {
+                    //Success, we have access
+                    NSArray *userTwitterAccts = [accountStore accountsWithAccountType:accountType];
+                    if (userTwitterAccts != nil) {
+                        //Access single account
+                        ACAccount *currentAcct = [userTwitterAccts objectAtIndex:0];
+                        if (currentAcct != nil) {
+                            NSLog(@"currentAccount=%@", currentAcct);
+                        }
+                        NSLog(@"twitter accounts = %@", userTwitterAccts);
+                    }
+                }
+                else {
+                    //User did not approve accessing Twitter account
+                    
+                    //***NEED TO HANDLE THIS***
+                }
+            }];
+        }
+    }
+
+}
+
+#pragma mark - Twitter Sharing
+-(IBAction)shareToTwitter:(id)sender {
+    
+    //Check for active network connection
+    if ([self isNetworkConnected]) {
+        //Create view that allows user to post to Twitter
+        SLComposeViewController *slComposeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        NSString *twitterPrefixString = @"Check this place out: ";
+        NSString *twitterFullString = [twitterPrefixString stringByAppendingString:urlOfPlace];
+        
+        //Add in default text to share
+        [slComposeVC setInitialText:twitterFullString];
+        
+        //Present view to user for posting
+        [self presentViewController:slComposeVC animated:TRUE completion:nil];
+    }
+}
+
+#pragma mark - Phone Dialer
+
+-(IBAction)launchPhoneDialer:(id)sender {
+    
+    //Get string for phone number and append it to tel prefix
+    NSString *phoneNum = [@"tel://" stringByAppendingString:phoneNoOfPlace];
+    //Launch phone dialer
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNum]];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
     //Check for active network connection
     if ([self isNetworkConnected]) {
         //Setup queries to check both classes for object ID
@@ -170,107 +258,9 @@
             }
             
         }];
-
-    }
-    
-    
-    
-//    //Run query on both classes searching for current object ID that was passed over through segue
-//    PFQuery *queryBoth = [PFQuery orQueryWithSubqueries:@[favoritePlaceQuery, placeToVisitQuery]];
-//    [queryBoth getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
-//        if (!error) {
-//            //Object was found for this object ID
-//            //Get strings out of object
-//            nameOfPlace = savedPlace[@"name"];
-//            addressOfPlace = savedPlace[@"address"];
-//            cityStateOfPlace = savedPlace[@"cityState"];
-//            urlOfPlace = savedPlace[@"url"];
-//            phoneNoOfPlace = savedPlace[@"phoneNo"];
-//            
-//            //Set text labels to above object
-//            nameLabel.text = nameOfPlace;
-//            addressLabel.text = addressOfPlace;
-//            cityStateLabel.text = cityStateOfPlace;
-//            phoneLabel.text = phoneNoOfPlace;
-//            
-//            //Set button text
-//            [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
-//        }
-//    }];
-    
-    //Access user's Twitter account on device
-    ACAccountStore *accountStore = [[ACAccountStore alloc]init];
-    if (accountStore != nil) {
-        //Tell what type of account need to access
-        ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-        if (accountType != nil) {
-            //Ask account store for direct access to Twitter account
-            [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
-                if (granted) {
-                    //Success, we have access
-                    NSArray *userTwitterAccts = [accountStore accountsWithAccountType:accountType];
-                    if (userTwitterAccts != nil) {
-                        //Access single account
-                        ACAccount *currentAcct = [userTwitterAccts objectAtIndex:0];
-                        if (currentAcct != nil) {
-                            NSLog(@"currentAccount=%@", currentAcct);
-                        }
-                        NSLog(@"twitter accounts = %@", userTwitterAccts);
-                    }
-                }
-                else {
-                    //User did not approve accessing Twitter account
-                    
-                    //***NEED TO HANDLE THIS***
-                }
-            }];
-        }
+        
     }
 
-}
-
-#pragma mark - Twitter Sharing
--(IBAction)shareToTwitter:(id)sender {
-    
-    //Check for active network connection
-    if ([self isNetworkConnected]) {
-        //Create view that allows user to post to Twitter
-        SLComposeViewController *slComposeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        
-        NSString *twitterPrefixString = @"Check this place out: ";
-        NSString *twitterFullString = [twitterPrefixString stringByAppendingString:urlOfPlace];
-        
-        //Add in default text to share
-        [slComposeVC setInitialText:twitterFullString];
-        
-        //Present view to user for posting
-        [self presentViewController:slComposeVC animated:TRUE completion:nil];
-    }
-}
-
-#pragma mark - Phone Dialer
-
--(IBAction)launchPhoneDialer:(id)sender {
-    
-    //Get string for phone number and append it to tel prefix
-    NSString *phoneNum = [@"tel://" stringByAppendingString:phoneNoOfPlace];
-    //Launch phone dialer
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNum]];
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    
-    
-    
-    //Set event labels to display information passed over from segue
-//    nameLabel.text = name;
-//    addressLabel.text = address;
-//    cityStateLabel.text = cityState;
-//    phoneLabel.text = phoneNo;
-//    
-//    //Set URL button text
-//    [urlLabel setTitle:url forState:UIControlStateNormal];
-    
 }
 
 #pragma mark - Navigation
@@ -278,10 +268,20 @@
 //Segue method to pass information to detail view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    //Access the web view
-    WebVC *webVC = segue.destinationViewController;
-    //Pass restaurant's URL to web view
-    webVC.websiteStr = urlOfPlace;
+    if ([segue.identifier isEqualToString:@"savedToWebSegue"]) {
+        //Access the web view
+        WebVC *webVC = segue.destinationViewController;
+        //Pass restaurant's URL to web view
+        webVC.websiteStr = urlOfPlace;
+    }
+    
+    if ([segue.identifier isEqualToString:@"savedToRatingsSegue"]) {
+        
+        RatingsVC *ratingsVC = segue.destinationViewController;
+        //Pass the review URI to ratings view to use as the ID
+        
+        ratingsVC.currentEventsID = itemID;
+    }
     
 }
 
