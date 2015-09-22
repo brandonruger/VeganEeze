@@ -12,19 +12,7 @@
 
 {
     IBOutlet UITableView *resultsTV;
-    
-//    NSArray *restaurantNames;
-//    NSArray *restaurantAddresses;
-//    NSArray *restaurantCityStates;
-//    NSArray *restaurantURLs;
-//    NSArray *restaurantPhones;
-    
-//    NSString *name;
-//    NSString *address;
-//    NSString *city;
-//    NSString *state;
-//    NSString *URL;
-//    NSString *phone;
+
 }
 
 @property (nonatomic, strong) NSMutableArray *arrayOfRestaurantObjs;

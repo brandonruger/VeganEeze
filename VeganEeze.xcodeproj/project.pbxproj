@@ -50,7 +50,6 @@
 		0E74A0021BA4C8BB00F63771 /* VeganResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E74A0011BA4C8BB00F63771 /* VeganResource.m */; };
 		0ED7BA021B856F5C0038EF3A /* RestaurantDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */; };
 		0ED7BA051B856F6E0038EF3A /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA041B856F6E0038EF3A /* EventDetailVC.m */; };
-		0ED7BA0E1B85736B0038EF3A /* MainMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA0D1B85736B0038EF3A /* MainMenuTVC.m */; };
 		0ED7BA111B8573980038EF3A /* RestaurantResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA101B8573980038EF3A /* RestaurantResultsTVC.m */; };
 		0ED7BA141B8573A90038EF3A /* EventResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA131B8573A90038EF3A /* EventResultsTVC.m */; };
 		0ED7BA171B869D0D0038EF3A /* BeverageResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7BA161B869D0D0038EF3A /* BeverageResultsTVC.m */; };
@@ -140,8 +139,6 @@
 		0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailVC.m; sourceTree = "<group>"; };
 		0ED7BA031B856F6E0038EF3A /* EventDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailVC.h; sourceTree = "<group>"; };
 		0ED7BA041B856F6E0038EF3A /* EventDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailVC.m; sourceTree = "<group>"; };
-		0ED7BA0C1B85736B0038EF3A /* MainMenuTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuTVC.h; sourceTree = "<group>"; };
-		0ED7BA0D1B85736B0038EF3A /* MainMenuTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTVC.m; sourceTree = "<group>"; };
 		0ED7BA0F1B8573980038EF3A /* RestaurantResultsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantResultsTVC.h; sourceTree = "<group>"; };
 		0ED7BA101B8573980038EF3A /* RestaurantResultsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantResultsTVC.m; sourceTree = "<group>"; };
 		0ED7BA121B8573A90038EF3A /* EventResultsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventResultsTVC.h; sourceTree = "<group>"; };
@@ -245,8 +242,6 @@
 				0ED7BA011B856F5C0038EF3A /* RestaurantDetailVC.m */,
 				0ED7BA031B856F6E0038EF3A /* EventDetailVC.h */,
 				0ED7BA041B856F6E0038EF3A /* EventDetailVC.m */,
-				0ED7BA0C1B85736B0038EF3A /* MainMenuTVC.h */,
-				0ED7BA0D1B85736B0038EF3A /* MainMenuTVC.m */,
 				0ED7BA0F1B8573980038EF3A /* RestaurantResultsTVC.h */,
 				0ED7BA101B8573980038EF3A /* RestaurantResultsTVC.m */,
 				0ED7BA121B8573A90038EF3A /* EventResultsTVC.h */,
@@ -422,7 +417,6 @@
 				0E651EE11BAA5B03000C6291 /* EditAccountVC.m in Sources */,
 				0E7053B31B97BF8F008518A1 /* RestaurantReview.m in Sources */,
 				0E749FFA1BA2766F00F63771 /* EventResultCell.m in Sources */,
-				0ED7BA0E1B85736B0038EF3A /* MainMenuTVC.m in Sources */,
 				0E74A0021BA4C8BB00F63771 /* VeganResource.m in Sources */,
 				0E7053B01B97BA53008518A1 /* EventReview.m in Sources */,
 				0E342ADB1BA79A8D006AEAB5 /* RatingsVC.m in Sources */,

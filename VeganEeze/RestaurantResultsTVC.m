@@ -20,19 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    //Setup arrays w/ static data
-//    restaurantNames = [[NSArray alloc]initWithObjects:@"Ethos", @"Toasted", @"Dandelion Cafe", @"Loving Hut", nil];
-//    restaurantAddresses = [[NSArray alloc]initWithObjects:@"133 South St", @"2409 N Park Ave", @"849 East Orange Ln", @"9189 Apple Rd", nil];
-//    restaurantCityStates = [[NSArray alloc]initWithObjects:@"Winter Park, FL", @"Orlando, FL", @"Altamonte Springs, FL", @"Casselberry, FL", nil];
-//    restaurantURLs = [[NSArray alloc]initWithObjects:@"www.ethosvegankitchen.com", @"www.igettoasted.com", @"www.dandelioncommunitea.com", @"www.lovinghut.us", nil];
-//    restaurantPhones = [[NSArray alloc]initWithObjects:@"727-401-2009", @"727-394-3928", @"727-293-1293", @"727-203-5039", nil];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,29 +30,12 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Potentially incomplete method implementation.
-//    // Return the number of sections.
-//    return 0;
-//}
-
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [arrayOfRestaurantObjs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    UITableViewCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell"];
-//    if (resultsCell != nil) {
-//        
-//        VeganRestaurant *veganRestaurantInfo = [arrayOfRestaurantObjs objectAtIndex:indexPath.row];
-//        
-//        resultsCell.textLabel.text = veganRestaurantInfo.restaurantName;
-//        resultsCell.detailTextLabel.text = veganRestaurantInfo.restaurantCity;
-//    }
     
     RestaurantResultCell *resultsCell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell"];
     if (resultsCell != nil) {

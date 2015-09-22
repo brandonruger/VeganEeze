@@ -17,31 +17,16 @@
 
 {
     IBOutlet UILabel *eventNameLabel;
-    //IBOutlet UILabel *eventAddressLabel;
-//    IBOutlet UILabel *eventCityLabel;
-//    IBOutlet UILabel *eventStateLabel;
-//    IBOutlet UILabel *eventZipLabel;
-    IBOutlet UIButton *eventUrlLabel;
-    //IBOutlet UILabel *eventPhoneLabel;
-    
-    //IBOutlet UITextView *phoneNoTV;
-    IBOutlet UITextView *addressTV;
     IBOutlet MKMapView *eventMapView;
-
-    
-    IBOutlet UITableView *commentsTV;
-//    NSMutableArray *usernames;
-//    NSMutableArray *comments;
     
     NSMutableArray *eventReviewsArray;
     
-    IBOutlet UILabel *priceLabel;
+    IBOutlet UITableView *commentsTV;
     IBOutlet UITextView *eventDescTV;
-    IBOutlet UIImageView *eventImage;
     IBOutlet UILabel *dateLabel;
-    IBOutlet UILabel *venueLabel;
+    IBOutlet UIButton *tweetButton;
+    IBOutlet UIButton *eventURLButton;
     
-    //IBOutlet UIButton *addNewComment;
     PFUser *currentUser;
     
     NSString *eventName;
@@ -56,8 +41,6 @@
     NSString *eventPrice;
     NSString *eventVenue;
     UIImage *eventImg;
-    
-    //NSString *completeAddress;
     
     Float32 currentEventLat;
     Float32 currentEventLong;
@@ -79,10 +62,5 @@
 
 @property (nonatomic, strong) VeganEvent *currentEvent;
 
-//@property (nonatomic, strong) NSString *eventName;
-//@property (nonatomic, strong) NSString *eventAddress;
-//@property (nonatomic, strong) NSString *eventCityState;
-//@property (nonatomic, strong) NSString *eventURL;
-//@property (nonatomic, strong) NSString *eventPhoneNo;
 
 @end

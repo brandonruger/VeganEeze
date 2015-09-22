@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-#import "MainMenuTVC.h"
 #import "ViewController.h"
 
 @interface AppDelegate ()

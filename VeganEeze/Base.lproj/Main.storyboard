@@ -94,12 +94,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="378" y="414"/>
+            <point key="canvasLocation" x="2214" y="414"/>
         </scene>
-        <!--Create New AcctVC-->
+        <!--Create New Account-->
         <scene sceneID="QLi-4q-w6P">
             <objects>
-                <viewController id="y67-0e-9iv" customClass="CreateNewAcctVC" sceneMemberID="viewController">
+                <viewController title="Create New Account" id="y67-0e-9iv" customClass="CreateNewAcctVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4GK-kN-7fb"/>
                         <viewControllerLayoutGuide type="bottom" id="Xxg-Jt-ihD"/>
@@ -216,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSy-VC-kQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="365"/>
+            <point key="canvasLocation" x="3619.5" y="365"/>
         </scene>
         <!--Edit AccountVC-->
         <scene sceneID="Oqw-NG-zHd">
@@ -400,7 +400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zob-7F-Gjo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2442" y="369"/>
+            <point key="canvasLocation" x="4278" y="369"/>
         </scene>
         <!--Find a Restaurant-->
         <scene sceneID="DAW-Kk-ff2">
@@ -565,7 +565,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrD-qN-yZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3741" y="904"/>
+            <point key="canvasLocation" x="5577" y="904"/>
         </scene>
         <!--Beverage Results-->
         <scene sceneID="Yly-gP-nnT">
@@ -1274,11 +1274,13 @@
                         <outlet property="eventDescTV" destination="fG4-yF-MCF" id="B9h-GJ-aoY"/>
                         <outlet property="eventMapView" destination="hgM-h6-7vf" id="byV-tu-dIj"/>
                         <outlet property="eventNameLabel" destination="AvY-kG-KNk" id="2vD-se-DvR"/>
+                        <outlet property="eventURLButton" destination="468-3r-L5h" id="eva-uN-o7d"/>
+                        <outlet property="tweetButton" destination="lj3-aq-IrV" id="xmy-Ve-dCL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOC-gF-QCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074" y="270"/>
+            <point key="canvasLocation" x="2910" y="270"/>
         </scene>
         <!--Restaurant Detail-->
         <scene sceneID="rkn-p8-1dP">
@@ -2293,7 +2295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQv-8c-nwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="387" y="270"/>
+            <point key="canvasLocation" x="2223" y="270"/>
         </scene>
         <!--Beverage Search-->
         <scene sceneID="NaQ-RW-YI6">
@@ -2538,7 +2540,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="1" title="Login" id="hDb-Lf-Kg6">
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" id="nRz-mN-BOO"/>
+                                <segue destination="acW-Cb-64H" kind="show" id="ORd-5N-z2e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2795,7 +2797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTA-kb-uAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4365" y="890"/>
+            <point key="canvasLocation" x="6201" y="890"/>
         </scene>
         <!--Event Results-->
         <scene sceneID="rmE-LL-src">
@@ -3509,7 +3511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdd-XS-FZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="454.5" y="264"/>
+            <point key="canvasLocation" x="2290.5" y="264"/>
         </scene>
         <!--Vegan Resources-->
         <scene sceneID="Oqb-MH-MqS">
@@ -3576,7 +3578,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wn-Cc-VSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3291" y="366"/>
+            <point key="canvasLocation" x="5127" y="366"/>
         </scene>
         <!--Find Restaurant Nav-->
         <scene sceneID="e18-xe-wLp">
@@ -3594,7 +3596,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UY-ou-fOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5564" y="369"/>
+            <point key="canvasLocation" x="7399.5" y="369"/>
         </scene>
         <!--Favorite Places Nav-->
         <scene sceneID="aAK-9y-0At">
@@ -3634,22 +3636,6 @@
             </objects>
             <point key="canvasLocation" x="5799" y="2183"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="Gdu-6f-mfM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aJm-pL-VaD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="SearchIcon" id="ipg-kh-Jqa"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f8u-pd-dUM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WvP-jI-sar" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4103" y="366"/>
-        </scene>
         <!--Beverage Search Nav-->
         <scene sceneID="RxG-Zn-nSm">
             <objects>
@@ -3687,24 +3673,6 @@
             </objects>
             <point key="canvasLocation" x="7185" y="2187"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="idd-jn-7Ac">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pjl-nT-KrX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="srB-wy-Glg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="c5X-hu-AQ1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xu3-jw-JKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="249" y="365"/>
-        </scene>
         <!--Search Events Nav-->
         <scene sceneID="1Yv-U8-gtl">
             <objects>
@@ -3722,7 +3690,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EuS-aj-E0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4693" y="775"/>
+            <point key="canvasLocation" x="6528" y="775"/>
         </scene>
         <!--Add a Rating-->
         <scene sceneID="df5-iv-dsC">
@@ -3877,6 +3845,24 @@
             </objects>
             <point key="canvasLocation" x="1030.5" y="2189"/>
         </scene>
+        <!--Login Nav-->
+        <scene sceneID="wL2-4S-fsR">
+            <objects>
+                <navigationController title="Login Nav" automaticallyAdjustsScrollViewInsets="NO" id="acW-Cb-64H" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NXP-Gb-Lf0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="3QS-U9-wXe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AdG-eV-eZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1296" y="414"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AddCommentButton" width="70" height="70"/>
@@ -3905,8 +3891,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wpT-E3-ivs"/>
-        <segue reference="c5X-hu-AQ1"/>
-        <segue reference="bwe-xQ-Z5M"/>
-        <segue reference="gr0-4u-i93"/>
+        <segue reference="sCp-Sf-fL5"/>
+        <segue reference="dXv-kY-ACL"/>
     </inferredMetricsTieBreakers>
 </document>
