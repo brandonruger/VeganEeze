@@ -22,7 +22,6 @@
     // Do any additional setup after loading the view.
     
     //Set search bars' delegate
-    //keyword.delegate = self;
     location.delegate = self;
     
     //Setup array with choices for picker
@@ -37,11 +36,9 @@
     //Set default for picker choice
     pickerChoiceSelected = @"5";
     
-    //if ([self isNetworkConnected]) {
-        
-        //Get current location
-        [self getCurrentLocation];
-    //}
+    //Get current location
+    [self getCurrentLocation];
+    
     
     
     //Add target selectors to segmented control buttons
@@ -58,10 +55,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     //Clear text from search bars
-    //keyword.text = @"";
     location.text = @"";
-    
-    //searchKeyword = @"";
     
     //Remove all objects from array
     if (restaurantObjects != nil) {
@@ -76,32 +70,13 @@
 
 #pragma mark - Keyboard
 
-////Method to check if search bars are editing so cancel button can be displayed
-//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-//    
-//    //Show cancel button
-//    cancelButton.hidden = false;
-//}
-
 //Method to check when search bar finishes editing
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     
     //Dismiss keyboard
     [self.view endEditing:YES];
     
-    //Hide cancel button
-    //cancelButton.hidden = true;
 }
-
-////Close keyboard when cancel button is pressed
-//- (IBAction)cancelKeyboard:(id)sender
-//{
-//    //Dismiss keyboard
-//    [self.view endEditing:YES];
-//    
-//    //Hide cancel button
-//    cancelButton.hidden = true;
-//}
 
 //Called when search button is clicked on keyboard
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
@@ -136,7 +111,7 @@
     //Get index of button pressed
     NSInteger segmentControlSelected = sender.selectedSegmentIndex;
     
-    if (segmentControlSelected == 0) { //
+    if (segmentControlSelected == 0) {
         //Call the method to search by current location
         [self searchByCurrentLoc];
         //Set bool to true
@@ -200,9 +175,6 @@
         //Convert latitude/longitude coordinates to strings
         latitudeCoord = [NSString stringWithFormat:@"%g", coordinates.latitude];
         longitudeCoord = [NSString stringWithFormat:@"%g", coordinates.longitude];
-        
-        //NSLog(@"Latitude = %@", latitudeCoord);
-        //NSLog(@"Longitude = %@", longitudeCoord);
     }
 }
 
@@ -237,7 +209,7 @@
             //User selected second row
             pickerChoiceSelected = @"4"; //Vegetarian
             break;
-        
+            
         case 2:
             //User selected 3rd row
             pickerChoiceSelected = @"2"; //Veg-Friendly
@@ -254,15 +226,6 @@
 //Method to request data from VegGuide API
 -(IBAction)searchForVeganRestaurants:(id)sender {
     
-    //Get text user entered in keyword field
-    //NSString *keywordText = keyword.text;
-    
-    //Encode text user entered
-    //searchKeyword = [keywordText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-//    //Set search keyword to keyword user entered
-//    searchKeyword = keyword.text;
-    
     //Check for valid network connection
     if ([self isNetworkConnected]) {
         //Check how user wants to search
@@ -277,36 +240,11 @@
             //Add coordinates term to url for API call
             completeURL = [partialURL stringByAppendingString:coordinates];
             
-            //Check if user entered a search keyword or not
-            //if ([searchKeyword isEqualToString:@""]) {
-            //User did not enter a keywrod
-            
             //Add filter to search
             NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
             
             //Add filter to completed URL
             filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-            //        } else {
-            //            //User entered a search keyword, need to add it to URL
-            //
-            //
-            //            //Add filter to search
-            //            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
-            //
-            //            //Add filter to completed URL
-            //            filterURL = [completeURL stringByAppendingString:searchFilter];
-            //
-            //        }
-            
-            //        //Add filter to search
-            //        NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
-            //
-            //        //Add filter to completed URL
-            //        filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-            //NSLog(@"completeURL= %@", completeURL);
-            //NSLog(@"coordinates= %@", coordinates);
             
         } else {
             //User wants to search by address
@@ -321,33 +259,12 @@
             //Append string to form complete URL
             completeURL = [partialURL stringByAppendingString:encodedLocation];
             
-            //Check if user entered a search keyword or not
-            //if ([searchKeyword isEqualToString:@""]) {
-            //User did not enter a keywrod
-            
             //Add filter to search
             NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
             
             //Add filter to completed URL
             filterURL = [completeURL stringByAppendingString:searchFilter];
             
-            //        } else {
-            //            //User entered a search keyword, need to add it to URL
-            //
-            //
-            //            //Add filter to search
-            //            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@;key1=%@", pickerChoiceSelected, searchKeyword];
-            //
-            //            //Add filter to completed URL
-            //            filterURL = [completeURL stringByAppendingString:searchFilter];
-            //
-            //        }
-            
-            //        //Add filter to search
-            //        NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
-            //
-            //        //Add filter to completed URL
-            //        filterURL = [completeURL stringByAppendingString:searchFilter];
         }
         
         //Set up URL for API call
@@ -364,7 +281,7 @@
             //Create mutableData object to hold data
             dataRetrieved = [NSMutableData data];
         }
-
+        
     } else {
         
         //No network connection
@@ -390,15 +307,9 @@
 //Method called when all data from request has been retrieved
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
-    //NSString *strData = [[NSString alloc]initWithData:dataRetrieved encoding:NSUTF8StringEncoding];
-    
-    //NSLog(@"reviewData = %@", strData);
-    
     //Serialize JSON data
     dictOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
-    //NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];
     NSArray *restaurantsRetrieved = [dictOfJSONData objectForKey:@"entries"];
-   // NSLog(@"firstItem = %@", [firstItemRetrieved description]);
     
     if (restaurantsRetrieved != nil) {
         //Results were found
@@ -424,19 +335,12 @@
         [noResults show];
     }
     
-    
-    
-    //Set bool to true since data retrieval is complete
-    //dataRetrievalComplete = TRUE;
 }
 
 //Method to create custom AlcoholBeverage objects and initalize each object
 -(VeganRestaurant*)createRestaurantObjects:(NSDictionary*)restaurantsDictionary {
+    
     //Get items from the dictionary of data received from API call
-    
-    
-    //NSString *company = [alcoholBevDictionary valueForKey:@"company"];
-    //NSArray *vegRestaurants = [restaurantsDictionary objectForKey:@"entries"];
     
     NSString *restaurantsName = [restaurantsDictionary valueForKey:@"name"];
     NSLog(@"restaurantsName = %@", restaurantsName);
@@ -461,8 +365,6 @@
     //Grab small size
     NSString *uriForImg = [arrayOfImgSizes objectAtIndex:1];
     NSLog(@"uriForImg = %@", uriForImg);
-    //Grab first image
-    //UIImage *restaurantImage = [arrayOfImages objectAtIndex:0];
     
     NSDictionary *fullDescription = [restaurantsDictionary valueForKey:@"long_description"];
     NSString *restDescStr = [fullDescription valueForKey:@"text/vnd.vegguide.org-wikitext"];

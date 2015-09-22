@@ -32,57 +32,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark - Navigation
-
-////Segue to main menu
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//    if ([segue.identifier isEqualToString:@"segueNewAcctToMainMenu"]) {
-//        [self createNewAccount];
-//    }
-//
-//    UIAlertView *createAcctAlert = [[UIAlertView alloc]initWithTitle:@"New Account" message:@"Your new account has been created." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//    if (createAcctAlert != nil) {
-//        [createAcctAlert show];
-//    }
-//}
-
-//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-//{
-//    if ([identifier isEqualToString:@"segueNewAcctToMainMenu"]) {
-//        if (loggedInUser) {
-//            //User is logged in, okay to perform segue
-//            return TRUE;
-//        } else {
-//            //User is not logged in, don't perform segue
-//            //Call method to login to account
-//            //[self loginToAccount];
-//            
-////            //Log in failed. Have user try again.
-////            UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-////            [loginFailed show];
-////            
-////            //Go back to login screen
-////            [self dismissViewControllerAnimated:true completion:nil];
-//            
-//            //Call method to create new account
-//            [self createNewAccount];
-//            
-//            return FALSE;
-//        }
-//    }
-//    return FALSE;
-//}
-
 #pragma mark - Keyboard
-
-//Method to check if keyboard is editing so cancel button can be displayed
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    //Show cancel button
-    //cancelButton.hidden = false;
-}
 
 //When user presses return button
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -90,21 +40,9 @@
     //Dismiss keyboard
     [self.view endEditing:YES];
     
-    //Hide cancel button
-    //cancelButton.hidden = true;
-    
     return YES;
 }
 
-////Close keyboard when cancel button is pressed
-//- (IBAction)cancelKeyboard:(id)sender
-//{
-//    //Dismiss keyboard
-//    [self.view endEditing:YES];
-//    
-//    //Hide cancel button
-//    //cancelButton.hidden = true;
-//}
 
 #pragma mark - Parse
 
@@ -192,7 +130,6 @@
                                                                                 [loginFailed show];
                                                                                 
                                                                                 //Go back to login screen
-                                                                                //[self dismissViewControllerAnimated:true completion:nil];
                                                                                 [self.navigationController popViewControllerAnimated:TRUE];
                                                                                 
                                                                             }
@@ -211,7 +148,7 @@
                                         //Log error
                                         NSLog(@"create account error = %@", errorString);
                                         
-                                        //Invalid email
+                                        //Error - Invalid email
                                         if (errorCode == 125) {
                                             //Alert user to try again
                                             UIAlertView *invalidEmail = [[UIAlertView alloc]initWithTitle:@"Email Error" message:@"The email address you entered is not valid, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -222,7 +159,7 @@
                                         }
                                         
                                         if (errorCode == 202) {
-                                            //Username taken
+                                            //Error - Username taken
                                             UIAlertView *usernameTaken = [[UIAlertView alloc]initWithTitle:@"Username Error" message:@"The username you entered is already taken. Please pick a new username." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                                             [usernameTaken show];
                                             
@@ -232,8 +169,8 @@
                                             
                                         }
                                         if (errorCode == 203) {
-                                            //Email taken
-                                            UIAlertView *emailTaken = [[UIAlertView alloc]initWithTitle:@"Email Error" message:@"The email address you entered is already taken. Please enter a different email address." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                            //Error - Email taken
+                                            UIAlertView *emailTaken = [[UIAlertView alloc]initWithTitle:@"Email Error" message:@"The email address you entered is already associated to an account. Please enter a different email address to create a new account." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                                             [emailTaken show];
                                             
                                             //Clear email field
@@ -265,49 +202,10 @@
             }
             
         }
-
+        
     }
     
 }
-
-
-    //Set username, password and email to what user entered in text fields
-    
-    //Gather info entered in text fields
-//    username = selectUsername.text;
-//    password = selectPassword.text;
-//    secondPassword = confirmPassword.text;
-//    emailAddress = enterEmail.text;
-    
-    
-    //Make sure passwords in both fields match
-//    if ([password isEqualToString:secondPassword]) {
-//        //Both passwords match
-//        
-//        
-//        
-//    } else {
-////        //Alert user that passwords do not match
-////        UIAlertView *passwordError = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Passwords must match in order to create an account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-////        //Show alert
-////        [passwordError show];
-////        //Clear password fields
-////        selectPassword.text = @"";
-////        confirmPassword.text = @"";
-//    }
-//}
-
-
-//- (IBAction)createNewAccount:(id)sender
-//{
-//    
-//    //Create an alert to let user know account has been created
-//    UIAlertView *createAcctAlert = [[UIAlertView alloc]initWithTitle:@"New Account" message:@"Your new account has been created." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//    if (createAcctAlert != nil) {
-//        [createAcctAlert show];
-//    }
-//    
-//}
 
 //Method to check if network is connected
 - (BOOL) isNetworkConnected

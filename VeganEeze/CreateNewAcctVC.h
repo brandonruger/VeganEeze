@@ -12,14 +12,12 @@
 
 @interface CreateNewAcctVC : UIViewController <UITextFieldDelegate>
 
-//- (IBAction)createNewAccount:(id)sender;
 
 {
     IBOutlet UITextField *selectUsername;
     IBOutlet UITextField *selectPassword;
     IBOutlet UITextField *confirmPassword;
     IBOutlet UITextField *enterEmail;
-    //IBOutlet UIButton *cancelButton;
     
     NSString *username;
     NSString *password;

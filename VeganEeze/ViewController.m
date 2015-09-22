@@ -19,20 +19,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    //Hide back button on navigation bar
-    //self.navigationItem.hidesBackButton = YES;
-    
     //Set textfields' delegate
     username.delegate = self;
     password.delegate = self;
-    
-//    //Check if user is already logged in
-//    loggedInUser = [PFUser currentUser];
-//    if (loggedInUser) {
-//        //User is logged in, go to main menu
-//        [self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
-//        
-//    }
     
 }
 
@@ -41,26 +30,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-////Segue to launch other view controllers
-//-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"segueLoginToMainMenu"] && loggedInUser ) {
-//        
-//        }
-//        
-//        //Call method to login to app
-//        [self loginToAccount];
-//    }
-//}
-
 #pragma mark - Keyboard
-
-//Method to check if keyboard is editing so cancel button can be displayed
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    //Show cancel button
-    //cancelButton.hidden = false;
-}
 
 //When user presses return button
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -68,60 +38,14 @@
     //Dismiss keyboard
     [self.view endEditing:YES];
     
-    //Hide cancel button
-    //cancelButton.hidden = true;
     
     return YES;
 }
 
-////Close keyboard when cancel button is pressed
-//- (IBAction)cancelKeyboard:(id)sender
-//{
-//    //Dismiss keyboard
-//    [self.view endEditing:YES];
-//    
-//    //Hide cancel button
-//    cancelButton.hidden = true;
-//}
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//
-////        //Check if segue for main menu was called
-////        if ([segue.identifier isEqualToString:@"segueToMainMenu"]) {
-////            //Call method to log user in to account
-////            [self loginToAccount];
-////            
-////        }
-//
-//}
-
-//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-//{
-//    if ([identifier isEqualToString:@"segueLoginToMainMenu"]) {
-//        if (loggedInUser) {
-//            //User is logged in, okay to perform segue
-//            return TRUE;
-//        } else {
-//            //User is not logged in, don't perform segue
-//            //Call method to login to account
-//            [self loginToAccount];
-//            
-//            return FALSE;
-//        }
-//    }
-//    
-//    if ([identifier isEqualToString:@"segueToCreateNewAcctVC"]) {
-//        return TRUE;
-//    }
-//    
-//    return FALSE;
-//}
-
 #pragma mark - Parse
-//- (void)loginToAccount {
--(IBAction)loginToAccount:(id)sender {
 
+-(IBAction)loginToAccount:(id)sender {
+    
     //Check if user has active connection
     if ([self isNetworkConnected]) {
         //Network connection is active
@@ -140,18 +64,10 @@
                                             block:^(PFUser *user, NSError *error) {
                                                 if (user) {
                                                     //Successfully logged in, go to main menu
-                                                    //[self performSegueWithIdentifier:@"segueLoginToMainMenu" sender:self];
-                                                    
-                                                    //MainMenuTVC *mainMenuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
-                                                    //Instantiate new view controller
-                                                    //[self.navigationController pushViewController:mainMenuVC animated:YES];
                                                     [self.navigationController popViewControllerAnimated:TRUE];
-                                                    //self.tabBarController.selectedIndex = 0;
-                                                    //[self presentViewController:mainMenuVC animated:YES completion:nil];
                                                     
                                                 } else {
-                                                    
-                                                    
+                                                    //Get the error code from Parse
                                                     NSInteger errorCode = [error code];
                                                     if (errorCode == 101) {
                                                         //Invalid login parameters, alert user
@@ -170,7 +86,7 @@
                                                 }
                                             }];
         }
-
+        
     }
     
 }
@@ -208,53 +124,30 @@
                 [requestSuccess show];
                 
             } else {
-                
+                //Get error code from Parse
                 NSInteger errorCode = [error code];
                 
-                //There was an error
-                //Invalid email
+                //Error - Invalid email
                 if (errorCode == 125) {
                     //Alert user to try again
                     UIAlertView *invalidEmail = [[UIAlertView alloc]initWithTitle:@"Email Error" message:@"The email address you entered is not valid, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [invalidEmail show];
                     
-//                    //Show alert with text input for user to enter their email address
-//                    UIAlertView *forgotPassword = [[UIAlertView alloc]initWithTitle:@"Forgot Password?" message:@"Please enter your email address below to reset your password." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
-//                    //Set style to allow text input
-//                    forgotPassword.alertViewStyle = UIAlertViewStylePlainTextInput;
-//                    //Show alert
-//                    [forgotPassword show];
-
                 }
-                
+                //Error - No user found
                 if (errorCode == 205) {
                     //No user found
                     UIAlertView *invalidEmail = [[UIAlertView alloc]initWithTitle:@"Email Error" message:@"No user was found with the email address you entered. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [invalidEmail show];
                     
-//                    //Show alert with text input for user to enter their email address
-//                    UIAlertView *forgotPassword = [[UIAlertView alloc]initWithTitle:@"Forgot Password?" message:@"Please enter your email address below to reset your password." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
-//                    //Set style to allow text input
-//                    forgotPassword.alertViewStyle = UIAlertViewStylePlainTextInput;
-//                    //Show alert
-//                    [forgotPassword show];
                     
                 }
-
+                
                 
             }
-        }
-         
-         
-         
-         ];
+        }];
         
         
-        
-        
-        
-        
-    
     }
 }
 
