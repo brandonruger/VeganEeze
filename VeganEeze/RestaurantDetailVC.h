@@ -16,33 +16,19 @@
 {
   
     IBOutlet UILabel *nameLabel;
-    //IBOutlet UILabel *addressLabel;
-    //IBOutlet UILabel *cityLabel;
-    //IBOutlet UILabel *stateLabel;
-    //IBOutlet UILabel *zipLabel;
     IBOutlet UIButton *urlLabel;
-    IBOutlet UILabel *phoneLabel;
-    
-    //IBOutlet UITextView *phoneNoTV;
     IBOutlet UITextView *addressTV;
-    
     IBOutlet UILabel *ratingLabel;
-    
     IBOutlet UITableView *commentsTV;
-    
     IBOutlet UILabel *priceRangeLabel;
-    //IBOutlet UILabel *vegLevelLabel;
-    //IBOutlet UILabel *restDescLabel;
     IBOutlet UITextView *restDescTV;
     IBOutlet UIImageView *restImage;
     IBOutlet UIImageView *vegLevelImg;
     IBOutlet UIButton *callButton;
-    
-//    NSMutableArray *usernames;
-//    NSMutableArray *comments;
+    IBOutlet UIButton *tweetButton;
+
     NSMutableArray *restaurantReviewsArray;
     
-    //IBOutlet UIButton *addNewComment;
     PFUser *currentUser;
     
     NSString *restaurantName;
@@ -50,7 +36,6 @@
     NSString *restaurantCity;
     NSString *restaurantState;
     NSString *completeAddress;
-    //NSString *restaurantZip;
     NSString *currentRestaurantZip;
     NSString *restaurantURL;
     NSString *restaurantPhoneNo;
@@ -71,12 +56,6 @@
     NSString *userAgent;
     
 }
-
-//@property (nonatomic, strong) NSString *restaurantName;
-//@property (nonatomic, strong) NSString *restaurantAddress;
-//@property (nonatomic, strong) NSString *restaurantCityState;
-//@property (nonatomic, strong) NSString *restaurantURL;
-//@property (nonatomic, strong) NSString *restaurantPhoneNo;
 
 @property (nonatomic, strong) VeganRestaurant *currentRestaurant;
 

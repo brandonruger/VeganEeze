@@ -26,9 +26,6 @@
     
     //Inititalize NSMutableArray which will hold AlcoholBeverage objects
     alcoholBeverageObjects = [[NSMutableArray alloc]init];
-//    
-//    //Set bool to false since data has not been retrieved yet
-//    dataRetrievalComplete = false;
     
 }
 
@@ -48,24 +45,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Keyboard
-
-////Method to check if search bars are editing so cancel button can be displayed
-//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-//    
-//    //Show cancel button
-//    cancelButton.hidden = false;
-//}
-
-////Close keyboard when cancel button is pressed
-//- (IBAction)cancelKeyboard:(id)sender
-//{
-//    //Dismiss keyboard
-//    [self.view endEditing:YES];
-//    
-//    //Hide cancel button
-//    cancelButton.hidden = true;
-//}
+#pragma mark - Search Bar
 
 //Called when search button is clicked on keyboard
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
@@ -123,7 +103,7 @@
                 dataRetrieved = [NSMutableData data];
             }
         }
-
+        
     }
     
 }
@@ -141,8 +121,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     //Serialize JSON data
     arrayOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
-    //NSDictionary *firstItemRetrieved = [arrayOfJSONData objectAtIndex:0];
-    //NSLog(@"firstItem = %@", [firstItemRetrieved description]);
     
     if (arrayOfJSONData == nil || [arrayOfJSONData count] == 0) {
         
@@ -168,17 +146,12 @@
         [self.navigationController pushViewController:bevResultsVC animated:YES];
     }
     
-
-    
-    //Set bool to true since data retrieval is complete
-    //dataRetrievalComplete = TRUE;
 }
 
 //Method to create custom AlcoholBeverage objects and initalize each object
 -(AlcoholBeverage*)createAlcoholBeverageObjects:(NSDictionary*)alcoholBevDictionary {
     //Get items from the dictionary of data received from API call
     
-    //NSString *company = [alcoholBevDictionary valueForKey:@"company"];
     NSDictionary *beverageDictionary = [alcoholBevDictionary objectForKey:@"company"];
     
     NSString *alcoholBevName = [beverageDictionary valueForKey:@"company_name"];
@@ -210,38 +183,5 @@
         return FALSE;
     }
 }
-
-//#pragma mark - Navigation
-//
-//// In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//    //Access Beverage Results view controller
-//    BeverageResultsTVC *bevResultsTVC = (BeverageResultsTVC *) segue.destinationViewController;
-//    if (bevResultsTVC != nil) {
-//        //Pass the array of AlcoholBeverage objects to the Beverage Results vc
-//        bevResultsTVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
-//        //bevResultsTVC.arrayOfAlcoholBeverages = [[NSArray alloc]initWithArray:alcoholBeverageObjects];
-//    }
-//    
-//}
-//
-////Prevent segue from going until data is retrieved
-//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-//    if ([identifier isEqualToString:@"segueToBeverageResults"]) {
-//        //Check if data retrieval is complete
-//        if (dataRetrievalComplete) {
-//            //Data retrieval is complete, OK to perform segue
-//            return TRUE;
-//        } else {
-//            //Data retrieval is incomplete, don't perform segue
-//            return FALSE;
-//        }
-//        
-//    }
-//    return FALSE;
-//
-//}
-
 
 @end

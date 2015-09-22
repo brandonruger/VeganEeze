@@ -29,12 +29,6 @@
     
     userAgent = @"VeganEeze App/v1.0";
     
-//    //Setup array for usernames
-//    usernames = [[NSMutableArray alloc]initWithObjects:@"brandon01", @"vegangirl83", @"animallover221", @"am1985", nil];
-//    
-//    //Setup array for comments
-//    comments = [[NSMutableArray alloc]initWithObjects:@"This place was one of my favorites!", @"I absolutely love this place", @"I wanna go back", @"I love it here!", nil];
-    
     //Initialize array for reviews
     restaurantReviewsArray = [[NSMutableArray alloc]init];
     
@@ -61,7 +55,8 @@
                 else {
                     //User did not approve accessing Twitter account
                     
-                    //***NEED TO HANDLE THIS***
+                    //Disable Tweet button
+                    [tweetButton setEnabled:NO];
                 }
             }];
         }
@@ -140,7 +135,7 @@
                 vegLevelImg.image = [UIImage imageNamed:@"Question"];
                 break;
         }
-
+        
     } else {
         vegLevelImg.image = [UIImage imageNamed:@"Question"];
     }
@@ -163,7 +158,6 @@
         restImage.image = imageForRest;
     } else {
         //No images found, set default image
-        //restaurantImage.image = [UIImage imageNamed:@"NoImage"];
         restImage.image = [UIImage imageNamed:@"VeganEeze-Logo"];
     }
     
@@ -196,51 +190,21 @@
     NSString *ratingLabelStr = @"Rating: ";
     NSString *ratingForRestaurant = currentRestaurant.restaurantRating;
     if (ratingForRestaurant != nil) {
-        //restaurantRating = [ratingLabelStr stringByAppendingString:ratingForRestaurant];
         restaurantRating = [NSString stringWithFormat:@"%@ %@ Stars", ratingLabelStr, ratingForRestaurant];
         ratingLabel.text = restaurantRating;
         
     } else {
         [ratingLabel setHidden:YES];
     }
-
+    
     
     //Get URI for restaurants reviews
     restaurantReviewURI = currentRestaurant.reviewsURI;
-   // NSLog(@"URI = %@", restaurantReviewURI);
-    
-    //Call method to get restaurant reviews from API
-   // [self getRestaurantReviews];
     
     //Remove all objects from array
     [restaurantReviewsArray removeAllObjects];
     
     [self retrieveRestaurantReviews];
-    
-    //Set restaurant labels to display information for object passed over from segue
-    
-    
-    //cityLabel.text = restaurantCity;
-    //stateLabel.text = restaurantState;
-    //zipLabel.text = restaurantZip;
-    //phoneLabel.text = restaurantPhoneNo;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-    //Set URL button text
-    //[urlLabel setTitle:restaurantURL forState:UIControlStateNormal];
-    
-    //Set phone # to appear in text view
-    //phoneNoTV.text = restaurantPhoneNo;
     
 }
 
@@ -267,7 +231,7 @@
         [noConnection show];
     }
     
-
+    
 }
 
 
@@ -283,22 +247,6 @@
         //Pass restaurant's URL to web view
         webVC.websiteStr = restaurantURL;
     }
-    
-//    if ([segue.identifier isEqualToString:@"addCommentSegue"]) {
-//        //Get string for Reviews URI
-//        NSString *addressForReviews = currentRestaurant.reviewsURI;
-//        
-//        //Remove last character "s" from url string
-//        NSString *partialURL = [addressForReviews substringToIndex:[addressForReviews length]-1];
-//        
-//        //Add on "_form"
-//        NSString *writeReviewURL = [partialURL stringByAppendingString:@"_form"];
-//        
-//        //Launch web view with above URL
-//        WebVC *webVC = segue.destinationViewController;
-//        //Pass url to web view
-//        webVC.websiteStr = writeReviewURL;
-//    }
     
     if ([segue.identifier isEqualToString:@"segueRestaurantRatings"]) {
         RatingsVC *ratingsVC = segue.destinationViewController;
@@ -356,8 +304,7 @@
                         favoritePlace[@"city"] = restaurantCity;
                         
                     }
-                    //    favoritePlace[@"state"] = restaurantState;
-                    //    favoritePlace[@"zip"] = currentRestaurantZip;
+                    
                     if (restaurantURL != nil) {
                         favoritePlace[@"url"] = restaurantURL;
                         
@@ -446,8 +393,6 @@
                         placeToVisit[@"city"] = restaurantCity;
                         
                     }
-                    //    placeToVisit[@"state"] = restaurantState;
-                    //    placeToVisit[@"zip"] = currentRestaurantZip;
                     
                     if (restaurantPhoneNo != nil) {
                         placeToVisit[@"phoneNo"] = restaurantPhoneNo;
@@ -492,7 +437,7 @@
             //Instantiate view controller
             [self.navigationController pushViewController:loginVC animated:YES];
         }
-
+        
     } else {
         //Alert user
         UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -500,21 +445,6 @@
     }
     
 }
-
-//#pragma mark - Launch Map app
-//-(IBAction)launchMapForDirections:(id)sender {
-//    
-//}
-
-//#pragma mark - Launch Phone Dialer
-//
-//-(IBAction)launchPhoneDialer:(id)sender {
-//    
-//    //Create string for phone number
-//    NSString *restaurantPhoneNo = [@"tel://" stringByAppendingString:restaurantPhoneNo];
-//    //Launch phone dialer app
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:restaurantPhoneNo]];
-//}
 
 #pragma mark - Comments/Ratings
 
@@ -529,8 +459,6 @@
     if (commentsCell != nil) {
         
         //Get current object out of array
-        //RestaurantReview *currentReview = [restaurantReviewsArray objectAtIndex:indexPath.row];
-        
         PFObject *currentReview = [restaurantReviewsArray objectAtIndex:indexPath.row];
         
         //Get index of row and use index to get username/comments from array
@@ -541,162 +469,12 @@
         //Call cell's custom method to update cell
         [commentsCell updateCellWithComments:currentUsername userComment:currentComment usersRating:currentRating];
         
-        //commentsCell.textLabel.text = [comments objectAtIndex:indexPath.row];
-        //commentsCell.detailTextLabel.text = [restaurantCityStates objectAtIndex:indexPath.row];
     }
     
     return commentsCell;
 }
 
-////Method to add new comment
-//-(IBAction)addNewComment:(id)sender {
-//    
-//    //Show alert with text input for user to enter their comment
-//    UIAlertView *newComment = [[UIAlertView alloc]initWithTitle:@"Add new comment" message:@"Enter comment below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
-//    //Set style to allow text input
-//    newComment.alertViewStyle = UIAlertViewStylePlainTextInput;
-//    //Show alert
-//    [newComment show];
-//}
-
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    //User clicked submit button
-//    if (buttonIndex == 1) {
-////        //Gather the comment user entered
-////        NSString *commentEntered = [[alertView textFieldAtIndex:0] text];
-////        
-////        //Get logged in user's username from Parse
-////        NSString *currentUsername = [PFUser currentUser].username;
-////        
-////        //Add comment/username to mutable arrays
-////        [usernames addObject:currentUsername];
-////        [comments addObject:commentEntered];
-//        
-//        //Refresh tableview
-//        [commentsTV reloadData];
-//    }
-//}
-
-//#pragma mark - Review API calls
-//
-////Method to get restaurant reviews
-//-(void)getRestaurantReviews {
-//    
-//    //Set up URL for API call
-//    urlForReviews = [[NSURL alloc] initWithString:restaurantReviewURI];
-//    //urlForReviews = [[NSURL alloc] initWithString:@"http://www.vegguide.org/4669/reviews"];
-//    
-//    //Set up request to send to server
-//    reviewsRequest = [[NSMutableURLRequest alloc]initWithURL:urlForReviews];
-//    
-//    [reviewsRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-//    [reviewsRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    
-//    if (reviewsRequest != nil) {
-//       // [reviewsRequest setValue:userAgent forHTTPHeaderField:@"User-Agent"];
-//        
-//        //Set up connection to get data from server
-//        reviewsConnection = [[NSURLConnection alloc]initWithRequest:reviewsRequest delegate:self];
-//        //Create mutableData object to store data
-//        reviewData = [NSMutableData data];
-//    }
-//}
-//
-////Method called when data is received
-//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-//    //Check to make sure data is valid
-//    if (data != nil) {
-//        //Add this data to mutableData object
-//        [reviewData appendData:data];
-//        
-//    }
-//}
-//
-////Method called when all data from request has been retrieved
-//- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-//    
-//    NSString *strData = [[NSString alloc]initWithData:reviewData encoding:NSUTF8StringEncoding];
-//    
-//    NSLog(@"reviewData = %@", strData);
-//    
-//    //reviewsArray = [NSKeyedUnarchiver unarchiveObjectWithData:reviewData];
-//    
-//    //NSLog(@"reviewsArray = %@", reviewsArray);
-//    
-//    //https://www.vegguide.org/entry/4669/reviews
-//    
-//    NSError *error = nil;
-//    
-//    //NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:reviewData options:NSJSONReadingAllowFragments error:&error];
-//    
-//    
-//    
-//    //Serialize JSON data
-//    reviewsArray = [NSJSONSerialization JSONObjectWithData:reviewData options:NSJSONReadingAllowFragments error:&error];
-//    
-//    if (error != nil) {
-//        NSLog(@"Error parsing JSON");
-//    } else {
-//        NSLog(@"Array: %@", reviewsArray);
-//        
-//        
-//        
-//        //Loop through array
-//        for (int i=0; i<[reviewsArray count]; i++) {
-//            NSDictionary *currentDictionary = [reviewsArray objectAtIndex:i];
-//            //Dictionary for comment
-//            NSDictionary *dictionaryForComment = [currentDictionary objectForKey:@"body"];
-//            NSString *commentStr = [dictionaryForComment valueForKey:@"text/vnd.vegguide.org-wikitext"];
-//            NSLog(@"commentStr = %@", commentStr);
-//            
-//            //Rating
-//            NSString *currentRating = [currentDictionary valueForKey:@"rating"];
-//            NSLog(@"currentRating = %@", currentRating);
-//            
-//            //Dictionary for username
-//            NSDictionary *dictionaryForUsername = [currentDictionary objectForKey:@"user"];
-//            NSString *currentUsername = [dictionaryForUsername valueForKey:@"name"];
-//            
-//            //Call custom method to create object with information
-//            [self createReviewObjects:commentStr authorOfReview:currentUsername ratingForReview:currentRating];
-//            
-//            //NSString *comment = [currentDictionary valueForKey:@"body"];
-//            //NSLog(@"comment = %@", comment);
-//        }
-//        
-//        //Refresh tableview
-//        [commentsTV reloadData];
-//        
-//        //NSArray *comments = [reviewDictionary objectForKey:@"commen]
-//    }
-
-   // NSDictionary *commentsRetrieved = [reviewDictionary objectForKey:@"comments"];
-   // reviewsArray = [reviewDictionary objectForKey:@"entries"];
-    
-    //reviewsArray = [[NSArray alloc] initWithArray:[NSJSONSerialization JSONObjectWithData:reviewData options:0 error:nil]];
-
-    
-    //NSLog(@"array count = %lu", (unsigned long)[reviewsArray count]);
-    
-    //NSArray *reviewsRetrieved = [reviewDictionary objectForKey:@""];
-    //NSString *reviewComment = [reviewsArray valueForKey:@"body"];
-    
-    //NSString *dataString = [[NSString alloc]initWithData:reviewData encoding:NSASCIIStringEncoding];
-    //NSLog(@"%@", dataString);
-//}
-
-////Method to create RestaurantReview objects and initialize each object
-//-(RestaurantReview*)createReviewObjects:(NSString*)review authorOfReview:(NSString*)authorOfReview ratingForReview:(NSString*)ratingForReview {
-//    
-//    //Use object's custom init method to initialize object
-//    RestaurantReview *newReview = [[RestaurantReview alloc]initWithReview:review whoWroteReview:authorOfReview ratingForRestaurant:ratingForReview];
-//    
-//    //Add review object to array
-//    [restaurantReviewsArray addObject:newReview];
-//    
-//    return newReview;
-//}
-
+//Method to launch phone dialer when call button is pressed
 -(IBAction)launchPhoneDialer:(id)sender {
     
     //Get string for phone number and append it to tel prefix
@@ -708,7 +486,7 @@
 //Method to retrieve current restaurant's reviews from Parse
 -(void)retrieveRestaurantReviews {
     
-   //Check for valid network connection
+    //Check for valid network connection
     if ([self isNetworkConnected]) {
         PFQuery *reviewQuery = [PFQuery queryWithClassName:@"UserRating"];
         [reviewQuery whereKey:@"itemID" equalTo:restaurantReviewURI];
@@ -732,7 +510,7 @@
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
         }];
-
+        
     }
 }
 

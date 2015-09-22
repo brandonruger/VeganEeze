@@ -12,7 +12,6 @@
 
 {
     IBOutlet UISearchBar *beverageName;
-    //IBOutlet UIButton *cancelButton;
     
     NSURLRequest *requestForData;
     NSURL *urlForAPICall;
@@ -23,7 +22,6 @@
     
     NSMutableArray *alcoholBeverageObjects;
     
-    //BOOL dataRetrievalComplete;
 }
 
 @end

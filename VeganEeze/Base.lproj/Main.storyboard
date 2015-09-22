@@ -2286,6 +2286,7 @@
                         <outlet property="ratingLabel" destination="xAD-Va-J3Y" id="Hl8-j7-sNh"/>
                         <outlet property="restDescTV" destination="2eH-Sl-aw8" id="Mfb-W9-dCT"/>
                         <outlet property="restImage" destination="gqY-TC-LNt" id="U12-MH-bNY"/>
+                        <outlet property="tweetButton" destination="rgO-u7-bEg" id="SHU-vC-WpE"/>
                         <outlet property="urlLabel" destination="TCn-5I-fDK" id="e8D-Va-AUS"/>
                         <outlet property="vegLevelImg" destination="ENW-VP-spj" id="jK4-Rs-Shx"/>
                     </connections>
@@ -3904,8 +3905,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wpT-E3-ivs"/>
-        <segue reference="yX1-vT-SOM"/>
-        <segue reference="C15-4e-HjW"/>
         <segue reference="c5X-hu-AQ1"/>
+        <segue reference="bwe-xQ-Z5M"/>
+        <segue reference="gr0-4u-i93"/>
     </inferredMetricsTieBreakers>
 </document>
