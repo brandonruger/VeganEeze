@@ -65,9 +65,9 @@
             //Show alert to user
             [self presentViewController:usernameBlank animated:YES completion:nil];
             
-        //Make sure password wasn't left blank
+            //Make sure password wasn't left blank
         } else if ([passwordStr isEqualToString:@""]) {
-
+            
             //Alert user they must enter a password
             UIAlertController *passwordBlank = [UIAlertController alertControllerWithTitle:@"Error" message:@"Password field cannot be left blank. Please enter your password and try again" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -77,7 +77,7 @@
             [passwordBlank addAction:defaultOk];
             //Show alert
             [self presentViewController:passwordBlank animated:YES completion:nil];
-                
+            
         } else {
             //Both fields filled in, try to login to app
             [PFUser logInWithUsernameInBackground:usernameStr password:passwordStr
@@ -135,12 +135,6 @@
     if ([self isNetworkConnected]) {
         //Network connection found
         //Show alert with text input for user to enter their email address
-//        UIAlertView *forgotPassword = [[UIAlertView alloc]initWithTitle:@"Forgot Password?" message:@"Please enter your email address below to reset your password." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
-//        //Set style to allow text input
-//        forgotPassword.alertViewStyle = UIAlertViewStylePlainTextInput;
-//        //Show alert
-//        [forgotPassword show];
-        
         
         UIAlertController *forgotPassword = [UIAlertController alertControllerWithTitle:@"Forgot Password?" message:@"Please enter your email address below to reset your password." preferredStyle:UIAlertControllerStyleAlert];
         
@@ -148,7 +142,6 @@
         //Add Cancel button
         UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
             //Dismiss alert
-            //[forgotPassword dismissViewControllerAnimated:YES completion:nil];
         }];
         
         //Add OK button
@@ -178,66 +171,59 @@
     
 }
 
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    //User clicked submit button
-//    if (buttonIndex == 1) {
-
 -(void)requetPasswordReset:(NSString*)emailEntered {
-        //Gather the email address user entered
-        //NSString *emailAddressEntered = [[alertView textFieldAtIndex:0] text];
+    
+    //Request password reset via Parse
+    [PFUser requestPasswordResetForEmailInBackground:emailEntered block:^(BOOL succeeded, NSError *error) {
         
-        //Request password reset via Parse
-        [PFUser requestPasswordResetForEmailInBackground:emailEntered block:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            //Successful, alert user
+            UIAlertController *requestSuccess = [UIAlertController alertControllerWithTitle:@"Success" message:@"You will receive an email shortly with a link to reset your password." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [requestSuccess addAction:defaultOk];
+            //Show alert
+            [self presentViewController:requestSuccess animated:YES completion:nil];
             
-            if (succeeded) {
-                //Successful, alert user
-                UIAlertController *requestSuccess = [UIAlertController alertControllerWithTitle:@"Success" message:@"You will receive an email shortly with a link to reset your password." preferredStyle:UIAlertControllerStyleAlert];
+        } else {
+            //Get error code from Parse
+            NSInteger errorCode = [error code];
+            
+            //Error - Invalid email
+            if (errorCode == 125) {
+                //Alert user
+                UIAlertController *invalidEmail = [UIAlertController alertControllerWithTitle:@"Email Error" message:@"The email address you entered is not valid. Please enter a valid email address and try again." preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                     
                 }];
                 //Add action to alert controller
-                [requestSuccess addAction:defaultOk];
+                [invalidEmail addAction:defaultOk];
                 //Show alert
-                [self presentViewController:requestSuccess animated:YES completion:nil];
+                [self presentViewController:invalidEmail animated:YES completion:nil];
                 
-            } else {
-                //Get error code from Parse
-                NSInteger errorCode = [error code];
-                
-                //Error - Invalid email
-                if (errorCode == 125) {
-                    //Alert user
-                    UIAlertController *invalidEmail = [UIAlertController alertControllerWithTitle:@"Email Error" message:@"The email address you entered is not valid. Please enter a valid email address and try again." preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                        
-                    }];
-                    //Add action to alert controller
-                    [invalidEmail addAction:defaultOk];
-                    //Show alert
-                    [self presentViewController:invalidEmail animated:YES completion:nil];
+            }
+            //Error - No user found
+            if (errorCode == 205) {
+                //No user found, alert user
+                UIAlertController *noUser = [UIAlertController alertControllerWithTitle:@"Email Error" message:@"No user was found with the email address you entered. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                     
-                }
-                //Error - No user found
-                if (errorCode == 205) {
-                    //No user found, alert user
-                    UIAlertController *noUser = [UIAlertController alertControllerWithTitle:@"Email Error" message:@"No user was found with the email address you entered. Please try again." preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                        
-                    }];
-                    //Add action to alert controller
-                    [noUser addAction:defaultOk];
-                    //Show alert
-                    [self presentViewController:noUser animated:YES completion:nil];
-                    
-                    
-                }
+                }];
+                //Add action to alert controller
+                [noUser addAction:defaultOk];
+                //Show alert
+                [self presentViewController:noUser animated:YES completion:nil];
                 
                 
             }
-        }];
-        
-        
-   // }
+            
+            
+        }
+    }];
+    
+    
 }
 
 //Method to check if network is connected

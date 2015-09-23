@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "Reachability.h"
 
-@interface ViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
+@interface ViewController : UIViewController <UITextFieldDelegate>
 
 {
     IBOutlet UITextField *username;
