@@ -84,8 +84,14 @@
     } else {
         
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
     }
 }
 
@@ -266,8 +272,14 @@
                     // The find succeeded.
                     
                     //Alert user that they've already saved this place
-                    UIAlertView *duplicateFave = [[UIAlertView alloc]initWithTitle:@"Duplicate" message:@"You have already bookmarked this place to your list of favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [duplicateFave show];
+                    UIAlertController *duplicateFave = [UIAlertController alertControllerWithTitle:@"Duplicate" message:@"You have already bookmarked this place to your list of favorites." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        
+                    }];
+                    //Add action to alert controller
+                    [duplicateFave addAction:defaultOk];
+                    //Show alert
+                    [self presentViewController:duplicateFave animated:YES completion:nil];
                     
                     
                 } else {
@@ -309,17 +321,29 @@
                     [favoritePlace saveInBackground];
                     
                     //Alert user
-                    UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Favorite saved" message:@"This restaurant has been saved to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [savedAlert show];
+                    UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"Favorite Saved" message:@"This event has been saved to your favorites." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        
+                    }];
+                    //Add action to alert controller
+                    [savedAlert addAction:defaultOk];
+                    //Show alert
+                    [self presentViewController:savedAlert animated:YES completion:nil];
+                    
                     
                 }
             }];
             
         } else {
             //Not logged in, alert user
-            //User is not logged in, alert user
-            UIAlertView *notLoggedIn = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your favorites." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [notLoggedIn show];
+            UIAlertController *notLoggedIn = [UIAlertController alertControllerWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your favorites. Please login." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [notLoggedIn addAction:defaultOk];
+            //Show alert
+            [self presentViewController:notLoggedIn animated:YES completion:nil];
             
             //Take user to login screen
             ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
@@ -329,8 +353,14 @@
         
     } else {
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
     }
 }
 
@@ -353,8 +383,14 @@
                     // The find succeeded.
                     
                     //Alert user that they've already saved this place
-                    UIAlertView *duplicatePlace = [[UIAlertView alloc]initWithTitle:@"Duplicate" message:@"You have already bookmarked this place to your list of Places to Visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [duplicatePlace show];
+                    UIAlertController *duplicatePlace = [UIAlertController alertControllerWithTitle:@"Duplicate" message:@"You have already bookmarked this place to your list of Places to Visit." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        
+                    }];
+                    //Add action to alert controller
+                    [duplicatePlace addAction:defaultOk];
+                    //Show alert
+                    [self presentViewController:duplicatePlace animated:YES completion:nil];
                     
                     
                 } else {
@@ -396,16 +432,28 @@
                     //Save in background on Parse server
                     [placeToVisit saveInBackground];
                     //Alert user
-                    UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Place saved" message:@"This restaurant has been saved to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [savedAlert show];
+                    UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"Place Saved" message:@"This event has been saved to your places to visit." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        
+                    }];
+                    //Add action to alert controller
+                    [savedAlert addAction:defaultOk];
+                    //Show alert
+                    [self presentViewController:savedAlert animated:YES completion:nil];
                     
                 }
             }];
             
         } else {
             //User is not logged in, alert user
-            UIAlertView *notLoggedIn = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your places to visit." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [notLoggedIn show];
+            UIAlertController *notLoggedIn = [UIAlertController alertControllerWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your places to visit. Please login and try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [notLoggedIn addAction:defaultOk];
+            //Show alert
+            [self presentViewController:notLoggedIn animated:YES completion:nil];
             
             //Take user to login screen
             ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
@@ -415,8 +463,14 @@
         
     } else {
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
     }
 }
 
