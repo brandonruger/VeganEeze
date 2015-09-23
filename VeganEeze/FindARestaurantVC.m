@@ -86,8 +86,14 @@
         [self performSegueWithIdentifier:@"segueToRestaurantResults" sender:self];
     } else {
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
     }
     
     
@@ -288,8 +294,14 @@
         NSLog(@"Network connection is inactive");
         
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
     }
     
     
@@ -328,11 +340,18 @@
         restResultsTVC.arrayOfRestaurantObjs = restaurantObjects;
         //Instantiate new view controller
         [self.navigationController pushViewController:restResultsTVC animated:YES];
+        
     } else {
         //No results found
         //Alert user no results were found
-        UIAlertView *noResults = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No restaurants found. Please revise your search and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noResults show];
+        UIAlertController *noResults = [UIAlertController alertControllerWithTitle:@"No Results Found" message:@"No restaurants found. Please revise your search and try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noResults addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noResults animated:YES completion:nil];
     }
     
 }

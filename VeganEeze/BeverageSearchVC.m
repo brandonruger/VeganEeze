@@ -81,8 +81,14 @@
         
         if ([searchKeywordEntered isEqualToString:@""]) {
             //Alert user that they must enter in a search term
-            UIAlertView *blankAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must enter in a keyword in order to search." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [blankAlert show];
+            UIAlertController *blankAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"You must enter in a keyword in order to search. Please enter a brand or type of beverage to search for and try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [blankAlert addAction:defaultOk];
+            //Show alert
+            [self presentViewController:blankAlert animated:YES completion:nil];
             
         } else {
             
@@ -125,8 +131,14 @@
     if (arrayOfJSONData == nil || [arrayOfJSONData count] == 0) {
         
         //Alert user that no results were found
-        UIAlertView *noResultsFound = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No results were found, please modify your search and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noResultsFound show];
+        UIAlertController *noResultsFound = [UIAlertController alertControllerWithTitle:@"No Results Found" message:@"No results were found based on your search. Please revise your search and try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noResultsFound addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noResultsFound animated:YES completion:nil];
         
     } else {
         //Loop through all results retrieved from API call
@@ -177,8 +189,14 @@
         NSLog(@"Network connection is inactive");
         
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
         
         return FALSE;
     }
