@@ -45,8 +45,14 @@
             [placesToVisitTV reloadData];
             
             //User is not logged in, alert user
-            UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must login in order to view your saved places." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [logInAlert show];
+            UIAlertController *loginAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"You must login in order to view your saved places." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [loginAlert addAction:defaultOk];
+            //Show alert
+            [self presentViewController:loginAlert animated:YES completion:nil];
             
             //Take user to login screen
             ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
@@ -206,8 +212,14 @@
         NSLog(@"Network connection is inactive");
         
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
         
         return FALSE;
     }

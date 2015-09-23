@@ -236,8 +236,14 @@
         NSLog(@"Network connection is inactive");
         
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
         
         return FALSE;
     }

@@ -116,9 +116,16 @@
             //Save item to Parse
             [userRating saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
-                    // The object has been saved.
-                    UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Saved" message:@"Your review has been added" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [savedAlert show];
+                    
+                    // The object has been saved, alert user
+                    UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Your review has been successfully added." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        
+                    }];
+                    //Add action to alert controller
+                    [savedAlert addAction:defaultOk];
+                    //Show alert
+                    [self presentViewController:savedAlert animated:YES completion:nil];
                     
                     //Clear text field
                     commentTextBox.text = @"";
@@ -128,17 +135,28 @@
                     
                 } else {
                     //Unable to save
-                    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error trying to save your comment. Please make sure you have a valid network connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [errorAlert show];
+                    UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error trying to save your comment. Please make sure you have a valid network connection and try again." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        
+                    }];
+                    //Add action to alert controller
+                    [errorAlert addAction:defaultOk];
+                    //Show alert
+                    [self presentViewController:errorAlert animated:YES completion:nil];
                 }
             }];
             
             
         } else {
             //User is not logged in
-            
-            UIAlertView *logInAlert = [[UIAlertView alloc]initWithTitle:@"Login error" message:@"You must be logged in to post a review. Press the OK button to go to the login screen." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [logInAlert show];
+            UIAlertController *loginAlert = [UIAlertController alertControllerWithTitle:@"Login Error" message:@"You must be logged in to post a review. Please login and try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [loginAlert addAction:defaultOk];
+            //Show alert
+            [self presentViewController:loginAlert animated:YES completion:nil];
             
             //Take user to login screen
             ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
@@ -163,8 +181,14 @@
         NSLog(@"Network connection is inactive");
         
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
         
         return FALSE;
     }

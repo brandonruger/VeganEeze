@@ -42,8 +42,14 @@
         enterEmail.text = currentEmail;
     } else {
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to edit your account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
     }
     
 }
@@ -59,47 +65,125 @@
     if ([self isNetworkConnected]) {
         //Get username entered
         username = selectUsername.text;
+        password = selectPassword.text;
+        secondPassword = confirmPassword.text;
+        emailAddress = enterEmail.text;
         
-        //Check to make sure username wasn't blank
+        //Check to make sure username isn't blank
         if ([username isEqualToString:@""]) {
             //Alert user they must enter a username
-            UIAlertView *usernameAlert = [[UIAlertView alloc]initWithTitle:@"Username error" message:@"Username cannot be blank. Please enter a username." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [usernameAlert show];
+            UIAlertController *usernameAlert = [UIAlertController alertControllerWithTitle:@"Username Error" message:@"Username cannot be blank. Please enter a new username and try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [usernameAlert addAction:defaultOk];
+            //Show alert
+            [self presentViewController:usernameAlert animated:YES completion:nil];
             
+            //Check email field to make sure it isn't blank
+        } else if ([emailAddress isEqualToString:@""]) {
+            
+            //Email address field is blank, alert user
+            UIAlertController *emailAlert = [UIAlertController alertControllerWithTitle:@"Email Error" message:@"Email address cannot be blank. Please enter a new email address if you would like change it, or enter your current email address and then try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [emailAlert addAction:defaultOk];
+            //Show alert
+            [self presentViewController:emailAlert animated:YES completion:nil];
             
         } else {
             
+            //Email address was entered
             
-            //Check email address
-            emailAddress = enterEmail.text;
-            if ([emailAddress isEqualToString:@""]) {
-                //Email address field is blank, alert user
-                UIAlertView *emailAlert =[[UIAlertView alloc]initWithTitle:@"Email error" message:@"Email address cannot be blank. Please enter your email address." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [emailAlert show];
+            //Update user's profile with information entered
+            loggedInUser.username = username;
+            loggedInUser.email = emailAddress;
+            
+            
+            //Check to see if user entered in a new password
+            password = selectPassword.text;
+            secondPassword = confirmPassword.text;
+            
+            if ([password isEqualToString:@""]) {
+                //Check if there is a password in the second field
+                if ([secondPassword isEqualToString:@""]) {
+                    //Both passwords are blank, user does not want to change password
+                    //Proceed with updating username/email address
+                    
+                    [loggedInUser saveInBackground];
+                    
+                    //Alert user
+                    UIAlertController *success = [UIAlertController alertControllerWithTitle:@"Account Updated" message:@"Your account has successfully been updated." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        
+                    }];
+                    //Add action to alert controller
+                    [success addAction:defaultOk];
+                    //Show alert
+                    [self presentViewController:success animated:YES completion:nil];
+                    
+                    //Clear text fields
+                    selectUsername.text = @"";
+                    selectPassword.text = @"";
+                    confirmPassword.text = @"";
+                    enterEmail.text = @"";
+                    
+                    //Return to main menu
+                    [self.navigationController popToRootViewControllerAnimated:TRUE];
+                    
+                } else {
+                    //Second password has text, but not first password
+                    UIAlertController *passwordAlert = [UIAlertController alertControllerWithTitle:@"Password Error" message:@"You did not enter a password in the first field. Please enter your new password and try again." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        
+                    }];
+                    //Add action to alert controller
+                    [passwordAlert addAction:defaultOk];
+                    //Show alert
+                    [self presentViewController:passwordAlert animated:YES completion:nil];
+                }
                 
             } else {
                 
-                //Email address was entered
-                
-                //Update user's profile with information entered
-                loggedInUser.username = username;
-                loggedInUser.email = emailAddress;
-                
-                
-                //Check to see if user entered in a new password
-                password = selectPassword.text;
-                secondPassword = confirmPassword.text;
-                if ([password isEqualToString:@""]) {
-                    //Check if there is a password in the second field
-                    if ([secondPassword isEqualToString:@""]) {
-                        //Both passwords are blank, user does not want to change password
-                        //Proceed with updating username/email address
+                //Make sure password is at least 6 characters
+                if (password.length < 6) {
+                    //Password is < 6 characters, alert user
+                    UIAlertController *passwordLength = [UIAlertController alertControllerWithTitle:@"Password Error" message:@"Your password must be at least 6 characters long. Please enter a new password and try again." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         
+                    }];
+                    //Add action to alert controller
+                    [passwordLength addAction:defaultOk];
+                    //Show alert
+                    [self presentViewController:passwordLength animated:YES completion:nil];
+                    
+                    //Clear password fields
+                    selectPassword.text = @"";
+                    confirmPassword.text = @"";
+                    
+                } else {
+                    
+                    //Check to make sure both fields match
+                    if ([password isEqualToString:secondPassword]) {
+                        //Both passwords match
+                        //Update user password
+                        loggedInUser.password = password;
+                        
+                        //Save updated info
                         [loggedInUser saveInBackground];
                         
                         //Alert user
-                        UIAlertView *success = [[UIAlertView alloc]initWithTitle:@"Account updated" message:@"Your account has successfully been updated." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                        [success show];
+                        UIAlertController *success = [UIAlertController alertControllerWithTitle:@"Account Updated" message:@"Your account has successfully been updated." preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            
+                        }];
+                        //Add action to alert controller
+                        [success addAction:defaultOk];
+                        //Show alert
+                        [self presentViewController:success animated:YES completion:nil];
                         
                         //Clear text fields
                         selectUsername.text = @"";
@@ -111,72 +195,42 @@
                         [self.navigationController popToRootViewControllerAnimated:TRUE];
                         
                     } else {
-                        //Second password has text, but not first password
-                        UIAlertView *passwordAlert = [[UIAlertView alloc]initWithTitle:@"Password Error" message:@"You did not enter a password in the first field. Please enter and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                        [passwordAlert show];
-                    }
-                    
-                } else {
-                    
-                    //Make sure password is at least 6 characters
-                    if (password.length < 6) {
-                        //Password is < 6 characters, alert user
-                        UIAlertView *passwordLength = [[UIAlertView alloc]initWithTitle:@"Password Length" message:@"Password must be at least 6 characters long. Please enter a new password and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                        [passwordLength show];
+                        //Passwords do not match, alert user
+                        UIAlertController *passwordNoMatch = [UIAlertController alertControllerWithTitle:@"Password Error" message:@"The passwords you entered do not match. Please re-enter passwords and try again." preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            
+                        }];
+                        //Add action to alert controller
+                        [passwordNoMatch addAction:defaultOk];
+                        //Show alert
+                        [self presentViewController:passwordNoMatch animated:YES completion:nil];
                         
                         //Clear password fields
                         selectPassword.text = @"";
                         confirmPassword.text = @"";
                         
-                    } else {
-                        
-                        //Check to make sure both fields match
-                        if ([password isEqualToString:secondPassword]) {
-                            //Both passwords match
-                            //Update user password
-                            loggedInUser.password = password;
-                            
-                            //Save updated info
-                            [loggedInUser saveInBackground];
-                            
-                            //Alert user
-                            UIAlertView *success = [[UIAlertView alloc]initWithTitle:@"Account updated" message:@"Your account has successfully been updated." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                            [success show];
-                            
-                            //Clear text fields
-                            selectUsername.text = @"";
-                            selectPassword.text = @"";
-                            confirmPassword.text = @"";
-                            enterEmail.text = @"";
-                            
-                            //Return to main menu
-                            [self.navigationController popToRootViewControllerAnimated:TRUE];
-                            
-                        } else {
-                            //Passwords do not match
-                            UIAlertView *passwordAlert = [[UIAlertView alloc]initWithTitle:@"Password Error" message:@"Both passwords must match. Please re-enter passwords and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                            
-                            //Clear password fields
-                            selectPassword.text = @"";
-                            confirmPassword.text = @"";
-                            
-                            [passwordAlert show];
-                        }
-                        
-                        
                     }
+                    
                     
                 }
                 
             }
+            
+            
             
         }
         
         
     } else {
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to edit your account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
     }
 }
 

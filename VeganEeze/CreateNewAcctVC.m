@@ -122,7 +122,7 @@
         } else if (![password isEqualToString:secondPassword]) {
             
             //Passwords do not match, alert user
-            UIAlertController *passwordNoMatch = [UIAlertController alertControllerWithTitle:@"Password Error" message:@"The passwords you entered do not match. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *passwordNoMatch = [UIAlertController alertControllerWithTitle:@"Password Error" message:@"The passwords you entered do not match. Please re-enter passwords and try again." preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
             }];

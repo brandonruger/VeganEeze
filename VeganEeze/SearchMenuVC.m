@@ -82,17 +82,28 @@
         [PFUser logOut];
         
         //Alert user they have been logged out
-        UIAlertView *logoutAlert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have been logged out." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertController *logoutAlert = [UIAlertController alertControllerWithTitle:@"Logged Out" message:@"You have been logged out." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [logoutAlert addAction:defaultOk];
         //Show alert
-        [logoutAlert show];
+        [self presentViewController:logoutAlert animated:YES completion:nil];
         
         //Change text on button back to "Login"
         self.navigationItem.rightBarButtonItem.title = @"Login";
         self.navigationItem.leftBarButtonItem = nil;
     } else {
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
     }
     
     
