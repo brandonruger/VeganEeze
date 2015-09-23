@@ -21,6 +21,8 @@
     
     PFUser *loggedInUser;
     
+    NSString *forgotPwEmail;
+    
 }
 
 
