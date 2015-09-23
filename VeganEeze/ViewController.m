@@ -52,13 +52,20 @@
         usernameStr = username.text;
         passwordStr = password.text;
         
-        //Make sure fields were not blank
-        if ([usernameStr isEqualToString:@""] || [passwordStr isEqualToString:@""]) {
+        //Make sure username was not left blank
+        if ([usernameStr isEqualToString:@""]){
             //Alert user they must enter both username and password
-            UIAlertView *blankField = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must enter username and password. Please try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *blankField = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Username field cannot be left blank. Please enter your username and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [blankField show];
+            
+        //Make sure password wasn't left blank
+        } else if ([passwordStr isEqualToString:@""]) {
+            
+            UIAlertView *passwordBlank = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Password field cannot be left blank. Please enter your password and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [passwordBlank show];
+                
         } else {
-            //Try to login to app
+            //Both fields filled in, try to login to app
             [PFUser logInWithUsernameInBackground:usernameStr password:passwordStr
                                             block:^(PFUser *user, NSError *error) {
                                                 if (user) {
