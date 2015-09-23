@@ -54,15 +54,29 @@
         
         //Make sure username was not left blank
         if ([usernameStr isEqualToString:@""]){
-            //Alert user they must enter both username and password
-            UIAlertView *blankField = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Username field cannot be left blank. Please enter your username and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [blankField show];
+            
+            //Alert user they must enter a username
+            UIAlertController *usernameBlank = [UIAlertController alertControllerWithTitle:@"Error" message:@"Username field cannot be left blank. Please enter your username and try again" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [usernameBlank addAction:defaultOk];
+            //Show alert to user
+            [self presentViewController:usernameBlank animated:YES completion:nil];
             
         //Make sure password wasn't left blank
         } else if ([passwordStr isEqualToString:@""]) {
-            
-            UIAlertView *passwordBlank = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Password field cannot be left blank. Please enter your password and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [passwordBlank show];
+
+            //Alert user they must enter a password
+            UIAlertController *passwordBlank = [UIAlertController alertControllerWithTitle:@"Error" message:@"Password field cannot be left blank. Please enter your password and try again" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [passwordBlank addAction:defaultOk];
+            //Show alert
+            [self presentViewController:passwordBlank animated:YES completion:nil];
                 
         } else {
             //Both fields filled in, try to login to app
@@ -76,15 +90,31 @@
                                                     //Get the error code from Parse
                                                     NSInteger errorCode = [error code];
                                                     if (errorCode == 101) {
+                                                        
                                                         //Invalid login parameters, alert user
-                                                        UIAlertView *invalidLogin = [[UIAlertView alloc]initWithTitle:@"Invalid login" message:@"The username or password you entered is incorrect. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                                                        [invalidLogin show];
+                                                        UIAlertController *invalidLogin = [UIAlertController alertControllerWithTitle:@"Invalid login" message:@"The username or password you entered is incorrect. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+                                                        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                                                            
+                                                        }];
+                                                        //Add action to alert controller
+                                                        [invalidLogin addAction:defaultOk];
+                                                        //Show alert
+                                                        [self presentViewController:invalidLogin animated:YES completion:nil];
+                                                        
+                                                        
+                                                        
                                                     } else {
                                                         
-                                                        
                                                         //Log in failed. Have user try again.
-                                                        UIAlertView *loginFailed = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Login failed, please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                                                        [loginFailed show];
+                                                        UIAlertController *loginFailed = [UIAlertController alertControllerWithTitle:@"Error" message:@"Login failed, please try again." preferredStyle:UIAlertControllerStyleAlert];
+                                                        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                                                            
+                                                        }];
+                                                        //Add action to alert controller
+                                                        [loginFailed addAction:defaultOk];
+                                                        //Show alert
+                                                        [self presentViewController:loginFailed animated:YES completion:nil];
+                                                        
                                                         //Clear text fields
                                                         username.text = @"";
                                                         password.text = @"";
@@ -170,8 +200,14 @@
         NSLog(@"Network connection is inactive");
         
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
         
         return FALSE;
     }
