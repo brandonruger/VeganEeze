@@ -35,13 +35,10 @@
         loggedInUser = [PFUser currentUser];
         
         NSString *currentUsername = loggedInUser.username;
-        //NSString *currentPassword = currentUser.password;
         NSString *currentEmail = loggedInUser.email;
         
         //Load text fields with above data
         selectUsername.text = currentUsername;
-        //selectPassword.text = currentPassword;
-        //confirmPassword.text = currentPassword;
         enterEmail.text = currentEmail;
     } else {
         //Alert user
@@ -73,7 +70,7 @@
         } else {
             
             
-            //check email address
+            //Check email address
             emailAddress = enterEmail.text;
             if ([emailAddress isEqualToString:@""]) {
                 //Email address field is blank, alert user
@@ -103,9 +100,6 @@
                         //Alert user
                         UIAlertView *success = [[UIAlertView alloc]initWithTitle:@"Account updated" message:@"Your account has successfully been updated." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                         [success show];
-                        
-                        //Make sure user is logged in with current info
-                        // PFUser *logUserIn = [PFUser logInWithUsername:username password:password];
                         
                         //Clear text fields
                         selectUsername.text = @"";
@@ -149,9 +143,6 @@
                             UIAlertView *success = [[UIAlertView alloc]initWithTitle:@"Account updated" message:@"Your account has successfully been updated." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                             [success show];
                             
-                            //Make sure user is logged in with current info
-                            // PFUser *logUserIn = [PFUser logInWithUsername:username password:password];
-                            
                             //Clear text fields
                             selectUsername.text = @"";
                             selectPassword.text = @"";
@@ -177,31 +168,11 @@
                     
                 }
                 
-                
-                
-                
             }
-            
-            
             
         }
         
-        //    else {
-        //        //Passwords do not match, alert user
-        //        //Alert user that passwords do not match
-        //        UIAlertView *passwordError = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Passwords must match in order to create an account. Please reenter passwords and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        //        //Show alert
-        //        [passwordError show];
-        //        //Clear password fields
-        //        selectPassword.text = @"";
-        //        confirmPassword.text = @"";
-        //    }
         
-        
-        
-        
-        
-
     } else {
         //Alert user
         UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to edit your account. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -225,14 +196,5 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

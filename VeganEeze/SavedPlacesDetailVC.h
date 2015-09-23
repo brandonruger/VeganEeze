@@ -13,16 +13,12 @@
 {
     IBOutlet UILabel *nameLabel;
     IBOutlet UITextView *addressTV;
-    //IBOutlet UILabel *cityStateLabel;
     IBOutlet UIButton *urlLabel;
-    //IBOutlet UILabel *phoneLabel;
     
     IBOutlet UITextView *descriptionTV;
     IBOutlet UIButton *phoneButton;
-    IBOutlet UIButton *shareButton;
+    IBOutlet UIButton *tweetButton;
     
-    
-    //IBOutlet UITextView *phoneNoTV;
     
     NSString *nameOfPlace;
     NSString *addressOfPlace;
@@ -37,11 +33,6 @@
     NSString *itemID;
 }
 
-//@property (nonatomic, strong) NSString *name;
-//@property (nonatomic, strong) NSString *address;
-//@property (nonatomic, strong) NSString *cityState;
-//@property (nonatomic, strong) NSString *url;
-//@property (nonatomic, strong) NSString *phoneNo;
 @property (nonatomic, strong) NSString *objectId;
 
 @end

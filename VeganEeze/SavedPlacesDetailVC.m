@@ -20,7 +20,6 @@
 @end
 
 @implementation SavedPlacesDetailVC
-//@synthesize name, address, cityState, phoneNo, url;
 @synthesize objectId;
 
 - (void)viewDidLoad {
@@ -28,34 +27,6 @@
     // Do any additional setup after loading the view.
     
     NSLog(@"objectID = %@", objectId);
-    
-
-    
-    
-    
-    
-//    //Run query on both classes searching for current object ID that was passed over through segue
-//    PFQuery *queryBoth = [PFQuery orQueryWithSubqueries:@[favoritePlaceQuery, placeToVisitQuery]];
-//    [queryBoth getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
-//        if (!error) {
-//            //Object was found for this object ID
-//            //Get strings out of object
-//            nameOfPlace = savedPlace[@"name"];
-//            addressOfPlace = savedPlace[@"address"];
-//            cityStateOfPlace = savedPlace[@"cityState"];
-//            urlOfPlace = savedPlace[@"url"];
-//            phoneNoOfPlace = savedPlace[@"phoneNo"];
-//            
-//            //Set text labels to above object
-//            nameLabel.text = nameOfPlace;
-//            addressLabel.text = addressOfPlace;
-//            cityStateLabel.text = cityStateOfPlace;
-//            phoneLabel.text = phoneNoOfPlace;
-//            
-//            //Set button text
-//            [urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
-//        }
-//    }];
     
     //Access user's Twitter account on device
     ACAccountStore *accountStore = [[ACAccountStore alloc]init];
@@ -80,12 +51,13 @@
                 else {
                     //User did not approve accessing Twitter account
                     
-                    //***NEED TO HANDLE THIS***
+                    //Disable tweet button
+                    [tweetButton setEnabled:NO];
                 }
             }];
         }
     }
-
+    
 }
 
 #pragma mark - Twitter Sharing
@@ -137,7 +109,6 @@
                 
                 
                 addressOfPlace = savedPlace[@"address"];
-                //cityStateOfPlace = savedPlace[@"cityState"];
                 if (addressOfPlace != nil) {
                     addressTV.text = addressOfPlace;
                 } else {
@@ -170,25 +141,6 @@
                 
                 [self retrieveReviews: itemID];
                 
-                //Set text labels to above object
-                
-                //addressTV.text = addressOfPlace;
-                
-                //cityStateLabel.text = cityStateOfPlace;
-                //phoneLabel.text = phoneNoOfPlace;
-                
-                
-                //            //Format address for textview
-                //            completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
-                //            //Set textview to display address
-                //            addressTV.text = completeAddress;
-                
-                //Set button text
-                //[urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
-                
-                //Set phone # to appear in text view
-                //phoneNoTV.text = phoneNoOfPlace;
-                
             } else {
                 //Run second query to check for Object ID
                 [placeToVisitQuery getObjectInBackgroundWithId:objectId block:^(PFObject *savedPlace, NSError *error) {
@@ -209,8 +161,6 @@
                         }
                         
                         
-                        
-                        //cityStateOfPlace = savedPlace[@"cityState"];
                         urlOfPlace = savedPlace[@"url"];
                         if (urlOfPlace == nil) {
                             [urlLabel setEnabled:NO];
@@ -236,23 +186,6 @@
                         reviewsArray = [[NSMutableArray alloc]init];
                         
                         [self retrieveReviews: itemID];
-                        
-                        
-                        //Set text labels to above object
-                        
-                        //addressTV.text = addressOfPlace;
-                        
-                        //cityStateLabel.text = cityStateOfPlace;
-                        //phoneLabel.text = phoneNoOfPlace;
-                        
-                        
-                        //Format address for textview
-                        //completeAddress = [NSString stringWithFormat:@"%@ \n%@", addressOfPlace, cityStateOfPlace];
-                        //Set textview to display address
-                        //addressTV.text = completeAddress;
-                        
-                        //Set button text
-                        //[urlLabel setTitle:urlOfPlace forState:UIControlStateNormal];
                     }
                 }];
             }
@@ -260,7 +193,7 @@
         }];
         
     }
-
+    
 }
 
 #pragma mark - Navigation
@@ -323,8 +256,6 @@
     if (commentsCell != nil) {
         
         //Get current object out of array
-        //RestaurantReview *currentReview = [restaurantReviewsArray objectAtIndex:indexPath.row];
-        
         PFObject *currentReview = [reviewsArray objectAtIndex:indexPath.row];
         
         //Get index of row and use index to get username/comments from array
@@ -335,8 +266,6 @@
         //Call cell's custom method to update cell
         [commentsCell updateCellWithComments:currentUsername userComment:currentComment usersRating:currentRating];
         
-        //commentsCell.textLabel.text = [comments objectAtIndex:indexPath.row];
-        //commentsCell.detailTextLabel.text = [restaurantCityStates objectAtIndex:indexPath.row];
     }
     
     return commentsCell;
@@ -378,14 +307,5 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

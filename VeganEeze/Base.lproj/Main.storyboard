@@ -3506,6 +3506,7 @@
                         <outlet property="descriptionTV" destination="ZIR-yz-fpY" id="0M4-NO-9h9"/>
                         <outlet property="nameLabel" destination="v2K-5C-MA1" id="teb-kW-BBW"/>
                         <outlet property="phoneButton" destination="Nmb-YR-fkH" id="rvc-qj-Ipi"/>
+                        <outlet property="tweetButton" destination="i0l-fO-OQG" id="N5e-Fu-grc"/>
                         <outlet property="urlLabel" destination="pTa-K2-591" id="ACD-Cu-Oz0"/>
                     </connections>
                 </viewController>
@@ -3891,7 +3892,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wpT-E3-ivs"/>
-        <segue reference="sCp-Sf-fL5"/>
-        <segue reference="dXv-kY-ACL"/>
+        <segue reference="yX1-vT-SOM"/>
+        <segue reference="C15-4e-HjW"/>
     </inferredMetricsTieBreakers>
 </document>

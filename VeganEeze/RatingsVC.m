@@ -31,8 +31,6 @@
     
     ratingPickerChoices = [[NSArray alloc]initWithObjects:choice1, choice2, choice3, choice4, nil];
     
-    //ratingPickerChoices = [[NSArray alloc]initWithObjects:@"1 star", "2 stars", "3 stars", "4 stars", nil];
-    
     //Connect picker to delegates
     ratingsPicker.dataSource = self;
     ratingsPicker.delegate = self;
@@ -96,8 +94,6 @@
     
     //Check for active network connection
     if ([self isNetworkConnected]) {
-        //Get rating user entered
-        //int starRating = [pickerChoiceSelected intValue];
         
         //Get users comment
         NSString *commentEntered = commentTextBox.text;
@@ -150,7 +146,7 @@
             [self.navigationController pushViewController:loginVC animated:YES];
             
         }
-
+        
     }
 }
 

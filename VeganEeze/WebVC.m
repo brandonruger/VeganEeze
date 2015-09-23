@@ -21,10 +21,6 @@
     // Do any additional setup after loading the view.
     NSLog(@"URL = %@", websiteStr);
     
-    //NSString *urlPrefix = @"http://";
-    //Concatenate string with http:// prefix
-    //NSString *completeURL = [urlPrefix stringByAppendingString:websiteStr];
-    
     //Check for active network connection
     if ([self isNetworkConnected]) {
         //Create URL object
@@ -66,15 +62,5 @@
         return FALSE;
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

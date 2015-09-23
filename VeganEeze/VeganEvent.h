@@ -15,11 +15,8 @@
 @property (nonatomic, strong) NSString *eventCity;
 @property (nonatomic, strong) NSString *eventState;
 @property (nonatomic, strong) NSString *eventZip;
-//@property (nonatomic, strong) NSString *eventPhone;
 @property (nonatomic, strong) NSString *eventURL;
-//@property (nonatomic, strong) NSString *eventComments;
 @property (nonatomic, strong) NSString *eventID;
-
 @property (nonatomic, strong) NSString *eventDesc;
 @property (nonatomic, strong) NSString *eventStartTime;
 @property (nonatomic, strong) NSString *eventVenue;

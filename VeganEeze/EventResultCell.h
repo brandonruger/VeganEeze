@@ -13,7 +13,6 @@
 {
     IBOutlet UILabel *eventName;
     IBOutlet UIImageView *eventImage;
-  //  IBOutlet UILabel *eventPrice;
     IBOutlet UILabel *eventLocation;
     IBOutlet UILabel *eventDateLabel;
 }

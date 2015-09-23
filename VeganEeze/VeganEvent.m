@@ -20,7 +20,6 @@
         eventCity = [cityOfEvent copy];
         eventState = [stateOfEvent copy];
         eventZip = [zipOfEvent copy];
-        //eventPhone = [stateOfEvent copy];
         eventURL = [websiteForEvent copy];
         eventID = [idForEvent copy];
         eventDesc = [descOfEvent copy];

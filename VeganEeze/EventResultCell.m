@@ -16,7 +16,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -25,15 +25,9 @@
     //Set items in cell to items passed into method
     eventName.text = name;
     
-//    if (price != nil) {
-//        eventPrice.text = price;
-//    } else {
-//        eventPrice.text = @"No price information available";
-//    }
-    
     eventLocation.text = location;
     
-
+    
     if (date != nil) {
         
         NSLog(@"date = %@", date);
@@ -41,13 +35,6 @@
         //Trim off time from string
         date = [date substringToIndex:10];
         NSLog(@"date = %@", date);
-        
-//        NSDateFormatter *formatForDate = [[NSDateFormatter alloc]init];
-//        //[formatForDate setDateStyle:NSDateFormatterShortStyle];
-//        [formatForDate setDateFormat:@"MMM dd, yyyy"];
-//        NSDate *eventDate = [formatForDate dateFromString:date];
-//        
-//        NSString *dateString = [formatForDate stringFromDate:eventDate];
         
         NSDateFormatter *formatForDate = [[NSDateFormatter alloc]init];
         [formatForDate setDateFormat: @"yyyy-MM-dd"];

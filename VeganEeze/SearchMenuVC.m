@@ -20,10 +20,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //Hide back button on navigation bar
-    //self.navigationItem.hidesBackButton = YES;
-    //self.navigationItem.leftBarButtonItem = nil;
-    
     settingsButton = self.navigationItem.leftBarButtonItem;
     
     
@@ -76,22 +72,6 @@
         return YES;
     }
     
-//    if ([identifier isEqualToString:@"segueToLogin"]) {
-//        //Check button text
-//        if ([self.navigationItem.rightBarButtonItem.title isEqualToString:@"Login"]) {
-//            return YES;
-//            
-//        } else {
-//            
-//            //Call method to log user out
-//            [self logoutFromApp];
-//            
-//            return NO;
-//        }
-//    } else {
-//        return YES;
-//    }
-    
 }
 
 -(void)logoutFromApp {
@@ -134,15 +114,5 @@
         return FALSE;
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
