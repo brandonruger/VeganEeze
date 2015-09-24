@@ -339,16 +339,18 @@
             UIAlertController *notLoggedIn = [UIAlertController alertControllerWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your favorites. Please login." preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
+                //Take user to login screen
+                ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                //Instantiate view controller
+                [self.navigationController pushViewController:loginVC animated:YES];
+                
             }];
             //Add action to alert controller
             [notLoggedIn addAction:defaultOk];
             //Show alert
             [self presentViewController:notLoggedIn animated:YES completion:nil];
             
-            //Take user to login screen
-            ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-            //Instantiate view controller
-            [self.navigationController pushViewController:loginVC animated:YES];
+            
         }
         
     } else {
@@ -449,16 +451,18 @@
             UIAlertController *notLoggedIn = [UIAlertController alertControllerWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your places to visit. Please login and try again." preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
+                //Take user to login screen
+                ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                //Instantiate view controller
+                [self.navigationController pushViewController:loginVC animated:YES];
+                
             }];
             //Add action to alert controller
             [notLoggedIn addAction:defaultOk];
             //Show alert
             [self presentViewController:notLoggedIn animated:YES completion:nil];
             
-            //Take user to login screen
-            ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-            //Instantiate view controller
-            [self.navigationController pushViewController:loginVC animated:YES];
+            
         }
         
     } else {

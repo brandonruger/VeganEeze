@@ -48,16 +48,18 @@
             UIAlertController *loginAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"You must login in order to view your saved places." preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
+                //Take user to login screen
+                ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                //Instantiate view controller
+                [self.navigationController pushViewController:loginVC animated:YES];
+                
             }];
             //Add action to alert controller
             [loginAlert addAction:defaultOk];
             //Show alert
             [self presentViewController:loginAlert animated:YES completion:nil];
             
-            //Take user to login screen
-            ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-            //Instantiate view controller
-            [self.navigationController pushViewController:loginVC animated:YES];
+            
         }
     }
     

@@ -152,16 +152,18 @@
             UIAlertController *loginAlert = [UIAlertController alertControllerWithTitle:@"Login Error" message:@"You must be logged in to post a review. Please login and try again." preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
+                //Take user to login screen
+                ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                //Instantiate view controller
+                [self.navigationController pushViewController:loginVC animated:YES];
+                
             }];
             //Add action to alert controller
             [loginAlert addAction:defaultOk];
             //Show alert
             [self presentViewController:loginAlert animated:YES completion:nil];
             
-            //Take user to login screen
-            ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-            //Instantiate view controller
-            [self.navigationController pushViewController:loginVC animated:YES];
+            
             
         }
         
