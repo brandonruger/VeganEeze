@@ -1792,6 +1792,19 @@
                                     </mask>
                                 </variation>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-Va-J3Y">
+                                <rect key="frame" x="536" y="443" width="48" height="19"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgE-XD-Cg0">
+                                <rect key="frame" x="478" y="69" width="60" height="12"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ENW-VP-spj">
                                 <rect key="frame" x="16" y="69" width="50" height="50"/>
                                 <constraints>
@@ -1823,24 +1836,13 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-Va-J3Y">
-                                <rect key="frame" x="536" y="443" width="48" height="19"/>
-                                <color key="backgroundColor" red="0.98431372549999996" green="0.68235294120000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgE-XD-Cg0">
-                                <rect key="frame" x="478" y="69" width="60" height="12"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="10"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gef-Q3-SjI" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="44" id="1n6-13-9NU"/>
-                            <constraint firstItem="ENW-VP-spj" firstAttribute="top" secondItem="UKq-6O-4WN" secondAttribute="bottom" constant="40" id="1pZ-ye-tE2"/>
+                            <constraint firstItem="ENW-VP-spj" firstAttribute="top" secondItem="UKq-6O-4WN" secondAttribute="bottom" constant="40" id="1pZ-ye-tE2">
+                                <variation key="widthClass=compact" constant="35"/>
+                            </constraint>
                             <constraint firstItem="EnH-Aw-91n" firstAttribute="top" secondItem="2eH-Sl-aw8" secondAttribute="bottom" constant="8" id="1sZ-o3-cTV"/>
                             <constraint firstItem="gef-Q3-SjI" firstAttribute="top" secondItem="2eH-Sl-aw8" secondAttribute="bottom" constant="8" id="2J1-Sg-Nk5"/>
                             <constraint firstItem="gef-Q3-SjI" firstAttribute="leading" secondItem="3yY-ND-Ke6" secondAttribute="leadingMargin" constant="14" id="2fl-fh-A4c"/>
@@ -1894,7 +1896,9 @@
                             </constraint>
                             <constraint firstItem="gef-Q3-SjI" firstAttribute="top" secondItem="2eH-Sl-aw8" secondAttribute="bottom" constant="8" id="LXJ-cF-1ur"/>
                             <constraint firstItem="Red-Ot-mF7" firstAttribute="top" secondItem="2eH-Sl-aw8" secondAttribute="bottom" constant="8" id="Lrz-ii-pDM"/>
-                            <constraint firstItem="gqY-TC-LNt" firstAttribute="top" secondItem="ENW-VP-spj" secondAttribute="bottom" constant="2" id="MVT-T7-C5B"/>
+                            <constraint firstItem="gqY-TC-LNt" firstAttribute="top" secondItem="ENW-VP-spj" secondAttribute="bottom" constant="2" id="MVT-T7-C5B">
+                                <variation key="widthClass=compact" constant="7"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="6zA-Kf-brf" secondAttribute="trailing" constant="22" id="NKB-I1-zfr"/>
                             <constraint firstItem="3GQ-Rw-xUM" firstAttribute="leading" secondItem="rgO-u7-bEg" secondAttribute="trailing" priority="750" constant="8" id="NgV-FY-iKS"/>
                             <constraint firstItem="zgE-XD-Cg0" firstAttribute="trailing" secondItem="3yY-ND-Ke6" secondAttribute="trailingMargin" id="Npp-tT-nhc"/>
@@ -2397,10 +2401,10 @@
             </objects>
             <point key="canvasLocation" x="3233" y="1175"/>
         </scene>
-        <!--SEARCHMENUVC-->
+        <!--Search Menu-->
         <scene sceneID="4xh-LG-DLh">
             <objects>
-                <viewController title="SEARCHMENUVC" id="fAo-9k-gNV" customClass="SearchMenuVC" sceneMemberID="viewController">
+                <viewController title="Search Menu" id="fAo-9k-gNV" customClass="SearchMenuVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pQ2-7s-WU0"/>
                         <viewControllerLayoutGuide type="bottom" id="bsx-E6-CI0"/>
@@ -3125,10 +3129,10 @@
             </objects>
             <point key="canvasLocation" x="3024" y="3113"/>
         </scene>
-        <!--Saved Details-->
+        <!--Saved Item-->
         <scene sceneID="hla-gq-g7X">
             <objects>
-                <viewController title="Saved Details" id="tLO-bQ-eIr" customClass="SavedPlacesDetailVC" sceneMemberID="viewController">
+                <viewController title="Saved Item" id="tLO-bQ-eIr" customClass="SavedPlacesDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Swr-4e-teU"/>
                         <viewControllerLayoutGuide type="bottom" id="7E7-7x-wma"/>
@@ -3931,7 +3935,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xMA-oN-JMc"/>
-        <segue reference="yX1-vT-SOM"/>
-        <segue reference="C15-4e-HjW"/>
+        <segue reference="bwe-xQ-Z5M"/>
+        <segue reference="gr0-4u-i93"/>
     </inferredMetricsTieBreakers>
 </document>
