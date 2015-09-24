@@ -81,6 +81,22 @@
             //Show alert
             [self presentViewController:usernameAlert animated:YES completion:nil];
             
+            //Check length of username to make sure it's at least 6 characters
+        } else if (username.length < 6) {
+            
+            //Alert user
+            UIAlertController *usernameLength = [UIAlertController alertControllerWithTitle:@"Username Error" message:@"Your username must be at least 6 characters long. Please enter a new username and try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [usernameLength addAction:defaultOk];
+            //Show alert
+            [self presentViewController:usernameLength animated:YES completion:nil];
+            
+            //Clear username field
+            selectUsername.text = @"";
+            
             //Check email field to make sure it isn't blank
         } else if ([emailAddress isEqualToString:@""]) {
             
@@ -120,7 +136,9 @@
                     UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         
                         //Return to main menu
-                        [self.navigationController popToRootViewControllerAnimated:TRUE];
+                        //[self.navigationController popToRootViewControllerAnimated:TRUE];
+                        [self.navigationController popViewControllerAnimated:TRUE];
+                        
                     }];
                     //Add action to alert controller
                     [success addAction:defaultOk];
@@ -179,6 +197,8 @@
                         UIAlertController *success = [UIAlertController alertControllerWithTitle:@"Account Updated" message:@"Your account has successfully been updated." preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             
+                            [self.navigationController popViewControllerAnimated:TRUE];
+                            
                         }];
                         //Add action to alert controller
                         [success addAction:defaultOk];
@@ -192,7 +212,7 @@
                         enterEmail.text = @"";
                         
                         //Return to main menu
-                        [self.navigationController popToRootViewControllerAnimated:TRUE];
+                        //[self.navigationController popToRootViewControllerAnimated:TRUE];
                         
                     } else {
                         //Passwords do not match, alert user
