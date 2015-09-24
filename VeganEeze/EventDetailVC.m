@@ -121,6 +121,7 @@
         eventDescTV.text = eventDesc;
     }
     
+    eventVenue = currentEvent.eventVenue;
     
     //Date
     eventDate = currentEvent.eventStartTime;
@@ -190,10 +191,15 @@
     MKPointAnnotation *venuePin = [[MKPointAnnotation alloc]init];
     //Set coordinate
     venuePin.coordinate = CLLocationCoordinate2DMake(currentEventLat, currentEventLong);
-    //Title for pin
-    venuePin.title = eventVenue;
-    //Add pin to map
-    [eventMapView addAnnotation:venuePin];
+    
+    if (eventVenue != nil) {
+        
+        //Title for pin
+        venuePin.title = eventVenue;
+        //Add pin to map
+        [eventMapView addAnnotation:venuePin];
+    }
+    
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation

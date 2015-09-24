@@ -154,6 +154,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username must be a minimum of 6 characters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bf5-6A-NpK">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -164,6 +170,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="tLk-XB-Ydq" secondAttribute="trailing" constant="19" id="6UR-pN-v0J"/>
                             <constraint firstItem="Jph-WV-5l1" firstAttribute="top" secondItem="X3W-cD-HWe" secondAttribute="bottom" constant="8" id="8nY-1v-2zS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3h0-iQ-YTi" secondAttribute="trailing" constant="19" id="CsY-lM-1Ok"/>
+                            <constraint firstItem="bf5-6A-NpK" firstAttribute="top" secondItem="tLk-XB-Ydq" secondAttribute="bottom" constant="8" id="EYU-Aw-zZm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="X3W-cD-HWe" secondAttribute="trailing" constant="19" id="N5O-hQ-RN8"/>
                             <constraint firstItem="JFd-H3-Kyy" firstAttribute="top" secondItem="3h0-iQ-YTi" secondAttribute="bottom" constant="30" id="SI0-nv-YH6">
                                 <variation key="widthClass=compact" constant="27"/>
@@ -176,11 +183,14 @@
                             <constraint firstItem="VGn-6I-WD0" firstAttribute="top" secondItem="4GK-kN-7fb" secondAttribute="bottom" constant="22" id="eqn-nc-uVQ"/>
                             <constraint firstItem="K2w-eK-fQ5" firstAttribute="leading" secondItem="tf6-dP-Onz" secondAttribute="leadingMargin" constant="19" id="gtr-mv-4Oa"/>
                             <constraint firstItem="JFd-H3-Kyy" firstAttribute="leading" secondItem="tf6-dP-Onz" secondAttribute="leadingMargin" constant="19" id="niX-Ew-0Ah"/>
+                            <constraint firstItem="bf5-6A-NpK" firstAttribute="leading" secondItem="tf6-dP-Onz" secondAttribute="leadingMargin" constant="19" id="ogp-qY-boM"/>
                             <constraint firstItem="3h0-iQ-YTi" firstAttribute="leading" secondItem="tf6-dP-Onz" secondAttribute="leadingMargin" constant="19" id="qEe-fD-SCf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VGn-6I-WD0" secondAttribute="trailing" constant="209" id="rgl-D9-qDX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gbK-cv-hX0" secondAttribute="trailing" constant="-25" id="sPO-Av-Bvp"/>
                             <constraint firstItem="tLk-XB-Ydq" firstAttribute="leading" secondItem="tf6-dP-Onz" secondAttribute="leadingMargin" constant="19" id="tEQ-fb-6sA"/>
-                            <constraint firstItem="Xxg-Jt-ihD" firstAttribute="top" secondItem="gbK-cv-hX0" secondAttribute="bottom" id="tME-6q-oAU"/>
+                            <constraint firstItem="Xxg-Jt-ihD" firstAttribute="top" secondItem="gbK-cv-hX0" secondAttribute="bottom" id="tME-6q-oAU">
+                                <variation key="widthClass=compact" constant="-49"/>
+                            </constraint>
                             <constraint firstItem="X3W-cD-HWe" firstAttribute="top" secondItem="tLk-XB-Ydq" secondAttribute="bottom" constant="30" id="tcc-JO-WHB"/>
                             <constraint firstItem="K2w-eK-fQ5" firstAttribute="top" secondItem="JFd-H3-Kyy" secondAttribute="bottom" constant="8" id="u8I-n9-wSG"/>
                             <constraint firstItem="gbK-cv-hX0" firstAttribute="leading" secondItem="tf6-dP-Onz" secondAttribute="leadingMargin" constant="-18" id="vsW-58-8MT"/>
@@ -189,19 +199,25 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Jph-WV-5l1"/>
+                                <exclude reference="bf5-6A-NpK"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4ha-hB-OYD"/>
-                                <exclude reference="8nY-1v-2zS"/>
                                 <exclude reference="50n-9C-iFN"/>
                                 <exclude reference="rgl-D9-qDX"/>
+                                <exclude reference="EYU-Aw-zZm"/>
+                                <exclude reference="ogp-qY-boM"/>
+                                <exclude reference="4ha-hB-OYD"/>
+                                <exclude reference="8nY-1v-2zS"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Jph-WV-5l1"/>
+                                <include reference="bf5-6A-NpK"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="EYU-Aw-zZm"/>
+                                <include reference="ogp-qY-boM"/>
                                 <include reference="4ha-hB-OYD"/>
                                 <include reference="8nY-1v-2zS"/>
                             </mask>

@@ -73,6 +73,22 @@
             [self presentViewController:usernameAlert animated:YES completion:nil];
             
             
+            //Check length of username to make sure it's at least 6 characters
+        } else if (username.length < 6) {
+            
+            //Alert user
+            UIAlertController *usernameLength = [UIAlertController alertControllerWithTitle:@"Username Error" message:@"Your username must be at least 6 characters long. Please enter a new username and try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            //Add action to alert controller
+            [usernameLength addAction:defaultOk];
+            //Show alert
+            [self presentViewController:usernameLength animated:YES completion:nil];
+            
+            //Clear username field
+            selectUsername.text = @"";
+                    
             //Username is okay, check to make sure user entered a password in the first field
         } else if ([password isEqualToString:@""]) {
             
