@@ -188,14 +188,15 @@
                                                             UIAlertController *loginFailed = [UIAlertController alertControllerWithTitle:@"Login Error" message:@"Login failed, please try again." preferredStyle:UIAlertControllerStyleAlert];
                                                             UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                                                                 
+                                                                //Go back to login screen
+                                                                [self.navigationController popViewControllerAnimated:TRUE];
                                                             }];
                                                             //Add action to alert controller
                                                             [loginFailed addAction:defaultOk];
                                                             //Show alert
                                                             [self presentViewController:loginFailed animated:YES completion:nil];
                                                             
-                                                            //Go back to login screen
-                                                            [self.navigationController popViewControllerAnimated:TRUE];
+                                                            
                                                             
                                                         }
                                                     }];

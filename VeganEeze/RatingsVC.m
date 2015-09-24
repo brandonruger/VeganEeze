@@ -121,6 +121,8 @@
                     UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Your review has been successfully added." preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         
+                        //Go back to previous page
+                        [self.navigationController popViewControllerAnimated:TRUE];
                     }];
                     //Add action to alert controller
                     [savedAlert addAction:defaultOk];
@@ -130,8 +132,7 @@
                     //Clear text field
                     commentTextBox.text = @"";
                     
-                    //Go back to previous page
-                    [self.navigationController popViewControllerAnimated:TRUE];
+                    
                     
                 } else {
                     //Unable to save
