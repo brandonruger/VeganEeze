@@ -119,6 +119,8 @@
                     UIAlertController *success = [UIAlertController alertControllerWithTitle:@"Account Updated" message:@"Your account has successfully been updated." preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         
+                        //Return to main menu
+                        [self.navigationController popToRootViewControllerAnimated:TRUE];
                     }];
                     //Add action to alert controller
                     [success addAction:defaultOk];
@@ -131,8 +133,6 @@
                     confirmPassword.text = @"";
                     enterEmail.text = @"";
                     
-                    //Return to main menu
-                    [self.navigationController popToRootViewControllerAnimated:TRUE];
                     
                 } else {
                     //Second password has text, but not first password
