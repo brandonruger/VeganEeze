@@ -639,7 +639,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Pa8-Lr-Zsj">
-                                        <variation key="widthClass=compact" constant="120"/>
+                                        <variation key="widthClass=compact" constant="161"/>
                                     </constraint>
                                     <constraint firstAttribute="width" constant="323" id="nFS-IJ-OEr">
                                         <variation key="widthClass=compact" constant="310"/>
@@ -668,7 +668,7 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name of Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvY-kG-KNk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name of Event" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" preferredMaxLayoutWidth="350" translatesAutoresizingMaskIntoConstraints="NO" id="AvY-kG-KNk">
                                 <rect key="frame" x="39" y="20" width="523" height="24"/>
                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1085,7 +1085,7 @@
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="AvY-kG-KNk" secondAttribute="trailing" constant="22" id="rvV-rT-iQ5"/>
                             <constraint firstItem="fG4-yF-MCF" firstAttribute="top" secondItem="hgM-h6-7vf" secondAttribute="bottom" constant="8" id="s9A-q2-3BA">
-                                <variation key="widthClass=compact" constant="49"/>
+                                <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="FAe-a7-VAR" firstAttribute="top" secondItem="ybk-5a-1Vd" secondAttribute="bottom" constant="57" id="sEG-UQ-pMB"/>
                             <constraint firstItem="iMc-l5-NPS" firstAttribute="top" secondItem="lj3-aq-IrV" secondAttribute="bottom" constant="18" id="sJB-zJ-fbG"/>
@@ -1313,7 +1313,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="7Gs-6D-8b7">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name of Restaurant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zA-Kf-brf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name of Restaurant" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" preferredMaxLayoutWidth="350" translatesAutoresizingMaskIntoConstraints="NO" id="6zA-Kf-brf">
                                 <rect key="frame" x="39" y="37" width="523" height="24"/>
                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3203,7 +3203,7 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Saved Item Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2K-5C-MA1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Saved Item Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" preferredMaxLayoutWidth="350" translatesAutoresizingMaskIntoConstraints="NO" id="v2K-5C-MA1">
                                 <rect key="frame" x="39" y="20" width="523" height="30"/>
                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3935,7 +3935,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xMA-oN-JMc"/>
-        <segue reference="bwe-xQ-Z5M"/>
-        <segue reference="gr0-4u-i93"/>
+        <segue reference="yX1-vT-SOM"/>
+        <segue reference="C15-4e-HjW"/>
     </inferredMetricsTieBreakers>
 </document>
