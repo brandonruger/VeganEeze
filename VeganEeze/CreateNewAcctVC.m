@@ -170,36 +170,34 @@
                     UIAlertController *accountCreated = [UIAlertController alertControllerWithTitle:@"Congratulations" message:@"Your new account has successfully been created! You will now be logged into the app." preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         
+                        //Log user into app
+                        [PFUser logInWithUsernameInBackground:username password:password
+                                                        block:^(PFUser *user, NSError *error) {
+                                                            if (user) {
+                                                                //Successfully logged in, go to main menu
+                                                                [self.navigationController popToRootViewControllerAnimated:TRUE];
+                                                            } else {
+                                                                
+                                                                //Log in failed. Have user try again.
+                                                                UIAlertController *loginFailed = [UIAlertController alertControllerWithTitle:@"Login Error" message:@"Login failed, please try again." preferredStyle:UIAlertControllerStyleAlert];
+                                                                UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                                                                    
+                                                                    
+                                                                }];
+                                                                //Add action to alert controller
+                                                                [loginFailed addAction:defaultOk];
+                                                                //Show alert
+                                                                [self presentViewController:loginFailed animated:YES completion:nil];
+                                                                
+                                                            }
+                                                        }];
                     }];
                     //Add action to alert controller
                     [accountCreated addAction:defaultOk];
                     //Show alert
                     [self presentViewController:accountCreated animated:YES completion:nil];
                     
-                    //Log user into app
-                    [PFUser logInWithUsernameInBackground:username password:password
-                                                    block:^(PFUser *user, NSError *error) {
-                                                        if (user) {
-                                                            //Successfully logged in, go to main menu
-                                                            [self.navigationController popToRootViewControllerAnimated:TRUE];
-                                                        } else {
-                                                            
-                                                            //Log in failed. Have user try again.
-                                                            UIAlertController *loginFailed = [UIAlertController alertControllerWithTitle:@"Login Error" message:@"Login failed, please try again." preferredStyle:UIAlertControllerStyleAlert];
-                                                            UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                                                                
-                                                                //Go back to login screen
-                                                                [self.navigationController popViewControllerAnimated:TRUE];
-                                                            }];
-                                                            //Add action to alert controller
-                                                            [loginFailed addAction:defaultOk];
-                                                            //Show alert
-                                                            [self presentViewController:loginFailed animated:YES completion:nil];
-                                                            
-                                                            
-                                                            
-                                                        }
-                                                    }];
+                    
                     
                     
                 } else {
