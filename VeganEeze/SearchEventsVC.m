@@ -69,24 +69,11 @@
 //Called when search button is clicked on keyboard
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     
-    if ([self isNetworkConnected]) {
-        //Perform segue to Beverage Search Results
-        [self performSegueWithIdentifier:@"segueToEventResults" sender:self];
-    } else {
-        //No network connection
-        NSLog(@"Network connection is inactive");
-        
-        //Alert user
-        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            
-        }];
-        //Add action to alert controller
-        [noConnection addAction:defaultOk];
-        //Show alert
-        [self presentViewController:noConnection animated:YES completion:nil];
-        
-    }
+    //Call method to search for vegan events
+    [self searchVeganEvents:nil];
+    
+    //Dismiss keyboard
+    [self.view endEditing:YES];
     
 }
 

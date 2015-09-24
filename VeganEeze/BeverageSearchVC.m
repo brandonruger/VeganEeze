@@ -50,8 +50,11 @@
 //Called when search button is clicked on keyboard
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     
-    //Perform segue to Beverage Search Results
-    [self performSegueWithIdentifier:@"segueToBeverageResults" sender:self];
+    //Call method to search for beverages
+    [self searchAlcoholBeveragesAPI:nil];
+    
+    //Dismiss keyboard
+    [self.view endEditing:YES];
     
 }
 

@@ -81,23 +81,11 @@
 //Called when search button is clicked on keyboard
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     
-    if ([self isNetworkConnected]) {
-        //Perform segue to Beverage Search Results
-        [self performSegueWithIdentifier:@"segueToRestaurantResults" sender:self];
-    } else {
-        //Alert user
-        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            
-        }];
-        //Add action to alert controller
-        [noConnection addAction:defaultOk];
-        //Show alert
-        [self presentViewController:noConnection animated:YES completion:nil];
-    }
+    //Call method to search for vegan restaurants
+    [self searchForVeganRestaurants:nil];
     
-    
-    
+    //Dismiss keyboard
+    [self.view endEditing:YES];
 }
 
 //Called when cancel button on search bar is clicked
@@ -109,6 +97,7 @@
     //Clear text from search bar
     searchBar.text = @"";
 }
+
 
 #pragma mark - Segmented Control Button methods
 
