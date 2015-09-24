@@ -84,7 +84,8 @@
                                             block:^(PFUser *user, NSError *error) {
                                                 if (user) {
                                                     //Successfully logged in, go to main menu
-                                                    [self.navigationController popViewControllerAnimated:TRUE];
+                                                    //[self.navigationController popViewControllerAnimated:TRUE];
+                                                    [self.navigationController popToRootViewControllerAnimated:YES];
                                                     
                                                 } else {
                                                     //Get the error code from Parse

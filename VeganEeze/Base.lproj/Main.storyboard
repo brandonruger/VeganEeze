@@ -2565,7 +2565,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="1" title="Login" id="hDb-Lf-Kg6">
                             <connections>
-                                <segue destination="acW-Cb-64H" kind="show" id="ORd-5N-z2e"/>
+                                <segue destination="vXZ-lx-hvc" kind="show" id="DDe-qZ-NFb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3884,24 +3884,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhh-vS-pLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1030.5" y="2189"/>
-        </scene>
-        <!--Login Nav-->
-        <scene sceneID="wL2-4S-fsR">
-            <objects>
-                <navigationController title="Login Nav" automaticallyAdjustsScrollViewInsets="NO" id="acW-Cb-64H" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NXP-Gb-Lf0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="3QS-U9-wXe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AdG-eV-eZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-180" y="-1116"/>
         </scene>
     </scenes>
     <resources>
