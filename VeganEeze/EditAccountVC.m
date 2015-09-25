@@ -33,13 +33,15 @@
         
         //Get user info from Parse
         loggedInUser = [PFUser currentUser];
+        if (loggedInUser != nil) {
+            NSString *currentUsername = loggedInUser.username;
+            NSString *currentEmail = loggedInUser.email;
+            
+            //Load text fields with above data
+            selectUsername.text = currentUsername;
+            enterEmail.text = currentEmail;
+        }
         
-        NSString *currentUsername = loggedInUser.username;
-        NSString *currentEmail = loggedInUser.email;
-        
-        //Load text fields with above data
-        selectUsername.text = currentUsername;
-        enterEmail.text = currentEmail;
     } else {
         //Alert user
         UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
@@ -127,8 +129,8 @@
                 //Check if there is a password in the second field
                 if ([secondPassword isEqualToString:@""]) {
                     //Both passwords are blank, user does not want to change password
-                    //Proceed with updating username/email address
                     
+                    //Proceed with updating username/email address
                     [loggedInUser saveInBackground];
                     
                     //Alert user
@@ -153,7 +155,7 @@
                     
                     
                 } else {
-                    //Second password has text, but not first password
+                    //Second password field has text, but not first password field
                     UIAlertController *passwordAlert = [UIAlertController alertControllerWithTitle:@"Password Error" message:@"You did not enter a password in the first field. Please enter your new password and try again." preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         
@@ -165,6 +167,7 @@
                 }
                 
             } else {
+                //Both password fields filled in
                 
                 //Make sure password is at least 6 characters
                 if (password.length < 6) {
@@ -183,6 +186,7 @@
                     confirmPassword.text = @"";
                     
                 } else {
+                    //Password is at least 6 characters
                     
                     //Check to make sure both fields match
                     if ([password isEqualToString:secondPassword]) {

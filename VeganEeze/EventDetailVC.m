@@ -73,6 +73,7 @@
         //Create view that allows user to post to Twitter
         SLComposeViewController *slComposeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         
+        //Format tweet post
         NSString *twitterPrefixString = @"Checkout this event: ";
         NSString *twitterFullString = [twitterPrefixString stringByAppendingString:eventURL];
         
@@ -134,6 +135,7 @@
         eventDate = [eventDate substringToIndex:10];
         NSLog(@"date = %@", eventDate);
         
+        //Format date
         NSDateFormatter *formatForDate = [[NSDateFormatter alloc]init];
         [formatForDate setDateFormat: @"yyyy-MM-dd"];
         NSDate *currentEventDate = [formatForDate dateFromString:eventDate];
@@ -204,6 +206,7 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
+    //Check if annotation already exists
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
     //Add callout button to pin
@@ -345,9 +348,9 @@
             UIAlertController *notLoggedIn = [UIAlertController alertControllerWithTitle:@"Error" message:@"You must be logged in to your account in order to save this to your favorites. Please login." preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
-                //Take user to login screen
+                //Instantiate login view controller
                 ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-                //Instantiate view controller
+                //Push view controller onto the screen
                 [self.navigationController pushViewController:loginVC animated:YES];
                 
             }];
@@ -493,6 +496,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    //Create custom comment cell
     CommentCell *commentsCell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
     if (commentsCell != nil) {
         
@@ -524,7 +528,7 @@
             if (!error) {
                 // The find succeeded.
                 
-                // Do something with the found objects
+                //Loop through the objects retrieved from the query
                 for (PFObject *object in objects) {
                     NSLog(@"%@", object.objectId);
                     
@@ -532,6 +536,7 @@
                     [eventReviewsArray addObject:object];
                 }
                 
+                //Refresh the tableview
                 [commentsTV reloadData];
                 
             } else {

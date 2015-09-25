@@ -85,9 +85,11 @@
         
         if (parsePlacesToVisit.count > 0) {
             
+            //Get current object
             PFObject *currentPlace = [parsePlacesToVisit objectAtIndex:indexPath.row];
             
             if (currentPlace != nil) {
+                //Set labels for cell to data in the current object
                 resultsCell.textLabel.text = currentPlace[@"name"];
                 resultsCell.detailTextLabel.text = currentPlace[@"city"];
             }

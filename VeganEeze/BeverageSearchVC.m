@@ -131,6 +131,7 @@
     //Serialize JSON data
     arrayOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
     
+    //Check to see if any data was found
     if (arrayOfJSONData == nil || [arrayOfJSONData count] == 0) {
         
         //Alert user that no results were found
@@ -154,10 +155,11 @@
             }
         }
         
+        //Instantiate beverage results view controller
         BeverageResultsTVC *bevResultsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BeverageResultsViewController"];
         //Pass the array of VeganRestaurant objects to the Restaurant Results vc
         bevResultsVC.arrayOfAlcoholBeverages = alcoholBeverageObjects;
-        //Instantiate new view controller
+        //Push view controller onto the screen
         [self.navigationController pushViewController:bevResultsVC animated:YES];
     }
     
@@ -165,8 +167,8 @@
 
 //Method to create custom AlcoholBeverage objects and initalize each object
 -(AlcoholBeverage*)createAlcoholBeverageObjects:(NSDictionary*)alcoholBevDictionary {
-    //Get items from the dictionary of data received from API call
     
+    //Get items from the dictionary of data received from API call
     NSDictionary *beverageDictionary = [alcoholBevDictionary objectForKey:@"company"];
     
     NSString *alcoholBevName = [beverageDictionary valueForKey:@"company_name"];

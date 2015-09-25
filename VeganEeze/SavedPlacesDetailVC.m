@@ -68,6 +68,7 @@
         //Create view that allows user to post to Twitter
         SLComposeViewController *slComposeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         
+        //Setup text for tweet post
         NSString *twitterPrefixString = @"Check this place out: ";
         NSString *twitterFullString = [twitterPrefixString stringByAppendingString:urlOfPlace];
         
@@ -138,7 +139,7 @@
                 
                 //Initialize array for reviews
                 reviewsArray = [[NSMutableArray alloc]init];
-                
+                //Call method to retrieve reviews for the current object's item ID
                 [self retrieveReviews: itemID];
                 
             } else {
@@ -184,7 +185,7 @@
                         
                         //Initialize array for reviews
                         reviewsArray = [[NSMutableArray alloc]init];
-                        
+                        //Call method to retrieve reviews for the current object's item ID
                         [self retrieveReviews: itemID];
                     }
                 }];
@@ -258,6 +259,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    //Create custom comment cell
     CommentCell *commentsCell = [tableView dequeueReusableCellWithIdentifier:@"savedCommentCell"];
     if (commentsCell != nil) {
         
@@ -278,7 +280,6 @@
 }
 
 //Method to retrieve current item's reviews from Parse
-
 -(void)retrieveReviews: (NSString*)placesID {
     
     //Check for valid network connection
@@ -292,7 +293,7 @@
                 if (!error) {
                     // The find succeeded.
                     
-                    // Do something with the found objects
+                    //Loop through objects retrieved from the query
                     for (PFObject *object in objects) {
                         NSLog(@"%@", object.objectId);
                         
@@ -300,6 +301,7 @@
                         [reviewsArray addObject:object];
                     }
                     
+                    //Refresh the tableview
                     [commentsTV reloadData];
                     
                 } else {

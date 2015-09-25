@@ -137,6 +137,7 @@
         }
         
     } else {
+        //Show unknown image
         vegLevelImg.image = [UIImage imageNamed:@"Question"];
     }
     
@@ -161,6 +162,7 @@
         restImage.image = [UIImage imageNamed:@"VeganEeze-Logo"];
     }
     
+    //Get data from current restaurant object
     restaurantAddress = currentRestaurant.restaurantAddress;
     restaurantCity = currentRestaurant.restaurantCity;
     restaurantState = currentRestaurant.restaurantState;
@@ -168,18 +170,24 @@
     
     NSLog(@"restaurantZip = %@", currentRestaurantZip);
     
+    //Check to see if any of the restaurant data is invalid
     if (restaurantAddress != nil && restaurantCity != nil && restaurantState != nil && currentRestaurantZip != nil) {
+        //All data is valid, format to complete the address into one string
         completeAddress = [NSString stringWithFormat:@"%@ \n%@, %@ %@", restaurantAddress, restaurantCity, restaurantState, currentRestaurantZip];
         if (completeAddress != nil) {
+            //Set text view to display complete address
             addressTV.text = completeAddress;
         }
         
+        //Check if city/state are valid
     } else if (restaurantCity != nil && restaurantState != nil) {
+        //Use only the city/state as the address
         completeAddress = [NSString stringWithFormat:@"%@, %@", restaurantCity, restaurantState];
         if (completeAddress != nil) {
             addressTV.text = completeAddress;
         }
     } else {
+        //Data missing from address, set as "Address Unknown"
         addressTV.text = @"Address unknown";
     }
     
@@ -503,6 +511,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    //Create custom cell
     CommentCell *commentsCell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
     if (commentsCell != nil) {
         
@@ -543,14 +552,15 @@
             if (!error) {
                 // The find succeeded.
                 
-                // Do something with the found objects
+                //Loop through the objects returned from the query
                 for (PFObject *object in objects) {
                     NSLog(@"%@", object.objectId);
                     
-                    //Add objects to eventReviewsArray
+                    //Add object to eventReviewsArray
                     [restaurantReviewsArray addObject:object];
                 }
                 
+                //Refresh tableview
                 [commentsTV reloadData];
                 
             } else {

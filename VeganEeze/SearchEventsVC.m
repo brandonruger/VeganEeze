@@ -177,6 +177,7 @@
 
 #pragma mark - Current Location
 
+//Method to get user's current location
 - (void)getCurrentLocation {
     
     //Create location manager object
@@ -273,6 +274,7 @@
             //Add on picker choice selected to URL
             partialURL = [partialURL stringByAppendingString:pickerChoiceSelected];
             
+            //Format location coordinates with parameters for URL
             NSString *locationCoordinates = [NSString stringWithFormat:@"&l=%@,%@&within=40&units=miles", latitudeCoord, longitudeCoord];
             
             //Add location
@@ -297,6 +299,7 @@
             //Encode text user entered
             NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
             
+            //Format encoded string for URL
             NSString *locationToSearch = [NSString stringWithFormat:@"&l=%@", encodedLocation];
             
             //Append string to form complete URL
@@ -349,9 +352,10 @@
 //Method called when all data from request has been retrieved
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
+    //Serialize JSON data
     dictOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
     
-    
+    //Get events from JSON data
     NSDictionary *eventsRetrieved = [dictOfJSONData objectForKey:@"events"];
     NSArray *eventsRetrievedArray = [eventsRetrieved valueForKey:@"event"];
     
@@ -387,6 +391,7 @@
             
         } else if([eventsRetrievedArray isKindOfClass:[NSDictionary class]]){
             
+            //Use custom method to create a single VeganEvent object
             VeganEvent *singleEvent = [self createSingleEvent:eventsRetrievedArray];
             if (singleEvent != nil) {
                 //Add object to array
@@ -395,10 +400,11 @@
             
         }
         
+        //Instantiate results view controller
         EventResultsTVC *eventResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EventResultsViewController"];
         //Pass the array of VeganEvent objects to the Results view controller
         eventResultsTVC.arrayOfEvents = eventObjects;
-        //Instantiate new view controller
+        //Push view controller onto screen
         [self.navigationController pushViewController:eventResultsTVC animated:YES];
     }
     
@@ -408,6 +414,7 @@
 //Method to create custom AlcoholBeverage objects and initalize each object
 -(VeganEvent*)createEventObjects:(NSDictionary*)eventDictionary {
     
+    //Get data from dictionary
     NSString *eventName = [eventDictionary valueForKey:@"title"];
     NSLog(@"eventName = %@", eventName);
     NSString *eventAddress = [eventDictionary valueForKey:@"venue_address"];

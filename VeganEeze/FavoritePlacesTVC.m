@@ -45,6 +45,7 @@
             [self retrieveFavoritePlaces];
         } else {
             
+            //Remove favorites and refresh the tableview
             [parseFavorites removeAllObjects];
             [placesTableView reloadData];
             
@@ -52,9 +53,9 @@
             UIAlertController *loginAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"You must login in order to view your favorites. Please login and try again." preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
-                //Take user to login screen
+                //Instantiate login view controller
                 ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-                //Instantiate view controller
+                //Push view onto the screen
                 [self.navigationController pushViewController:loginVC animated:YES];
                 
             }];
@@ -119,7 +120,7 @@
     
     //Check to make sure tableview is in delete mode
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //TV is in delete mode
+        //Tableview is in delete mode
         
         //Remove the object from Parse database
         PFObject *objToDelete = [parseFavorites objectAtIndex:indexPath.row];

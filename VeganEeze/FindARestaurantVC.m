@@ -184,6 +184,7 @@
 
 #pragma mark - Current Location
 
+//Method to get user's current location
 - (void)getCurrentLocation {
     
     if ([self isNetworkConnected]) {
@@ -210,6 +211,7 @@
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations {
     
+    //Get location data for the most recent location obtained
     CLLocation *currentLocation = [locations lastObject];
     if (currentLocation != nil) {
         //Get coordinates of current location
@@ -240,6 +242,7 @@
     return pickerChoices[row];
 }
 
+//Method called when picker choice changes
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     switch (row) {
@@ -358,6 +361,7 @@
     
     //Serialize JSON data
     dictOfJSONData = [NSJSONSerialization JSONObjectWithData:dataRetrieved options:0 error:nil];
+    //Get restaurant entries from JSON data
     NSArray *restaurantsRetrieved = [dictOfJSONData objectForKey:@"entries"];
     
     if (restaurantsRetrieved != nil) {
@@ -372,10 +376,11 @@
             }
         }
         
+        //Instantiate results view controller
         RestaurantResultsTVC *restResultsTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantResultsViewController"];
         //Pass the array of VeganRestaurant objects to the Restaurant Results vc
         restResultsTVC.arrayOfRestaurantObjs = restaurantObjects;
-        //Instantiate new view controller
+        //Push view controller onto screen
         [self.navigationController pushViewController:restResultsTVC animated:YES];
         
     } else {

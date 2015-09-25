@@ -36,6 +36,7 @@
         date = [date substringToIndex:10];
         NSLog(@"date = %@", date);
         
+        //Format date
         NSDateFormatter *formatForDate = [[NSDateFormatter alloc]init];
         [formatForDate setDateFormat: @"yyyy-MM-dd"];
         NSDate *currentEventDate = [formatForDate dateFromString:date];

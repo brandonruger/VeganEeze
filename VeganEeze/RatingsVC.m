@@ -63,6 +63,7 @@
     return ratingPickerChoices[row];
 }
 
+//Method called when user changes selection on the picker
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     switch (row) {
@@ -85,7 +86,7 @@
             pickerChoiceSelected = @"4";
             break;
         default:
-            pickerChoiceSelected = @"2";
+            pickerChoiceSelected = @"2"; //Default picker choice
             break;
     }
 }
@@ -98,11 +99,12 @@
         //Get users comment
         NSString *commentEntered = commentTextBox.text;
         
+        //Check if the user is logged in
         PFUser *loggedInUser = [PFUser currentUser];
-        
         if (loggedInUser) {
             //User is logged in
             
+            //Get username of logged in user
             NSString *username = loggedInUser.username;
             
             //Create a Parse object to store the data with the items ID
