@@ -34,7 +34,7 @@
     ratingsPicker.delegate = self;
     
     //Set default picker choice
-    pickerChoiceSelected = @"2";
+    pickerChoiceSelected = @"1";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,12 +79,14 @@
             //User selected 3rd row
             pickerChoiceSelected = @"3";
             break;
+            
         case 3:
             //User selected 4th row
             pickerChoiceSelected = @"4";
             break;
+            
         default:
-            pickerChoiceSelected = @"2"; //Default picker choice
+            pickerChoiceSelected = @"1"; //Default picker choice
             break;
     }
 }
