@@ -48,6 +48,7 @@
     //Check if user has active connection
     if ([self isNetworkConnected]) {
         //Network connection is active
+        
         //Get username/password entered by user in text fields
         usernameStr = username.text;
         passwordStr = password.text;
@@ -134,8 +135,8 @@
     //Check for valid network connection
     if ([self isNetworkConnected]) {
         //Network connection found
-        //Show alert with text input for user to enter their email address
         
+        //Show alert with text input for user to enter their email address
         UIAlertController *forgotPassword = [UIAlertController alertControllerWithTitle:@"Forgot Password?" message:@"Please enter your email address below to reset your password." preferredStyle:UIAlertControllerStyleAlert];
         
         
@@ -147,7 +148,9 @@
         //Add OK button
         UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
+            //Access the textfield in the alert controller
             UITextField *emailTextField = forgotPassword.textFields.firstObject;
+            //Grab the email address the user entered
             forgotPwEmail = emailTextField.text;
             
             //Call method to reset password

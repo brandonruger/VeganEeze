@@ -173,7 +173,7 @@
             
             //Create new user object
             PFUser *newUser = [PFUser user];
-            //Set username and password to what was entered
+            //Set username, password and email address to what was entered
             newUser.username = username;
             newUser.password = password;
             newUser.email = emailAddress;
@@ -243,8 +243,9 @@
                         //Clear email field
                         enterEmail.text = @"";
                         
-                    } else if (errorCode == 202) {
                         //Error - Username taken
+                    } else if (errorCode == 202) {
+                        //Alert user
                         UIAlertController *usernameTaken = [UIAlertController alertControllerWithTitle:@"Username Error" message:@"The username you chose is already taken. Please pick a new username and try again." preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             
@@ -257,9 +258,9 @@
                         //Clear username field
                         selectUsername.text = @"";
                         
-                        
+                        //Error - Email taken
                     } else if (errorCode == 203) {
-                        
+                        //Alert user
                         UIAlertController *emailTaken = [UIAlertController alertControllerWithTitle:@"Email Error" message:@"The email address you entered is already associated to another account. Please enter a different email address to create a new account." preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             

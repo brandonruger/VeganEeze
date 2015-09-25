@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //Set search bars' delegate
+    //Set search bar's delegate
     location.delegate = self;
     
     //Setup array with choices for picker
@@ -31,13 +31,11 @@
     veganChoicePicker.dataSource = self;
     veganChoicePicker.delegate = self;
     
+    //Default to search by location
     searchCurrentLocation = TRUE;
     
     //Set default for picker choice
     pickerChoiceSelected = @"5";
-    
-    //Get current location
-    [self getCurrentLocation];
     
     
     
@@ -50,6 +48,60 @@
     //Set user agent for API call
     userAgent = @"VeganEeze App/v1.0";
     
+    
+    //Check if Location Services are enabled on the device
+    if([CLLocationManager locationServicesEnabled]){
+        
+        //Location Services enabled on device
+        NSLog(@"Location Services Enabled");
+        
+        //Check if user has approved this app to use Location Services
+        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
+            //User has denied request for this app to use location services
+            NSLog(@"Location Services Denied");
+            
+            //Disable location button on segmented controller
+            [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
+            //Change default selection to search by city
+            [searchSegmentedControl setSelectedSegmentIndex:1];
+            
+            //Set search current location to false
+            searchCurrentLocation = FALSE;
+            //Make city search text box visible
+            location.hidden = FALSE;
+            
+            
+        } else if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse) {
+            //User has granted permission for this app to use locatioon services
+            NSLog(@"Location Services Authorized");
+            
+            //Enable location button on segmented controller
+            [searchSegmentedControl setEnabled:YES forSegmentAtIndex:0];
+            
+            //Get current location
+            [self getCurrentLocation];
+            
+            //Set search current location to true
+            searchCurrentLocation = TRUE;
+            //Make city search text box visible
+            location.hidden = TRUE;
+            
+        }
+    } else {
+        
+        //Location Services are disabled on device
+        NSLog(@"Location Services Disabled");
+        
+        //Disable location button on segmented controller
+        [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
+        //Change default selection to search by city
+        [searchSegmentedControl setSelectedSegmentIndex:1];
+        
+        //Set search current location to false
+        searchCurrentLocation = FALSE;
+        //Make city search text box visible
+        location.hidden = FALSE;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -145,6 +197,7 @@
         locationMgr = [[CLLocationManager alloc]init];
         if (locationMgr != nil) {
             
+            //Request permission to access location
             [locationMgr requestWhenInUseAuthorization];
             
             //Set location accuracy

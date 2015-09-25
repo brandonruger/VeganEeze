@@ -38,14 +38,65 @@
     //Set default for picker choice
     pickerChoiceSelected = @"vegan";
     
-    //Get current location
-    [self getCurrentLocation];
-    
     //Add target selectors to segmented control buttons
     [searchSegmentedControl addTarget:self action:@selector(howToSearch:) forControlEvents:UIControlEventValueChanged];
     
     //Initalize NSMutableArray which will hold event objects
     eventObjects = [[NSMutableArray alloc]init];
+    
+    //Check if Location Services are enabled on the device
+    if([CLLocationManager locationServicesEnabled]){
+        
+        //Location Services enabled on device
+        NSLog(@"Location Services Enabled");
+        
+        //Check if user has approved this app to use Location Services
+        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
+            //User has denied request for this app to use location services
+            NSLog(@"Location Services Denied");
+            
+            //Disable location button on segmented controller
+            [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
+            //Change default selection to search by city
+            [searchSegmentedControl setSelectedSegmentIndex:1];
+            
+            //Set search current location to false
+            searchCurrentLocation = FALSE;
+            //Make city search text box visible
+            location.hidden = FALSE;
+            
+            
+        } else if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse) {
+            //User has granted permission for this app to use locatioon services
+            NSLog(@"Location Services Authorized");
+            
+            //Enable location button on segmented controller
+            [searchSegmentedControl setEnabled:YES forSegmentAtIndex:0];
+            
+            //Get current location
+            [self getCurrentLocation];
+            
+            //Set search current location to true
+            searchCurrentLocation = TRUE;
+            //Make city search text box visible
+            location.hidden = TRUE;
+            
+        }
+    } else {
+        
+        //Location Services are disabled on device
+        NSLog(@"Location Services Disabled");
+        
+        //Disable location button on segmented controller
+        [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
+        //Change default selection to search by city
+        [searchSegmentedControl setSelectedSegmentIndex:1];
+        
+        //Set search current location to false
+        searchCurrentLocation = FALSE;
+        //Make city search text box visible
+        location.hidden = FALSE;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
