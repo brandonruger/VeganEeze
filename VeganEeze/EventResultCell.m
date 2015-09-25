@@ -30,22 +30,17 @@
     
     if (date != nil) {
         
-        NSLog(@"date = %@", date);
-        
         //Trim off time from string
         date = [date substringToIndex:10];
-        NSLog(@"date = %@", date);
         
         //Format date
         NSDateFormatter *formatForDate = [[NSDateFormatter alloc]init];
         [formatForDate setDateFormat: @"yyyy-MM-dd"];
         NSDate *currentEventDate = [formatForDate dateFromString:date];
-        NSLog(@"currentEventDate = %@", currentEventDate);
         
         [formatForDate setDateFormat:@"MM-dd-yyyy"];
         
         NSString *dateString = [formatForDate stringFromDate:currentEventDate];
-        NSLog(@"dateString = %@", dateString);
         
         //Set date label to date above
         eventDateLabel.text = dateString;

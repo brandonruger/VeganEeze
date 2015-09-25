@@ -84,9 +84,7 @@
     
     //Get instance of VeganResource object
     VeganResource *currentResource = [resources objectAtIndex:indexOfCell.row];
-    NSLog(@"index of cell = %ld", (long)indexOfCell.row);
     NSString *resourceURL = currentResource.url;
-    NSLog(@"resourceURL = %@", resourceURL);
     
     //Access the web view
     WebVC *webVC = segue.destinationViewController;

@@ -22,8 +22,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@"eventID = %@", currentEventsID);
-    
     NSString *choice1 = @"1 star";
     NSString *choice2 = @"2 stars";
     NSString *choice3 = @"3 stars";
@@ -109,7 +107,6 @@
             
             //Create a Parse object to store the data with the items ID
             PFObject *userRating = [PFObject objectWithClassName:@"UserRating"];
-            NSLog(@"eventID = %@", currentEventsID);
             userRating[@"itemID"] = currentEventsID;
             userRating[@"username"] = username;
             userRating[@"stars"] = pickerChoiceSelected;
@@ -179,11 +176,9 @@
     Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
     if ([currentConnection isReachable]) {
         //Network connection active, return true
-        NSLog(@"Network connection is active");
         return TRUE;
     } else {
         //No network connection
-        NSLog(@"Network connection is inactive");
         
         //Alert user
         UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];

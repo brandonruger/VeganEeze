@@ -264,12 +264,9 @@
     Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
     if ([currentConnection isReachable]) {
         //Network connection active, return true
-        NSLog(@"Network connection is active");
         return TRUE;
     } else {
-        //No network connection
-        NSLog(@"Network connection is inactive");
-        
+        //No network connection        
         return FALSE;
     }
 }

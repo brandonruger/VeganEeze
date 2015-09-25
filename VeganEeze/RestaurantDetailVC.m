@@ -47,9 +47,7 @@
                         //Access single account
                         ACAccount *currentAcct = [userTwitterAccts objectAtIndex:0];
                         if (currentAcct != nil) {
-                            NSLog(@"currentAccount=%@", currentAcct);
                         }
-                        NSLog(@"twitter accounts = %@", userTwitterAccts);
                     }
                 }
                 else {
@@ -167,8 +165,6 @@
     restaurantCity = currentRestaurant.restaurantCity;
     restaurantState = currentRestaurant.restaurantState;
     currentRestaurantZip = currentRestaurant.restaurantZip;
-    
-    NSLog(@"restaurantZip = %@", currentRestaurantZip);
     
     //Check to see if any of the restaurant data is invalid
     if (restaurantAddress != nil && restaurantCity != nil && restaurantState != nil && currentRestaurantZip != nil) {
@@ -554,7 +550,6 @@
                 
                 //Loop through the objects returned from the query
                 for (PFObject *object in objects) {
-                    NSLog(@"%@", object.objectId);
                     
                     //Add object to eventReviewsArray
                     [restaurantReviewsArray addObject:object];
@@ -564,8 +559,7 @@
                 [commentsTV reloadData];
                 
             } else {
-                // Log details of the failure
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
+                //Do nothing
             }
         }];
         
@@ -578,12 +572,9 @@
     Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
     if ([currentConnection isReachable]) {
         //Network connection active, return true
-        NSLog(@"Network connection is active");
         return TRUE;
     } else {
-        //No network connection
-        NSLog(@"Network connection is inactive");
-        
+        //No network connection        
         return FALSE;
     }
 }

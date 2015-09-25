@@ -218,15 +218,9 @@
                     
                 } else {
                     //There was an error
-                    NSString *errorString = [error userInfo][@"error"];
                     
                     //Check error code
                     NSInteger errorCode = [error code];
-                    NSLog(@"Error code = %ld", (long)errorCode);
-                    
-                    
-                    //Log error
-                    NSLog(@"create account error = %@", errorString);
                     
                     //Error - Invalid email
                     if (errorCode == 125) {
@@ -291,11 +285,9 @@
     Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
     if ([currentConnection isReachable]) {
         //Network connection active, return true
-        NSLog(@"Network connection is active");
         return TRUE;
     } else {
         //No network connection
-        NSLog(@"Network connection is inactive");
         
         //Alert user
         UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];

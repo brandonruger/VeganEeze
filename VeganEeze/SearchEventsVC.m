@@ -60,12 +60,10 @@
     if([CLLocationManager locationServicesEnabled]){
         
         //Location Services enabled on device
-        NSLog(@"Location Services Enabled");
         
         //Check if user has approved this app to use Location Services
         if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
             //User has denied request for this app to use location services
-            NSLog(@"Location Services Denied");
             
             //Disable location button on segmented controller
             [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
@@ -75,7 +73,6 @@
             
         } else if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse) {
             //User has granted permission for this app to use locatioon services
-            NSLog(@"Location Services Authorized");
             
             //Enable location button on segmented controller
             [searchSegmentedControl setEnabled:YES forSegmentAtIndex:0];
@@ -87,7 +84,6 @@
     } else {
         
         //Location Services are disabled on device
-        NSLog(@"Location Services Disabled");
         
         //Disable location button on segmented controller
         [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
@@ -161,7 +157,6 @@
 
 //Method called when segmented control is set to "search current location"
 - (void)searchByCurrentLoc {
-    NSLog(@"Search by current location enabled");
     
     //Hide location search bar
     location.hidden = TRUE;
@@ -169,7 +164,6 @@
 
 //Method called when segmented control is set to "search by city/state"
 - (void)searchCityState {
-    NSLog(@"Search by city state enabled");
     
     //Show location search bar
     location.hidden = FALSE;
@@ -208,9 +202,7 @@
         //Convert latitude/longitude coordinates to strings
         latitudeCoord = [NSString stringWithFormat:@"%g", coordinates.latitude];
         longitudeCoord = [NSString stringWithFormat:@"%g", coordinates.longitude];
-        
-        NSLog(@"Latitude = %@", latitudeCoord);
-        NSLog(@"Longitude = %@", longitudeCoord);
+
     }
 }
 
@@ -283,8 +275,6 @@
             //Add App key
             completeURL = [locationURL stringByAppendingString:appKey];
             
-            NSLog(@"completeURL = %@", completeURL);
-            
             
         } else {
             //User wants to search by address
@@ -307,7 +297,6 @@
             
             //Add App key
             completeURL = [locationURL stringByAppendingString:appKey];
-            NSLog(@"completeURL = %@", completeURL);
             
         }
         
@@ -326,7 +315,6 @@
         
     } else {
         //No network connection
-        NSLog(@"Network connection is inactive");
         
         //Alert user
         UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
@@ -416,7 +404,6 @@
     
     //Get data from dictionary
     NSString *eventName = [eventDictionary valueForKey:@"title"];
-    NSLog(@"eventName = %@", eventName);
     NSString *eventAddress = [eventDictionary valueForKey:@"venue_address"];
     NSString *eventCity = [eventDictionary valueForKey:@"city_name"];
     NSString *eventState = [eventDictionary valueForKey:@"region_abbr"];
@@ -436,12 +423,10 @@
     NSString *startTime = [eventDictionary valueForKey:@"start_time"];
     NSString *venue = [eventDictionary valueForKey:@"venue_name"];
     NSString *price = [eventDictionary valueForKey:@"price"];
-    NSLog(@"price = %@", price);
     
     NSDictionary *imagesDictionary = [eventDictionary valueForKey:@"image"];
     NSDictionary *smallImg = [imagesDictionary valueForKey:@"small"];
     singleImg = [smallImg valueForKey:@"url"];
-    NSLog(@"singleImg = %@", singleImg);
     
     if ([singleImg isEqual:[NSNull null]]) {
         
@@ -457,8 +442,6 @@
     //Get latitude/longitude of venue
     Float32 eventLatitude = [[eventDictionary objectForKey:@"latitude"] floatValue];
     Float32 eventLongitude = [[eventDictionary objectForKey:@"longitude"] floatValue];
-    NSLog(@"Latitude = %f, longitude = %f", eventLatitude, eventLongitude);
-    
     
     
     //Use object's custom init method to initialize object
@@ -469,7 +452,6 @@
 
 -(VeganEvent*)createSingleEvent:(NSArray*)singleEventArray {
     NSString *eventName = [singleEventArray valueForKey:@"title"];
-    NSLog(@"eventName = %@", eventName);
     NSString *eventAddress = [singleEventArray valueForKey:@"venue_address"];
     NSString *eventCity = [singleEventArray valueForKey:@"city_name"];
     NSString *eventState = [singleEventArray valueForKey:@"region_abbr"];
@@ -481,12 +463,10 @@
     NSString *startTime = [singleEventArray valueForKey:@"start_time"];
     NSString *venue = [singleEventArray valueForKey:@"venue_name"];
     NSString *price = [singleEventArray valueForKey:@"price"];
-    NSLog(@"price = %@", price);
     
     NSDictionary *imagesDictionary = [singleEventArray valueForKey:@"image"];
     NSDictionary *smallImg = [imagesDictionary valueForKey:@"small"];
     singleImg = [smallImg valueForKey:@"url"];
-    NSLog(@"singleImg = %@", singleImg);
     
     if ([singleImg isEqual:[NSNull null]]) {
         
@@ -502,8 +482,6 @@
     //Get latitude/longitude of venue
     Float32 eventLatitude = [[singleEventArray valueForKey:@"latitude"] floatValue];
     Float32 eventLongitude = [[singleEventArray valueForKey:@"longitude"] floatValue];
-    NSLog(@"Latitude = %f, longitude = %f", eventLatitude, eventLongitude);
-    
     
     
     //Use object's custom init method to initialize object
@@ -519,12 +497,9 @@
     Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
     if ([currentConnection isReachable]) {
         //Network connection active, return true
-        NSLog(@"Network connection is active");
         return TRUE;
     } else {
-        //No network connection
-        NSLog(@"Network connection is inactive");
-        
+        //No network connection        
         return FALSE;
     }
 }

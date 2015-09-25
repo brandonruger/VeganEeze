@@ -26,8 +26,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@"objectID = %@", objectId);
-    
     //Access user's Twitter account on device
     ACAccountStore *accountStore = [[ACAccountStore alloc]init];
     if (accountStore != nil) {
@@ -43,9 +41,7 @@
                         //Access single account
                         ACAccount *currentAcct = [userTwitterAccts objectAtIndex:0];
                         if (currentAcct != nil) {
-                            NSLog(@"currentAccount=%@", currentAcct);
                         }
-                        NSLog(@"twitter accounts = %@", userTwitterAccts);
                     }
                 }
                 else {
@@ -230,11 +226,9 @@
     Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
     if ([currentConnection isReachable]) {
         //Network connection active, return true
-        NSLog(@"Network connection is active");
         return TRUE;
     } else {
         //No network connection
-        NSLog(@"Network connection is inactive");
         
         //Alert user
         UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
@@ -295,7 +289,6 @@
                     
                     //Loop through objects retrieved from the query
                     for (PFObject *object in objects) {
-                        NSLog(@"%@", object.objectId);
                         
                         //Add objects to eventReviewsArray
                         [reviewsArray addObject:object];
@@ -305,8 +298,7 @@
                     [commentsTV reloadData];
                     
                 } else {
-                    // Log details of the failure
-                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                    //Do nothing
                 }
             }];
         }

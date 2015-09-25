@@ -65,12 +65,10 @@
     if([CLLocationManager locationServicesEnabled]){
         
         //Location Services enabled on device
-        NSLog(@"Location Services Enabled");
         
         //Check if user has approved this app to use Location Services
         if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
             //User has denied request for this app to use location services
-            NSLog(@"Location Services Denied");
             
             //Disable location button on segmented controller
             [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
@@ -79,8 +77,7 @@
 
             
         } else if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse) {
-            //User has granted permission for this app to use locatioon services
-            NSLog(@"Location Services Authorized");
+            //User has granted permission for this app to use location services
             
             //Enable location button on segmented controller
             [searchSegmentedControl setEnabled:YES forSegmentAtIndex:0];
@@ -93,7 +90,6 @@
     } else {
         
         //Location Services are disabled on device
-        NSLog(@"Location Services Disabled");
         
         //Disable location button on segmented controller
         [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
@@ -168,7 +164,6 @@
 
 //Method called when segmented control is set to "search current location"
 - (void)searchByCurrentLoc {
-    NSLog(@"Search by current location enabled");
     
     //Hide location search bar
     location.hidden = TRUE;
@@ -176,7 +171,6 @@
 
 //Method called when segmented control is set to "search by city/state"
 - (void)searchCityState {
-    NSLog(@"Search by city state enabled");
     
     //Show location search bar
     location.hidden = FALSE;
@@ -331,7 +325,6 @@
     } else {
         
         //No network connection
-        NSLog(@"Network connection is inactive");
         
         //Alert user
         UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
@@ -404,7 +397,6 @@
     //Get items from the dictionary of data received from API call
     
     NSString *restaurantsName = [restaurantsDictionary valueForKey:@"name"];
-    NSLog(@"restaurantsName = %@", restaurantsName);
     NSString *restaurantsAddress = [restaurantsDictionary valueForKey:@"address1"];
     NSString *restaurantsCity = [restaurantsDictionary valueForKey:@"city"];
     NSString *restaurantsState = [restaurantsDictionary valueForKey:@"region"];
@@ -425,7 +417,6 @@
     NSArray *arrayOfImgSizes = [arrayOfImgURIs objectAtIndex:0];
     //Grab small size
     NSString *uriForImg = [arrayOfImgSizes objectAtIndex:1];
-    NSLog(@"uriForImg = %@", uriForImg);
     
     NSDictionary *fullDescription = [restaurantsDictionary valueForKey:@"long_description"];
     NSString *restDescStr = [fullDescription valueForKey:@"text/vnd.vegguide.org-wikitext"];
@@ -447,12 +438,9 @@
     Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
     if ([currentConnection isReachable]) {
         //Network connection active, return true
-        NSLog(@"Network connection is active");
         return TRUE;
     } else {
-        //No network connection
-        NSLog(@"Network connection is inactive");
-        
+        //No network connection        
         return FALSE;
     }
 }

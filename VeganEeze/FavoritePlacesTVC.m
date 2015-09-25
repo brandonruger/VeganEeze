@@ -157,7 +157,6 @@
                 
                 //Loop through parse objects
                 for (PFObject *object in objects) {
-                    NSLog(@"%@", object.objectId);
                     
                     [parseFavorites addObject:object];
                 }
@@ -166,8 +165,7 @@
                 [placesTableView reloadData];
                 
             } else {
-                // Log details of the failure
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
+                //Do nothing
             }
         }];
         
@@ -188,7 +186,6 @@
             UITableViewCell *cellClicked = (UITableViewCell*)sender;
             //Get index of cell that was clicked
             NSIndexPath *indexOfCell = [placesTableView indexPathForCell:cellClicked];
-            NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
             //Get strings of restaurant's data from arrays
             
             PFObject *currentObj = [parseFavorites objectAtIndex:indexOfCell.row];
@@ -212,11 +209,9 @@
     Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
     if ([currentConnection isReachable]) {
         //Network connection active, return true
-        NSLog(@"Network connection is active");
         return TRUE;
     } else {
         //No network connection
-        NSLog(@"Network connection is inactive");
         
         //Alert user
         UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];

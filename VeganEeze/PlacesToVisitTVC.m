@@ -155,7 +155,6 @@
                 
                 //Loop through parse objects
                 for (PFObject *object in objects) {
-                    NSLog(@"%@", object.objectId);
                     
                     [parsePlacesToVisit addObject:object];
                     
@@ -165,8 +164,7 @@
                 [placesToVisitTV reloadData];
                 
             } else {
-                // Log details of the failure
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
+                //Do nothing
             }
         }];
         
@@ -188,7 +186,6 @@
             UITableViewCell *cellClicked = (UITableViewCell*)sender;
             //Get index of cell that was clicked
             NSIndexPath *indexOfCell = [placesToVisitTV indexPathForCell:cellClicked];
-            NSLog(@"indexOfCell = %ld", (long)indexOfCell.row);
             
             //Get object ID for item clicked on
             PFObject *currentObj = [parsePlacesToVisit objectAtIndex:indexOfCell.row];
@@ -209,11 +206,9 @@
     Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
     if ([currentConnection isReachable]) {
         //Network connection active, return true
-        NSLog(@"Network connection is active");
         return TRUE;
     } else {
         //No network connection
-        NSLog(@"Network connection is inactive");
         
         //Alert user
         UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
