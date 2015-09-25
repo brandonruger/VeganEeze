@@ -49,6 +49,18 @@
     userAgent = @"VeganEeze App/v1.0";
     
     
+    }
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    //Clear text from search bars
+    location.text = @"";
+    
+    //Remove all objects from array
+    if (restaurantObjects != nil) {
+        [restaurantObjects removeAllObjects];
+    }
+    
     //Check if Location Services are enabled on the device
     if([CLLocationManager locationServicesEnabled]){
         
@@ -64,12 +76,7 @@
             [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
             //Change default selection to search by city
             [searchSegmentedControl setSelectedSegmentIndex:1];
-            
-            //Set search current location to false
-            searchCurrentLocation = FALSE;
-            //Make city search text box visible
-            location.hidden = FALSE;
-            
+
             
         } else if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse) {
             //User has granted permission for this app to use locatioon services
@@ -80,11 +87,7 @@
             
             //Get current location
             [self getCurrentLocation];
-            
-            //Set search current location to true
-            searchCurrentLocation = TRUE;
-            //Make city search text box visible
-            location.hidden = TRUE;
+
             
         }
     } else {
@@ -99,20 +102,12 @@
         
         //Set search current location to false
         searchCurrentLocation = FALSE;
-        //Make city search text box visible
-        location.hidden = FALSE;
-    }
-}
 
-- (void)viewWillAppear:(BOOL)animated {
-    
-    //Clear text from search bars
-    location.text = @"";
-    
-    //Remove all objects from array
-    if (restaurantObjects != nil) {
-        [restaurantObjects removeAllObjects];
     }
+    
+    //Call method to determine how to search
+    [self howToSearch:searchSegmentedControl];
+
 }
 
 - (void)didReceiveMemoryWarning {
