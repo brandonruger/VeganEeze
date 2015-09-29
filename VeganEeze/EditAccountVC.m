@@ -137,8 +137,10 @@
                     UIAlertController *success = [UIAlertController alertControllerWithTitle:@"Account Updated" message:@"Your account has successfully been updated." preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         
+                        //Login with new credentials
+                        [PFUser logInWithUsernameInBackground:username password:password];
+                        
                         //Return to main menu
-                        //[self.navigationController popToRootViewControllerAnimated:TRUE];
                         [self.navigationController popViewControllerAnimated:TRUE];
                         
                     }];
@@ -200,6 +202,9 @@
                         //Alert user
                         UIAlertController *success = [UIAlertController alertControllerWithTitle:@"Account Updated" message:@"Your account has successfully been updated." preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            
+                            //Login with new credentials
+                            [PFUser logInWithUsernameInBackground:username password:password];
                             
                             [self.navigationController popViewControllerAnimated:TRUE];
                             
