@@ -3244,10 +3244,10 @@
                                 <variation key="widthClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstItem="6lE-8h-NyT" firstAttribute="top" secondItem="l6w-Sd-TfB" secondAttribute="topMargin" id="oKz-d8-FGr">
-                                <variation key="widthClass=compact" constant="64"/>
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="6lE-8h-NyT" firstAttribute="bottom" secondItem="l6w-Sd-TfB" secondAttribute="bottomMargin" id="sBL-as-2dD">
-                                <variation key="widthClass=compact" constant="-44"/>
+                                <variation key="widthClass=compact" constant="-43"/>
                             </constraint>
                             <constraint firstItem="6lE-8h-NyT" firstAttribute="leading" secondItem="l6w-Sd-TfB" secondAttribute="leadingMargin" constant="-16" id="vGi-s5-47x">
                                 <variation key="widthClass=compact" constant="-20"/>
