@@ -95,10 +95,8 @@
             
         } else {
             
-            //Encode text
-            //searchKeyword = [searchKeywordEntered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            
-            searchKeyword = [searchKeyword stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            //Encode text            
+            searchKeyword = [searchKeywordEntered stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
             
             //Add search term to url for API call
             NSString *completeURL = [partialURL stringByAppendingString:searchKeyword];
