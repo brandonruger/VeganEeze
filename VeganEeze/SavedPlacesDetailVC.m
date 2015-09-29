@@ -37,11 +37,15 @@
                 if (granted) {
                     //Success, we have access
                     NSArray *userTwitterAccts = [accountStore accountsWithAccountType:accountType];
-                    if (userTwitterAccts != nil) {
+                    if (userTwitterAccts != nil && userTwitterAccts.count > 0) {
                         //Access single account
                         ACAccount *currentAcct = [userTwitterAccts objectAtIndex:0];
                         if (currentAcct != nil) {
                         }
+                        
+                    } else {
+                        //Disable Tweet button
+                        [tweetButton setEnabled:NO];
                     }
                 }
                 else {
