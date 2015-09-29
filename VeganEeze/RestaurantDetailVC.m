@@ -40,14 +40,19 @@
         if (accountType != nil) {
             //Ask account store for direct access to Twitter account
             [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
+
                 if (granted) {
                     //Success, we have access
                     NSArray *userTwitterAccts = [accountStore accountsWithAccountType:accountType];
-                    if (userTwitterAccts != nil) {
+                    if (userTwitterAccts != nil && userTwitterAccts.count > 0) {
                         //Access single account
                         ACAccount *currentAcct = [userTwitterAccts objectAtIndex:0];
                         if (currentAcct != nil) {
                         }
+                        
+                    } else {
+                        //Disable Tweet button
+                        [tweetButton setEnabled:NO];
                     }
                 }
                 else {
@@ -229,10 +234,16 @@
         //Present view to user for posting
         [self presentViewController:slComposeVC animated:TRUE completion:nil];
     } else {
-        
+       
         //Alert user
-        UIAlertView *noConnection = [[UIAlertView alloc]initWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [noConnection show];
+        UIAlertController *noConnection = [UIAlertController alertControllerWithTitle:@"No network connection" message:@"You must have a valid network connection in order to proceed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        //Add action to alert controller
+        [noConnection addAction:defaultOk];
+        //Show alert
+        [self presentViewController:noConnection animated:YES completion:nil];
     }
     
     

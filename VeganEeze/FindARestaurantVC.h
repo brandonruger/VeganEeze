@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface FindARestaurantVC : UIViewController <UISearchBarDelegate, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, NSURLConnectionDataDelegate>
+@interface FindARestaurantVC : UIViewController <UISearchBarDelegate, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, NSURLSessionDataDelegate> //NSURLConnectionDataDelegate>
 
 {
     IBOutlet UISearchBar *location;

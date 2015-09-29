@@ -689,7 +689,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="5Dr-WJ-pmU">
                                 <rect key="frame" x="0.0" y="0.0" width="601" height="600"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Event Description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fG4-yF-MCF">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fG4-yF-MCF">
                                 <rect key="frame" x="70" y="274" width="460" height="76"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1395,7 +1395,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="Address" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tnD-fe-lgp">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tnD-fe-lgp">
                                 <rect key="frame" x="180" y="69" width="240" height="66"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1712,7 +1712,6 @@
                                     <constraint firstAttribute="width" constant="323" id="Q85-Xl-daJ"/>
                                     <constraint firstAttribute="height" constant="120" id="gfq-ZA-vsx"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="default">
@@ -2550,7 +2549,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="d41-bJ-Mli" kind="show" id="Qcv-nR-1TP"/>
+                                    <segue destination="kMl-5x-2O2" kind="show" id="U89-s1-a4E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esa-7e-4tx">
@@ -2575,7 +2574,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="6x7-bf-bWQ" kind="show" id="fQ4-AE-5a6"/>
+                                    <segue destination="HC7-S3-PmI" kind="show" id="TMK-pY-glQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hji-RT-drH">
@@ -2600,7 +2599,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="OQx-X3-WSB" kind="show" id="hwU-nc-hM3"/>
+                                    <segue destination="swq-sF-hd9" kind="show" id="nhf-Hy-zUS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -3807,27 +3806,10 @@
             </objects>
             <point key="canvasLocation" x="5127" y="366"/>
         </scene>
-        <!--Find Restaurant Nav-->
-        <scene sceneID="e18-xe-wLp">
-            <objects>
-                <navigationController title="Find Restaurant Nav" automaticallyAdjustsScrollViewInsets="NO" id="OQx-X3-WSB" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lTn-ue-Ck8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="swq-sF-hd9" kind="relationship" relationship="rootViewController" id="hE6-JJ-YWj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3UY-ou-fOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7399.5" y="369"/>
-        </scene>
         <!--Favorite Places Nav-->
         <scene sceneID="aAK-9y-0At">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AGh-AM-kkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="Favorite Places Nav" automaticallyAdjustsScrollViewInsets="NO" id="6sE-5Y-Bo3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="HeartIcon" id="Mqr-ji-wRO"/>
                     <toolbarItems/>
@@ -3840,7 +3822,6 @@
                         <segue destination="EHO-4N-4HV" kind="relationship" relationship="rootViewController" id="f1d-KP-g47"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AGh-AM-kkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4500" y="2090"/>
         </scene>
@@ -3863,24 +3844,6 @@
             </objects>
             <point key="canvasLocation" x="5799" y="2183"/>
         </scene>
-        <!--Beverage Search Nav-->
-        <scene sceneID="RxG-Zn-nSm">
-            <objects>
-                <navigationController title="Beverage Search Nav" automaticallyAdjustsScrollViewInsets="NO" id="6x7-bf-bWQ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K22-jP-U6c">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="HC7-S3-PmI" kind="relationship" relationship="rootViewController" id="voi-zM-bXO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ztr-RM-aUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2421" y="1175"/>
-        </scene>
         <!--Vegan Resources Nav-->
         <scene sceneID="vnm-nC-8As">
             <objects>
@@ -3899,25 +3862,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZI-Wx-iQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7869" y="1387"/>
-        </scene>
-        <!--Search Events Nav-->
-        <scene sceneID="1Yv-U8-gtl">
-            <objects>
-                <navigationController title="Search Events Nav" automaticallyAdjustsScrollViewInsets="NO" id="d41-bJ-Mli" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="SearchButton" id="TTj-Sw-5xO"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xr1-EG-1T6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kMl-5x-2O2" kind="relationship" relationship="rootViewController" id="bpZ-7p-iC8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EuS-aj-E0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6654" y="-145"/>
         </scene>
         <!--Add a Rating-->
         <scene sceneID="df5-iv-dsC">
@@ -4107,7 +4051,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xMA-oN-JMc"/>
-        <segue reference="sCp-Sf-fL5"/>
-        <segue reference="yX1-vT-SOM"/>
+        <segue reference="dXv-kY-ACL"/>
+        <segue reference="QhI-20-lLl"/>
     </inferredMetricsTieBreakers>
 </document>
