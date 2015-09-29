@@ -184,7 +184,6 @@
 - (void)getCurrentLocation {
     
     //Create location manager object
-    //locationMgr = [[CLLocationManager alloc]init];
     if (locationMgr != nil) {
         
         [locationMgr requestWhenInUseAuthorization];

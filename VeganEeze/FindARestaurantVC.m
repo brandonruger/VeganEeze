@@ -303,7 +303,6 @@
             NSString *userEnteredLocation = location.text;
             
             //Encode text user entered
-            //NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
             
             //Append string to form complete URL
