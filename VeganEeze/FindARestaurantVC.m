@@ -37,6 +37,13 @@
     //Set default for picker choice
     pickerChoiceSelected = @"5";
     
+    //Create location manager object
+    locationMgr = [[CLLocationManager alloc]init];
+    if (locationMgr != nil) {
+        
+        //Request permission to access location
+        [locationMgr requestWhenInUseAuthorization];
+    }
     
     
     //Add target selectors to segmented control buttons
@@ -87,9 +94,11 @@
 
             
         }
+        
     } else {
         
         //Location Services are disabled on device
+    
         
         //Disable location button on segmented controller
         [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
@@ -184,7 +193,7 @@
     if ([self isNetworkConnected]) {
         
         //Create location manager object
-        locationMgr = [[CLLocationManager alloc]init];
+        //locationMgr = [[CLLocationManager alloc]init];
         if (locationMgr != nil) {
             
             //Request permission to access location

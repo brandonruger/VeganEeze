@@ -38,6 +38,14 @@
     //Set default for picker choice
     pickerChoiceSelected = @"vegan";
     
+    //Create location manager object
+    locationMgr = [[CLLocationManager alloc]init];
+    if (locationMgr != nil) {
+        
+        //Request permission to access location
+        [locationMgr requestWhenInUseAuthorization];
+    }
+    
     //Add target selectors to segmented control buttons
     [searchSegmentedControl addTarget:self action:@selector(howToSearch:) forControlEvents:UIControlEventValueChanged];
     
@@ -80,7 +88,8 @@
             //Get current location
             [self getCurrentLocation];
             
-        }
+        } 
+        
     } else {
         
         //Location Services are disabled on device
@@ -175,7 +184,7 @@
 - (void)getCurrentLocation {
     
     //Create location manager object
-    locationMgr = [[CLLocationManager alloc]init];
+    //locationMgr = [[CLLocationManager alloc]init];
     if (locationMgr != nil) {
         
         [locationMgr requestWhenInUseAuthorization];
