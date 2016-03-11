@@ -226,49 +226,49 @@
     }
 }
 
-#pragma mark - Picker View
-
-// returns the number of 'columns' to display.
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    
-    return 1;
-}
-
-// returns the # of rows in each component..
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    
-    return [pickerChoices count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    
-    return pickerChoices[row];
-}
-
-//Method called when picker choice changes
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
-    switch (row) {
-        case 0:
-            //User selected first row
-            pickerChoiceSelected = @"5"; //Vegan
-            break;
-            
-        case 1:
-            //User selected second row
-            pickerChoiceSelected = @"4"; //Vegetarian
-            break;
-            
-        case 2:
-            //User selected 3rd row
-            pickerChoiceSelected = @"2"; //Veg-Friendly
-            break;
-            
-        default:
-            pickerChoiceSelected = @"5"; //Default choice is vegan
-            break;
-    }
-}
+//#pragma mark - Picker View
+//
+//// returns the number of 'columns' to display.
+//- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+//    
+//    return 1;
+//}
+//
+//// returns the # of rows in each component..
+//- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+//    
+//    return [pickerChoices count];
+//}
+//
+//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+//    
+//    return pickerChoices[row];
+//}
+//
+////Method called when picker choice changes
+//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+//    
+//    switch (row) {
+//        case 0:
+//            //User selected first row
+//            pickerChoiceSelected = @"5"; //Vegan
+//            break;
+//            
+//        case 1:
+//            //User selected second row
+//            pickerChoiceSelected = @"4"; //Vegetarian
+//            break;
+//            
+//        case 2:
+//            //User selected 3rd row
+//            pickerChoiceSelected = @"2"; //Veg-Friendly
+//            break;
+//            
+//        default:
+//            pickerChoiceSelected = @"5"; //Default choice is vegan
+//            break;
+//    }
+//}
 
 #pragma mark - VegGuide API Calls
 
