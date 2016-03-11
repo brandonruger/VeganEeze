@@ -21,39 +21,39 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //Set search bar's delegate
-    location.delegate = self;
+//    //Set search bar's delegate
+//    location.delegate = self;
+//    
+//    //Setup array with choices for picker
+//    pickerChoices = [[NSArray alloc]initWithObjects:@"Vegan", @"Vegetarian", @"Veg-Friendly", nil];
     
-    //Setup array with choices for picker
-    pickerChoices = [[NSArray alloc]initWithObjects:@"Vegan", @"Vegetarian", @"Veg-Friendly", nil];
+//    //Connect picker view to delegates
+//    veganChoicePicker.dataSource = self;
+//    veganChoicePicker.delegate = self;
     
-    //Connect picker view to delegates
-    veganChoicePicker.dataSource = self;
-    veganChoicePicker.delegate = self;
+//    //Default to search by location
+//    searchCurrentLocation = TRUE;
+//    
+//    //Set default for picker choice
+//    pickerChoiceSelected = @"5";
     
-    //Default to search by location
-    searchCurrentLocation = TRUE;
+//    //Create location manager object
+//    locationMgr = [[CLLocationManager alloc]init];
+//    if (locationMgr != nil) {
+//        
+//        //Request permission to access location
+//        [locationMgr requestWhenInUseAuthorization];
+//    }
     
-    //Set default for picker choice
-    pickerChoiceSelected = @"5";
+//    
+//    //Add target selectors to segmented control buttons
+//    [searchSegmentedControl addTarget:self action:@selector(howToSearch:) forControlEvents:UIControlEventValueChanged];
     
-    //Create location manager object
-    locationMgr = [[CLLocationManager alloc]init];
-    if (locationMgr != nil) {
-        
-        //Request permission to access location
-        [locationMgr requestWhenInUseAuthorization];
-    }
+//    //Initialize NSMutableArray which will hold VeganRestaurant objects
+//    restaurantObjects = [[NSMutableArray alloc]init];
     
-    
-    //Add target selectors to segmented control buttons
-    [searchSegmentedControl addTarget:self action:@selector(howToSearch:) forControlEvents:UIControlEventValueChanged];
-    
-    //Initialize NSMutableArray which will hold VeganRestaurant objects
-    restaurantObjects = [[NSMutableArray alloc]init];
-    
-    //Set user agent for API call
-    userAgent = @"VeganEeze App/v1.0";
+//    //Set user agent for API call
+//    userAgent = @"VeganEeze App/v1.0";
     
     
     }
@@ -441,17 +441,17 @@
     return newRestaurant;
 }
 
-//Method to check if network is connected
-- (BOOL) isNetworkConnected
-{
-    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
-    if ([currentConnection isReachable]) {
-        //Network connection active, return true
-        return TRUE;
-    } else {
-        //No network connection        
-        return FALSE;
-    }
-}
+////Method to check if network is connected
+//- (BOOL) isNetworkConnected
+//{
+//    Reachability *currentConnection = [Reachability reachabilityForInternetConnection];
+//    if ([currentConnection isReachable]) {
+//        //Network connection active, return true
+//        return TRUE;
+//    } else {
+//        //No network connection        
+//        return FALSE;
+//    }
+//}
 
 @end
