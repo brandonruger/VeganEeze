@@ -17,8 +17,8 @@
 
 @implementation FindARestaurantVC
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
     // Do any additional setup after loading the view.
     
 //    //Set search bar's delegate
@@ -56,175 +56,175 @@
 //    userAgent = @"VeganEeze App/v1.0";
     
     
-    }
+//    }
 
-- (void)viewWillAppear:(BOOL)animated {
+//- (void)viewWillAppear:(BOOL)animated {
     
-    //Clear text from search bars
-    location.text = @"";
-    
-    //Remove all objects from array
-    if (restaurantObjects != nil) {
-        [restaurantObjects removeAllObjects];
-    }
-    
-    //Check if Location Services are enabled on the device
-    if([CLLocationManager locationServicesEnabled]){
-        
-        //Location Services enabled on device
-        
-        //Check if user has approved this app to use Location Services
-        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
-            //User has denied request for this app to use location services
-            
-            //Disable location button on segmented controller
-            [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
-            //Change default selection to search by city
-            [searchSegmentedControl setSelectedSegmentIndex:1];
+//    //Clear text from search bars
+//    location.text = @"";
+//    
+//    //Remove all objects from array
+//    if (restaurantObjects != nil) {
+//        [restaurantObjects removeAllObjects];
+//    }
+//    
+//    //Check if Location Services are enabled on the device
+//    if([CLLocationManager locationServicesEnabled]){
+//        
+//        //Location Services enabled on device
+//        
+//        //Check if user has approved this app to use Location Services
+//        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
+//            //User has denied request for this app to use location services
+//            
+//            //Disable location button on segmented controller
+//            [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
+//            //Change default selection to search by city
+//            [searchSegmentedControl setSelectedSegmentIndex:1];
+//
+//            
+//        } else if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse) {
+//            //User has granted permission for this app to use location services
+//            
+//            //Enable location button on segmented controller
+//            [searchSegmentedControl setEnabled:YES forSegmentAtIndex:0];
+//            
+//            //Get current location
+//            [self getCurrentLocation];
+//
+//            
+//        }
+//        
+//    } else {
+//        
+//        //Location Services are disabled on device
+//    
+//        
+//        //Disable location button on segmented controller
+//        [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
+//        //Change default selection to search by city
+//        [searchSegmentedControl setSelectedSegmentIndex:1];
+//        
+//        //Set search current location to false
+//        searchCurrentLocation = FALSE;
+//
+//    }
+//    
+//    //Call method to determine how to search
+//    [self howToSearch:searchSegmentedControl];
 
-            
-        } else if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse) {
-            //User has granted permission for this app to use location services
-            
-            //Enable location button on segmented controller
-            [searchSegmentedControl setEnabled:YES forSegmentAtIndex:0];
-            
-            //Get current location
-            [self getCurrentLocation];
+//}
 
-            
-        }
-        
-    } else {
-        
-        //Location Services are disabled on device
-    
-        
-        //Disable location button on segmented controller
-        [searchSegmentedControl setEnabled:NO forSegmentAtIndex:0];
-        //Change default selection to search by city
-        [searchSegmentedControl setSelectedSegmentIndex:1];
-        
-        //Set search current location to false
-        searchCurrentLocation = FALSE;
+//- (void)didReceiveMemoryWarning {
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
+//}
 
-    }
-    
-    //Call method to determine how to search
-    [self howToSearch:searchSegmentedControl];
+//#pragma mark - Keyboard
 
-}
+////Method to check when search bar finishes editing
+//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+//    
+//    //Dismiss keyboard
+//    [self.view endEditing:YES];
+//    
+//}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+////Called when search button is clicked on keyboard
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+//    
+//    //Call method to search for vegan restaurants
+//    [self searchForVeganRestaurants:nil];
+//    
+//    //Dismiss keyboard
+//    [self.view endEditing:YES];
+//}
 
-#pragma mark - Keyboard
-
-//Method to check when search bar finishes editing
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-    
-    //Dismiss keyboard
-    [self.view endEditing:YES];
-    
-}
-
-//Called when search button is clicked on keyboard
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    
-    //Call method to search for vegan restaurants
-    [self searchForVeganRestaurants:nil];
-    
-    //Dismiss keyboard
-    [self.view endEditing:YES];
-}
-
-//Called when cancel button on search bar is clicked
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    
-    //Dismiss keyboard
-    [self.view endEditing:YES];
-    
-    //Clear text from search bar
-    searchBar.text = @"";
-}
+////Called when cancel button on search bar is clicked
+//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+//    
+//    //Dismiss keyboard
+//    [self.view endEditing:YES];
+//    
+//    //Clear text from search bar
+//    searchBar.text = @"";
+//}
 
 
-#pragma mark - Segmented Control Button methods
+//#pragma mark - Segmented Control Button methods
 
-//Method called when segmented control button changes
-- (void)howToSearch:(UISegmentedControl *)sender {
-    //Get index of button pressed
-    NSInteger segmentControlSelected = sender.selectedSegmentIndex;
-    
-    if (segmentControlSelected == 0) {
-        //Call the method to search by current location
-        [self searchByCurrentLoc];
-        //Set bool to true
-        searchCurrentLocation = TRUE;
-    } else {
-        //Call method to search by city/state
-        [self searchCityState];
-        //Set bool to false
-        searchCurrentLocation = FALSE;
-    }
-}
+////Method called when segmented control button changes
+//- (void)howToSearch:(UISegmentedControl *)sender {
+//    //Get index of button pressed
+//    NSInteger segmentControlSelected = sender.selectedSegmentIndex;
+//    
+//    if (segmentControlSelected == 0) {
+//        //Call the method to search by current location
+//        [self searchByCurrentLoc];
+//        //Set bool to true
+//        searchCurrentLocation = TRUE;
+//    } else {
+//        //Call method to search by city/state
+//        [self searchCityState];
+//        //Set bool to false
+//        searchCurrentLocation = FALSE;
+//    }
+//}
 
-//Method called when segmented control is set to "search current location"
-- (void)searchByCurrentLoc {
-    
-    //Hide location search bar
-    location.hidden = TRUE;
-}
+////Method called when segmented control is set to "search current location"
+//- (void)searchByCurrentLoc {
+//    
+//    //Hide location search bar
+//    location.hidden = TRUE;
+//}
+//
+////Method called when segmented control is set to "search by city/state"
+//- (void)searchCityState {
+//    
+//    //Show location search bar
+//    location.hidden = FALSE;
+//}
 
-//Method called when segmented control is set to "search by city/state"
-- (void)searchCityState {
-    
-    //Show location search bar
-    location.hidden = FALSE;
-}
+//#pragma mark - Current Location
 
-#pragma mark - Current Location
+////Method to get user's current location
+//- (void)getCurrentLocation {
+//    
+//    if ([self isNetworkConnected]) {
+//        
+//        //Create location manager object
+//        //locationMgr = [[CLLocationManager alloc]init];
+//        if (locationMgr != nil) {
+//            
+//            //Request permission to access location
+//            [locationMgr requestWhenInUseAuthorization];
+//            
+//            //Set location accuracy
+//            locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
+//            //Set delegate
+//            locationMgr.delegate = self;
+//            //Start gathering location info
+//            [locationMgr startUpdatingLocation];
+//        }
+//    }
+//    
+//}
 
-//Method to get user's current location
-- (void)getCurrentLocation {
-    
-    if ([self isNetworkConnected]) {
-        
-        //Create location manager object
-        //locationMgr = [[CLLocationManager alloc]init];
-        if (locationMgr != nil) {
-            
-            //Request permission to access location
-            [locationMgr requestWhenInUseAuthorization];
-            
-            //Set location accuracy
-            locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
-            //Set delegate
-            locationMgr.delegate = self;
-            //Start gathering location info
-            [locationMgr startUpdatingLocation];
-        }
-    }
-    
-}
-
-//Delegate method to get current locations
-- (void)locationManager:(CLLocationManager *)manager
-     didUpdateLocations:(NSArray *)locations {
-    
-    //Get location data for the most recent location obtained
-    CLLocation *currentLocation = [locations lastObject];
-    if (currentLocation != nil) {
-        //Get coordinates of current location
-        CLLocationCoordinate2D coordinates = currentLocation.coordinate;
-        
-        //Convert latitude/longitude coordinates to strings
-        latitudeCoord = [NSString stringWithFormat:@"%g", coordinates.latitude];
-        longitudeCoord = [NSString stringWithFormat:@"%g", coordinates.longitude];
-    }
-}
+////Delegate method to get current locations
+//- (void)locationManager:(CLLocationManager *)manager
+//     didUpdateLocations:(NSArray *)locations {
+//    
+//    //Get location data for the most recent location obtained
+//    CLLocation *currentLocation = [locations lastObject];
+//    if (currentLocation != nil) {
+//        //Get coordinates of current location
+//        CLLocationCoordinate2D coordinates = currentLocation.coordinate;
+//        
+//        //Convert latitude/longitude coordinates to strings
+//        latitudeCoord = [NSString stringWithFormat:@"%g", coordinates.latitude];
+//        longitudeCoord = [NSString stringWithFormat:@"%g", coordinates.longitude];
+//    }
+//}
 
 //#pragma mark - Picker View
 //
@@ -272,59 +272,59 @@
 
 #pragma mark - VegGuide API Calls
 
-//Method to request data from VegGuide API
--(IBAction)searchForVeganRestaurants:(id)sender {
-    
-    //Check for valid network connection
-    if ([self isNetworkConnected]) {
-        //Check how user wants to search
-        if (searchCurrentLocation) {
-            //User has chosen to search by current location
-            
-            //String used to access API
-            partialURL = @"https://www.vegguide.org/search/by-lat-long/";
-            //Create a string to hold latititude/longitude coordinates
-            NSString *coordinates = [NSString stringWithFormat:@"%@,%@", latitudeCoord, longitudeCoord];
-            
-            //Add coordinates term to url for API call
-            completeURL = [partialURL stringByAppendingString:coordinates];
-            
-            //Add filter to search
-            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
-            
-            //Add filter to completed URL
-            filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-        } else {
-            //User wants to search by address
-            partialURL = @"https://www.vegguide.org/search/by-address/";
-            
-            //Get string user entered in search field
-            NSString *userEnteredLocation = location.text;
-            
-            //Encode text user entered
-            NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            
-            //Append string to form complete URL
-            completeURL = [partialURL stringByAppendingString:encodedLocation];
-            
-            //Add filter to search
-            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
-            
-            //Add filter to completed URL
-            filterURL = [completeURL stringByAppendingString:searchFilter];
-            
-        }
-        
+////Method to request data from VegGuide API
+//-(IBAction)searchForVeganRestaurants:(id)sender {
+//    
+//    //Check for valid network connection
+//    if ([self isNetworkConnected]) {
+//        //Check how user wants to search
+//        if (searchCurrentLocation) {
+//            //User has chosen to search by current location
+//            
+//            //String used to access API
+//            partialURL = @"https://www.vegguide.org/search/by-lat-long/";
+//            //Create a string to hold latititude/longitude coordinates
+//            NSString *coordinates = [NSString stringWithFormat:@"%@,%@", latitudeCoord, longitudeCoord];
+//            
+//            //Add coordinates term to url for API call
+//            completeURL = [partialURL stringByAppendingString:coordinates];
+//            
+//            //Add filter to search
+//            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
+//            
+//            //Add filter to completed URL
+//            filterURL = [completeURL stringByAppendingString:searchFilter];
+//
+//        } else {
+//            //User wants to search by address
+//            partialURL = @"https://www.vegguide.org/search/by-address/";
+//            
+//            //Get string user entered in search field
+//            NSString *userEnteredLocation = location.text;
+//            
+//            //Encode text user entered
+//            NSString *encodedLocation = [userEnteredLocation stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+//            
+//            //Append string to form complete URL
+//            completeURL = [partialURL stringByAppendingString:encodedLocation];
+//            
+//            //Add filter to search
+//            NSString *searchFilter = [NSString stringWithFormat:@"/filter/category_id=1;veg_level=%@", pickerChoiceSelected];
+//            
+//            //Add filter to completed URL
+//            filterURL = [completeURL stringByAppendingString:searchFilter];
+//            
+//        }
+
         //Set up URL for API call
-        urlForAPICall = [[NSURL alloc] initWithString:filterURL];
-        
-        //Set up request to send to server
-        requestForData = [[NSMutableURLRequest alloc]initWithURL:urlForAPICall];
-        if (requestForData != nil) {
-            
-            [requestForData setValue:userAgent forHTTPHeaderField:@"User-Agent"];
-            
+//        urlForAPICall = [[NSURL alloc] initWithString:filterURL];
+//        
+//        //Set up request to send to server
+//        requestForData = [[NSMutableURLRequest alloc]initWithURL:urlForAPICall];
+//        if (requestForData != nil) {
+//            
+//            [requestForData setValue:userAgent forHTTPHeaderField:@"User-Agent"];
+
             //Set up connection to get data from the server
             apiConnection = [[NSURLConnection alloc]initWithRequest:requestForData delegate:self];
             //Create mutableData object to hold data
